@@ -1,6 +1,6 @@
 # Social Games: A rede social dos jogadores de Board Games
 
-<a href="https://github.com/andrexbass/socialgames"><img src="https://raw.githubusercontent.com/andrexbass/socialgames/master/public/img/logoSocialGames.png" align="left" hspace="10" vspace="6"></a>
+<a href="https://github.com/SocialBoardGames/socialgames"><img src="https://raw.githubusercontent.com/SocialBoardGames/socialgames/master/public/img/logoSocialGames.png" align="left" hspace="10" vspace="6"></a>
 
 **Social Games** é uma plataforma social voltada para os jogadores de Board Games. Ela possibilita que o jogador tenha uma experiência totalmente nova marcando partidas e registrando seus resultados, comparando seu desempenho com seus amigos. Além disso, todas as informações dos seus jogos preferidos estão aqui.
 **Social Games** terá foco principal nos dispositivos mobiles, mas também funcionará como um portal.
