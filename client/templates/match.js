@@ -3,13 +3,11 @@ import { Meteor } from 'meteor/meteor';
 import { ReactiveVar } from 'meteor/reactive-var'
 
 Meteor.subscribe('game.list');
-Meteor.subscribe('friends.list');
 
 var rGame = new ReactiveVar(0);
 var rMaxPlayers = new ReactiveVar(0);
 
-const Games = new Mongo.Collection('games');
-const Friends = new Mongo.Collection('friends');
+Games = new Mongo.Collection('games');
 
 Template.matches.rendered = function(){
     $("#selectGame").select2({
@@ -39,7 +37,6 @@ Template.matches.helpers({
         for (var i = 1; i <= rMaxPlayers.get(); i++) {
             arrMaxPlayers.push({index: i});
         }
-        console.log(arrMaxPlayers);
         return arrMaxPlayers;
     },
     friends() {

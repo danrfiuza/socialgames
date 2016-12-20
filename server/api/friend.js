@@ -1,16 +1,16 @@
 import { Meteor } from 'meteor/meteor';
 import { Mongo } from 'meteor/mongo';
 
-const Friends = new Mongo.Collection('friends');
+Friends = new Mongo.Collection('friends');
 
 Meteor.methods({
 	'friends.add'(dados) {
-		var usuario = Meteor.users.findOne({_id: dados.users_id});
+		var usuario = Meteor.users.findOne({_id: dados.amigos});
 		if (isFriendExist(dados)) {
 			return "friend-exist";
 		} else {
 			if (usuario.services.facebook) {
-			buildFriendFacebook(dados, usuario);
+				buildFriendFacebook(dados, usuario);
 			} else {
 				buildFriendBase(dados, usuario);
 			}
@@ -35,7 +35,7 @@ function buildFriendFacebook(dados, usuario) {
 	return friend = {
 		nome: usuario.profile.name,
 		email: usuario.services.facebook.email,
-		amigo_id: dados.users_id,
+		amigo_id: dados.amigos,
 		meu_id: Meteor.user()._id
 	}
 }
@@ -44,14 +44,14 @@ function buildFriendFacebook(dados, usuario) {
 function buildFriendBase(dados, usuario) {
 	return friend = {
 		email: usuario.emails[0].address,
-		amigo_id: dados.users_id,
+		amigo_id: dados.amigos,
 		meu_id: Meteor.user()._id
 	}
 }
 
 // Verifica se o amigo já existe na collection de amigos
 function isFriendExist(dados) {
-	var qtdAmigo = Friends.find({amigo_id:dados.users_id, meu_id: Meteor.user()._id}).count();
+	var qtdAmigo = Friends.find({amigo_id:dados.amigos, meu_id: Meteor.user()._id}).count();
 	if (qtdAmigo > 0 ) {
 		return true;
 	} else {
