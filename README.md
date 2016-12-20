@@ -27,10 +27,12 @@ Após cumprir os requerimentos você deve executar três simples passos em seu c
 
 Este último irá rodar o servidor Meteor e disponibilizará a url http://localhost:3000/ para você trabalhar. 
 
-Por fim, você deve configurar o login do Facebook para conseguir acessar as funcionalidades da plataforma. Por enquanto este é o único meio de realizar o login, mas em breve teremos login também por e-mail e senha (Por que você não nos ajuda com isso? Veja como no próximo tópico logo abaixo).
+Por fim, você pode configurar o login do Facebook para conseguir acessar as funcionalidades da plataforma.
 Para configurar, você precisa criar um app de desenvolvedor no seu Facebook e preencher os dados de `appId` e `secret` em \server\oauth.js
 
 E está pronto. Você já pode desfrutar!
+
+Se não desejar configurar o Facebook, tudo bem. Você pode se registrar criando um usuário/senha.
 
 ## Quer nos ajudar a finalizar o projeto? 
 
