@@ -81,9 +81,10 @@
                   </tr> -->
                   {{#each arrMaxPlayers }}
                     <tr>
-                      <td>#{{ index }}</td>
-                      <td>
-                        <select name="player{{ index }}" id="player{{ index }}" class="form-control m-b">
+                      <td width="10%">#{{ index }}</td>
+                      <td width="10%" id="imgPlayer{{ index }}"></td>
+                      <td width="80%">
+                        <select name="player{{ index }}" id="player{{ index }}" class="form-control m-b selectPlayer">
                           <option>Selecione um jogador</option>
                           {{#each friends}}
                             <option value='{{ _id }}'>{{ email }}</option>

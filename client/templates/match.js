@@ -55,5 +55,13 @@ Template.matches.events({
     'click #btnMatchNow' : function(event, template) {
         $('#divButtons').hide();
         $('#divPlayers').show();
+    },
+    'change .selectPlayer' : function(event, template) {
+        var imgPlayer = "<img width='30' src='https://www.guidesmiths.com/uploads/images/1450466520567_avatar-default_1.png'>";
+        if ($("#player"+this.index).val() == "Selecione um jogador") {
+            $("#imgPlayer"+this.index).html("");
+        } else {
+            $("#imgPlayer"+this.index).html(imgPlayer);
+        } 
     }
 });
