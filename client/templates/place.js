@@ -1,7 +1,6 @@
 import { Template } from 'meteor/templating';
 import { Meteor } from 'meteor/meteor';
 import { ReactiveVar } from 'meteor/reactive-var'
-import './place.html';
 
 var lista = new ReactiveVar(0);
 
@@ -32,4 +31,4 @@ Template.places.helpers({
     });
     return lista.get();
   }
-})
+});

@@ -57,4 +57,8 @@ Router.map(function(){
     this.route('timeline', {
         path: '/timeline'
     });
+
+    this.route('map', {
+        path: '/map'
+    });
 });

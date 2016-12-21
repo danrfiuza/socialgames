@@ -23,6 +23,8 @@ Após cumprir os requerimentos você deve executar três simples passos em seu c
 
 `meteor npm install --save bcrypt`
 
+`meteor add dburles:google-maps mdg:geolocation`
+
 `meteor`
 
 Este último irá rodar o servidor Meteor e disponibilizará a url http://localhost:3000/ para você trabalhar. 
