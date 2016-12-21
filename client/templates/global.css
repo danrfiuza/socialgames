@@ -140,3 +140,15 @@
 .aside .sidebar > .nav > li.rankings.open .nav {
     background-color: #FFFFE1;
 }
+
+body.aside-collapsed .user-block-picture {
+    display: none;
+}
+.wrapper > .aside .aside-inner {
+    padding-top: 60px;
+}
+.active-title {
+    color: #fff;
+    font-size: 16px;
+    margin-top: 8px;
+}

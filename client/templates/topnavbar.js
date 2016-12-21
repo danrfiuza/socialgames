@@ -1,4 +1,4 @@
-import { Template } from 'meteor/templating';
+/*import { Template } from 'meteor/templating';
 import { Meteor } from 'meteor/meteor';
 
 Template.topnavbar.helpers({
@@ -10,4 +10,4 @@ Template.topnavbar.helpers({
     		return "";
     	}
     },
-});
+});*/
