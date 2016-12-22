@@ -8,6 +8,7 @@ var rGame = new ReactiveVar(0);
 var rMaxPlayers = new ReactiveVar(0);
 var rMinPlayers = new ReactiveVar(0);
 var rPlayers = new ReactiveVar([]);
+var rPodium = new ReactiveVar([]);
 var clock = new ReactiveClock("clock");
 clock.setElapsedSeconds(0);
 clock.stop();
@@ -50,6 +51,9 @@ Template.matches.helpers({
     },
     players() {
         return rPlayers.get();
+    },
+    podium() {
+        return rPodium.get();
     }
 });
 
@@ -91,6 +95,25 @@ Template.matches.events({
     'click #btnFirstPlayer' : function(event, template) {
         randomizeFirstPlayer();
         $('#divBtnFirstPlayer').hide();
+    },
+    'click #btnFinishCount' : function(event, template) {
+        $('#divPlayers').show();
+        $('#readyPlayers').hide();
+        clock.stop();
+        $('#pTimer').css('color', '#999');
+        $('#subtitleGame').html("Contagem de pontos");
+        $('#pBtnCountPoints').hide();
+        disableComboPlayers();
+        $('#divBtnFinishMatch').show();
+    },
+    'click #btnFinishMatch' : function(event, template) {
+        if (isValidPoits()) {
+            orderRanking();
+            $('#classification').show();
+            $('#divPlayers').hide();
+        } else {
+            alert("Algo está errado com a pontuação informada");
+        }
     }
 });
 
@@ -98,7 +121,7 @@ Template.matches.events({
 function minPlayersFilled() {
     var contPlayers = 0;
     for (var i = 1; i <= rMaxPlayers.get(); i++) {
-        if (! ($("#player"+i).val() == "Selecione um jogador") ) {
+        if ( ($("#player"+i).val() != "Selecione um jogador") ) {
             contPlayers++;
         }
     }
@@ -115,6 +138,8 @@ function hideInitialElements() {
     $('#divButtons').hide();
     $('#divBtnStarMatch').hide();
     $('#divBtnFirstPlayer').hide();
+    $('#divBtnFinishMatch').hide();
+    $('#classification').hide();
 }
 
 function removePlayerMatch(index) {
@@ -135,7 +160,7 @@ function prepareToStart() {
     $('#panelSearch').hide();
     $('#divPlayers').hide();
     $('#subtitleGame').html("Partida em andamento");
-    $('#pBtnCountPoints').html('<button type="button" id="btnCountPoints" class="btn btn-default">Contar os pontos e finalizar a partida</button>');
+    $('#pBtnCountPoints').html('<button type="button" id="btnFinishCount" class="btn btn-default">Contar os pontos e finalizar a partida</button>');
 }
 
 function randomizeFirstPlayer() {
@@ -143,4 +168,42 @@ function randomizeFirstPlayer() {
     var numFirst = Math.floor((Math.random() * players.length) + 1);
     players[numFirst - 1].first = true;
     rPlayers.set(players);
+}
+
+function disableComboPlayers() {
+    for (var i = 1; i <= rMaxPlayers.get(); i++) {
+        $("#player"+i).prop('disabled', 'disabled');
+    }
+}
+
+function isValidPoits() {
+    var isValid = true;
+    for (var i = 1; i <= rMaxPlayers.get(); i++) {
+        if ( ($("#player"+i).val() != "Selecione um jogador") ) {
+            if (! $.isNumeric($("#ptPlayer"+i).val()) ) {
+                isValid = false;
+            }
+        }
+    }
+    return isValid;
+}
+
+function orderRanking() {
+    var players = rPlayers.get();
+    for (var i = 1; i <= rMaxPlayers.get(); i++) {
+        if ( ($("#player"+i).val() != "Selecione um jogador") ) {
+            players[i -1].pontos = $("#ptPlayer"+i).val();
+        }
+    }
+    players.sort(function(a, b){
+        if (a.pontos > b.pontos) {
+            return -1;
+        } else if (a.pontos < b.pontos) {
+            return 1;
+        } else {
+            return 0; 
+        }
+    });
+    rPlayers.set(players);
+    rPodium.set(players);
 }
