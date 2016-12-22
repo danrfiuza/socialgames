@@ -34,3 +34,5 @@ natestrauser:select2
 http
 peerlibrary:xml2js
 utilities:avatar
+dburles:google-maps
+mdg:geolocation
