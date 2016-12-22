@@ -1,5 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 
+var titleSocial = 'Social Games - A Rede Social dos Board Gamers';
+
 // Configure routes
 Router.configure({
     layoutTemplate: 'layout',
@@ -35,27 +37,51 @@ Router.map(function(){
     });
 
     this.route('friends', {
-        path: '/friends'
+        path: '/friends',
+        sectionTitle: 'Amigos',
+        onAfterAction: function() {
+            return document.title = "Amigos | " + titleSocial;
+        }
     });
 
     this.route('games', {
-        path: '/games'
+        path: '/games',
+        sectionTitle: 'Jogos',
+        onAfterAction: function() {
+            return document.title = "Jogos | " + titleSocial;
+        }
     });
 
     this.route('matches', {
-    path: '/matches'
+    path: '/matches',
+        sectionTitle: 'Partidas',
+        onAfterAction: function() {
+            return document.title = "Partidas | " + titleSocial;
+        }
     });
 
     this.route('places', {
-        path: '/places'
+        path: '/places',
+        sectionTitle: 'Locais',
+        onAfterAction: function() {
+            return document.title = "Locais | " + titleSocial;
+        }
     });
 
     this.route('rankings', {
-        path: '/rankings'
+        path: '/rankings',
+        sectionTitle: 'Rankings',
+        onAfterAction: function() {
+            return document.title = "Rankings | " + titleSocial;
+        }
     });
 
     this.route('timeline', {
-        path: '/timeline'
+        path: '/timeline',
+        sectionTitle: 'Timeline',
+        onAfterAction: function() {
+            return document.title = "Timeline | " + titleSocial;
+        }
     });
 
     this.route('map', {

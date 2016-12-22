@@ -1,13 +1,11 @@
-/*import { Template } from 'meteor/templating';
-import { Meteor } from 'meteor/meteor';
-
 Template.topnavbar.helpers({
-    email: function() {
-    	var user = Meteor.user();
-    	if (user && user.emails) {
-    		return user.emails[0].address;
-    	} else {
-    		return "";
-    	}
-    },
-});*/
+    sectionTitle: function () {
+        return Router.current().route.options.sectionTitle;
+    }
+});
+
+Template.layout.helpers({
+    sectionClass: function () {
+        return 'section-' + Router.current().route.options.path.replace('/', '');
+    }
+});
