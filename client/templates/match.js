@@ -6,6 +6,10 @@ Meteor.subscribe('game.list');
 
 var rGame = new ReactiveVar(0);
 var rMaxPlayers = new ReactiveVar(0);
+var rMinPlayers = new ReactiveVar(0);
+var clock = new ReactiveClock("clock");
+clock.setElapsedSeconds(0);
+clock.stop();
 
 Games = new Mongo.Collection('games');
 
@@ -41,6 +45,9 @@ Template.matches.helpers({
     },
     friends() {
         return Friends.find({meu_id: Meteor.user()._id});
+    },
+    timer() {
+        return clock.elapsedTime({format: '00:00:00'});
     }
 });
 
@@ -50,6 +57,7 @@ Template.matches.events({
       	game = Games.findOne({bggid: $("#selectGame").val()[0]});
 		rGame.set(game);
         rMaxPlayers.set(game.maxplayers);
+        rMinPlayers.set(game.minplayers);
         $('#divButtons').show();
     },
     'click #btnMatchNow' : function(event, template) {
@@ -63,5 +71,31 @@ Template.matches.events({
         } else {
             $("#imgPlayer"+this.index).html(imgPlayer);
         } 
+    },
+    'click #btnStartMatch' : function(event, template) {
+        if (minPlayersFilled()) {
+            $('#panelSearch').hide();
+            $('#divPlayers').hide();
+            $('#subtitleGame').html("Partida em andamento");
+            $('#pBtnCountPoints').html('<button type="button" id="btnCountPoints" class="btn btn-default">Contar os pontos e finalizar a partida</button>');
+            clock.start();
+        } else {
+            alert("Para este jogo deve ter no mínimo " + rMinPlayers.get() + ' players selecionados');
+        }
     }
 });
+
+// Valid if min players is selected for match
+function minPlayersFilled() {
+    var contPlayers = 0;
+    for (var i = 1; i <= rMaxPlayers.get(); i++) {
+        if (! ($("#player"+i).val() == "Selecione um jogador") ) {
+            contPlayers++;
+        }
+    }
+    if (contPlayers < rMinPlayers.get()) {
+        return false;
+    } else {
+        return true;
+    }
+}

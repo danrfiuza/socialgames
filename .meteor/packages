@@ -34,3 +34,6 @@ natestrauser:select2
 http
 peerlibrary:xml2js
 utilities:avatar
+aldeed:clock
+momentjs:moment
+numeral:numeral

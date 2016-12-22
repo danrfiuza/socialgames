@@ -3,7 +3,7 @@
        <small>{{_"sidebar.nav.MATCHES"}}</small>
     </h3>
     <div class="row">
-      <div class="panel panel-default">
+      <div class="panel panel-default" id="panelSearch">
         <div class="panel-body">
           <form role="form" name="form-add-friend" class="form-horizontal">
             <fieldset>
@@ -36,8 +36,10 @@
             <div class="col-xs-6">
               <h4 class="m0">{{ name }}</h4>
               <p class="m0 text-muted">
-                 <small>Ano: {{ yearpublished }}</small>
+                 <small id='subtitleGame'>Ano: {{ yearpublished }}</small>
               </p>
+              <p class="h2 mt0" id="pTimer">{{ timer }}</p>
+              <p id="pBtnCountPoints"></p>
             </div>
           </div>
         </div>
@@ -98,7 +100,7 @@
         </div>
       </div>
       <div class="form-group pull-right">
-        <button type="button" id="btnMatchNow" class="btn btn-success">Iniciar Partida</button>
+        <button type="button" id="btnStartMatch" class="btn btn-success">Iniciar Partida</button>
       </div>
     </div>
 
