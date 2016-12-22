@@ -20,10 +20,8 @@ Template.matches.rendered = function(){
     	maximumSelectionLength: 1,
       	allowClear: true
     });
-
-    $('#viewGame').hide();
-    $('#divPlayers').hide();
-    $('#divButtons').hide();
+    hideInitialElements();
+    rPlayers.set([]);
 };
 
 Template.matches.helpers({
@@ -63,31 +61,36 @@ Template.matches.events({
         rMaxPlayers.set(game.maxplayers);
         rMinPlayers.set(game.minplayers);
         $('#divButtons').show();
+        rPlayers.set([]);
     },
     'click #btnMatchNow' : function(event, template) {
         $('#divButtons').hide();
         $('#divPlayers').show();
+        $('#divBtnStarMatch').show();
     },
     'change .selectPlayer' : function(event, template) {
+        var selectedIndex = event.target.selectedIndex;
         var imgPlayer = "<img width='30' src='https://www.guidesmiths.com/uploads/images/1450466520567_avatar-default_1.png'>";
         if ($("#player"+this.index).val() == "Selecione um jogador") {
             $("#imgPlayer"+this.index).html("");
+            removePlayerMatch(selectedIndex);
         } else {
+            var emailPlayer = $(event.target.options[selectedIndex]).attr("data-mail");
             $("#imgPlayer"+this.index).html(imgPlayer);
-            rPlayers.get()[this.index] = { mail : $(this).attr("data-mail") };
-            console.log(rPlayers.get());
+            addPlayerMatch(emailPlayer);
         }
     },
     'click #btnStartMatch' : function(event, template) {
         if (minPlayersFilled()) {
-            $('#panelSearch').hide();
-            $('#divPlayers').hide();
-            $('#subtitleGame').html("Partida em andamento");
-            $('#pBtnCountPoints').html('<button type="button" id="btnCountPoints" class="btn btn-default">Contar os pontos e finalizar a partida</button>');
+            prepareToStart();
             clock.start();
         } else {
             alert("Para este jogo deve ter no mínimo " + rMinPlayers.get() + ' players selecionados');
         }
+    },
+    'click #btnFirstPlayer' : function(event, template) {
+        randomizeFirstPlayer();
+        $('#divBtnFirstPlayer').hide();
     }
 });
 
@@ -104,4 +107,40 @@ function minPlayersFilled() {
     } else {
         return true;
     }
+}
+
+function hideInitialElements() {
+    $('#viewGame').hide();
+    $('#divPlayers').hide();
+    $('#divButtons').hide();
+    $('#divBtnStarMatch').hide();
+    $('#divBtnFirstPlayer').hide();
+}
+
+function removePlayerMatch(index) {
+    var players = rPlayers.get();
+    players.splice(index, 1);
+    rPlayers.set(players);
+}
+
+function addPlayerMatch(emailPlayer) {
+    var players = rPlayers.get();
+    players.push({ mail : emailPlayer, first : false });
+    rPlayers.set(players);
+}
+
+function prepareToStart() {
+    $('#divBtnStarMatch').hide();
+    $('#divBtnFirstPlayer').show();
+    $('#panelSearch').hide();
+    $('#divPlayers').hide();
+    $('#subtitleGame').html("Partida em andamento");
+    $('#pBtnCountPoints').html('<button type="button" id="btnCountPoints" class="btn btn-default">Contar os pontos e finalizar a partida</button>');
+}
+
+function randomizeFirstPlayer() {
+    var players = rPlayers.get();
+    var numFirst = Math.floor((Math.random() * players.length) + 1);
+    players[numFirst - 1].first = true;
+    rPlayers.set(players);
 }
