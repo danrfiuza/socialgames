@@ -7,6 +7,7 @@ Meteor.subscribe('game.list');
 var rGame = new ReactiveVar(0);
 var rMaxPlayers = new ReactiveVar(0);
 var rMinPlayers = new ReactiveVar(0);
+var rPlayers = new ReactiveVar([]);
 var clock = new ReactiveClock("clock");
 clock.setElapsedSeconds(0);
 clock.stop();
@@ -48,6 +49,9 @@ Template.matches.helpers({
     },
     timer() {
         return clock.elapsedTime({format: '00:00:00'});
+    },
+    players() {
+        return rPlayers.get();
     }
 });
 
@@ -70,7 +74,9 @@ Template.matches.events({
             $("#imgPlayer"+this.index).html("");
         } else {
             $("#imgPlayer"+this.index).html(imgPlayer);
-        } 
+            rPlayers.get()[this.index] = { mail : $(this).attr("data-mail") };
+            console.log(rPlayers.get());
+        }
     },
     'click #btnStartMatch' : function(event, template) {
         if (minPlayersFilled()) {
