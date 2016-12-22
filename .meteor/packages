@@ -34,11 +34,8 @@ natestrauser:select2
 http
 peerlibrary:xml2js
 utilities:avatar
-<<<<<<< HEAD
-=======
 aldeed:clock
 momentjs:moment
 numeral:numeral
->>>>>>> 5d4d5b74105b06f5383c9ec5c78269aed30f2b92
 dburles:google-maps
 mdg:geolocation
