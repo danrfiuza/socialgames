@@ -5,6 +5,7 @@ if (Meteor.isClient) {
         GoogleMaps.load();
     });
 
+    /* Colocar o mapa na tela */
     Template.map.helpers({  
       geolocationError: function() {
         var error = Geolocation.error();
@@ -18,7 +19,19 @@ if (Meteor.isClient) {
             center: new google.maps.LatLng(latLng.lat, latLng.lng),
             zoom: MAP_ZOOM
           };
-    }
-  }
-});
+        }
+      }
+    });
+
+    /* Colocar no mapa o marcador de posição corrente */
+    Template.map.onCreated(function() {  
+      GoogleMaps.ready('map', function(map) {
+        var latLng = Geolocation.latLng();
+
+        var marker = new google.maps.Marker({
+          position: new google.maps.LatLng(latLng.lat, latLng.lng),
+          map: map.instance
+        });
+      });
+    });
 }
