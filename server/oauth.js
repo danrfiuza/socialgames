@@ -6,8 +6,8 @@ Meteor.startup(() => {
 	});
 	Accounts.loginServiceConfiguration.insert({
 		service: "facebook",
-		appId: "1101972103243092",
-		secret: "880df86523f6d1742266c6d002e7207a",
+		appId: "1233584766721520",
+		secret: "65e3b4353cdd85270fc90e1bf84fe336",
 	});
 });
 
