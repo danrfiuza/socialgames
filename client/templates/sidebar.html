@@ -26,56 +26,58 @@
                                     {{email}}
                                 </div>
                                 {{/with}}
+                                {{> avatar userId=userId}}
                                 {{emailAddress}}
                             </div>
                         </div>
                     </li>
                     {{/with}}
-                    <li class="{{isActiveRoute regex='main'}} main">
-                        <a href="{{ pathFor 'main' }}" title="main">
-                            <em class="fa fa-home"></em>
-                            <span>{{_ "sidebar.nav.SINGLEVIEW" }}</span>
-                        </a>
-                    </li>
-                    <li class="{{isActiveRoute regex='timeline'}} timeline">
-                        <a href="{{ pathFor 'timeline' }}" title="{{_ 'sidebar.nav.TIMELINE' }}">
+                    <!--<li class="{{isActiveRoute regex='main'}}">-->
+                        <!--<a href="{{ pathFor 'main' }}" title="main" class="main">-->
+                            <!--<em class="fa fa-home"></em>-->
+                            <!--<span>{{_ "sidebar.nav.SINGLEVIEW" }}</span>-->
+                        <!--</a>-->
+                    <!--</li>-->
+                    <li class="{{isActiveRoute regex='timeline'}}">
+                        <a href="{{ pathFor 'timeline' }}" title="{{_ 'sidebar.nav.TIMELINE' }}" class="timeline">
                             <em class="fa fa-tasks"></em>
                             <span>{{_ "sidebar.nav.TIMELINE" }}</span>
                         </a>
                     </li>
-                    <li class="{{isActiveRoute regex='friends'}} friends">
-                        <a href="{{ pathFor 'friends' }}" title="{{_ 'sidebar.nav.FRIENDS' }}">
+                    <li class="{{isActiveRoute regex='friends'}}">
+                        <a href="{{ pathFor 'friends' }}" title="{{_ 'sidebar.nav.FRIENDS' }}" class="friends">
                             <em class="fa fa-users"></em>
                             <span>{{_ "sidebar.nav.FRIENDS" }}</span>
                         </a>
                     </li>
-                    <li class="{{isActiveRoute regex='games'}} games">
-                        <a href="{{ pathFor 'games' }}" title="{{_ 'sidebar.nav.GAMES' }}">
+                    <li class="{{isActiveRoute regex='games'}}">
+                        <a href="{{ pathFor 'games' }}" title="{{_ 'sidebar.nav.GAMES' }}" class="games">
                             <em class="fa fa-cubes"></em>
                             <span>{{_ "sidebar.nav.GAMES" }}</span>
                         </a>
                     </li>
-                    <li class="{{isActiveRoute regex='matches'}} matches">
-                        <a href="{{ pathFor 'matches' }}" title="{{_ 'sidebar.nav.MATCHES' }}">
+                    <li class="{{isActiveRoute regex='matches'}}">
+                        <a href="{{ pathFor 'matches' }}" title="{{_ 'sidebar.nav.MATCHES' }}" class="matches">
                             <em class="fa fa-institution"></em>
                             <span>{{_ "sidebar.nav.MATCHES" }}</span>
                         </a>
                     </li>
-                    <li class="{{isActiveRoute regex='places'}} places">
-                        <a href="{{ pathFor 'places' }}" title="{{_ 'sidebar.nav.PLACES' }}">
+                    <li class="{{isActiveRoute regex='places'}}">
+                        <a href="{{ pathFor 'places' }}" title="{{_ 'sidebar.nav.PLACES' }}" class="places">
                             <em class="fa fa-map-marker"></em>
                             <span>{{_ "sidebar.nav.PLACES" }}</span>
                         </a>
                     </li>
-                    <li class="{{isActiveRoute regex='rankings'}} rankings">
-                        <a href="{{ pathFor 'rankings' }}" title="{{_ 'sidebar.nav.RANKINGS' }}">
+                    <li class="{{isActiveRoute regex='rankings'}}">
+                        <a href="{{ pathFor 'rankings' }}" title="{{_ 'sidebar.nav.RANKINGS' }}" class="rankings">
                             <em class="fa fa-trophy"></em>
                             <span>{{_ "sidebar.nav.RANKINGS" }}</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{{ pathFor 'logoff' }}">
-                            <span>Logoff</span>
+                        <a href="{{ pathFor 'logoff' }}" title="{{_ 'sidebar.nav.LOGOFF' }}" class="logoff">
+                            <em class="fa fa-power-off"></em>
+                            <span>{{_ 'sidebar.nav.LOGOFF' }}</span>
                         </a>
                     </li>
                 </ul>
