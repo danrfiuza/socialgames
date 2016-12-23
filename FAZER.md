@@ -48,7 +48,6 @@
 	* Se deixar em branco inicia a partida na hora
 	* Se colocar uma Data futura, o sistema agenda automático
 	* Se colocar uma Data passada, já vai automaticamente para a próxima tela de pontuação
-* Criar funcionalidade de sorteio de First Player
 * Criar tela de pontuação puxando as informações do jogo (Cooperativo ou Competitivo, Individual ou de Times, Pontos ou Vitória/Derrota)
 * Criar edição de partidas
 * Criar exclusão de partidas
