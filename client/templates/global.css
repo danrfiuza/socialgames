@@ -127,3 +127,6 @@ body.aside-collapsed .user-block-picture {
     padding-bottom: 10px;
     padding-top: 10px;
 }
+.custom-avatar-initials {
+    display: none;
+}
