@@ -17,6 +17,7 @@
 **PARTIDAS:**
 
 * Busca de Jogos já cadastrados no sistema
+* Funcionalidade de sorteio de First Player
 
 **LOCAIS:**
 
