@@ -111,6 +111,9 @@ Template.matches.events({
             orderRanking();
             $('#classification').show();
             $('#divPlayers').hide();
+            $('#divBtnFinishMatch').hide();
+            $('#divBtnPublish').show();
+            salveMatch(mountMatch());
         } else {
             alert("Algo está errado com a pontuação informada");
         }
@@ -140,6 +143,7 @@ function hideInitialElements() {
     $('#divBtnFirstPlayer').hide();
     $('#divBtnFinishMatch').hide();
     $('#classification').hide();
+    $('#divBtnPublish').hide();
 }
 
 function removePlayerMatch(index) {
@@ -206,4 +210,23 @@ function orderRanking() {
     });
     rPlayers.set(players);
     rPodium.set(players);
+}
+
+function mountMatch() {
+    var match = {};
+    match.players = rPlayers.get();
+    match.game = rGame.get();
+    match.timer = clock.elapsedTime();
+    match.podium = rPodium.get();
+    return match;
+}
+
+function salveMatch(match) {
+    Meteor.call('matchs.insert', match, function (e, result) {
+        if(result){
+            console.log("Partida foi salva no banco de dados");
+        } else {
+            console.log("Erro ao tentar salvar uma partida");
+        }
+    });
 }
