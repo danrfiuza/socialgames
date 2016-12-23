@@ -23,6 +23,7 @@ Template.matches.rendered = function(){
     });
     hideInitialElements();
     rPlayers.set([]);
+    rGame.set([]);
 };
 
 Template.matches.helpers({
@@ -74,6 +75,14 @@ Template.matches.events({
         $('#divButtons').hide();
         $('#divPlayers').show();
         $('#divBtnStarMatch').show();
+        $('#panelSearch').hide();
+    },
+    'click #btnScheduleMatch' : function(event, template) {
+        $('#divButtons').hide();
+        $('#divPlayers').show();
+        $('#divBtnSaveSchedule').show();
+        $('#divSchedle').show();
+        $('#panelSearch').hide();
     },
     'change .selectPlayer' : function(event, template) {
         var selectedIndex = event.target.selectedIndex;
@@ -110,7 +119,7 @@ Template.matches.events({
         $('#divBtnFinishMatch').show();
     },
     'click #btnFinishMatch' : function(event, template) {
-        if (isValidPoits()) {
+        if (isValidScore()) {
             orderRanking();
             $('#classification').show();
             $('#divPlayers').hide();
@@ -138,6 +147,7 @@ function minPlayersFilled() {
     }
 }
 
+// Hides the initial elements that will not be used yet
 function hideInitialElements() {
     $('#viewGame').hide();
     $('#divPlayers').hide();
@@ -148,20 +158,25 @@ function hideInitialElements() {
     $('#classification').hide();
     $('#divBtnPublish').hide();
     $('#readyPlayers').hide();
+    $('#divBtnSaveSchedule').hide();
+    $('#divSchedle').hide();
 }
 
+// Remove a player of match
 function removePlayerMatch(index) {
     var players = rPlayers.get();
     players.splice(index, 1);
     rPlayers.set(players);
 }
 
+// Include a player of match
 function addPlayerMatch(emailPlayer) {
     var players = rPlayers.get();
     players.push({ mail : emailPlayer, first : false });
     rPlayers.set(players);
 }
 
+// Displays the screen elements for the starting status
 function prepareToStart() {
     $('#divBtnStarMatch').hide();
     $('#divBtnFirstPlayer').show();
@@ -172,6 +187,7 @@ function prepareToStart() {
     $('#pBtnCountPoints').html('<button type="button" id="btnFinishCount" class="btn btn-default">Contar os pontos e finalizar a partida</button>');
 }
 
+// Randomize the first player
 function randomizeFirstPlayer() {
     var players = rPlayers.get();
     var numFirst = Math.floor((Math.random() * players.length) + 1);
@@ -179,13 +195,15 @@ function randomizeFirstPlayer() {
     rPlayers.set(players);
 }
 
+// Disable select list of players not used
 function disableComboPlayers() {
     for (var i = 1; i <= rMaxPlayers.get(); i++) {
         $("#player"+i).prop('disabled', 'disabled');
     }
 }
 
-function isValidPoits() {
+// Validates players' scores
+function isValidScore() {
     var isValid = true;
     for (var i = 1; i <= rMaxPlayers.get(); i++) {
         if ( ($("#player"+i).val() != "Selecione um jogador") ) {
@@ -197,6 +215,7 @@ function isValidPoits() {
     return isValid;
 }
 
+// Sort the players according to the score of the match
 function orderRanking() {
     var players = rPlayers.get();
     for (var i = 1; i <= rMaxPlayers.get(); i++) {
@@ -205,9 +224,9 @@ function orderRanking() {
         }
     }
     players.sort(function(a, b){
-        if (a.pontos > b.pontos) {
+        if (parseInt(a.pontos) > parseInt(b.pontos)) {
             return -1;
-        } else if (a.pontos < b.pontos) {
+        } else if (parseInt(a.pontos) < parseInt(b.pontos)) {
             return 1;
         } else {
             return 0; 
@@ -217,6 +236,7 @@ function orderRanking() {
     rPodium.set(players);
 }
 
+// Assemble match information
 function mountMatch() {
     var match = {};
     match.players = rPlayers.get();
@@ -226,6 +246,7 @@ function mountMatch() {
     return match;
 }
 
+// Persists a match
 function salveMatch(match) {
     Meteor.call('matchs.insert', match, function (e, result) {
         if(result){
