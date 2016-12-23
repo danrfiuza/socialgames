@@ -54,6 +54,9 @@ Template.matches.helpers({
     },
     podium() {
         return rPodium.get();
+    },
+    loggedUser() {
+        return Meteor.user();
     }
 });
 
@@ -74,7 +77,7 @@ Template.matches.events({
     },
     'change .selectPlayer' : function(event, template) {
         var selectedIndex = event.target.selectedIndex;
-        var imgPlayer = "<img width='30' src='https://www.guidesmiths.com/uploads/images/1450466520567_avatar-default_1.png'>";
+        var imgPlayer = '<em class="fa fa-user fa-2x">';
         if ($("#player"+this.index).val() == "Selecione um jogador") {
             $("#imgPlayer"+this.index).html("");
             removePlayerMatch(selectedIndex);
@@ -144,6 +147,7 @@ function hideInitialElements() {
     $('#divBtnFinishMatch').hide();
     $('#classification').hide();
     $('#divBtnPublish').hide();
+    $('#readyPlayers').hide();
 }
 
 function removePlayerMatch(index) {
@@ -163,6 +167,7 @@ function prepareToStart() {
     $('#divBtnFirstPlayer').show();
     $('#panelSearch').hide();
     $('#divPlayers').hide();
+    $('#readyPlayers').show();
     $('#subtitleGame').html("Partida em andamento");
     $('#pBtnCountPoints').html('<button type="button" id="btnFinishCount" class="btn btn-default">Contar os pontos e finalizar a partida</button>');
 }
