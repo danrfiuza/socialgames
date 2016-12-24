@@ -92,18 +92,8 @@
                             name="player{{ index }}" 
                             id="player{{ index }}" 
                             class="form-control m-b selectPlayer"
+                            multiple="true" 
                           >
-                            <option>Selecione um jogador</option>
-                            {{#with loggedUser}}
-                              {{#if emails}}
-                                <option data-mail="{{ emails[0].address }}" value="{{ _id }}">{{ emails[0].address }}</option>
-                              {{else}}
-                                <option data-mail="{{ services.facebook.email }}" value="{{ _id }}">{{ services.facebook.email }}</option>
-                              {{/if}}
-                            {{/with}}
-                            {{#each friends}}
-                              <option data-mail="{{ email }}" value='{{ _id }}'>{{ email }}</option>
-                            {{/each}}
                           </select>
                         </td>
                         <td>

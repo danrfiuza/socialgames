@@ -10,6 +10,7 @@ var rMinPlayers = new ReactiveVar(0);
 var rPlayers = new ReactiveVar([]);
 var rPodium = new ReactiveVar([]);
 var clock = new ReactiveClock("clock");
+var rComboFriends = new ReactiveVar([]);
 clock.setElapsedSeconds(0);
 clock.stop();
 
@@ -24,6 +25,8 @@ Template.matches.rendered = function(){
     hideInitialElements();
     rPlayers.set([]);
     rGame.set([]);
+
+    loadComboFriends();
 };
 
 Template.matches.helpers({
@@ -43,9 +46,6 @@ Template.matches.helpers({
             arrMaxPlayers.push({index: i});
         }
         return arrMaxPlayers;
-    },
-    friends() {
-        return Friends.find({meu_id: Meteor.user()._id});
     },
     timer() {
         return clock.elapsedTime({format: '00:00:00'});
@@ -76,6 +76,14 @@ Template.matches.events({
         $('#divPlayers').show();
         $('#divBtnStarMatch').show();
         $('#panelSearch').hide();
+
+        for (var i = 1; i <= rMaxPlayers.get(); i++) {
+            $("#player"+i).select2({
+                placeholder: "digite o email do seu amigo",
+                maximumSelectionLength: 1,
+                data : rComboFriends.get()
+            });
+        }
     },
     'click #btnScheduleMatch' : function(event, template) {
         $('#divButtons').hide();
@@ -86,15 +94,18 @@ Template.matches.events({
     },
     'change .selectPlayer' : function(event, template) {
         var selectedIndex = event.target.selectedIndex;
-        var imgPlayer = '<em class="fa fa-user fa-2x">';
-        if ($("#player"+this.index).val() == "Selecione um jogador") {
-            $("#imgPlayer"+this.index).html("");
-            removePlayerMatch(selectedIndex);
-        } else {
-            var emailPlayer = $(event.target.options[selectedIndex]).attr("data-mail");
+        // if not unselect
+        if (selectedIndex != -1) {
+            var imgPlayer = '<em class="fa fa-user fa-2x">';
+            var emailPlayer = event.target.options[selectedIndex].innerHTML;
             $("#imgPlayer"+this.index).html(imgPlayer);
             addPlayerMatch(emailPlayer);
         }
+    },
+    'select2:unselect .selectPlayer' : function(event, template) {
+        var selectedIndex = event.target.selectedIndex;
+        $("#imgPlayer"+this.index).html("");
+        removePlayerMatch(selectedIndex);
     },
     'click #btnStartMatch' : function(event, template) {
         if (minPlayersFilled()) {
@@ -132,11 +143,30 @@ Template.matches.events({
     }
 });
 
+// Load select combo with friends
+function loadComboFriends() {
+    frieds = Friends.find({meu_id: Meteor.user()._id}).fetch();
+    comboFriends = [];
+    var cont = 1;
+    var emailUserLogged = '';
+    if (Meteor.user().services.facebook) {
+        emailUserLogged = Meteor.user().services.facebook.email;
+    } else {
+        emailUserLogged = Meteor.user().emails[0].address;
+    }
+    comboFriends[0] = { id : Meteor.user()._id, text : emailUserLogged}
+    _.forEach(frieds, function(item){
+        comboFriends[cont] = { id : item._id, text : item.email };
+        cont++;
+    });
+    rComboFriends.set(comboFriends);
+}
+
 // Valid if min players is selected for match
 function minPlayersFilled() {
     var contPlayers = 0;
     for (var i = 1; i <= rMaxPlayers.get(); i++) {
-        if ( ($("#player"+i).val() != "Selecione um jogador") ) {
+        if ( $("#player"+i).val().length != 0 ) {
             contPlayers++;
         }
     }
@@ -206,7 +236,7 @@ function disableComboPlayers() {
 function isValidScore() {
     var isValid = true;
     for (var i = 1; i <= rMaxPlayers.get(); i++) {
-        if ( ($("#player"+i).val() != "Selecione um jogador") ) {
+        if ( $("#player"+i).val().length != 0 ) {
             if (! $.isNumeric($("#ptPlayer"+i).val()) ) {
                 isValid = false;
             }
@@ -219,7 +249,7 @@ function isValidScore() {
 function orderRanking() {
     var players = rPlayers.get();
     for (var i = 1; i <= rMaxPlayers.get(); i++) {
-        if ( ($("#player"+i).val() != "Selecione um jogador") ) {
+        if ( $("#player"+i).val().length != 0 ) {
             players[i -1].pontos = $("#ptPlayer"+i).val();
         }
     }
