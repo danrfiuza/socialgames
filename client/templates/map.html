@@ -1,9 +1,6 @@
 <template name="map">
+  <input id="autocomplete" name="autocomplete" placeholder="Informe o endereço" type="text">
   <div class="map-container">
-    {{#unless geolocationError}}
-      {{> googleMap name="map" options=mapOptions}}
-    {{else}}
-      Geolocation failed: {{geolocationError}}
-    {{/unless}}
+    {{> googleMap name="map" options=mapOptions}}
   </div>
 </template>  
