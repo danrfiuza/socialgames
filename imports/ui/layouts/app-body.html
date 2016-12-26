@@ -1,0 +1,13 @@
+<template name="layout">
+    <div class="wrapper {{sectionClass}}">
+        {{> topnavbar }}
+        {{> sidebar }}
+        {{> offsidebar}}
+        <section>
+            <div class="content-wrapper">
+                {{> yield }}
+            </div>
+        </section>
+        {{> footer }}
+    </div>
+</template>
