@@ -132,4 +132,12 @@ Template.map.teste = 'ok 12';
     //   );
     // });
   });
+  Template.map.onRendered(function() {
+  this.autorun(function () {
+    if (GoogleMaps.loaded()) {
+      $("input").geocomplete();
+    }
+  });
+});
+
 }
