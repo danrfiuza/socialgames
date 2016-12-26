@@ -1,11 +1,18 @@
 import { ReactiveVar } from 'meteor/reactive-var'
 
-var autocomplete = new ReactiveVar(0);
+var teste = new ReactiveVar(0);
 
 Markers = new Mongo.Collection('markers');
 
 if (Meteor.isClient) {
   var MAP_ZOOM = 15;
+
+Meteor.startup(function() {
+  GoogleMaps.load({
+    key: 'AIzaSyCnhZDqVEhZvzJirmcaTfI1yKBHMfbGjC4',
+    libraries: 'places'  // also accepts an array if you need more than one
+  });
+});
 
   // Template.map.onCreated(function() {
     // GoogleMaps.ready('map', function(map) {
@@ -110,6 +117,9 @@ if (Meteor.isClient) {
         map.instance.setZoom(MAP_ZOOM);
 // console.log('Template.map.autocompleteasdfasdf');
 // console.log(Template);
+Template.teste = 'ok 1';
+Template.map.teste = 'ok 12';
+
 //         var autocomplete = new google.maps.places.autocomplete(
 //           ('autocomplete'),{types: ['geocode'] }
 //       );
