@@ -66,7 +66,7 @@
         <div class="panel panel-default">
           <div class="panel-body">
             <div id="datetimepicker1" class="input-group date">
-                <input id="dateMatch" class="form-control" type="text" placeholder="Data da partida">
+                <input id="dateMatch" class="form-control" type="date" placeholder="Data da partida">
                 <span class="input-group-addon" style="">
                     <span class="fa fa-calendar"></span>
                 </span>
@@ -77,34 +77,28 @@
     </div>
 
     <div class="col-lg-12" id="divPlayers">
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <!-- START table-responsive-->
-          <div class="table-responsive">
-              <table id="table-ext-1" class="table table-bordered table-hover">
-                 <tbody>
-                    {{#each arrMaxPlayers }}
-                      <tr>
-                        <td width="10%">#{{ index }}</td>
-                        <td width="10%" id="imgPlayer{{ index }}"></td>
-                        <td width="70%">
-                          <select 
-                            name="player{{ index }}" 
-                            id="player{{ index }}" 
-                            class="form-control m-b selectPlayer"
-                            multiple="true" 
-                          >
-                          </select>
-                        </td>
-                        <td>
-                          <input type="text" class="form-control" id="ptPlayer{{ index }}">
-                        </td>
-                      </tr>
-                    {{/each}}
-                 </tbody>
-              </table>
-          </div>
-        </div>
+      <div class="table-responsive">
+        <table id="table-ext-1" class="table table-bordered table-hover">
+           <tbody>
+              {{#each arrMaxPlayers }}
+                <tr>
+                  <td width="10%" id="imgPlayer{{ index }}"></td>
+                  <td width="70%">
+                    <select 
+                      name="player{{ index }}" 
+                      id="player{{ index }}" 
+                      class="form-control m-b selectPlayer"
+                      multiple="true" 
+                    >
+                    </select>
+                  </td>
+                  <td width="20%">
+                    <input type="number" class="form-control" id="ptPlayer{{ index }}">
+                  </td>
+                </tr>
+              {{/each}}
+           </tbody>
+        </table>
       </div>
     </div>
     

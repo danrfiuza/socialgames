@@ -78,14 +78,7 @@ Template.matches.events({
         $('#divPlayers').show();
         $('#divBtnStarMatch').show();
         $('#panelSearch').hide();
-
-        for (var i = 1; i <= rMaxPlayers.get(); i++) {
-            $("#player"+i).select2({
-                placeholder: "digite o email do seu amigo",
-                maximumSelectionLength: 1,
-                data : rComboFriends.get()
-            });
-        }
+        prepareAutoComplateForPlayers();
     },
     'click #btnScheduleMatch' : function(event, template) {
         $('#divButtons').hide();
@@ -93,6 +86,7 @@ Template.matches.events({
         $('#divBtnSaveSchedule').show();
         $('#divSchedle').show();
         $('#panelSearch').hide();
+        prepareAutoComplateForPlayers();
     },
     'change .selectPlayer' : function(event, template) {
         var selectedIndex = event.target.selectedIndex;
@@ -144,6 +138,17 @@ Template.matches.events({
         }
     }
 });
+
+// Mount select2 in combo players elements 
+function prepareAutoComplateForPlayers() {
+    for (var i = 1; i <= rMaxPlayers.get(); i++) {
+        $("#player"+i).select2({
+            placeholder: "digite o email do seu amigo",
+            maximumSelectionLength: 1,
+            data : rComboFriends.get()
+        });
+    }
+}
 
 // Load select combo with friends
 function loadComboFriends() {
