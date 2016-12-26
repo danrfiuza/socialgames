@@ -36,15 +36,13 @@ Se não desejar configurar o Facebook, tudo bem. Você pode se registrar criando
 
 ## Referência das dependencias utilizadas
 
-[Aqui vai encontrar o caminho para enteder como utilizar os pacotes utilizados neste projeto](https://github.com/andrexbass/socialgames/blob/master/REFERENCIA.md)
-
-## Quer nos ajudar a finalizar o projeto? 
+[Aqui vai encontrar o caminho para enteder como utilizar os pacotes utilizados neste projeto](https://github.com/andrexbass/socialgames/blob/master/REFERENCIA.mdhttps://github.com/SocialBoardGames/socialgames/blob/master/REFERENCIA.md)
 
 Nossa meta é finalizar logo o [MVP](https://pt.wikipedia.org/wiki/Produto_vi%C3%A1vel_m%C3%ADnimo) do sistema para em seguida já podermos publicar, espalhando e utilizando o sistema o máximo possível, sem nunca deixar de criar novas funcionalidades e melhoramentos.
 A principal funcionalidade que queremos deixar pronta é a criação de Partidas. Assim que isto estiver pronto, publicaremos.
 Abaixo, deixamos a descrição de tudo o que já está pronto no sistema e o que ainda falta fazer.
 
-* [O que já está pronto](https://github.com/andrexbass/socialgames/blob/master/PRONTO.md)
-* [O que ainda falta fazer](https://github.com/andrexbass/socialgames/blob/master/FAZER.md)
+* [O que já está pronto](https://github.com/andrexbass/socialgames/blob/master/REFERENCIA.mdhttps://github.com/SocialBoardGames/socialgames/blob/master/PRONTO.md)
+* [O que ainda falta fazer](https://github.com/andrexbass/socialgames/blob/master/REFERENCIA.mdhttps://github.com/SocialBoardGames/socialgames/blob/master/FAZER.md)
 
 Caso você se sinta envolvido com nosso projeto e queira nos ajudar, simplesmente faça funcionar uma funcionalidade que ainda não foi desenvolvida e nos envie um `pull request` que brevemente avaliaremos e disponibilizaremos no Social Games. Não é o máximo?
