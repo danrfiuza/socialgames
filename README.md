@@ -34,6 +34,10 @@ E está pronto. Você já pode desfrutar!
 
 Se não desejar configurar o Facebook, tudo bem. Você pode se registrar criando um usuário/senha.
 
+## Referência das dependencias utilizadas
+
+[Aqui vai encontrar o caminho para enteder como utilizar os pacotes utilizados neste projeto](https://github.com/andrexbass/socialgames/blob/master/REFERENCIA.md)
+
 ## Quer nos ajudar a finalizar o projeto? 
 
 Nossa meta é finalizar logo o [MVP](https://pt.wikipedia.org/wiki/Produto_vi%C3%A1vel_m%C3%ADnimo) do sistema para em seguida já podermos publicar, espalhando e utilizando o sistema o máximo possível, sem nunca deixar de criar novas funcionalidades e melhoramentos.
