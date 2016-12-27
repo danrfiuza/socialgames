@@ -9,15 +9,14 @@
  * 
  */
 
-
 (function(window, document, $, undefined){
 
-  
-  // jQuery's dom.ready doesn't work as usual in this scenario. 
+
+  // jQuery's dom.ready doesn't work as usual in this scenario.
   // This simple snippet will collect all module functions to be executed when templates are ready
   // similar to a dom.ready handler but can be executed manually later.
   // App.run() is executed in file /lib/rendered.js to catch the ready state of the main layout
-  
+
   window.App = {
     ready: function(callback){
       if (!this.modules)
@@ -37,10 +36,10 @@
   App.ready(function(){
 
     // Restore body classes
-    // ----------------------------------- 
+    // -----------------------------------
     var $body = $('body');
     new StateToggler().restoreState( $body );
-    
+
     // enable settings toggle after restore
     $('#chk-fixed').prop('checked', $body.hasClass('layout-fixed') );
     $('#chk-collapsed').prop('checked', $body.hasClass('aside-collapsed') );
