@@ -1,5 +1,7 @@
 import { ReactiveVar } from 'meteor/reactive-var'
 
+import './map.html';
+
 var teste = new ReactiveVar(0);
 
 Markers = new Mongo.Collection('markers');
