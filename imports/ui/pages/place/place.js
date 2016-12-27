@@ -16,12 +16,13 @@ Template.places.events({
 
         Meteor.call('places.insert', place, function (e, result) {
             if(result){
-                alert("Local salvo com sucesso");
+               swal({text:'Local salvo com sucesso',type:'success'});
             } else {
-                alert("Erro ao tentar salvar um local");
+                swal({text:'Erro ao tentar salvar um local',type:'error'});
             }
         });
 
+        $('#place').val('');//Clear input
         Meteor.call('places.find', null, function (e, result) {
             lista.set(result);
         });
