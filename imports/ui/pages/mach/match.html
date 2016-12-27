@@ -1,25 +1,23 @@
 <template name="matches">
     <div class="row">
-      <div class="panel panel-default" id="panelSearch">
-        <div class="panel-body">
-          <form role="form" name="form-add-friend" class="form-horizontal">
-            <fieldset>
-              <div class="form-group">
-                <div class="col-sm-12">
-                  <label for="amigos" class="col-sm-2 control-label">Escolha o jogo</label> 
-                  <div class="col-sm-6">
-                    <select name="selectGame" multiple="" id="selectGame" class="form-control m-b">
-                      {{#each games}}
-                        <option value='{{ bggid }}'>{{ name }}</option>
-                      {{/each}}
-                    </select>
-                  </div>
+      <div id="panelSearch">
+        <form role="form" name="form-add-friend" class="form-horizontal">
+          <fieldset>
+            <div class="form-group">
+              <div class="col-sm-12">
+                <label for="amigos" class="col-sm-2 control-label">Escolha o jogo</label> 
+                <div class="col-sm-6">
+                  <select name="selectGame" multiple="" id="selectGame" class="form-control m-b">
+                    {{#each games}}
+                      <option value='{{ bggid }}'>{{ name }}</option>
+                    {{/each}}
+                  </select>
                 </div>
               </div>
-            </fieldset>
-            <div>Não encontrou seu jogo? <a href="/games">cadastre agora, é super rápido.</a></div>
-          </form>
-      </div>
+            </div>
+          </fieldset>
+        <div class="panel-body">Não encontrou seu jogo? <a href="/games">cadastre agora, é super rápido.</a></div>
+      </form>
     </div>
 
     {{#with game}}

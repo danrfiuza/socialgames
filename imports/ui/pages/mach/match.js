@@ -23,12 +23,12 @@ Template.matches.rendered = function(){
     	maximumSelectionLength: 1,
       	allowClear: true
     });
-    $('.input-group.date').datepicker();
-    $('#dateMatch').datepicker();
+    if(Meteor.Device.isDesktop()){
+        $('.input-group.date').datepicker();
+    }
     hideInitialElements();
     rPlayers.set([]);
     rGame.set([]);
-
     loadComboFriends();
 };
 
