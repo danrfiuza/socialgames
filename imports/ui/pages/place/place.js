@@ -16,9 +16,9 @@ Template.places.events({
 
         Meteor.call('places.insert', place, function (e, result) {
             if(result){
-               swal({text:'Local salvo com sucesso',type:'success'});
+                Bert.alert('Local salvo com sucesso', 'success');
             } else {
-                swal({text:'Erro ao tentar salvar um local',type:'error'});
+                Bert.alert('Erro ao tentar salvar um local', 'danger');
             }
         });
 
