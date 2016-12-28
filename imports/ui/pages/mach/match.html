@@ -88,6 +88,9 @@
                       class="form-control m-b selectPlayer"
                       multiple="true" 
                     >
+                      {{#each friends }}
+                        <option value="{{ id }}" {{ status }}>{{ text }}</option>
+                      {{/each}}
                     </select>
                   </td>
                   <td width="20%">

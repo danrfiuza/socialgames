@@ -29,7 +29,6 @@ Template.matches.rendered = function(){
     hideInitialElements();
     rPlayers.set([]);
     rGame.set([]);
-    loadComboFriends();
 };
 
 Template.matches.helpers({
@@ -61,6 +60,9 @@ Template.matches.helpers({
     },
     loggedUser() {
         return Meteor.user();
+    },
+    friends() {
+        return rComboFriends.get();
     }
 });
 
@@ -79,6 +81,7 @@ Template.matches.events({
         $('#divPlayers').show();
         $('#divBtnStarMatch').show();
         $('#panelSearch').hide();
+        loadComboFriends();
         prepareAutoComplateForPlayers();
     },
     'click #btnScheduleMatch' : function(event, template) {
@@ -87,6 +90,7 @@ Template.matches.events({
         $('#divBtnSaveSchedule').show();
         $('#divSchedle').show();
         $('#panelSearch').hide();
+        loadComboFriends();
         prepareAutoComplateForPlayers();
     },
     'change .selectPlayer' : function(event, template) {
@@ -97,6 +101,8 @@ Template.matches.events({
             var emailPlayer = event.target.options[selectedIndex].innerHTML;
             $("#imgPlayer"+this.index).html(imgPlayer);
             addPlayerMatch(emailPlayer);
+            setStatusItemComboFriends(selectedIndex, 'disabled');
+            prepareAutoComplateForPlayers();
         }
     },
     'select2:unselect .selectPlayer' : function(event, template) {
@@ -145,8 +151,7 @@ function prepareAutoComplateForPlayers() {
     for (var i = 1; i <= rMaxPlayers.get(); i++) {
         $("#player"+i).select2({
             placeholder: "digite o email do seu amigo",
-            maximumSelectionLength: 1,
-            data : rComboFriends.get()
+            maximumSelectionLength: 1
         });
     }
 }
@@ -168,6 +173,13 @@ function loadComboFriends() {
         cont++;
     });
     rComboFriends.set(comboFriends);
+}
+
+// set status in option select friends ex. disabled
+function setStatusItemComboFriends(index, status) {
+    var arrFriends = rComboFriends.get();
+    arrFriends[index].status = status;
+    rComboFriends.set(arrFriends);
 }
 
 // Valid if min players is selected for match
