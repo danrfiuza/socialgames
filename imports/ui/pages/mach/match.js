@@ -6,6 +6,7 @@ import './match.html';
 Meteor.subscribe('game.list');
 Games = new Mongo.Collection('games');
 
+var rState = new ReactiveVar('begin');
 var rGame = new ReactiveVar(0);
 var rMaxPlayers = new ReactiveVar(0);
 var rMinPlayers = new ReactiveVar(0);
@@ -16,7 +17,6 @@ var rComboFriends = new ReactiveVar([]);
 clock.setElapsedSeconds(0);
 clock.stop();
 
-
 Template.matches.rendered = function(){
     $("#selectGame").select2({
     	placeholder: "Começe a digite o nome do jogo",
@@ -26,7 +26,7 @@ Template.matches.rendered = function(){
     if(Meteor.Device.isDesktop()){
         $('.input-group.date').datepicker();
     }
-    hideInitialElements();
+    changeState();
     rPlayers.set([]);
     rGame.set([]);
 };
@@ -69,29 +69,27 @@ Template.matches.helpers({
 Template.matches.events({
     // Search games
     'change #selectGame' : function(event, template) {
+        rState.set('game');
+        changeState();
       	game = Games.findOne({bggid: $("#selectGame").val()[0]});
 		rGame.set(game);
         rMaxPlayers.set(game.maxplayers);
         rMinPlayers.set(game.minplayers);
-        $('#divButtons').show();
-        rPlayers.set([]);
+        rPlayers.set([]); 
     },
     'click #btnMatchNow' : function(event, template) {
-        $('#divButtons').hide();
-        $('#divPlayers').show();
-        $('#divBtnStarMatch').show();
-        $('#panelSearch').hide();
+        rState.set('match-now');
+        changeState();
         loadComboFriends();
         prepareAutoComplateForPlayers();
+        rState.set('match-now');
     },
     'click #btnScheduleMatch' : function(event, template) {
-        $('#divButtons').hide();
-        $('#divPlayers').show();
-        $('#divBtnSaveSchedule').show();
-        $('#divSchedle').show();
-        $('#panelSearch').hide();
+        rState.set('match-schedule');
+        changeState();
         loadComboFriends();
         prepareAutoComplateForPlayers();
+        rState.set('match-schedule');
     },
     'change .selectPlayer' : function(event, template) {
         var selectedIndex = event.target.selectedIndex;
@@ -112,7 +110,8 @@ Template.matches.events({
     },
     'click #btnStartMatch' : function(event, template) {
         if (minPlayersFilled()) {
-            prepareToStart();
+            rState.set('start');
+            changeState();
             clock.start();
         } else {
             alert("Para este jogo deve ter no mínimo " + rMinPlayers.get() + ' players selecionados');
@@ -123,28 +122,82 @@ Template.matches.events({
         $('#divBtnFirstPlayer').hide();
     },
     'click #btnFinishCount' : function(event, template) {
-        $('#divPlayers').show();
-        $('#readyPlayers').hide();
         clock.stop();
-        $('#pTimer').css('color', '#999');
-        $('#subtitleGame').html("Contagem de pontos");
-        $('#pBtnCountPoints').hide();
         disableComboPlayers();
-        $('#divBtnFinishMatch').show();
+        rState.set('score');
+        changeState();
     },
     'click #btnFinishMatch' : function(event, template) {
         if (isValidScore()) {
             orderRanking();
-            $('#classification').show();
-            $('#divPlayers').hide();
-            $('#divBtnFinishMatch').hide();
-            $('#divBtnPublish').show();
-            salveMatch(mountMatch());
+            rState.set('trophy');
+            changeState();
+            salveMatch(builMatch());
         } else {
             alert("Algo está errado com a pontuação informada");
         }
     }
 });
+
+// State machine of match
+function changeState(){
+    var status = rState.get();
+    console.log(status);
+    switch (status) {
+        case 'begin' :
+            $('#viewGame').hide();
+            $('#divPlayers').hide();
+            $('#divButtons').hide();
+            $('#divBtnStarMatch').hide();
+            $('#divBtnFirstPlayer').hide();
+            $('#divBtnFinishMatch').hide();
+            $('#classification').hide();
+            $('#divBtnPublish').hide();
+            $('#readyPlayers').hide();
+            $('#divBtnSaveSchedule').hide();
+            $('#divSchedle').hide();
+            break;
+        case 'game' :
+            $('#divButtons').show();
+            break;
+        case 'match-now' : 
+            $('#divButtons').hide();
+            $('#divPlayers').show();
+            $('#divBtnStarMatch').show();
+            $('#panelSearch').hide();
+            break;
+        case 'match-schedule' : 
+            $('#divButtons').hide();
+            $('#divPlayers').show();
+            $('#divBtnSaveSchedule').show();
+            $('#divSchedle').show();
+            $('#panelSearch').hide();
+            break;
+        case 'start' : 
+            $('#divBtnStarMatch').hide();
+            $('#divBtnFirstPlayer').show();
+            $('#panelSearch').hide();
+            $('#divPlayers').hide();
+            $('#readyPlayers').show();
+            $('#subtitleGame').html("Partida em andamento");
+            $('#pBtnCountPoints').html('<button type="button" id="btnFinishCount" class="btn btn-default">Contar os pontos e finalizar a partida</button>');
+            break;
+        case 'score' : 
+            $('#divPlayers').show();
+            $('#readyPlayers').hide();
+            $('#pTimer').css('color', '#999');
+            $('#subtitleGame').html("Contagem de pontos");
+            $('#pBtnCountPoints').hide();
+            $('#divBtnFinishMatch').show();
+            break;
+        case 'trophy' : 
+            $('#classification').show();
+            $('#divPlayers').hide();
+            $('#divBtnFinishMatch').hide();
+            $('#divBtnPublish').show();
+            break;
+    }
+}
 
 // Mount select2 in combo players elements 
 function prepareAutoComplateForPlayers() {
@@ -184,32 +237,11 @@ function setStatusItemComboFriends(index, status) {
 
 // Valid if min players is selected for match
 function minPlayersFilled() {
-    var contPlayers = 0;
-    for (var i = 1; i <= rMaxPlayers.get(); i++) {
-        if ( $("#player"+i).val().length != 0 ) {
-            contPlayers++;
-        }
-    }
-    if (contPlayers < rMinPlayers.get()) {
+    if (rPlayers.get().length < rMinPlayers.get()) {
         return false;
     } else {
         return true;
     }
-}
-
-// Hides the initial elements that will not be used yet
-function hideInitialElements() {
-    $('#viewGame').hide();
-    $('#divPlayers').hide();
-    $('#divButtons').hide();
-    $('#divBtnStarMatch').hide();
-    $('#divBtnFirstPlayer').hide();
-    $('#divBtnFinishMatch').hide();
-    $('#classification').hide();
-    $('#divBtnPublish').hide();
-    $('#readyPlayers').hide();
-    $('#divBtnSaveSchedule').hide();
-    $('#divSchedle').hide();
 }
 
 // Remove a player of match
@@ -228,14 +260,7 @@ function addPlayerMatch(emailPlayer) {
 
 // Displays the screen elements for the starting status
 function prepareToStart() {
-    $('#divBtnStarMatch').hide();
-    $('#divBtnFirstPlayer').show();
-    $('#panelSearch').hide();
-    $('#divPlayers').hide();
-    $('#readyPlayers').show();
-    $('#subtitleGame').html("Partida em andamento");
-    $('#pBtnCountPoints').html('<button type="button" id="btnFinishCount" class="btn btn-default">Contar os pontos e finalizar a partida</button>');
-}
+    }
 
 // Randomize the first player
 function randomizeFirstPlayer() {
@@ -287,7 +312,7 @@ function orderRanking() {
 }
 
 // Assemble match information
-function mountMatch() {
+function buildMatch() {
     var match = {};
     match.players = rPlayers.get();
     match.game = rGame.get();
