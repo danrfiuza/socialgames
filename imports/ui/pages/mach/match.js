@@ -6,7 +6,6 @@ import './match.html';
 Meteor.subscribe('game.list');
 Games = new Mongo.Collection('games');
 
-var rState = new ReactiveVar('begin');
 var rGame = new ReactiveVar(0);
 var rMaxPlayers = new ReactiveVar(0);
 var rMinPlayers = new ReactiveVar(0);
@@ -26,7 +25,7 @@ Template.matches.rendered = function(){
     if(Meteor.Device.isDesktop()){
         $('.input-group.date').datepicker();
     }
-    changeState();
+    changeState('begin');
     rPlayers.set([]);
     rGame.set([]);
 };
@@ -69,8 +68,7 @@ Template.matches.helpers({
 Template.matches.events({
     // Search games
     'change #selectGame' : function(event, template) {
-        rState.set('game');
-        changeState();
+        changeState('game');
       	game = Games.findOne({bggid: $("#selectGame").val()[0]});
 		rGame.set(game);
         rMaxPlayers.set(game.maxplayers);
@@ -78,15 +76,12 @@ Template.matches.events({
         rPlayers.set([]); 
     },
     'click #btnMatchNow' : function(event, template) {
-        rState.set('match-now');
-        changeState();
+        changeState('match-now');
         loadComboFriends();
         prepareAutoComplateForPlayers();
-        rState.set('match-now');
     },
     'click #btnScheduleMatch' : function(event, template) {
-        rState.set('match-schedule');
-        changeState();
+        changeState('match-schedule');
         loadComboFriends();
         prepareAutoComplateForPlayers();
         rState.set('match-schedule');
@@ -110,8 +105,7 @@ Template.matches.events({
     },
     'click #btnStartMatch' : function(event, template) {
         if (minPlayersFilled()) {
-            rState.set('start');
-            changeState();
+            changeState('start');
             clock.start();
         } else {
             alert("Para este jogo deve ter no mínimo " + rMinPlayers.get() + ' players selecionados');
@@ -124,14 +118,12 @@ Template.matches.events({
     'click #btnFinishCount' : function(event, template) {
         clock.stop();
         disableComboPlayers();
-        rState.set('score');
-        changeState();
+        changeState('score');
     },
     'click #btnFinishMatch' : function(event, template) {
         if (isValidScore()) {
             orderRanking();
-            rState.set('trophy');
-            changeState();
+            changeState('trophy');
             salveMatch(builMatch());
         } else {
             alert("Algo está errado com a pontuação informada");
@@ -140,9 +132,7 @@ Template.matches.events({
 });
 
 // State machine of match
-function changeState(){
-    var status = rState.get();
-    console.log(status);
+function changeState(status) {
     switch (status) {
         case 'begin' :
             $('#viewGame').hide();
@@ -158,6 +148,9 @@ function changeState(){
             $('#divSchedle').hide();
             break;
         case 'game' :
+            $('#panelSearch').hide();
+            $('#divSchedle').hide();
+            $('#viewGame').show();
             $('#divButtons').show();
             break;
         case 'match-now' : 
@@ -191,6 +184,7 @@ function changeState(){
             $('#divBtnFinishMatch').show();
             break;
         case 'trophy' : 
+            $('#panelSearch').hide();
             $('#classification').show();
             $('#divPlayers').hide();
             $('#divBtnFinishMatch').hide();

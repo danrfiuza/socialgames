@@ -1,85 +1,82 @@
 <template name="games">
     <div class="row">
        	<div class="col-lg-12">
-        	<div class="panel panel-default">
-		       	<div class="panel-body">
-		       		<div id="divSearchGame">
-		       			<form class="form-horizontal">
-				        	<fieldset>
-				            	<div class="form-group">
-				            		<div class="col-sm-12">
-				            			<em class="fa fa-wifi fa-2x"></em>
-				            			<p>Primeiro vamos procurar informações sobre o jogo na bgg</p>
-				            		</div>	
-				               		<label for="input-id-1" class="col-sm-2 control-label">Procurar por</label>
-				               		<div class="col-sm-6">
-				                  		<input id="search" class="form-control" type="text">
-				               		</div>
-				               		<div class="col-sm-4">
-						              <div class="form-group">
-						                  <button type="button" id="btnSearchGame" class="btn btn-default">Buscar</button>
-						              </div>    
-						            </div> 
-				            	</div>
-				         	</fieldset>
-				        </form>
-			        </div>
-		         	<div class="table-responsive" id="tableListGames">
-			          <table id="table-ext-1" class="table table-bordered table-hover">
-			             <tbody>
-			             	{{#each localizedGames }}
-				                <tr>
-				                	<td class="col-sm-1">{{ yearpublished }}</td>
-				                	<td>
-					                	<div class="media">
-					                		<img src="https:{{ thumbnail }}" alt="Image" width="60">
-					                    </div>
-				                	</td>
-				                	<td>{{#with name }} {{ text }} {{/with }}</td>
-				                	<td><button type="button" game-id="{{#with generic }}{{ objectid }}{{/with}}" class="btn btn-primary moreInformation">Ver Informaçãoes</button></td>
-				                </tr>
-			                {{/each }}
-			             </tbody>
-			          </table>
-			        </div>
-					<form method="get" action="/" class="form-horizontal" name="formGame">
-			         	<div id="divFormGame">
-			         		<fieldset>
-				            	<div class="form-group">
-				               		<label for="input-id-1" class="col-sm-2 control-label">Titulo do Jogo</label>
-				               		<div class="col-sm-10">
-				                  		<input type="text" id="name" name="name" rows="10" class="form-control" />
-				               		</div>
-				            	</div>
-				         	</fieldset>
-				         	<fieldset>
-				            	<div class="form-group">
-				               		<label for="input-id-1" class="col-sm-2 control-label">Descrição</label>
-				               		<div class="col-sm-10">
-				                  		<textarea id="description" name="description" rows="10" class="form-control note-editor"></textarea>
-				               		</div>
-				            	</div>
-				         	</fieldset>
-				         	<fieldset>
-				            	<div class="form-group">
-				               		<label for="input-id-1" class="col-sm-2 control-label">Componentes</label>
-				               		<div class="col-sm-10">
-				                  		<textarea id="components" name="components" rows="10" class="form-control note-editor"></textarea>
-				               		</div>
-				            	</div>
-				         	</fieldset>
-				         	<fieldset>
-				                <div class="form-group">
-				                   <div class="col-sm-4 col-sm-offset-2">
-				                      <button type="button" id="btnCancelar" class="btn btn-default">Cancelar</button>
-				                      <button type="button" id="btnSalvar" class="btn btn-primary">Salvar Alterações</button>
-				                   </div>
-				                </div>
-			             	</fieldset>
-			            </div> 	
-			      	</form>
-		       </div>
-		    </div>
+	       	<div class="panel-body">
+	       		<div id="divSearchGame">
+	       			<form class="form-horizontal">
+	       				<div class="col-sm-12">
+	            			<em class="fa fa-wifi fa-2x"></em>
+	            			<p>Vamos procurar informações sobre o jogo na bgg</p>
+	            		</div>
+		            	<div class="form-group">
+		               		<label for="input-id-1" class="col-sm-2 control-label">Procurar por</label>
+		               		<div class="col-sm-12">
+		                  		<input id="search" class="form-control" type="text">
+		               		</div>
+		               		<div class="col-sm-2">
+				              <div class="form-group">
+				                  <button type="button" id="btnSearchGame" class="btn btn-default">Buscar</button>
+				              </div>    
+				            </div>
+		            	</div>
+			        </form>
+		        </div>
+	         	<div class="table-responsive" id="tableListGames">
+	         		{{#each localizedGames }}
+	         		<div class="panel-body bg-inverse" id="useGame">
+		                <div class="row row-table text-center">
+		                   	<div class="col-xs-4">
+		                    	<div class="media">
+			                		<img src="https:{{ thumbnail }}" alt="Image" width="60">
+			                    </div>
+		                   	</div>
+		                   	<div class="col-xs-8">
+		                      	<p class="m0 h5">{{#with name }} {{ text }} {{/with }}</p>
+		                      	<p class="m0 text-muted">{{ yearpublished }}</p>
+		                      	<p><button type="button" game-id="{{#with generic }}{{ objectid }}{{/with}}" class="btn btn-primary moreInformation">Detalhes</button></p>
+		                   	</div>
+		                </div>
+		            </div>
+		            <br/>
+		            {{/each }}
+		        </div>
+				<form method="get" action="/" class="form-horizontal" name="formGame">
+		         	<div id="divFormGame">
+		         		<fieldset>
+			            	<div class="form-group">
+			               		<label for="input-id-1" class="col-sm-2 control-label">Titulo do Jogo</label>
+			               		<div class="col-sm-10">
+			                  		<input type="text" id="name" name="name" rows="10" class="form-control" />
+			               		</div>
+			            	</div>
+			         	</fieldset>
+			         	<fieldset>
+			            	<div class="form-group">
+			               		<label for="input-id-1" class="col-sm-2 control-label">Descrição</label>
+			               		<div class="col-sm-10">
+			                  		<textarea id="description" name="description" rows="10" class="form-control note-editor"></textarea>
+			               		</div>
+			            	</div>
+			         	</fieldset>
+			         	<fieldset>
+			            	<div class="form-group">
+			               		<label for="input-id-1" class="col-sm-2 control-label">Componentes</label>
+			               		<div class="col-sm-10">
+			                  		<textarea id="components" name="components" rows="10" class="form-control note-editor"></textarea>
+			               		</div>
+			            	</div>
+			         	</fieldset>
+			         	<fieldset>
+			                <div class="form-group">
+			                   <div class="col-sm-4 col-sm-offset-2">
+			                      <button type="button" id="btnCancelar" class="btn btn-default">Cancelar</button>
+			                      <button type="button" id="btnSalvar" class="btn btn-primary">Salvar Alterações</button>
+			                   </div>
+			                </div>
+		             	</fieldset>
+		            </div> 	
+		      	</form>
+	       </div>
        	</div>
 
        	{{#with focusGame}}
