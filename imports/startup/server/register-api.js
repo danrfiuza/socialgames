@@ -6,3 +6,6 @@ import '../../api/friends/server/publications.js';
 
 import '../../api/match/methods.js';
 import '../../api/match/server/publications.js';
+
+import '../../api/place/methods.js';
+import '../../api/place/server/publications.js';
