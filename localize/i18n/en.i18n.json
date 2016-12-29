@@ -34,6 +34,8 @@
     "SEARCH_ADDRESS": "Search Address",
     "COUNTRY_CODE": "Country Code",
     "LATITUDE": "Latitude",
-    "LONGITUDE": "Longitude"
+    "LONGITUDE": "Longitude",
+    "ENTER_ADDRESS": "Enter address",
+    "PLACE_NAME": "Place name"
   }    
 }

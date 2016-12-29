@@ -1,17 +1,17 @@
 <template name="map">
 	<label class="col-lg-2 control-label">{{_ "places.SEARCH_ADDRESS"}} </label>
 	<div class="col-lg-10">
-		<input type="text" name="autocomplete" placeholder="Informe o endereço" id="autocomplete" class="form-control">
+		<input type="text" name="autocomplete" placeholder="{{_ "places.SEARCH_ADDRESS"}}" id="autocomplete" class="form-control">
 	</div>
 
 	<label class="col-lg-2 control-label">{{_ "places.PLACE"}}</label>
 	<div class="col-lg-10">
-		<input type="text" name="name" placeholder="Nome do local" id="place" class="form-control">
+		<input type="text" name="name" placeholder="{{_ "places.PLACE_NAME"}}" id="place" class="form-control">
 	</div>
 
 	<label class="col-lg-2 control-label">{{_ "places.ADDRESS"}}</label>
 	<div class="col-lg-10">
-		<input type="text" name="formatted_address" placeholder="Endereço" id="address" class="form-control">
+		<input type="text" name="formatted_address" placeholder="{{_ "places.ADDRESS"}}" id="address" class="form-control">
 	</div>
 
 	<div class="map-container col-lg-10">
