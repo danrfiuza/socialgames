@@ -14,10 +14,12 @@
 		<input type="text" name="formatted_address" placeholder="{{_ "places.ADDRESS"}}" id="address" class="form-control">
 	</div>
 
-	<div class="map-container col-lg-10">
-		{{> googleMap name="map" options=mapOptions}}
+	<div class="row">
+		<div class="map-container col-lg-offset-2 col-lg-10">
+			{{> googleMap name="map" options=mapOptions}}
+		</div>
 	</div>
-
+	
 	<div class="row">
 		<label class="col-xs-2 control-label">{{_ "places.COUNTRY_CODE"}} </label>
 		<div class="col-xs-10">
