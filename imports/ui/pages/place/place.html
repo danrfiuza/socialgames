@@ -1,7 +1,15 @@
 <template name="places">
-  {{> placeForm}}
+	{{> placeForm}}
 
-  {{#each lista}}
-      {{> placeList }}
-  {{/each}}
+	<div class="row">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				{{#each lista}}
+					<div class="col-lg-offset-2 col-lg-10">
+						{{> placeList }}
+					</div>
+				{{/each}}
+			</div>
+		</div>
+	</div>
 </template>

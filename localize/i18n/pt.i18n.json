@@ -1,4 +1,7 @@
 {
+  "public": {
+    "SAVE": "Salvar"
+  },
   "dashboard": {
     "WELCOME": "Bem-vindo ao Social Games!",
     "ENGLISH": "Inglês",
@@ -24,5 +27,13 @@
       "TIMELINE": "Timeline",
       "LOGOFF": "Sair"
     }
-  }
+  },
+  "places": {
+    "ADDRESS": "Endereço",
+    "PLACE": "Local",
+    "SEARCH_ADDRESS": "Buscar Endereço",
+    "COUNTRY_CODE": "Código do País",
+    "LATITUDE": "Latitude",
+    "LONGITUDE": "Longitude"
+  } 
 }

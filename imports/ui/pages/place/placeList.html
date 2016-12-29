@@ -1,3 +1,10 @@
 <template name="placeList">
-    <li>{{name}}</li>
+    <a href="#" class="list-group-item">
+    	<div class="col-lg-10">
+    		<label>{{_ "places.PLACE"}}:</label> {{name}}
+		</div>
+    	<div class="col-lg-10">
+    		<label> {{_ "places.ADDRESS"}}:</label> {{formatted_address}}
+		</div>
+	</a>
 </template>

@@ -4,17 +4,11 @@
 	       	<div class="panel-body">
                 <form class="form-horizontal" name="new-place">
                    <div class="form-group">
-                      <label class="col-lg-2 control-label">Local</label>
-                      <div class="col-lg-10">
-                         <input type="text" name="name" placeholder="" id="place" class="form-control">
-                      </div>
-                   </div>
-                   <div class="form-group">
                      {{> map}}
                    </div>
                    <div class="form-group">
                       <div class="col-lg-offset-2 col-lg-10">
-                         <button type="button" id="save" class="btn btn-sm btn-default">Salvar</button>
+                         <button type="button" id="save" class="btn btn-sm btn-default">{{_ "public.SAVE"}}</button>
                       </div>
                    </div>
                 </form>

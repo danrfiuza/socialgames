@@ -1,13 +1,45 @@
 <template name="map">
-  <input id="autocomplete" name="autocomplete" placeholder="Informe o endereço" type="text">
-  
-  <div class="map-container">
-    {{> googleMap name="map" options=mapOptions}}
-  </div>
+	<label class="col-lg-2 control-label">{{_ "places.SEARCH_ADDRESS"}} </label>
+	<div class="col-lg-10">
+		<input type="text" name="autocomplete" placeholder="Informe o endereço" id="autocomplete" class="form-control">
+	</div>
 
-  <form>
-  Latitude:   <input name="lat" type="text" value="">
-  Longitude:  <input name="lng" type="text" value="">
-  Address:    <input name="formatted_address" type="text" value="">
-</form>
+	<label class="col-lg-2 control-label">{{_ "places.PLACE"}}</label>
+	<div class="col-lg-10">
+		<input type="text" name="name" placeholder="Nome do local" id="place" class="form-control">
+	</div>
+
+	<div class="map-container col-lg-10">
+		{{> googleMap name="map" options=mapOptions}}
+	</div>
+
+
+	<div class="row">
+		<label class="col-xs-2 control-label">{{_ "places.ADDRESS"}} </label>
+		<div class="col-xs-10">
+			<input name="formatted_address" type="text" value="">
+		</div>
+	</div>
+
+	<div class="row">
+		<label class="col-xs-2 control-label">{{_ "places.COUNTRY_CODE"}} </label>
+		<div class="col-xs-10">
+			<input name="country_short" type="text" value="" readonly>
+		</div>
+	</div>
+	<div class="row">
+		<label class="col-xs-2 control-label">{{_ "places.LATITUDE"}} </label>
+		<div class="col-xs-10">
+			<input name="lat" type="text" value="" readonly>
+		</div>
+	</div>
+	<div class="row">
+		<label class="col-xs-2 control-label">{{_ "places.LONGITUDE"}} </label>
+		<div class="col-xs-10">
+			<input name="lng" type="text" value="" readonly>
+		</div>
+	</div>
+
+
+
 </template>  

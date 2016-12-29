@@ -1,4 +1,7 @@
 {
+  "public": {
+    "SAVE": "Salvar"
+  },  
   "dashboard": {
     "WELCOME": "Welcome to Angle !",
     "ENGLISH": "English",
@@ -24,5 +27,13 @@
       "TIMELINE": "Timeline",
       "LOGOFF": "Logoff"
     }
-  }
+  },
+  "places": {
+    "ADDRESS": "Address",
+    "PLACE": "Place",
+    "SEARCH_ADDRESS": "Search Address",
+    "COUNTRY_CODE": "Country Code",
+    "LATITUDE": "Latitude",
+    "LONGITUDE": "Longitude"
+  }    
 }
