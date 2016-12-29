@@ -9,16 +9,13 @@
 		<input type="text" name="name" placeholder="Nome do local" id="place" class="form-control">
 	</div>
 
-	<div class="map-container col-lg-10">
-		{{> googleMap name="map" options=mapOptions}}
+	<label class="col-lg-2 control-label">{{_ "places.ADDRESS"}}</label>
+	<div class="col-lg-10">
+		<input type="text" name="formatted_address" placeholder="Endereço" id="address" class="form-control">
 	</div>
 
-
-	<div class="row">
-		<label class="col-xs-2 control-label">{{_ "places.ADDRESS"}} </label>
-		<div class="col-xs-10">
-			<input name="formatted_address" type="text" value="">
-		</div>
+	<div class="map-container col-lg-10">
+		{{> googleMap name="map" options=mapOptions}}
 	</div>
 
 	<div class="row">
