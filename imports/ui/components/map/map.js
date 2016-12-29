@@ -52,9 +52,6 @@ Meteor.startup(function() {
     // });
   // });
 
-  Meteor.startup(function() {
-    GoogleMaps.load();
-  });
 
   Template.map.helpers({
     mapOptions: function() {
@@ -119,8 +116,7 @@ Meteor.startup(function() {
         map.instance.setZoom(MAP_ZOOM);
 // console.log('Template.map.autocompleteasdfasdf');
 // console.log(Template);
-Template.teste = 'ok 1';
-Template.map.teste = 'ok 12';
+
 
 //         var autocomplete = new google.maps.places.autocomplete(
 //           ('autocomplete'),{types: ['geocode'] }
@@ -135,11 +131,31 @@ Template.map.teste = 'ok 12';
     // });
   });
   Template.map.onRendered(function() {
-  this.autorun(function () {
-    if (GoogleMaps.loaded()) {
-      $("input").geocomplete();
-    }
+    this.autorun(function () {
+      if (GoogleMaps.loaded()) {
+        console.log('aki');
+        console.log($("input"));
+        $("#autocomplete").geocomplete({
+          map: ".map-container",
+          mapOptions: {
+            zoom: MAP_ZOOM
+          },
+          markerOptions: {
+            draggable: true
+          },
+          details: "form"
+        });
+
+        // var autocomplete = new google.maps.places.autocomplete((document.getElementById('autocomplete')),{types: ['geocode'] });
+      }
+    });
   });
-});
+
+  Template.map.events({
+  'click button': function() {
+    // Trigger geocoding request.
+    $("#autocomplete").trigger("geocode");
+  }
+})
 
 }
