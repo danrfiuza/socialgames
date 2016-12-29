@@ -21,4 +21,4 @@
 
 **LOCAIS:**
 
-* Cadastro de Locais (Somente o Nome)
+* Cadastro de Locais buscando endereço e coordenadas
