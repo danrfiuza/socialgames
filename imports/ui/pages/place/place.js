@@ -14,6 +14,14 @@ Template.places.events({
 
         let place = $('form[name="new-place"]').serializeJSON();
 
+        //Só deve ter no json os valores para serem inseridos no BD, qualquer coisa diferente e deletada, uma questão de segurança
+        var valoresParaInserir = ["_id", "autocomplete", "name", "formatted_address", "country_short", "lat", "lng"];
+        $.each(place, function(indice, item) {
+            if (!valoresParaInserir.indexOf(indice)) {
+                delete place[indice];
+            }
+        });
+
         Meteor.call('places.insert', place, function (e, result) {
             if(result){
                 Bert.alert('Local salvo com sucesso', 'success');

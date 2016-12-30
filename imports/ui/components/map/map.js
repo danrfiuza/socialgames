@@ -42,8 +42,6 @@ if (Meteor.isClient) {
   Template.map.onRendered(function() {
     this.autorun(function () {
       if (GoogleMaps.loaded()) {
-        console.log('aki');
-        console.log($("input"));
         $("#autocomplete").geocomplete({
           map: ".map-container",
           mapOptions: {
