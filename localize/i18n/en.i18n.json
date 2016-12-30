@@ -25,6 +25,7 @@
       "PLACES": "Places",
       "RANKINGS": "Rankings",
       "TIMELINE": "Timeline",
+      "DASHBOARD": "Dashboard",
       "LOGOFF": "Logoff"
     }
   },
@@ -37,5 +38,9 @@
     "LONGITUDE": "Longitude",
     "ENTER_ADDRESS": "Enter address",
     "PLACE_NAME": "Place name"
+  },
+  "dashboard": {
+    "DASHBOARD": "Dashboard",
+    "MYDASHBOARD": "My Dashboard"
   }    
 }

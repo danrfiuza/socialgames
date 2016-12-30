@@ -25,6 +25,7 @@
       "PLACES": "Locais",
       "RANKINGS": "Rankings",
       "TIMELINE": "Timeline",
+      "DASHBOARD": "Dashboard",
       "LOGOFF": "Sair"
     }
   },
@@ -37,5 +38,9 @@
     "LONGITUDE": "Longitude",
     "ENTER_ADDRESS": "Informe o endereço",
     "PLACE_NAME": "Nome do local"
-  } 
+  },
+  "dashboard": {
+    "DASHBOARD": "Dashboard",
+    "MYDASHBOARD": "Meu Dashboard"
+  }
 }

@@ -9,6 +9,7 @@ import '../../ui/pages/main/main.js';
 import '../../ui/pages/mach/match.js';
 import '../../ui/pages/place/place.js';
 import '../../ui/pages/ranking/ranking.js';
+import '../../ui/pages/dashboard/dashboard.js';
 import '../../ui/globals/auth/login.js';
 
 var titleSocial = 'Social Games - A Rede Social dos Board Gamers';
@@ -92,6 +93,14 @@ Router.map(function(){
         sectionTitle: 'Timeline',
         onAfterAction: function() {
             return document.title = "Timeline | " + titleSocial;
+        }
+    });
+
+    this.route('dashboard', {
+        path: '/dashboard',
+        sectionTitle: 'Dashboard',
+        onAfterAction: function() {
+            return document.title = "Dashboard | " + titleSocial;
         }
     });
 
