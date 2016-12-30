@@ -3,7 +3,6 @@
 **GERAL:**
 
 * Gerar feed para a timeline ao criar o usuário (Ex.: Thiago acaba de entrar no Social Games)
-* Criar um perfil de usuário mostrando seus amigos, suas partidas, seus jogos...
 * Criar edição de usuário
 * Criar exclusão (lógica) de usuário
 * Implementar gamification do usuário (Level, pontos, conquistas...)

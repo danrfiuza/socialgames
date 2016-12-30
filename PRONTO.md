@@ -21,4 +21,9 @@
 
 **LOCAIS:**
 
-* Cadastro de Locais buscando endereço e coordenadas
+* Cadastro de Locais buscando endereço
+* Cadastro de coordenadas com mapa do google
+
+**DASHBOARD:**
+
+* Criar um dashboard de usuário mostrando seus amigos, suas partidas, seus jogos...
