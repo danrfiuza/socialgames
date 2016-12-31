@@ -1,6 +1,6 @@
 <template name="dashboard">
 
-	<h2>Panels with Contextual Classes</h2>
+	<h2>Dashboard</h2>
 	<div class="panel-group">
 	<div class="row">
 		<div class="col-sm-3">
@@ -12,21 +12,17 @@
 		</div>
 
 		<div class="col-sm-3">
-			<div class="panel panel-default">
-				<div class="panel-heading" style="background-color: orange; color: white">Panel with panel-info class</div>
-				<div class="panel-body">Panel Content</div>
-			</div>
+			{{> dashboardYourGames }}
 		</div>
 
 		<div class="col-sm-3">
-			<div class="panel panel-default">
-				<div class="panel-heading" style="background-color: red; color: white">Panel with panel-warning class</div>
-				<div class="panel-body">Panel Content</div>
-			</div>
-		</div>
+            {{> dashboardScheduledGames }}
+        </div>
 
-	</div>
-<br />
+    </div>
+
+    </div>
+
 	<div class="row">
 		<div class="col-sm-12">
 			<div class="panel panel-default">
@@ -35,5 +31,5 @@
 			</div>
 		</div>
 	</div>
-	</div>
+
 </template>
