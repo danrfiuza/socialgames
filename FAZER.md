@@ -7,6 +7,7 @@
 * Criar exclusão (lógica) de usuário
 * Implementar gamification do usuário (Level, pontos, conquistas...)
 * Verificar se login já existe antes de cadastrar e mesclar informações, principalmente entre usuário de e-mail e usuário do Facebook.
+* Implementar as diferentes patentes depedendo da quantidade de partidas
 
 **AMIGOS:**
 
