@@ -60,13 +60,15 @@
     </div>
 
     <div id="divPlaces">
-      <select name="place" id="place" class="form-control m-b" multiple="true">
-        {{#each places }}
-          <option value="{{ _id }}">{{ name }}</option>
-        {{/each}}
-      </select>
-      <br>
-      <a href="/places">Adicionar um novo local</a>
+      <div class="col-lg-12">
+        <select name="place" id="place" class="form-control m-b" multiple="true">
+          {{#each places }}
+            <option value="{{ _id }}">{{ name }}</option>
+          {{/each}}
+        </select>
+        <br>
+        <a href="/places">Adicionar um novo local</a>
+      </div>
     </div>
 
     <div id="divSchedule">

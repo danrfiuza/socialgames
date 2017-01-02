@@ -190,6 +190,7 @@ function changeState(status) {
             $('#panelSearch').hide();
             $('#divPlayers').hide();
             $('#readyPlayers').show();
+            $('#divPlaces').hide();
             $('#subtitleGame').html("Partida em andamento");
             $('#pBtnCountPoints').html('<button type="button" id="btnFinishCount" class="btn btn-default">Contar os pontos e finalizar a partida</button>');
             break;
@@ -274,10 +275,6 @@ function addPlayerMatch(emailPlayer) {
     rPlayers.set(players);
 }
 
-// Displays the screen elements for the starting status
-function prepareToStart() {
-    }
-
 // Randomize the first player
 function randomizeFirstPlayer() {
     var players = rPlayers.get();
@@ -310,10 +307,14 @@ function isValidScore() {
 function orderRanking() {
     var players = rPlayers.get();
     for (var i = 1; i <= rMaxPlayers.get(); i++) {
-        if ( $("#player"+i).val().length != 0 ) {
-            players[i -1].pontos = $("#ptPlayer"+i).val();
+        if ( $("#player"+i).length != 0 ) {
+            if (players[i - 1] != undefined) {
+                players[i-1].pontos = $("#ptPlayer"+i).val();
+            }
         }
     }
+    console.log(players[0]);
+    console.log(players);
     players.sort(function(a, b){
         if (parseInt(a.pontos) > parseInt(b.pontos)) {
             return -1;
