@@ -1,15 +1,15 @@
 <template name="map">
-	<label class="col-lg-2 control-label">{{_ "places.SEARCH_ADDRESS"}} </label>
+	<label class="col-lg-2 control-label">{{_ "places.SEARCH_ADDRESS"}}* </label>
 	<div class="col-lg-10">
 		<input type="text" name="autocomplete" placeholder="{{_ "places.SEARCH_ADDRESS"}}" id="autocomplete" class="form-control">
 	</div>
 
-	<label class="col-lg-2 control-label">{{_ "places.PLACE"}}</label>
+	<label class="col-lg-2 control-label">{{_ "places.PLACE"}}*</label>
 	<div class="col-lg-10">
 		<input type="text" name="name" placeholder="{{_ "places.PLACE_NAME"}}" id="place" class="form-control">
 	</div>
 
-	<label class="col-lg-2 control-label">{{_ "places.ADDRESS"}}</label>
+	<label class="col-lg-2 control-label">{{_ "places.ADDRESS"}}*</label>
 	<div class="col-lg-10">
 		<input type="text" name="formatted_address" placeholder="{{_ "places.ADDRESS"}}" id="address" class="form-control">
 	</div>
@@ -20,20 +20,20 @@
 		</div>
 	</div>
 	
-	<div class="row">
-		<label class="col-xs-2 control-label">{{_ "places.COUNTRY_CODE"}} </label>
+	<div class="row hidden">
+		<label class="col-xs-2 control-label">{{_ "places.COUNTRY_CODE"}}* </label>
 		<div class="col-xs-10">
 			<input name="country_short" type="text" value="" readonly>
 		</div>
 	</div>
-	<div class="row">
-		<label class="col-xs-2 control-label">{{_ "places.LATITUDE"}} </label>
+	<div class="row hidden">
+		<label class="col-xs-2 control-label">{{_ "places.LATITUDE"}}* </label>
 		<div class="col-xs-10">
 			<input name="lat" type="text" value="" readonly>
 		</div>
 	</div>
-	<div class="row">
-		<label class="col-xs-2 control-label">{{_ "places.LONGITUDE"}} </label>
+	<div class="row hidden">
+		<label class="col-xs-2 control-label">{{_ "places.LONGITUDE"}}* </label>
 		<div class="col-xs-10">
 			<input name="lng" type="text" value="" readonly>
 		</div>

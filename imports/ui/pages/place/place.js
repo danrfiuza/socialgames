@@ -22,13 +22,28 @@ Template.places.events({
             }
         });
 
-        Meteor.call('places.insert', place, function (e, result) {
-            if(result){
-                Bert.alert('Local salvo com sucesso', 'success');
-            } else {
-                Bert.alert('Erro ao tentar salvar um local', 'danger');
+        //Validação basica de campos obrigatorios
+        var valoresObrigatorios = ["autocomplete", "name", "formatted_address", "country_short", "lat", "lng"];
+        var booObrigatoriosPreenchidos = true;
+        $.each(place, function(indice, item) {
+            if (valoresObrigatorios.indexOf(indice)) {
+                if (item == '') {
+                    strObrigatoriosPreenchidos = false
+                }
             }
         });
+
+        if (strObrigatoriosPreenchidos == true) {
+            Meteor.call('places.insert', place, function (e, result) {
+                if(result){
+                    Bert.alert('Local salvo com sucesso', 'success');
+                } else {
+                    Bert.alert('Erro ao tentar salvar um local', 'danger');
+                }
+            });
+        } else {
+            Bert.alert('Existe(m) campo(s) obrigatorio(s) para sere(m) preenchido(s)', 'danger');
+        }
 
         $('#place').val('');//Clear input
         Meteor.call('places.find', null, function (e, result) {
