@@ -48,11 +48,15 @@ if (Meteor.isClient) {
             zoom: MAP_ZOOM
           },
           markerOptions: {
-            draggable: false
+            draggable: true
           },
           details: "form"
         });
 
+        $("#autocomplete").bind("geocode:dragged", function(event, latLng){
+          $("input[name=lat]").val(latLng.lat());
+          $("input[name=lng]").val(latLng.lng());
+        });
         // var autocomplete = new google.maps.places.autocomplete((document.getElementById('autocomplete')),{types: ['geocode'] });
       }
     });
