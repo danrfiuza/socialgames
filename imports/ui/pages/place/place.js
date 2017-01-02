@@ -33,7 +33,7 @@ Template.places.events({
             }
         });
 
-        if (strObrigatoriosPreenchidos == true) {
+        if (booObrigatoriosPreenchidos == true) {
             Meteor.call('places.insert', place, function (e, result) {
                 if(result){
                     Bert.alert('Local salvo com sucesso', 'success');
