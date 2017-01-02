@@ -67,7 +67,7 @@ div.user-menu-container .thumbnail {
 }
 
 /* -- Vertical Button Group -- */
-div.user-menu-container .btn-group-vertical {
+/*div.user-menu-container .btn-group-vertical {
     display: block;
 }
 
@@ -87,9 +87,9 @@ div.btn-group-vertical>a.active {
     background: #FA396F;
     box-shadow: none;
     color: white;
-}
+}*/
 /* -- Individual button styles of vertical btn group -- */
-div.user-menu-btns {
+/*div.user-menu-btns {
     padding-right: 0;
     padding-left: 0;
     padding-bottom: 0;
@@ -105,9 +105,9 @@ div.user-menu-btns div.btn-group-vertical>a.active:after{
   border-bottom: 13px solid transparent;
   border-top: 13px solid transparent;
   border-left: 10px solid #46D8D2;
-}
+}*/
 /* -- The main tab & content styling of the vertical buttons info-- */
-div.user-menu-content {
+/*div.user-menu-content {
     color: #323232;
 }
 
@@ -125,12 +125,12 @@ ul.user-menu-list>li {
 
 div.user-menu div.user-menu-content:not(.active){
   display: none;
-}
+}*/
 
 /* -- The btn stylings for the btn icons -- */
-.btn-label {position: relative;left: -12px;display: inline-block;padding: 6px 12px;background: rgba(0,0,0,0.15);border-radius: 3px 0 0 3px;}
+/*.btn-label {position: relative;left: -12px;display: inline-block;padding: 6px 12px;background: rgba(0,0,0,0.15);border-radius: 3px 0 0 3px;}
 .btn-labeled {padding-top: 0;padding-bottom: 0;}
-
+*/
 /* -- Custom classes for the snippet, won't effect any existing bootstrap classes of your site, but can be reused. -- */
 
 .user-pad {
@@ -145,14 +145,14 @@ div.user-menu div.user-menu-content:not(.active){
 
 .user-details {
     background: #eee;
-    min-height: 333px;
+    /*min-height: 333px;*/
 }
 
 .user-image {
   max-height:200px;
   overflow:hidden;
 }
-
+/*
 .overview h3 {
     font-weight: 300;
     margin-top: 15px;
@@ -222,7 +222,7 @@ div.user-menu div.user-menu-content:not(.active){
 
 .square, .btn {
     border-radius: 0px!important;
-}
+}*/
 
 /* -- media query for user profile image -- */
 @media (max-width: 767px) {
@@ -238,23 +238,47 @@ div.user-menu div.user-menu-content:not(.active){
 <div class="container"> -->
     <!-- <div class="row user-menu-container square panel panel-default"> -->
         <div class="col-md-12 user-details panel panel-default">
-            <div class="row white" style="background-color: blue;">
+            <div class="row white">
                 <div class="col-md-3 no-pad">
                     <div class="user-image">
                         <img src="https://avatars3.githubusercontent.com/u/2317122" class="img-responsive">
                     </div>
                 </div>
                 <div class="col-md-9 no-pad">
-                    <div class="user-pad">
-                        <h3>Welcome back, João Gabriel</h3>
-                        <h4 class="white"><i class="fa fa-check-circle-o"></i> San Antonio, TX</h4>
-                        <h4 class="white"><i class="fa fa-twitter"></i> CoolesOCool</h4>
-                        <div class="btn btn-labeled btn-info" href="#">
-                            <span class="btn-label"><i class="fa fa-pencil"></i></span>CORONEL: Todo respeito é pouco para esse usuário, as habilidades dele na mesa devem ser temidas</div>
-                    </div>
+                    <!-- <div class="no-pad"> -->
+                        <div class="row" style="background-color: black">
+                            <div class="col-md-2">
+                                <img src="http://mailr3456.ucoz.net/gfhhhhhhhhh/100.png" class="img-responsive">
+                            </div>
+                            <div class="col-md-10 no-pad" style="color: #8b8b8b">
+                                <h5 class="no-pad"> CORONEL <br /> Todo respeito é pouco para esse usuário, as habilidades dele na mesa devem ser temidas</h5>
+                                <!-- <h6 class="no-pad">Todo respeito é pouco para esse usuário, as habilidades dele na mesa devem ser temidas</h6> -->
+                            </div>
+                        </div>
+                        <div style="color: #8b8b8b">
+                            <div class="col-md-4 text-center">
+                                <h5>PARTIDAS</h5>
+                                <h4>600</h4>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <h5>JÁ JOGOU</h5>
+                                <h4>45 jogos</h4>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <h5>MÉDIA DE VITORIA</h5>
+                                <h4>85%</h4>
+                            </div>
+                        </div>
+                        <!-- <h3>Welcome back, João Gabriel</h3> -->
+                        <!-- <h4 class="white"><i class="fa fa-check-circle-o"></i> San Antonio, TX</h4> -->
+                        <!-- <h4 class="white"><i class="fa fa-twitter"></i> CoolesOCool</h4> -->
+                        <!-- <div class="btn btn-labeled btn-info" href="#">
+                            <span class="btn-label"><i class="fa fa-pencil"></i></span>CORONEL: Todo respeito é pouco para esse usuário, as habilidades dele na mesa devem ser temidas
+                            </div> -->
+                    <!-- </div> -->
                 </div>
             </div>
-            <div class="row overview">
+            <!-- <div class="row overview">
                 <div class="col-md-4 user-pad text-center">
                     <h3>PARTIDAS REGISTRADAS</h3>
                     <h4>600</h4>
@@ -267,7 +291,7 @@ div.user-menu div.user-menu-content:not(.active){
                     <h3>MÉDIA DE VITORIA</h3>
                     <h4>85%</h4>
                 </div>
-            </div>
+            </div> -->
     </div>
 
     <!-- </div> -->
