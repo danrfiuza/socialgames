@@ -13,6 +13,7 @@ var rPlayers = new ReactiveVar([]);
 var rPodium = new ReactiveVar([]);
 var clock = new ReactiveClock("clock");
 var rComboFriends = new ReactiveVar([]);
+var rPlaces = new ReactiveVar(0);
 clock.setElapsedSeconds(0);
 clock.stop();
 
@@ -22,9 +23,11 @@ Template.matches.rendered = function(){
     	maximumSelectionLength: 1,
       	allowClear: true
     });
-    if(Meteor.Device.isDesktop()){
-        $('.input-group.date').datepicker();
-    }
+    $("#place").select2({
+        placeholder: "Selecione um local",
+        maximumSelectionLength: 1,
+        allowClear: true
+    });
     changeState('begin');
     rPlayers.set([]);
     rGame.set([]);
@@ -62,6 +65,12 @@ Template.matches.helpers({
     },
     friends() {
         return rComboFriends.get();
+    },
+    places() {
+        Meteor.call('places.find', null, function (e, result) {
+            rPlaces.set(result);
+        });
+        return rPlaces.get();
     }
 });
 
@@ -84,7 +93,6 @@ Template.matches.events({
         changeState('match-schedule');
         loadComboFriends();
         prepareAutoComplateForPlayers();
-        rState.set('match-schedule');
     },
     'change .selectPlayer' : function(event, template) {
         var selectedIndex = event.target.selectedIndex;
@@ -124,10 +132,14 @@ Template.matches.events({
         if (isValidScore()) {
             orderRanking();
             changeState('trophy');
-            salveMatch(builMatch());
+            salveMatch(buildMatch());
         } else {
             alert("Algo está errado com a pontuação informada");
         }
+    },
+    'click #btnSaveSchedule' : function(event, template) {
+        salveMatch(buildMatchSchedule());
+        changeState('schedule');
     }
 });
 
@@ -145,7 +157,10 @@ function changeState(status) {
             $('#divBtnPublish').hide();
             $('#readyPlayers').hide();
             $('#divBtnSaveSchedule').hide();
-            $('#divSchedle').hide();
+            $('#divSchedule').hide();
+            $('#msgReservationFriend').hide();
+            $('#msgReservationSchedule').hide();
+            $('#divPlaces').hide();
             break;
         case 'game' :
             $('#panelSearch').hide();
@@ -158,13 +173,16 @@ function changeState(status) {
             $('#divPlayers').show();
             $('#divBtnStarMatch').show();
             $('#panelSearch').hide();
+            $('#divPlaces').show();
             break;
         case 'match-schedule' : 
             $('#divButtons').hide();
             $('#divPlayers').show();
             $('#divBtnSaveSchedule').show();
-            $('#divSchedle').show();
+            $('#divSchedule').show();
             $('#panelSearch').hide();
+            $('#msgReservationFriend').show();
+            $('#divPlaces').show();
             break;
         case 'start' : 
             $('#divBtnStarMatch').hide();
@@ -189,6 +207,10 @@ function changeState(status) {
             $('#divPlayers').hide();
             $('#divBtnFinishMatch').hide();
             $('#divBtnPublish').show();
+            break;
+        case 'schedule' : 
+            $('#divBtnSaveSchedule').hide();
+            $('#msgReservationSchedule').show();
             break;
     }
 }
@@ -305,13 +327,27 @@ function orderRanking() {
     rPodium.set(players);
 }
 
-// Assemble match information
-function buildMatch() {
+
+function buildGenericMatch() {
     var match = {};
     match.players = rPlayers.get();
     match.game = rGame.get();
-    match.timer = clock.elapsedTime();
+    match.place = $('#place').val();
+    return match;
+}
+
+// Assemble match information
+function buildMatch() {
+    var match = buildGenericMatch();
     match.podium = rPodium.get();
+    match.timer = clock.elapsedTime();
+    return match;
+}
+
+// Assemble match schedule information
+function buildMatchSchedule() {
+    var match = buildGenericMatch();
+    match.date_schedule = $('#dateMatch').val();
     return match;
 }
 
