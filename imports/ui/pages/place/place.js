@@ -28,7 +28,7 @@ Template.places.events({
         $.each(place, function(indice, item) {
             if (valoresObrigatorios.indexOf(indice)) {
                 if (item == '') {
-                    strObrigatoriosPreenchidos = false
+                    booObrigatoriosPreenchidos = false
                 }
             }
         });
