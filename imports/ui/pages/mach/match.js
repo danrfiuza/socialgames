@@ -140,6 +140,9 @@ Template.matches.events({
     'click #btnSaveSchedule' : function(event, template) {
         salveMatch(buildMatchSchedule());
         changeState('schedule');
+    },
+    'click #btnPublishFacebook' : function(event, template) {
+        printScreen();
     }
 });
 
@@ -313,8 +316,6 @@ function orderRanking() {
             }
         }
     }
-    console.log(players[0]);
-    console.log(players);
     players.sort(function(a, b){
         if (parseInt(a.pontos) > parseInt(b.pontos)) {
             return -1;
@@ -360,5 +361,12 @@ function salveMatch(match) {
         } else {
             console.log("Erro ao tentar salvar uma partida");
         }
+    });
+}
+
+// Screeshot of trophy with match results 
+function printScreen() {
+    Meteor.call('webshot.snap', null, function (e, result) {
+ 
     });
 }
