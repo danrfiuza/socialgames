@@ -1,26 +1,35 @@
 <template name="dashboard">
 
 	<h2>Dashboard</h2>
-	<div class="panel-group">
-	<div class="row">
-		<div class="col-sm-3">
-            {{> dashboardPanelFriends }}
-		</div>
 
-		<div class="col-sm-3">
-			{{> dashboardAverageWins }}
-		</div>
-
-		<div class="col-sm-3">
-			{{> dashboardYourGames }}
-		</div>
-
-		<div class="col-sm-3">
-            {{> dashboardScheduledGames }}
+    <div class="row">
+        <div class="col-sm-6">
+            {{> dashboardUserInfo }}
         </div>
-
+        <div class="col-sm-6">
+            {{> dashboardUserInfo }}
+        </div>
     </div>
 
+	<div class="panel-group">
+    	<div class="row">
+    		<div class="col-sm-3">
+                {{> dashboardPanelFriends }}
+    		</div>
+
+    		<div class="col-sm-3">
+    			{{> dashboardAverageWins }}
+    		</div>
+
+    		<div class="col-sm-3">
+    			{{> dashboardYourGames }}
+    		</div>
+
+    		<div class="col-sm-3">
+                {{> dashboardScheduledGames }}
+            </div>
+
+        </div>
     </div>
 
 	<div class="row">

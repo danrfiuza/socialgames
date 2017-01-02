@@ -5,3 +5,4 @@ import './dashboardPanelFriends.html';
 import './dashboardAverageWins.html';
 import './dashboardYourGames.html';
 import './dashboardScheduledGames.html';
+import './dashboardUserInfo.html';
