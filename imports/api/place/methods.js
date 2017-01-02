@@ -8,6 +8,6 @@ Meteor.methods({
       return true;
     },
     'places.find'(){
-        return Places.find().fetch();
+        return Places.find({}, {sort: {created_at: -1}}).fetch();
     }
 });
