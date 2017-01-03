@@ -1,44 +1,42 @@
 <template name="dashboard">
 
-	<h2>Dashboard</h2>
-
-    <div class="row">
-        <div class="col-sm-6">
-            {{> dashboardUserInfo }}
-        </div>
-        <div class="col-sm-6">
-            {{> dashboardMostPlayed }}
-        </div>
-    </div>
-
-	<div class="panel-group">
-    	<div class="row">
-    		<div class="col-sm-3">
-                {{> dashboardPanelFriends }}
-    		</div>
-
-    		<div class="col-sm-3">
-    			{{> dashboardAverageWins }}
-    		</div>
-
-    		<div class="col-sm-3">
-    			{{> dashboardYourGames }}
-    		</div>
-
-    		<div class="col-sm-3">
-                {{> dashboardScheduledGames }}
-            </div>
-
-        </div>
-    </div>
+	<!-- <h2>Dashboard</h2> -->
 
 	<div class="row">
+	    <div class="col-sm-6">
+	      {{> dashboardUserInfo }}
+	    </div>
+			<div class="col-sm-3">
+				{{> dashboardScheduledGames }}
+			</div>
+			<div class="col-sm-3">
+	      {{> dashboardPanelFriends }}
+			</div>
+	</div>
+
+	<div class="panel-group">
+	  	<div class="row">
+
+				<div class="col-sm-3">
+	  			{{> dashboardAverageWins }}
+	  		</div>
+	  		<div class="col-sm-3">
+	  			{{> dashboardYourGames }}
+	  		</div>
+				<div class="col-sm-6">
+	          {{> dashboardMostPlayed }}
+	      </div>
+
+	    </div>
+	</div>
+
+	<!-- <div class="row">
 		<div class="col-sm-12">
 			<div class="panel panel-default">
 				<div class="panel-heading" style="background-color: purple; color: white">Panel with panel-danger class</div>
 				<div class="panel-body">Panel Content</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 
 </template>
