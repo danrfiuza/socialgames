@@ -1,301 +1,182 @@
 <template name="dashboardUserInfo">
-<!-- 	<div class="col-sm-12">
-		<div class="panel panel-default">
-			<div class="panel-heading" style="background-color: blue; color: white">Panel with panel-danger class</div>
-			<div class="panel-body">Panel Content</div>
-		</div>
-	</div> -->
 
 <style type="text/css">
-.square, .btn {
-    border-radius: 0px!important;
+.twPc-div {
+    background: #fff none repeat scroll 0 0;
+    border: 1px solid #e1e8ed;
+    border-radius: 6px;
+    height: 200px;
+    max-width: 340px; // orginal twitter width: 290px;
 }
-
-/* -- color classes -- */
-.coralbg {
-    background-color: #FA396F;
-} 
-
-.coral {
-    color: #FA396f;
+.twPc-bg {
+    background-image: url("https://pbs.twimg.com/profile_banners/50988711/1384539792/600x200");
+    background-position: 0 50%;
+    background-size: 100% auto;
+    border-bottom: 1px solid #e1e8ed;
+    border-radius: 4px 4px 0 0;
+    height: 50px;
+    width: 100%;
 }
-
-.turqbg {
-    background-color: #46D8D2;
+.twPc-block {
+    display: block !important;
 }
-
-.turq {
-    color: #46D8D2;
-}
-
-.white {
-    color: #fff!important;
-}
-
-/* -- The "User's Menu Container" specific elements. Custom container for the snippet -- */
-div.user-menu-container {
-  z-index: 10;
-  background-color: #fff;
-  margin-top: 20px;
-  background-clip: padding-box;
-  opacity: 0.97;
-  filter: alpha(opacity=97);
-  -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
-}
-
-div.user-menu-container .btn-lg {
-    padding: 0px 12px;
-}
-
-div.user-menu-container h4 {
-    font-weight: 300;
-    color: #8b8b8b;
-}
-
-div.user-menu-container a, div.user-menu-container .btn  {
-    transition: 1s ease;
-}
-
-div.user-menu-container .thumbnail {
-   width:100%;
-   min-height:200px;
-   border: 0px!important;
-   padding: 0px;
-   border-radius: 0;
-   border: 0px!important;
-}
-
-/* -- Vertical Button Group -- */
-/*div.user-menu-container .btn-group-vertical {
-    display: block;
-}
-
-div.user-menu-container .btn-group-vertical>a {
-    padding: 20px 25px;
-    background-color: #46D8D2;
-    color: white;
-    border-color: #fff;
-}
-
-div.btn-group-vertical>a:hover {
-    color: white;
-    border-color: white;
-}
-
-div.btn-group-vertical>a.active {
-    background: #FA396F;
-    box-shadow: none;
-    color: white;
-}*/
-/* -- Individual button styles of vertical btn group -- */
-/*div.user-menu-btns {
-    padding-right: 0;
-    padding-left: 0;
-    padding-bottom: 0;
-}
-
-div.user-menu-btns div.btn-group-vertical>a.active:after{
-  content: '';
-  position: absolute;
-  left: 100%;
-  top: 50%;
-  margin-top: -13px;
-  border-left: 0;
-  border-bottom: 13px solid transparent;
-  border-top: 13px solid transparent;
-  border-left: 10px solid #46D8D2;
-}*/
-/* -- The main tab & content styling of the vertical buttons info-- */
-/*div.user-menu-content {
-    color: #323232;
-}
-
-ul.user-menu-list {
-    list-style: none;
-    margin-top: 20px;
-    margin-bottom: 0;
-    padding: 10px;
-    border: 1px solid #eee;
-}
-ul.user-menu-list>li {
-    padding-bottom: 8px;
-    text-align: center;
-}
-
-div.user-menu div.user-menu-content:not(.active){
-  display: none;
-}*/
-
-/* -- The btn stylings for the btn icons -- */
-/*.btn-label {position: relative;left: -12px;display: inline-block;padding: 6px 12px;background: rgba(0,0,0,0.15);border-radius: 3px 0 0 3px;}
-.btn-labeled {padding-top: 0;padding-bottom: 0;}
-*/
-/* -- Custom classes for the snippet, won't effect any existing bootstrap classes of your site, but can be reused. -- */
-
-.user-pad {
-    padding: 20px 25px;
-}
-
-.no-pad {
-    padding-right: 0;
-    padding-left: 0;
-    padding-bottom: 0;
-}
-
-.user-details {
-    background: #eee;
-    /*min-height: 333px;*/
-}
-
-.user-image {
-  max-height:200px;
-  overflow:hidden;
-}
-/*
-.overview h3 {
-    font-weight: 300;
-    margin-top: 15px;
-    margin: 10px 0 0 0;
-}
-
-.overview h4 {
-    font-weight: bold!important;
-    font-size: 40px;
-    margin-top: 0;
-}
-
-.view {
-    position:relative;
-    overflow:hidden;
-    margin-top: 10px;
-}
-
-.view p {
-    margin-top: 20px;
-    margin-bottom: 0;
-}
- 
-.caption {
-    position:absolute;
-    top:0;
-    right:0;
-    background: rgba(70, 216, 210, 0.44);
-    width:100%;
-    height:100%;
-    padding:2%;
-    display: none;
-    text-align:center;
-    color:#fff !important;
-    z-index:2;
-}
-
-.caption a {
-    padding-right: 10px;
-    color: #fff;
-}
-
-.info {
-    display: block;
-    padding: 10px;
-    background: #eee;
-    text-transform: uppercase;
-    font-weight: 300;
+.twPc-button {
+    margin: -35px -10px 0;
     text-align: right;
+    width: 100%;
 }
-
-.info p, .stats p {
-    margin-bottom: 0;
+.twPc-avatarLink {
+    background-color: #fff;
+    border-radius: 6px;
+    display: inline-block !important;
+    float: left;
+    margin: -30px 5px 0 8px;
+    max-width: 100%;
+    padding: 1px;
+    vertical-align: bottom;
 }
-
-.stats {
+.twPc-avatarImg {
+    border: 2px solid #fff;
+    border-radius: 7px;
+    box-sizing: border-box;
+    color: #fff;
+    height: 120px;
+    width: 120px;
+}
+.twPc-divUser {
+    margin: 5px 0 0;
+}
+.twPc-divName {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 21px;
+}
+.twPc-divName a {
+    color: inherit !important;
+}
+.twPc-divStats {
+    margin-left: 11px;
+    padding: 10px 0;
+}
+.twPc-Arrange {
+    box-sizing: border-box;
+    display: table;
+    margin: 0;
+    /*min-width: 100%;*/
+    padding: 0;
+    table-layout: auto;
+}
+ul.twPc-Arrange {
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+}
+.twPc-ArrangeSizeFit {
+    display: table-cell;
+    /*padding: 0;
+    vertical-align: top;*/
+}
+.twPc-ArrangeSizeFit a:hover {
+    text-decoration: none;
+}
+.twPc-StatValue {
     display: block;
-    padding: 10px;
-    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    transition: color 0.15s ease-in-out 0s;
 }
-
-.share-links {
-    border: 1px solid #eee;
-    padding: 15px;
-    margin-top: 15px;
-}
-
-.square, .btn {
-    border-radius: 0px!important;
-}*/
-
-/* -- media query for user profile image -- */
-@media (max-width: 767px) {
-    .user-image {
-        max-height: 400px;
-    }
+.twPc-StatLabel {
+    color: #8899a6;
+    font-size: 10px;
+    letter-spacing: 0.02em;
+    overflow: hidden;
+    text-transform: uppercase;
+    transition: color 0.15s ease-in-out 0s;
 }
 </style>
 
-    <!-- <div class="panel panel-default"> -->
 
-<!-- <link href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css" rel="stylesheet" media="screen">  
-<div class="container"> -->
-    <!-- <div class="row user-menu-container square panel panel-default"> -->
-        <div class="col-md-12 user-details panel">
-            <div class="row white">
-                <div class="col-md-3 no-pad">
-                    <div class="user-image">
-                        <img width="150" height="150" src="https://avatars3.githubusercontent.com/u/2317122" class="img-responsive">
-                    </div>
-                </div>
-                <div class="col-md-9">
-                    <!-- <div class="no-pad"> -->
-                        <div class="row" style="background-color: black">
-                            <div class="col-md-2">
-                                <img src="http://mailr3456.ucoz.net/gfhhhhhhhhh/100.png" class="img-responsive">
-                            </div>
-                            <div class="col-md-10 no-pad" style="color: #8b8b8b">
-                                <h5 class="no-pad"> <strong>CORONEL</strong> João Gabriel <br /> Todo respeito é pouco para esse usuário, as habilidades dele na mesa devem ser temidas, numa partica contra ele, todo cuidado é pouco</h5>
-                                <!-- <h6 class="no-pad">Todo respeito é pouco para esse usuário, as habilidades dele na mesa devem ser temidas</h6> -->
-                            </div>
-                        </div>
-                        <div style="color: #8b8b8b">
-                            <div class="col-md-4 text-center">
-                                <h5>PARTIDAS</h5>
-                                <h4>600</h4>
-                            </div>
-                            <div class="col-md-4 text-center">
-                                <h5>JÁ JOGOU</h5>
-                                <h4>45 jogos</h4>
-                            </div>
-                            <div class="col-md-4 text-center">
-                                <h5>MÉDIA DE VITORIA</h5>
-                                <h4>85%</h4>
-                            </div>
-                        </div>
-                        <!-- <h3>Welcome back, João Gabriel</h3> -->
-                        <!-- <h4 class="white"><i class="fa fa-check-circle-o"></i> San Antonio, TX</h4> -->
-                        <!-- <h4 class="white"><i class="fa fa-twitter"></i> CoolesOCool</h4> -->
-                        <!-- <div class="btn btn-labeled btn-info" href="#">
-                            <span class="btn-label"><i class="fa fa-pencil"></i></span>CORONEL: Todo respeito é pouco para esse usuário, as habilidades dele na mesa devem ser temidas
-                            </div> -->
-                    <!-- </div> -->
-                </div>
+<!-- <div class="container"> -->
+<!-- <div class="row"> -->
+<!-- <h1>Twitter Profile Card</h1> -->
+<!-- <p>You can use with Twitter API, bot or manual.</p> -->
+<!-- code start -->
+<!-- <div class="twPc-div"> -->
+<div class="panel">
+    <a class="twPc-bg twPc-block"></a>
+
+    <div>
+        <div class="twPc-button">
+            <!-- Twitter Button | you can get from: https://about.twitter.com/tr/resources/buttons#follow -->
+            <a href="https://twitter.com/mertskaplan" class="twitter-follow-button" data-show-count="false" data-size="large" data-show-screen-name="false" data-dnt="true">Follow @mertskaplan</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+            <!-- Twitter Button -->   
+        </div>
+<div style="background-color: white">
+        <a title="Mert Salih Kaplan" href="https://twitter.com/mertskaplan" class="twPc-avatarLink">
+            <img alt="Mert Salih Kaplan" src="https://avatars3.githubusercontent.com/u/2317122" class="twPc-avatarImg">
+        </a>
+
+        <div class="twPc-divUser">
+            <div class="twPc-divName">
+                <a href="https://twitter.com/mertskaplan">João Gabriel</a>
             </div>
-            <!-- <div class="row overview">
-                <div class="col-md-4 user-pad text-center">
-                    <h3>PARTIDAS REGISTRADAS</h3>
-                    <h4>600</h4>
+            <span>
+                <strong>CORONEL:</strong> Possui habilidades fora do comum, todo cuidado é pouco pois a humilhação será permanente.
+            </span>
+        </div>
+
+        <!-- <div class="twPc-divStats">
+            <ul class="twPc-Arrange">
+                <li class="twPc-ArrangeSizeFit">
+                    <a href="https://twitter.com/mertskaplan" title="9.840 Tweet">
+                        <span class="twPc-StatLabel twPc-block">Tweets</span>
+                        <span class="twPc-StatValue">9.840</span>
+                    </a>
+                </li>
+                <li class="twPc-ArrangeSizeFit">
+                    <a href="https://twitter.com/mertskaplan/following" title="885 Following">
+                        <span class="twPc-StatLabel twPc-block">Following</span>
+                        <span class="twPc-StatValue">885</span>
+                    </a>
+                </li>
+                <li class="twPc-ArrangeSizeFit">
+                    <a href="https://twitter.com/mertskaplan/followers" title="1.810 Followers">
+                        <span class="twPc-StatLabel twPc-block">Followers</span>
+                        <span class="twPc-StatValue">1.810</span>
+                    </a>
+                </li>
+            </ul>
+        </div> -->
+
+        <div class="row">
+                <div class="col-md-1">
+                    <img src="http://mailr3456.ucoz.net/gfhhhhhhhhh/100.png" class="img-responsive">
                 </div>
-                <div class="col-md-4 user-pad text-center">
-                    <h3>JÁ JOGOU</h3>
-                    <h4>45 jogos</h4>
+                <div class="col-md-3">
+                    <a href="https://twitter.com/mertskaplan" title="9.840 Tweet">
+                        <span class="twPc-StatLabel twPc-block">PARTIDAS REGISTRADAS</span>
+                        <span class="twPc-StatValue">600</span>
+                    </a>
                 </div>
-                <div class="col-md-4 user-pad text-center">
-                    <h3>MÉDIA DE VITORIA</h3>
-                    <h4>85%</h4>
+                <div class="col-md-3">
+                    <a href="https://twitter.com/mertskaplan/following" title="885 Following">
+                        <span class="twPc-StatLabel twPc-block">JÁ JOGOU</span>
+                        <span class="twPc-StatValue">45</span>
+                    </a>
                 </div>
-            </div> -->
+                <div class="col-md-3">
+                    <a href="https://twitter.com/mertskaplan/followers" title="1.810 Followers">
+                        <span class="twPc-StatLabel twPc-block">MÉDIA DE VITORIA</span>
+                        <span class="twPc-StatValue">85%</span>
+                    </a>
+                </div>
+        </div>
+        </div>
     </div>
-
-    <!-- </div> -->
-
-
 <!-- </div> -->
+<!-- code end -->
+<!-- </div> -->
+<!-- </div> -->
+</div>
 </template>
