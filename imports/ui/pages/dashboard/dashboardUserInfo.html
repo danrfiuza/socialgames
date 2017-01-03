@@ -1,13 +1,6 @@
 <template name="dashboardUserInfo">
 
 <style type="text/css">
-.twPc-div {
-    background: #fff none repeat scroll 0 0;
-    border: 1px solid #e1e8ed;
-    border-radius: 6px;
-    height: 200px;
-    max-width: 340px; // orginal twitter width: 290px;
-}
 .twPc-bg {
     background-image: url("https://pbs.twimg.com/profile_banners/50988711/1384539792/600x200");
     background-position: 0 50%;
@@ -54,37 +47,6 @@
 .twPc-divName a {
     color: inherit !important;
 }
-.twPc-divStats {
-    margin-left: 11px;
-    padding: 10px 0;
-}
-.twPc-Arrange {
-    box-sizing: border-box;
-    display: table;
-    margin: 0;
-    /*min-width: 100%;*/
-    padding: 0;
-    table-layout: auto;
-}
-ul.twPc-Arrange {
-    list-style: outside none none;
-    margin: 0;
-    padding: 0;
-}
-.twPc-ArrangeSizeFit {
-    display: table-cell;
-    /*padding: 0;
-    vertical-align: top;*/
-}
-.twPc-ArrangeSizeFit a:hover {
-    text-decoration: none;
-}
-.twPc-StatValue {
-    display: block;
-    font-size: 18px;
-    font-weight: 500;
-    transition: color 0.15s ease-in-out 0s;
-}
 .twPc-StatLabel {
     color: #8899a6;
     font-size: 10px;
@@ -96,21 +58,13 @@ ul.twPc-Arrange {
 </style>
 
 
-<!-- <div class="container"> -->
-<!-- <div class="row"> -->
-<!-- <h1>Twitter Profile Card</h1> -->
-<!-- <p>You can use with Twitter API, bot or manual.</p> -->
-<!-- code start -->
-<!-- <div class="twPc-div"> -->
 <div class="panel">
     <a class="twPc-bg twPc-block"></a>
 
     <div>
         <div class="twPc-button">
-            <!-- Twitter Button | you can get from: https://about.twitter.com/tr/resources/buttons#follow -->
             <a href="https://twitter.com/mertskaplan" class="twitter-follow-button" data-show-count="false" data-size="large" data-show-screen-name="false" data-dnt="true">Follow @mertskaplan</a>
             <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-            <!-- Twitter Button -->
         </div>
 <div style="background-color: white">
         <a title="Mert Salih Kaplan" href="https://twitter.com/mertskaplan" class="twPc-avatarLink">
@@ -126,32 +80,9 @@ ul.twPc-Arrange {
             </span>
         </div>
 
-        <!-- <div class="twPc-divStats">
-            <ul class="twPc-Arrange">
-                <li class="twPc-ArrangeSizeFit">
-                    <a href="https://twitter.com/mertskaplan" title="9.840 Tweet">
-                        <span class="twPc-StatLabel twPc-block">Tweets</span>
-                        <span class="twPc-StatValue">9.840</span>
-                    </a>
-                </li>
-                <li class="twPc-ArrangeSizeFit">
-                    <a href="https://twitter.com/mertskaplan/following" title="885 Following">
-                        <span class="twPc-StatLabel twPc-block">Following</span>
-                        <span class="twPc-StatValue">885</span>
-                    </a>
-                </li>
-                <li class="twPc-ArrangeSizeFit">
-                    <a href="https://twitter.com/mertskaplan/followers" title="1.810 Followers">
-                        <span class="twPc-StatLabel twPc-block">Followers</span>
-                        <span class="twPc-StatValue">1.810</span>
-                    </a>
-                </li>
-            </ul>
-        </div> -->
-
         <div class="row">
-                <div class="col-md-1">
-                    <img src="http://mailr3456.ucoz.net/gfhhhhhhhhh/100.png" class="img-responsive">
+                <div class="col-md-2">
+                    <img src="http://mailr3456.ucoz.net/gfhhhhhhhhh/100.png" height="60" width="60">
                 </div>
                 <div class="col-md-3">
                     <a href="https://twitter.com/mertskaplan" title="9.840 Tweet">
@@ -165,7 +96,7 @@ ul.twPc-Arrange {
                         <span class="twPc-StatValue">45</span>
                     </a>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <a href="https://twitter.com/mertskaplan/followers" title="1.810 Followers">
                         <span class="twPc-StatLabel twPc-block">MÉDIA DE VITORIA</span>
                         <span class="twPc-StatValue">85%</span>
@@ -174,9 +105,6 @@ ul.twPc-Arrange {
         </div>
         </div>
     </div>
-<!-- </div> -->
-<!-- code end -->
-<!-- </div> -->
-<!-- </div> -->
+
 </div>
 </template>
