@@ -6,3 +6,5 @@ import './dashboardAverageWins.html';
 import './dashboardYourGames.html';
 import './dashboardScheduledGames.html';
 import './dashboardUserInfo.html';
+import './dashboardMostPlayed.html';
+import './dashboardMostPlayed.js';
