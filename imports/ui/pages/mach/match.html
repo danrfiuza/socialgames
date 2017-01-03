@@ -190,5 +190,33 @@
       <button type="button" id="btnPublishFacebook" class="btn btn-info">Publicar resultado no Facebook</button>
     </div>
     
-  </div>  
+  </div>
+
+  <div id="imgShareMatch">
+    {{#with game}}
+    <div border="0" width="600" height="300" style="background-color: #333">
+      <div style="float: left">
+          <img width="180" src="https:{{ thumbnail }}"/>
+      </div>
+      <div>  
+        <table>
+           <tbody>
+              <tr style="color: #FFF; font-family: Verdana;"><td colspan="4"><h3>{{ name }}</h3></td></tr>
+              {{#each podium }}
+                <tr style="color: #DDD; font-family: Verdana;">
+                  <td width="10%">{{#if @index 0}} {{else}} <em class="fa fa-trophy fa-2x"></em> {{/if}}</td>
+                  <td width="10%">
+                    <em class="fa fa-user fa-2x"></em>
+                  </td>
+                  <td width="70%">{{ mail }}</td>
+                  <td width="10%">{{ pontos }}</td>
+                </tr>
+              {{/each}}
+           </tbody>
+        </table>
+        <p>Social Games - a rede social do jogar de boardgames</p>
+      </div>
+    </div>
+    {{/with}}
+  </div>
 </template>

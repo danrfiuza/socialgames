@@ -142,7 +142,7 @@ Template.matches.events({
         changeState('schedule');
     },
     'click #btnPublishFacebook' : function(event, template) {
-        printScreen();
+        printScreen($('#imgShareMatch').html());
     }
 });
 
@@ -164,6 +164,7 @@ function changeState(status) {
             $('#msgReservationFriend').hide();
             $('#msgReservationSchedule').hide();
             $('#divPlaces').hide();
+            $('#imgShareMatch').hide();
             break;
         case 'game' :
             $('#panelSearch').hide();
@@ -365,8 +366,7 @@ function salveMatch(match) {
 }
 
 // Screeshot of trophy with match results 
-function printScreen() {
-    Meteor.call('webshot.snap', null, function (e, result) {
- 
-    });
+function printScreen(html) {
+    var css = '';
+    Meteor.call('webshot.snap', {html:html, css:css}, function (e, result) {});
 }
