@@ -1,6 +1,5 @@
 import { Template } from 'meteor/templating';
 import { Meteor } from 'meteor/meteor';
-import { ReactiveVar } from 'meteor/reactive-var'
 import './friend.html';
 
 Meteor.subscribe('friends.listEmails');
@@ -36,10 +35,8 @@ Template.friends.helpers({
 Template.friends.events({
     // Adiciona um amigo em sua lista de amigos
     'click #btnAddFriend' : function(event, template){
-      console.log('111');
     	let friends = $('form[name="form-add-friend"]').serializeJSON();
     	Meteor.call('friends.add', friends, function(e, result){
-        console.log('3333333');
         if (result == "friend-exist") {
           alert("já é seu amigo");
         }
