@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Friends } from './friend.js';
+import './friend.js';
 
 Meteor.methods({
     'friends.add'(dados) {
