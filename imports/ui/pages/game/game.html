@@ -1,112 +1,55 @@
 <template name="games">
     <div class="row">
-       	<div class="col-lg-12">
-	       	<div class="panel-body">
-	       		<div id="divSearchGame">
-	       			<form class="form-horizontal">
-	       				<div class="col-sm-12">
-	            			<em class="fa fa-wifi fa-2x"></em>
-	            			<p>Antes de cadastrar o jogo, vamos procurar informações sobre o ele na boardgamegeek</p>
-	            		</div>
-		            	<div class="form-group">
-		               		<label for="input-id-1" class="col-sm-2 control-label">Procurar por</label>
-		               		<div class="col-sm-2">
-		                  		<input id="search" class="form-control" type="text">
-		                  		<button type="button" id="btnSearchGame" class="btn btn-default">Buscar</button>
-		               		</div>
-		            	</div>
-			        </form>
-		        </div>
-	         	<div class="table-responsive" id="tableListGames">
-	         		{{#each localizedGames }}
-	         		<div class="panel-body bg-inverse" id="useGame">
-		                <div class="row row-table text-center">
-		                   	<div class="col-xs-4">
-		                    	<div class="media">
-			                		<img src="https:{{ thumbnail }}" alt="Image" width="60">
-			                    </div>
-		                   	</div>
-		                   	<div class="col-xs-8">
-		                      	<p class="m0 h5">{{#with name }} {{ text }} {{/with }}</p>
-		                      	<p class="m0 text-muted">{{ yearpublished }}</p>
-		                      	<p><button type="button" game-id="{{#with generic }}{{ objectid }}{{/with}}" class="btn btn-primary moreInformation">Detalhes</button></p>
-		                   	</div>
-		                </div>
-		            </div>
-		            <br/>
-		            {{/each }}
-		        </div>
-				<form method="get" action="/" class="form-horizontal" name="formGame">
-		         	<div id="divFormGame">
-		         		<fieldset>
-			            	<div class="form-group">
-			               		<label for="input-id-1" class="col-sm-2 control-label">Titulo do Jogo</label>
-			               		<div class="col-sm-10">
-			                  		<input type="text" id="name" name="name" rows="10" class="form-control" />
-			               		</div>
-			            	</div>
-			         	</fieldset>
-			         	<fieldset>
-			            	<div class="form-group">
-			               		<label for="input-id-1" class="col-sm-2 control-label">Descrição</label>
-			               		<div class="col-sm-10">
-			                  		<textarea id="description" name="description" rows="10" class="form-control note-editor"></textarea>
-			               		</div>
-			            	</div>
-			         	</fieldset>
-			         	<fieldset>
-			            	<div class="form-group">
-			               		<label for="input-id-1" class="col-sm-2 control-label">Componentes</label>
-			               		<div class="col-sm-10">
-			                  		<textarea id="components" name="components" rows="10" class="form-control note-editor"></textarea>
-			               		</div>
-			            	</div>
-			         	</fieldset>
-			         	<fieldset>
-			                <div class="form-group">
-			                   <div class="col-sm-4 col-sm-offset-2">
-			                      <button type="button" id="btnCancelar" class="btn btn-default">Cancelar</button>
-			                      <button type="button" id="btnSalvar" class="btn btn-primary">Salvar Alterações</button>
-			                   </div>
-			                </div>
-		             	</fieldset>
-		            </div> 	
-		      	</form>
-	       </div>
-       	</div>
-
-       	{{#with focusGame}}
-       	<div id="divFocusGame">
-        	<div class="col-lg-4">
-	          <!-- START widget-->
-	          <div class="panel widget">
-	             <img src="https:{{ thumbnail }}" alt="Image" class="img-responsive">
-	             <div class="panel-body">
-	                <div class="row row-table text-center">
-	                   <div class="col-xs-4">
-	                      <p>Jogadores</p>
-	                      <h3 class="m0 text-primary">{{ minplayers }} - {{ maxplayers }}</h3>
-	                   </div>
-	                   <div class="col-xs-4">
-	                      <p>Tempo Médio</p>
-	                      <h3 class="m0 text-primary">{{ playingtime }} minutos</h3>
-	                   </div>
-	                   <div class="col-xs-4">
-	                      <p>Idade Mínima</p>
-	                      <h3 class="m0 text-primary">{{ age }}</h3>
-	                   </div>
-	                </div>
-	             </div>
-	          </div>
-	          <!-- END widget-->
-	       	</div>	
-	       	<div class="col-lg-4">
-	          	<h3 class="mt0">{{#with name}}{{ text }}{{/with}}</h3>
-	          	<button id="useGame" type="button" class="btn btn-primary pull-right">Quero cadastrar esse</button>
-	          	<p>Ano de Publicação: {{ yearpublished }}</p>
-                <p class="text-muted">{{ description }}</p>
-	        </div>
+    	<div id="divSearchGame">
+   			<form class="form-horizontal">
+            	<div class="form-group">
+               		<label for="input-id-1" class="col-sm-2 control-label">Consultar Jogo</label>
+               		<div class="col-sm-12">
+                  		<input id="search" class="form-control" type="text">
+                  		<button type="button" id="btnSearchGame" class="btn btn-default">Buscar</button>
+               		</div>
+            	</div>
+	        </form>
         </div>
-        {{/with}}
+    	<div id="gameList">
+    	{{#each games }}
+		<div class="col-lg-12" id="viewGame">
+	      <div class="panel widget">
+	        <div class="panel-body bg-inverse">
+	          <div class="row text-center">
+	            <div class="col-xs-6">
+	              <img width="80" src="https:{{ thumbnail }}"/>
+	            </div>
+	            <div class="col-xs-6">
+	              <h4 class="m0">{{ name }}</h4>
+	              <p class="m0 text-muted">
+	                 <small id='subtitleGame'>Ano: {{ yearpublished }}</small>
+	              </p>
+	              <p class="h2 mt0" id="pTimer">{{ timer }}</p>
+	              <p id="pBtnCountPoints"></p>
+	            </div>
+	          </div>
+	        </div>
+	        <div class="panel-body">
+	          <div class="row row-table text-center">
+	            <div class="col-xs-6">
+	              <p class="m0 text-muted">Tempo médio</p>
+	              <h4 class="m0"><em class="fa fa-clock-o"></em> {{ playingtime }} min</h4>
+	            </div>
+	            <div class="col-xs-6">
+	              <p class="m0 text-muted">Jogadores</p>
+	              <h4 class="m0"><em class="fa fa-group"></em> {{ minplayers }} - {{ maxplayers }}</h4>
+	            </div>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+    	{{/each}}
+    	<div class="row row-table">
+          	<div class="col-md-2 col-sm-3 pv text-center br">
+             	<div class="text-info text-sm">10 AM</div>
+          	</div>
+       	</div>
     </div>
+    </div>   	
 </template>

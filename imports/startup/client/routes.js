@@ -4,6 +4,7 @@ import { Meteor } from 'meteor/meteor';
 import '../../ui/layouts/app-body.js';
 import '../../ui/pages/timeline/timeline.js';
 import '../../ui/pages/game/game.js';
+import '../../ui/pages/game/newgame.js';
 import '../../ui/pages/friends/friend.js';
 import '../../ui/pages/main/main.js';
 import '../../ui/pages/mach/match.js';
@@ -61,6 +62,14 @@ Router.map(function(){
         sectionTitle: 'Jogos',
         onAfterAction: function() {
             return document.title = "Jogos | " + titleSocial;
+        }
+    });
+
+    this.route('newgame', {
+        path: '/newgame',
+        sectionTitle: 'Novo Jogo',
+        onAfterAction: function() {
+            return document.title = "Novo Jogo | " + titleSocial;
         }
     });
 
