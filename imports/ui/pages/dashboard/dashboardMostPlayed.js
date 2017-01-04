@@ -15,7 +15,7 @@ Template.dashboardMostPlayed.topGenresChart = function() {
         },
         yAxis: {
             title: {
-                text: 'Total de partida'
+                text: 'Total de partidas'
             }
 
         },
@@ -41,27 +41,27 @@ Template.dashboardMostPlayed.topGenresChart = function() {
             name: 'Brands',
             colorByPoint: true,
             data: [{
-                name: 'Microsoft Internet Explorer',
+                name: 'One Night Ultimate',
                 y: 56.33,
-                drilldown: 'Microsoft Internet Explorer'
+                drilldown: 'One Night Ultimate'
             }, {
-                name: 'Chrome',
+                name: 'Catan',
                 y: 24.03,
-                drilldown: 'Chrome'
+                drilldown: 'Catan'
             }, {
-                name: 'Firefox',
+                name: 'Resistance',
                 y: 10.38,
-                drilldown: 'Firefox'
+                drilldown: 'Resistance'
             }, {
-                name: 'Safari',
+                name: 'Sheriff of Nottingham',
                 y: 4.77,
-                drilldown: 'Safari'
+                drilldown: 'Sheriff of Nottingham'
             }, {
-                name: 'Opera',
+                name: 'Abyss',
                 y: 0.91,
-                drilldown: 'Opera'
+                drilldown: 'Abyss'
             }, {
-                name: 'Proprietary or Undetectable',
+                name: 'Outros',
                 y: 0.2,
                 drilldown: null
             }]

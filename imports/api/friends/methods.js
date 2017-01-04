@@ -5,6 +5,7 @@ import './friend.js';
 Meteor.methods({
     'friends.add'(dados) {
         var usuario = Meteor.users.findOne({_id: dados.amigos});
+        console.log('aaaaa');
         if (isFriendExist(dados)) {
             return "friend-exist";
         } else {
@@ -13,7 +14,11 @@ Meteor.methods({
             } else {
                 buildFriendBase(dados, usuario);
             }
-            Friends.insert(friend);
+            //Friends.insert(friend);
+            user = Meteor.user();
+            console.log('user');
+            // Friends.insert(friend);
+            Meteor.users.update( Meteor.userId(), {$addToSet: { friends: friend } } );
             return "ok";
         }
 
@@ -24,15 +29,15 @@ Meteor.methods({
 ** GATO TEMPORARIO ATÉ DESCOBRIR PQ O API/FRIENDS/FRIENDS.JS NÃO
 ** ESTA SENDO IMPORTADO
 ********************************************************************/
-//export const  Friends = new Mongo.Collection('friends');
+//export const  Friends = new Mongo.Collection('users');
 
 // Monta um registro de amigo vindo do facebook
 function buildFriendFacebook(dados, usuario) {
     return friend = {
-        nome: usuario.profile.name,
+        name: usuario.profile.name,
         email: usuario.services.facebook.email,
-        amigo_id: dados.amigos,
-        meu_id: Meteor.user()._id
+        friend_id: dados.amigos,
+        createdAt: new Date().getTime()
     }
 }
 
@@ -40,8 +45,8 @@ function buildFriendFacebook(dados, usuario) {
 function buildFriendBase(dados, usuario) {
     return friend = {
         email: usuario.emails[0].address,
-        amigo_id: dados.amigos,
-        meu_id: Meteor.user()._id
+        friend_id: dados.amigos,
+        createdAt: new Date().getTime()
     }
 }
 

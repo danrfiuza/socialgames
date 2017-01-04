@@ -28,7 +28,13 @@ Template.friends.helpers({
 		}
 	},
   friends() {
-    return Friends.find({meu_id: Meteor.user()._id});
+    console.log('chamouuuuuuuuu');
+    // console.log( Meteor.users.find({_id: Meteor.user()._id }).fectch() );
+    console.log( Meteor.users.findOne({_id: Meteor.user()._id }) );
+    // return Friends.find({meu_id: Meteor.user()._id});
+    // return Meteor.users.find({_id:{$in: {Meteor.user().friends.friend_id}});
+    // return Meteor.users.find({_id:{$in: {Meteor.user().friends.friend_id}});
+
   }
 });
 
