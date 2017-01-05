@@ -5,7 +5,7 @@ import './friend.js';
 Meteor.methods({
     'friends.add'(dados) {
         var usuario = Meteor.users.findOne({_id: dados.amigos});
-        console.log('aaaaa');
+        
         if (isFriendExist(dados)) {
             return "friend-exist";
         } else {
@@ -14,11 +14,8 @@ Meteor.methods({
             } else {
                 buildFriendBase(dados, usuario);
             }
-            //Friends.insert(friend);
             user = Meteor.user();
-            console.log('user');
-            // Friends.insert(friend);
-            Meteor.users.update( Meteor.userId(), {$addToSet: { friends: friend } } );
+            Meteor.users.update( Meteor.userId(), { $addToSet: { 'profile.friends': friend } } );
             return "ok";
         }
 

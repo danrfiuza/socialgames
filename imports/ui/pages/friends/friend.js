@@ -28,13 +28,24 @@ Template.friends.helpers({
 		}
 	},
   friends() {
-    console.log('chamouuuuuuuuu');
-    // console.log( Meteor.users.find({_id: Meteor.user()._id }).fectch() );
-    console.log( Meteor.users.findOne({_id: Meteor.user()._id }) );
-    // return Friends.find({meu_id: Meteor.user()._id});
-    // return Meteor.users.find({_id:{$in: {Meteor.user().friends.friend_id}});
-    // return Meteor.users.find({_id:{$in: {Meteor.user().friends.friend_id}});
+    Deps.autorun(function(){
+  Meteor.subscribe('user');
+});
+    if (Meteor.users.findOne({_id: Meteor.user()._id }).profile.friends) {
+      amigosDoUsuario = Meteor.users.findOne({_id: Meteor.user()._id }).profile.friends;
 
+      //Prepara um array de ID para usar na consulta dos amigos
+      var listaIdFriend = [];
+      amigosDoUsuario.forEach(function (amigo) {
+        listaIdFriend.push(amigo.friend_id);
+      });
+  console.log(  Meteor.users.find({_id: { $in: listaIdFriend } }).fetch(), { fields: {
+      'profile': 1
+    } }  );
+      return Meteor.users.find({_id: { $in: listaIdFriend } }, {fields: {
+      permission: 1,
+    }}  );
+    }
   }
 });
 
