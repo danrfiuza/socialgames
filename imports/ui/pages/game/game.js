@@ -7,9 +7,16 @@ var rGames = new ReactiveVar([]);
 
 Template.games.helpers({
     games() {
-        Meteor.call('game.find', {}, function (e, result) {
-            rGames.set(result);
-        });
         return rGames.get();
     }
-})
+});
+
+Template.games.events({
+	'click #btnSearchGame' : function(event, template){
+		var criteria = {"name": {$regex:".*" + $("#search").val() + ".*"}}
+        Meteor.call('game.find', criteria, function (e, result) {
+        	console.log(result);
+            rGames.set(result);
+        });
+    }
+});

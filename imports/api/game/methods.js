@@ -7,7 +7,10 @@ Meteor.methods({
         Games.insert(game);
         return true;
     },
-    'game.find'() {
+    'game.list'() {
         return Games.find({}).fetch();
+    },
+    'game.find'(criteria) {
+        return Games.find(criteria).fetch();
     }
 });
