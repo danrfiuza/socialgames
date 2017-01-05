@@ -5,6 +5,10 @@ import './game.html';
 
 var rGames = new ReactiveVar([]);
 
+Template.games.rendered = function(){
+    $("#divBtnNewGame").hide();
+};
+
 Template.games.helpers({
     games() {
         return rGames.get();
@@ -13,10 +17,18 @@ Template.games.helpers({
 
 Template.games.events({
 	'click #btnSearchGame' : function(event, template){
-		var criteria = {"name": {$regex:".*" + $("#search").val() + ".*"}}
-        Meteor.call('game.find', criteria, function (e, result) {
-        	console.log(result);
-            rGames.set(result);
-        });
+
+		if ($("#search").val() == "") {
+			Bert.alert('Escreva algum valor no campo de busca');
+		} else {
+			var criteria = {'name': {$regex:'.*' + $("#search").val() + '.*', $options: "$i"}}
+	        Meteor.call('game.find', criteria, function (e, result) {
+	            rGames.set(result);
+	            if (result.length == 0) {
+	            	Bert.alert('Nenhum resultado encontrado');
+	            }
+	        });
+	        $("#divBtnNewGame").show();
+		}
     }
 });
