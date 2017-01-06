@@ -48,3 +48,7 @@ Abaixo, deixamos a descrição de tudo o que já está pronto no sistema e o que
 * [O que ainda falta fazer](https://github.com/SocialBoardGames/socialgames/blob/master/FAZER.md)
 
 Caso você se sinta envolvido com nosso projeto e queira nos ajudar, simplesmente faça funcionar uma funcionalidade que ainda não foi desenvolvida e nos envie um `pull request` que brevemente avaliaremos e disponibilizaremos no Social Games. Não é o máximo?
+
+## MongoDB Query Helper
+
+http://jasonmciver.com/basic-mongodb-queries/
