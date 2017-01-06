@@ -1,57 +1,61 @@
 <template name="friends">
     <div class="row">
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <form role="form" name="form-add-friend" class="form-horizontal">
-            <fieldset>
-              <div class="form-group">
-                <div class="col-sm-12">
-                  <label for="amigos" class="col-sm-2 control-label">Procurar Amigo</label>
-                  <div class="col-sm-6">
-                    <select name="amigos" id="amigos" class="form-control m-b" multiple="">
-                      {{#each allUsers}}
-                        <option value='{{ _id }}'>{{ emailDoAmigo }}</option>
-                      {{/each}}
-                    </select>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="form-group">
-                      <button type="button" id="btnAddFriend" class="btn btn-default">Adicionar</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </fieldset>
-          </form>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <form role="form" name="form-add-friend" class="form-horizontal">
+                    <fieldset>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <label for="amigos" class="col-sm-2 control-label">Procurar Amigo</label>
+                                <div class="col-sm-6">
+                                    <select name="amigos" id="amigos" class="form-control m-b" multiple="">
+                                        {{#each allUsers}}
+                                            <option value='{{ _id }}'>{{ emailDoAmigo }}</option>
+                                        {{/each}}
+                                    </select>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <button type="button" id="btnAddFriend" class="btn btn-default">Adicionar
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
         </div>
-      </div>
-      {{#each friends}}
-      <div class="col-lg-3 col-md-4">
-          <div class="panel b text-center">
-             <div class="panel-body">
-                {{> avatar userId=_id }}
-                <p class="h4 text-bold mb0">{{ profile.name }}</p>
-                <p>{{ email }}</p>
-                <button type="button" class="btn btn-success btn-oval">Ver</button>
-             </div>
-             <div class="panel-body bt">
-                <div class="row">
-                   <div class="col-xs-4 br">
-                      <em class="fa fa-facebook fa-fw text-primary"></em>
-                      <strong>+700</strong>
-                   </div>
-                   <div class="col-xs-4 br">
-                      <em class="fa fa-twitter fa-fw text-info"></em>
-                      <strong>+300</strong>
-                   </div>
-                   <div class="col-xs-4">
-                      <em class="fa fa-heart fa-fw text-danger"></em>
-                      <strong>+150</strong>
-                   </div>
+        {{#each friends}}
+            <div class="col-sm-4">
+                <div class="panel b text-center">
+                    <div class="panel-body">
+                        <div class="col-sm-4">
+                            {{> avatar userId=_id }}
+                        </div>
+                        <div class="col-sm-8">
+                            <h4> {{ profile.name }} </h4>
+                            <h5>{{ emails.[0].address }}</h5>
+                            <button type="button" class="btn btn-success btn-oval">Ver</button>
+                        </div>
+                    </div>
+                    <div class="panel-body bt">
+                        <div class="row">
+                            <div class="col-xs-6 br">
+                                <a class="btn btn-block btn-social btn-facebook" href="{{ services.facebook.link }}">
+                                    <span class="fa fa-facebook"></span> Facebook
+                                </a>
+                            </div>
+                            <div class="col-xs-6">
+                                <a class="btn btn-block btn-social btn-microsoft"
+                                   href="http://localhost:3000/dashboard/{{ emails.[0].address }}">
+                                    <span class="fa fa-windows"></span> Social BoardGame
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-             </div>
-          </div>
-      </div>
-      {{/each}}
-  </div>
+            </div>
+        {{/each}}
+    </div>
 </template>
