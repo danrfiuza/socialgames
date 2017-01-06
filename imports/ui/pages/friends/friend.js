@@ -48,7 +48,9 @@ Template.friends.events({
         let friends = $('form[name="form-add-friend"]').serializeJSON();
         Meteor.call('friends.add', friends, function (e, result) {
             if (result == "friend-exist") {
-                alert("já é seu amigo");
+                Bert.alert('Este usuario já é seu amigo', 'warning');
+            } else {
+                Bert.alert('Amigo adicionado com sucesso', 'success');
             }
         });
     }

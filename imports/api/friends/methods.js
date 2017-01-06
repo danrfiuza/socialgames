@@ -32,8 +32,6 @@ Meteor.methods({
 // Monta um registro de amigo vindo do facebook
 function buildFriendFacebook(dados, usuario) {
     return friend = {
-        name: usuario.profile.name,
-        email: usuario.services.facebook.email,
         friend_id: dados.amigos,
         createdAt: new Date().getTime()
     }
@@ -42,7 +40,6 @@ function buildFriendFacebook(dados, usuario) {
 // Monta um registro de amigo da base
 function buildFriendBase(dados, usuario) {
     return friend = {
-        email: usuario.emails[0].address,
         friend_id: dados.amigos,
         createdAt: new Date().getTime()
     }
