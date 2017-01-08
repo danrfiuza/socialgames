@@ -1,6 +1,9 @@
 {
   "public": {
-    "SAVE": "Salvar"
+    "SAVE": "Salvar",
+    "ADD": "Add",
+    "FACEBOOK": "Facebook",
+    "SOCIALBOARDGAME": "Social BoardGame"
   },  
   "dashboard": {
     "WELCOME": "Welcome to Angle !",
@@ -42,5 +45,14 @@
   "dashboard": {
     "DASHBOARD": "Dashboard",
     "MYDASHBOARD": "My Dashboard"
-  }    
+  },
+  "friend": {
+    "SEARCH_FRIEND": "Search Friend",
+    "SEE": "See",
+    "ENTER_FRIENDS_ADDRESS": "Enter your friend's email address",
+    "ALREADY_YOUR_FRIEND": "This user is already your friend",
+    "FRIEND_ADDED_SUCCESSFULLY": "Friend added successfully",
+    "": "",
+    "": ""
+  }
 }

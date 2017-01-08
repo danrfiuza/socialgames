@@ -1,6 +1,9 @@
 {
   "public": {
-    "SAVE": "Salvar"
+    "SAVE": "Salvar",
+    "ADD": "Adicionar",
+    "FACEBOOK": "Facebook",
+    "SOCIALBOARDGAME": "Social BoardGame"
   },
   "dashboard": {
     "WELCOME": "Bem-vindo ao Social Games!",
@@ -42,5 +45,14 @@
   "dashboard": {
     "DASHBOARD": "Dashboard",
     "MYDASHBOARD": "Meu Dashboard"
+  },
+  "friend": {
+    "SEARCH_FRIEND": "Procurar Amigo",
+    "SEE": "Ver",
+    "ENTER_FRIENDS_ADDRESS": "Digite o e-mail do seu amigo",
+    "ALREADY_YOUR_FRIEND": "Este usuario já é seu amigo",
+    "FRIEND_ADDED_SUCCESSFULLY": "Amigo adicionado com sucesso",
+    "": "",
+    "": ""
   }
 }
