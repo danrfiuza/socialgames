@@ -40,7 +40,10 @@
     "LATITUDE": "Latitude",
     "LONGITUDE": "Longitude",
     "ENTER_ADDRESS": "Informe o endereço",
-    "PLACE_NAME": "Nome do local"
+    "PLACE_NAME": "Nome do local",
+    "LOCATION_SAVED": "Local salvo com sucesso",
+    "ERROR_SAVE_LOCATION": "Erro ao tentar salvar um local",
+    "THERE_IS_REQUIRED_FIELD": "Existe(m) campo(s) obrigatorio(s) para sere(m) preenchido(s)"
   },
   "dashboard": {
     "DASHBOARD": "Dashboard",
@@ -51,8 +54,6 @@
     "SEE": "Ver",
     "ENTER_FRIENDS_ADDRESS": "Digite o e-mail do seu amigo",
     "ALREADY_YOUR_FRIEND": "Este usuario já é seu amigo",
-    "FRIEND_ADDED_SUCCESSFULLY": "Amigo adicionado com sucesso",
-    "": "",
-    "": ""
+    "FRIEND_ADDED_SUCCESSFULLY": "Amigo adicionado com sucesso"
   }
 }
