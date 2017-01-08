@@ -9,7 +9,7 @@ Friends = new Mongo.Collection('friends');
 
 Template.friends.rendered = function () {
     $("#amigos").select2({
-        placeholder: "digite o email do seu amigo",
+        placeholder: TAPi18n.__('friend.ENTER_FRIENDS_ADDRESS'),
         maximumSelectionLength: 1,
         allowClear: true
     });
@@ -48,9 +48,9 @@ Template.friends.events({
         let friends = $('form[name="form-add-friend"]').serializeJSON();
         Meteor.call('friends.add', friends, function (e, result) {
             if (result == "friend-exist") {
-                Bert.alert('Este usuario já é seu amigo', 'warning');
+                Bert.alert( TAPi18n.__('friend.ALREADY_YOUR_FRIEND'), 'warning');
             } else {
-                Bert.alert('Amigo adicionado com sucesso', 'success');
+                Bert.alert( TAPi18n.__('friend.FRIEND_ADDED_SUCCESSFULLY'), 'success');
             }
         });
     }
