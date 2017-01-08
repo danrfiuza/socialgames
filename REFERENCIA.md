@@ -17,3 +17,6 @@ https://atmospherejs.com/bryanmorgan/webshot
 Reactive geolocation - http://meteorcapture.com/reactive-geolocation-with-google-maps/
 geolocation-example - https://github.com/dburles/geolocation-example
 Geocomplete - https://github.com/jshimko/meteor-geocomplete
+
+# Loacalização - tap-i18n
+https://atmospherejs.com/tap/i18n
