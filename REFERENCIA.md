@@ -32,4 +32,11 @@ http://jsfiddle.net/gh/get/jquery/3.1.1/highslide-software/highcharts.com/tree/m
 
 https://github.com/adrianveres/Reactive-Bar-Chart-Demo
 
+# Meteor Wrapper for HighCharts
+https://github.com/MaazAli/Meteor-HighCharts
 
+https://github.com/ClarenceL/meteor-highcharts-drilldown
+
+http://jsfiddle.net/gh/get/jquery/3.1.1/highslide-software/highcharts.com/tree/master/samples/highcharts/demo/column-drilldown/
+
+https://github.com/adrianveres/Reactive-Bar-Chart-Demo
