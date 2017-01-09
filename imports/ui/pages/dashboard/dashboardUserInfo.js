@@ -8,7 +8,7 @@ Template.dashboardUserInfo.helpers({
 	},
 	friends() {
 		return Friends.find({meu_id: Meteor.user()._id});
-	},
+	}
 	userInfo() {
 		var userInfo;
         totalPartidas = 10;
