@@ -8,5 +8,11 @@ Template.dashboardUserInfo.helpers({
 	},
 	friends() {
 		return Friends.find({meu_id: Meteor.user()._id});
+	},
+	userInfo() {
+		var userInfo;
+        totalPartidas = 10;
+        jogoDiferentesQueJogou = 15;
+        return array[userInfo , jogoDiferentesQueJogou];
 	}
 });
