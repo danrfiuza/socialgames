@@ -10,8 +10,8 @@ https://select2.github.io/
 # webshot (require phantomjs)
 https://atmospherejs.com/bryanmorgan/webshot
 
-# webshot (require phantomjs)
-https://atmospherejs.com/bryanmorgan/webshot
+# Consolidated Avatar Template Package for Meteor
+https://github.com/meteor-utilities/avatar
 
 # Referencias, exemplos e componentes usados no google maps
 Reactive geolocation - http://meteorcapture.com/reactive-geolocation-with-google-maps/
