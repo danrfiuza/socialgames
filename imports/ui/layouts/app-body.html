@@ -8,6 +8,8 @@
                 {{> yield }}
             </div>
         </section>
-        {{> footer }}
+        {{#if isDesktop}}
+            {{> footer }}
+        {{/if}}
     </div>
 </template>
