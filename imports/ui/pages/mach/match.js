@@ -232,21 +232,29 @@ function prepareAutoComplateForPlayers() {
 
 // Load select combo with friends
 function loadComboFriends() {
-    frieds = Friends.find({meu_id: Meteor.user()._id}).fetch();
+    friends = Meteor.users.findOne({_id: Meteor.user()._id}).profile.friends;
     comboFriends = [];
     var cont = 1;
-    var emailUserLogged = '';
-    if (Meteor.user().services.facebook) {
-        emailUserLogged = Meteor.user().services.facebook.email;
-    } else {
-        emailUserLogged = Meteor.user().emails[0].address;
-    }
+    var emailUserLogged = captureEmail(Meteor.user());
     comboFriends[0] = { id : Meteor.user()._id, text : emailUserLogged}
-    _.forEach(frieds, function(item){
-        comboFriends[cont] = { id : item._id, text : item.email };
+
+    _.forEach(friends, function(item){
+        emailAmigo = captureEmail(Meteor.users.findOne({_id: item.friend_id}));
+        comboFriends[cont] = { id : item.friend_id, text : emailAmigo };
         cont++;
     });
+
     rComboFriends.set(comboFriends);
+}
+
+// caputure email from user
+function captureEmail(user) {
+    if (user.services.facebook) {
+        email = user.services.facebook.email;
+    } else {
+        email = user.emails[0].address;
+    }
+    return email;
 }
 
 // set status in option select friends ex. disabled
