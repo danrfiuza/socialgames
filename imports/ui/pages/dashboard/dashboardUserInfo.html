@@ -3,10 +3,10 @@
         <a class="twPc-bg twPc-block"></a>
 
         <div>
-            <div class="twPc-button">
-                <a href="https://twitter.com/mertskaplan" class="twitter-follow-button" data-show-count="false" data-size="large" data-show-screen-name="false" data-dnt="true">Follow @mertskaplan</a>
-                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-            </div>
+            <!--<div class="twPc-button">-->
+                <!--<a href="https://twitter.com/mertskaplan" class="twitter-follow-button" data-show-count="false" data-size="large" data-show-screen-name="false" data-dnt="true">Follow @mertskaplan</a>-->
+                <!--<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>-->
+            <!--</div>-->
             <div style="background-color: white">
                 <div class="twPc-avatarLink">
                     {{> avatar userId=user._id class="twPc-avatarImg" }}
@@ -28,13 +28,13 @@
                         <div class="col-md-2">
                             <a href="https://twitter.com/mertskaplan" title="9.840 Tweet">
                                 <span class="twPc-StatLabel twPc-block">PARTIDAS REGISTRADAS</span>
-                                <span class="twPc-StatValue">600</span>
+                                <span class="twPc-StatValue">{{ userInfo[totalPartidas] }}</span>
                             </a>
                         </div>
                         <div class="col-md-2">
                             <a href="https://twitter.com/mertskaplan/following" title="885 Following">
                                 <span class="twPc-StatLabel twPc-block">JÁ JOGOU</span>
-                                <span class="twPc-StatValue">45</span>
+                                <span class="twPc-StatValue">{{ userInfo[jogoDiferentesQueJogou] }}</span>
                             </a>
                         </div>
                         <div class="col-md-2">
