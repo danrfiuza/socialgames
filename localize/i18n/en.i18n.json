@@ -5,11 +5,6 @@
     "FACEBOOK": "Facebook",
     "SOCIALBOARDGAME": "Social BoardGame"
   },  
-  "dashboard": {
-    "WELCOME": "Welcome to Angle !",
-    "ENGLISH": "English",
-    "PORTUGUESE": "Portuguese"
-  },
   "topbar": {
     "search": {
       "PLACEHOLDER": "Type and hit enter.."
@@ -47,7 +42,10 @@
   },
   "dashboard": {
     "DASHBOARD": "Dashboard",
-    "MYDASHBOARD": "My Dashboard"
+    "MYDASHBOARD": "My Dashboard",
+    "WELCOME": "Welcome to Social Games!",
+    "ENGLISH": "English",
+    "PORTUGUESE": "Portuguese"
   },
   "friend": {
     "SEARCH_FRIEND": "Search Friend",

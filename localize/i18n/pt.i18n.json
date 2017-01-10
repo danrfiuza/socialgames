@@ -5,11 +5,6 @@
     "FACEBOOK": "Facebook",
     "SOCIALBOARDGAME": "Social BoardGame"
   },
-  "dashboard": {
-    "WELCOME": "Bem-vindo ao Social Games!",
-    "ENGLISH": "Inglês",
-    "PORTUGUESE": "Português"
-  },
   "topbar": {
     "search": {
       "PLACEHOLDER": "Digite e pressione enter..."
@@ -47,7 +42,10 @@
   },
   "dashboard": {
     "DASHBOARD": "Dashboard",
-    "MYDASHBOARD": "Meu Dashboard"
+    "MYDASHBOARD": "Meu Dashboard",
+    "WELCOME": "Bem vindo ao Social Games!",
+    "ENGLISH": "Inglês",
+    "PORTUGUESE": "Português"
   },
   "friend": {
     "SEARCH_FRIEND": "Procurar Amigo",
