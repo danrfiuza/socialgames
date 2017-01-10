@@ -13,7 +13,7 @@ Para utilizar e também colaborar com este projeto você vai precisar ter instal
 * [Node +6.9](https://nodejs.org/en/)
 * [Npm +4.0](https://www.npmjs.com/)
 
-Além disso, você precisa conhecer o banco de dados que utilizamos [MongoDB](https://www.mongodb.com/) (já vem junto ao instalar o Meteor), o template Bootstrap [Angle](https://wrapbootstrap.com/theme/angle-bootstrap-admin-template-WB04HF123) e principalmente, muito [JavaScript](https://www.javascript.com/).
+Além disso, você precisa conhecer o banco de dados que utilizamos [MongoDB](https://www.mongodb.com/) (já vem junto ao instalar o Meteor), e bastante de [JavaScript](https://www.javascript.com/).
 
 ## Instalação
 
