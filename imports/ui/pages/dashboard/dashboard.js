@@ -5,7 +5,7 @@ import './dashboard.html';
 import './dashboardPanelFriends.html';
 import './dashboardAverageWins.html';
 import './dashboardYourGames.html';
-import './dashboardScheduledGames.html';
+import './dashboardMatchHistory.html';
 import './dashboardUserInfo.html';
 import './dashboardMostPlayed.html';
 
