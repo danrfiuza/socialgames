@@ -121,7 +121,7 @@ Template.matches.events({
     },
     'click #btnFirstPlayer' : function(event, template) {
         randomizeFirstPlayer();
-        $('#divBtnFirstPlayer').hide();
+        $('#btnFirstPlayer').hide();
     },
     'click #btnFinishCount' : function(event, template) {
         clock.stop();
@@ -196,14 +196,14 @@ function changeState(status) {
             $('#readyPlayers').show();
             $('#divPlaces').hide();
             $('#subtitleGame').html("Partida em andamento");
-            $('#pBtnCountPoints').html('<button type="button" id="btnFinishCount" class="btn btn-default">Contar os pontos e finalizar a partida</button>');
+            $('#pBtnCountPoints').html('');
             break;
         case 'score' : 
             $('#divPlayers').show();
             $('#readyPlayers').hide();
-            $('#pTimer').css('color', '#999');
+            $('#pTimer').css('color', 'red');
             $('#subtitleGame').html("Contagem de pontos");
-            $('#pBtnCountPoints').hide();
+            $('#btnFinishCount').hide();
             $('#divBtnFinishMatch').show();
             break;
         case 'trophy' : 
