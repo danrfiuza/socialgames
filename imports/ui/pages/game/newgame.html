@@ -1,6 +1,6 @@
 <template name="newgame">
     <div class="row">
-       	<div class="col-lg-12">
+       	<div class="col-lg-12" id="mainRow">
 	       	<div class="panel-body">
 	       		<div id="divSearchGame">
 	       			<form class="form-horizontal">
@@ -17,6 +17,7 @@
 		            	</div>
 			        </form>
 		        </div>
+                
 	         	<div class="table-responsive" id="tableListGames">
 	         		{{#each localizedGames }}
 	         		<div class="panel-body bg-inverse" id="useGame">
