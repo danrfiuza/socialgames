@@ -18,10 +18,11 @@
         <div class="row">
             <a href="https://github.com/psico" class="team-member">
                 <span class="col-sm-2">
-                    <img alt="@mdo avatar" height="32" width="32" src="https://avatars3.githubusercontent.com/u/2317122" >
+                    <!--<img alt="@mdo avatar" height="32" width="32" src="https://avatars3.githubusercontent.com/u/2317122" >-->
+                    {{> avatar userId=_id }}
                 </span>
                 <span class="col-sm-7">
-                    <strong>{{ profile.name }}</strong>
+                    <strong> {{ profile.name }}</strong>
                 </span>
                 <span class="col-sm-3">
                     <small>30 partidas</small>
