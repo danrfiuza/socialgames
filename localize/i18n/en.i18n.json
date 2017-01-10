@@ -53,5 +53,22 @@
     "ENTER_FRIENDS_ADDRESS": "Enter your friend's email address",
     "ALREADY_YOUR_FRIEND": "This user is already your friend",
     "FRIEND_ADDED_SUCCESSFULLY": "Friend added successfully"
+  },
+  "match": {
+    "CHOOSE_GAME": "Choose the game",
+    "PHRASE_REGISTER_GAME_A": "Did not find your game?",
+    "PHRASE_REGISTER_GAME_B": "Register now, it's super fast.",
+    "AVERAGE_TIME": "Average time",
+    "PLAYERS": "Players",
+    "GAME_NOW": "I'm going to play now",
+    "GAME_SCHEDULE": "Schedule Game",
+    "START_MATCH": "Start Match",
+    "CONFIRM_SCHEDULE": "Confirm Scheduling",
+    "SCORE": "Score",
+    "FINISH_MATCH": "Finish Match",
+    "FACEBOOK_SHARE": "Share",
+    "ADD_LOCAL": "Add a new location",
+    "BOOK_FRIEND": "Book a vacancy for a friend",
+    "INVITE_LINK": "Link to game invitation"
   }
 }

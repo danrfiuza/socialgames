@@ -165,6 +165,7 @@ function changeState(status) {
             $('#msgReservationSchedule').hide();
             $('#divPlaces').hide();
             $('#imgShareMatch').hide();
+            $('#pTimer').hide();
             break;
         case 'game' :
             $('#panelSearch').hide();
@@ -189,6 +190,7 @@ function changeState(status) {
             $('#divPlaces').show();
             break;
         case 'start' : 
+            $('#pTimer').show();
             $('#divBtnStarMatch').hide();
             $('#divBtnFirstPlayer').show();
             $('#panelSearch').hide();

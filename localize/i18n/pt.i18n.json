@@ -53,5 +53,22 @@
     "ENTER_FRIENDS_ADDRESS": "Digite o e-mail do seu amigo",
     "ALREADY_YOUR_FRIEND": "Este usuario já é seu amigo",
     "FRIEND_ADDED_SUCCESSFULLY": "Amigo adicionado com sucesso"
+  },
+  "match": {
+    "CHOOSE_GAME": "Escolha o jogo",
+    "PHRASE_REGISTER_GAME_A": "Não encontrou seu jogo?",
+    "PHRASE_REGISTER_GAME_B": "cadastre agora, é super rápido.",
+    "AVERAGE_TIME": "Tempo médio",
+    "PLAYERS": "Jogadores",
+    "GAME_NOW": "Vou jogar agora",
+    "GAME_SCHEDULE": "Agendar partida",
+    "START_MATCH": "Iniciar Partida",
+    "CONFIRM_SCHEDULE": "Confirmar Agendamento",
+    "SCORE": "Contagem de pontos",
+    "FINISH_MATCH": "Finalizar Partida",
+    "FACEBOOK_SHARE": "Compartilhar no Facebook",
+    "ADD_LOCAL": "Adicionar um novo local",
+    "BOOK_FRIEND": "Reservar vaga para amigo",
+    "INVITE_LINK": "Link para convite da partida"
   }
 }

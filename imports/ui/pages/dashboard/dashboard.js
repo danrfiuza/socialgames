@@ -11,3 +11,4 @@ import './dashboardMostPlayed.html';
 
 import './dashboardMostPlayed.js';
 import './dashboardUserInfo.js';
+import './dashboardPanelFriends.js';
