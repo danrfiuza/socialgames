@@ -340,25 +340,26 @@ function orderRanking() {
     rPodium.set(players);
 }
 
-
 function buildGenericMatch() {
     var match = {};
-    match.players = rPlayers.get();
-    match.game = rGame.get();
-    match.place = $('#place').val();
+    match.game = rGame.get()._id;
+    if ($('#place').val().length > 0) {
+        match.place = $('#place').val()[0];
+    }
     return match;
 }
 
 // Assemble match information
 function buildMatch() {
     var match = buildGenericMatch();
-    match.podium = rPodium.get();
+    match.players = rPodium.get();
     match.timer = clock.elapsedTime();
     return match;
 }
 
 // Assemble match schedule information
 function buildMatchSchedule() {
+    match.players = rPlayers.get();
     var match = buildGenericMatch();
     match.date_schedule = $('#dateMatch').val();
     return match;
