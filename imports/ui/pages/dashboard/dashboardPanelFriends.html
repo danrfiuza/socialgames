@@ -4,7 +4,9 @@
         <div class="row pannel-body panel-collapse collapse in" id="panelFriends" >
             <div class="col-sm-12">
                 <div class="bs-team list-group" style="height: 130px; overflow-y: scroll; overflow-x: hidden;">
-                    {{> dashboardPanelFriendsItem }}
+                    {{#each amigos}}
+                        {{> dashboardPanelFriendsItem }}
+                    {{/each}}
                 </div>
             </div>
         </div>
@@ -19,105 +21,10 @@
                     <img alt="@mdo avatar" height="32" width="32" src="https://avatars3.githubusercontent.com/u/2317122" >
                 </span>
                 <span class="col-sm-7">
-                    <strong>João Gabriel</strong>
+                    <strong>{{ profile.name }}</strong>
                 </span>
                 <span class="col-sm-3">
                     <small>30 partidas</small>
-                </span>
-            </a>
-        </div>
-    </div>
-
-
-
-
-
-    <div class="list-group-item">
-        <div class="row">
-            <a href="https://github.com/psico" class="team-member">
-                <span class="col-sm-2">
-                    <img alt="@mdo avatar" height="32" width="32" src="https://secure.gravatar.com/avatar/bc4ab438f7a4ce1c406aadc688427f2c.jpg" >
-                </span>
-                <span class="col-sm-7">
-                    <strong>Fulano da Silva</strong>
-                </span>
-                <span class="col-sm-3">
-                    <small>20 partidas</small>
-                </span>
-            </a>
-        </div>
-    </div>
-    <div class="list-group-item">
-        <div class="row">
-            <a href="https://github.com/psico" class="team-member">
-                <span class="col-sm-2">
-                    <img alt="@mdo avatar" height="32" width="32" src="https://avatars3.githubusercontent.com/u/2317122" >
-                </span>
-                <span class="col-sm-7">
-                    <strong>Ciclanoa</strong>
-                </span>
-                <span class="col-sm-3">
-                    <small>12 partidas</small>
-                </span>
-            </a>
-        </div>
-    </div>
-    <div class="list-group-item">
-        <div class="row">
-            <a href="https://github.com/psico" class="team-member">
-                <span class="col-sm-2">
-                    <img alt="@mdo avatar" height="32" width="32" src="https://secure.gravatar.com/avatar/bc4ab438f7a4ce1c406aadc688427f2c.jpg" >
-                </span>
-                <span class="col-sm-7">
-                    <strong>Beltrano da Rocha Pedra</strong>
-                </span>
-                <span class="col-sm-3">
-                    <small>3 partidas</small>
-                </span>
-            </a>
-        </div>
-    </div>
-    <div class="list-group-item">
-        <div class="row">
-            <a href="https://github.com/psico" class="team-member">
-                <span class="col-sm-2">
-                    <img alt="@mdo avatar" height="32" width="32" src="https://avatars3.githubusercontent.com/u/2317122" >
-                </span>
-                <span class="col-sm-7">
-                    <strong>Fulano da Silva Arroba</strong>
-                </span>
-                <span class="col-sm-3">
-                    <small>20 partidas</small>
-                </span>
-            </a>
-        </div>
-    </div>
-    <div class="list-group-item">
-        <div class="row">
-            <a href="https://github.com/psico" class="team-member">
-                <span class="col-sm-2">
-                    <img alt="@mdo avatar" height="32" width="32" src="https://secure.gravatar.com/avatar/bc4ab438f7a4ce1c406aadc688427f2c.jpg" >
-                </span>
-                <span class="col-sm-7">
-                    <strong>Ciclanoa</strong>
-                </span>
-                <span class="col-sm-3">
-                    <small>12 partidas</small>
-                </span>
-            </a>
-        </div>
-    </div>
-    <div class="list-group-item">
-        <div class="row">
-            <a href="https://github.com/psico" class="team-member">
-                <span class="col-sm-2">
-                    <img alt="@mdo avatar" height="32" width="32" src="https://avatars3.githubusercontent.com/u/2317122" >
-                </span>
-                <span class="col-sm-7">
-                    <strong>Beltrano da Rocha Pedra</strong>
-                </span>
-                <span class="col-sm-3">
-                    <small>3 partidas</small>
                 </span>
             </a>
         </div>

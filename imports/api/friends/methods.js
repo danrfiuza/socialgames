@@ -2,6 +2,8 @@ import {Meteor} from 'meteor/meteor';
 import {Friends} from './friend.js';
 import './friend.js';
 
+// export const Friends = new Mongo.Collection('users');
+
 Meteor.methods({
     'friends.add'(dados) {
         // var usuario = Meteor.users.findOne({_id: dados.amigos});
@@ -19,6 +21,21 @@ Meteor.methods({
             Meteor.users.update(Meteor.userId(), {$addToSet: {'profile.friends': friend}});
             return "ok";
         }
+
+    },
+    'friends.getUserFriends'(user) {
+        var listaFriends = [];
+        if (user.profile.friends) {
+            amigosDoUsuario = user.profile.friends;
+
+            //Prepara o array de amigos do usuario corrente
+            amigosDoUsuario.forEach(function (amigo) {
+                listaFriends.push(Meteor.users.findOne({_id: amigo.friend_id}));
+            });
+
+
+        }
+        return listaFriends;
 
     }
 });
