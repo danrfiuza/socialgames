@@ -19,6 +19,9 @@ Template.newgame.events({
         Meteor.call('bgg.search', $("#search").val(), function(e, result){
             $("#mainRow").attr('class', 'col-lg-12');
             bggGames.set(result);
+            if (result == undefined) {
+                Bert.alert(TAPi18n.__('generic.ALERT_NO_RESULT'));
+            }
             $('#tableListGames').show();
             $('#divFocusGame').hide();
         });
@@ -50,24 +53,31 @@ Template.newgame.events({
     // Salva o jogo na base de dados
     'click #btnSalvar' : function(event, template) {
         let game = $('form[name="formGame"]').serializeJSON();
-        bggGame = fGame.get();
-        game.bggid = bggGame.generic.objectid;
-        game.minplayers = bggGame.minplayers;
-        game.maxplayers = bggGame.maxplayers;
-        game.playingtime = bggGame.playingtime;
-        game.age = bggGame.age;
-        game.yearpublished = bggGame.yearpublished;
-        game.thumbnail = bggGame.thumbnail;
-        game.image = bggGame.image;
-        Meteor.call('game.insert', game, function (e, result) {
-            if(result){
-                alert("Jogo salvo com sucesso");
-                $('#divSearchGame').show();
-                $("#divFormGame").hide();
-            } else {
-                alert("Erro ao tentar salvar um jogo");
-            }
-        });
+        console.log(game);
+        if (game.name == "") {
+            Bert.alert(TAPi18n.__('match.ALERT_NAME'), 'danger');
+        } else {
+            bggGame = fGame.get();
+            game.bggid = bggGame.generic.objectid;
+            game.minplayers = bggGame.minplayers;
+            game.maxplayers = bggGame.maxplayers;
+            game.playingtime = bggGame.playingtime;
+            game.age = bggGame.age;
+            game.yearpublished = bggGame.yearpublished;
+            game.thumbnail = bggGame.thumbnail;
+            game.image = bggGame.image;
+            Meteor.call('game.insert', game, function (e, result) {
+                if(result){
+                    Bert.alert(TAPi18n.__('generic.SAVE_SUCCESS'), 'success');
+                    $('#divSearchGame').show();
+                    $("#divFormGame").hide();
+                } else {
+                    Bert.alert(TAPi18n.__('generic.SAVE_ERROR'), 'danger');
+                }
+            });
+
+        }
+        
     }
 });
 

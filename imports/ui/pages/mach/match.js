@@ -19,7 +19,7 @@ clock.stop();
 
 Template.matches.rendered = function(){
     $("#selectGame").select2({
-    	placeholder: "Começe a digite o nome do jogo",
+    	placeholder: TAPi18n.__('match.HINT_CHOOSE_GAME'),
     	maximumSelectionLength: 1,
       	allowClear: true
     });
