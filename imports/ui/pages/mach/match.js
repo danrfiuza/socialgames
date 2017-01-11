@@ -165,7 +165,7 @@ function changeState(status) {
             $('#msgReservationSchedule').hide();
             $('#divPlaces').hide();
             $('#imgShareMatch').hide();
-            $('#pTimer').hide();
+            $('#divTimer').hide();
             break;
         case 'game' :
             $('#panelSearch').hide();
@@ -190,7 +190,7 @@ function changeState(status) {
             $('#divPlaces').show();
             break;
         case 'start' : 
-            $('#pTimer').show();
+            $('#divTimer').show();
             $('#divBtnStarMatch').hide();
             $('#divBtnFirstPlayer').show();
             $('#panelSearch').hide();
@@ -203,7 +203,6 @@ function changeState(status) {
         case 'score' : 
             $('#divPlayers').show();
             $('#readyPlayers').hide();
-            $('#pTimer').css('color', 'red');
             $('#subtitleGame').html("Contagem de pontos");
             $('#btnFinishCount').hide();
             $('#divBtnFinishMatch').show();
@@ -359,8 +358,8 @@ function buildMatch() {
 
 // Assemble match schedule information
 function buildMatchSchedule() {
-    match.players = rPlayers.get();
     var match = buildGenericMatch();
+    match.players = rPlayers.get();
     match.date_schedule = $('#dateMatch').val();
     return match;
 }

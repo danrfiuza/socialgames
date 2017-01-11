@@ -39,7 +39,7 @@
           </div>
         </div>
         {{/with}}
-        <div class="panel-body bg-info">
+        <div class="panel-body bg-info" id="divTimer">
           <div class="row row-table text-center">
             <p class="h3 mt0" id="pTimer">{{ timer }}</p>
           </div>
@@ -75,6 +75,12 @@
 
           </div>
         </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="panel-body" id="msgReservationSchedule">
+        {{_ "match.INVITE_LINK"}}: http://socialboardgames.com/match/schedule/12349756
       </div>
     </div>
 
@@ -183,11 +189,6 @@
       </div>
     </div>  
 
-    <div>
-      <div class="panel-body" id="msgReservationSchedule">
-        {{_ "match.INVITE_LINK"}}: http://socialboardgames.com/match/schedule/12349756
-      </div>
-    </div>
   </div>
 
   <div id="imgShareMatch">
