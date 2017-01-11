@@ -141,8 +141,11 @@ Template.matches.events({
         salveMatch(buildMatchSchedule());
         changeState('schedule');
     },
-    'click #btnPublishFacebook' : function(event, template) {
+    'click #btnPublishFacebook': function(event, template) {
         printScreen($('#imgShareMatch').html());
+    },
+    'click #btnNewMatch': function(event, template) {
+        location.href = '/matches';
     }
 });
 
@@ -150,6 +153,7 @@ Template.matches.events({
 function changeState(status) {
     switch (status) {
         case 'begin' :
+            $('#panelSearch').show();
             $('#viewGame').hide();
             $('#divPlayers').hide();
             $('#divButtons').hide();

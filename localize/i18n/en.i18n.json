@@ -72,6 +72,7 @@
     "FACEBOOK_SHARE": "Share",
     "ADD_LOCAL": "Add a new location",
     "BOOK_FRIEND": "Book a vacancy for a friend",
-    "INVITE_LINK": "Link to game invitation"
+    "INVITE_LINK": "Link to game invitation",
+    "NEW_MATCH": "New match"
   }
 }
