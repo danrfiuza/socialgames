@@ -14,8 +14,9 @@ Template.sidebar.helpers({
         var user = Meteor.user();
         if (user && user.services.facebook) {
             return user.services.facebook.name;
-        }
-        else {
+        } else if (user && user.profile.name) {
+            return user.profile.name;
+        } else {
             return "";
         }
     },
@@ -25,8 +26,7 @@ Template.sidebar.helpers({
             return user.emails[0].address;
         } else if (user && user.services.facebook) {
             return user.services.facebook.email;
-        }
-        else {
+        } else {
             return "";
         }
     }
@@ -34,7 +34,7 @@ Template.sidebar.helpers({
 
 if (Meteor.isClient) {
     Template.sidebar.events({
-        'click nav.sidebar li a': function(){
+        'click nav.sidebar li a': function () {
             $('body').removeClass('aside-toggled');
         }
     });
