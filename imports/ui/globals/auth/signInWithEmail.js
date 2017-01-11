@@ -16,7 +16,6 @@ Template.signInWithEmail.events({
             if (error) {
                 swal('Oops...', error.message, 'error');
             } else {
-                // swal('Registro efetuado com sucesso', '', 'success');
                 swal(TAPi18n.__('login.SUCCESSFUL_REGISTRATION'), '', 'success');
                 Router.go('login');
             }
