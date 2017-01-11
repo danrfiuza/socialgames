@@ -1,6 +1,7 @@
 .content-wrapper {
   padding-top: 75px;
 }
+
 .topnavbar {
   background-color: #FEB46B;
   /* Juicy Cantaloupe color */
@@ -9,166 +10,218 @@
   top: 0;
   width: 100%;
 }
+
 .aside .sidebar {
   padding-bottom: 0;
 }
+
 .aside .sidebar > .nav > li {
   border: 0 none;
 }
+
 .aside .sidebar > .nav > li > a > em,
 .aside .sidebar > .nav > li > a:hover,
 .aside .sidebar > .nav > li.active > a,
 .aside .sidebar > .nav > li.active > a > em {
   color: #FFFFFF;
 }
+
 .sidebar > .nav > li > a:focus {
   color: #515253;
 }
+
 .aside .sidebar > .nav > li > a.main:hover,
 .aside .sidebar > .nav > li.active > a.main,
 .aside .sidebar > .nav > li > a.main > em,
 .wrapper.section-main .topnavbar {
   background-color: #53C7FE;
 }
+
 .aside .sidebar > .nav > li > a.timeline:hover,
 .aside .sidebar > .nav > li.active > a.timeline,
 .aside .sidebar > .nav > li > a.timeline > em,
 .wrapper.section-timeline .topnavbar {
   background-color: #FE8428;
 }
+
 .aside .sidebar > .nav > li > a.friends:hover,
 .aside .sidebar > .nav > li.active > a.friends,
 .aside .sidebar > .nav > li > a.friends > em,
 .wrapper.section-friends .topnavbar {
   background-color: #536DFE;
 }
+
 .aside .sidebar > .nav > li > a.games:hover,
 .aside .sidebar > .nav > li.active > a.games,
 .aside .sidebar > .nav > li > a.games > em,
-.wrapper.section-games .topnavbar {
+.wrapper.section-games .topnavbar,
+.wrapper.section-newgame .topnavbar {
   background-color: #9F689F;
 }
+
 .aside .sidebar > .nav > li > a.matches:hover,
 .aside .sidebar > .nav > li.active > a.matches,
 .aside .sidebar > .nav > li > a.matches > em,
 .wrapper.section-matches .topnavbar {
   background-color: #689F38;
 }
+
 .aside .sidebar > .nav > li > a.places:hover,
 .aside .sidebar > .nav > li.active > a.places,
 .aside .sidebar > .nav > li > a.places > em,
 .wrapper.section-places .topnavbar {
   background-color: #ED3B3B;
 }
+
 .aside .sidebar > .nav > li > a.rankings:hover,
 .aside .sidebar > .nav > li.active > a.rankings,
 .aside .sidebar > .nav > li > a.rankings > em,
 .wrapper.section-rankings .topnavbar {
   background-color: #FFBF00;
 }
+
+.aside .sidebar > .nav > li > a.dashboard:hover,
+.aside .sidebar > .nav > li.active > a.dashboard,
+.aside .sidebar > .nav > li > a.dashboard > em,
+.wrapper.section-rankings .dashboard {
+  background-color: #FF902B;
+}
+
 .aside .sidebar > .nav > li > a.logoff:hover,
 .aside .sidebar > .nav > li.active > a.logoff,
 .aside .sidebar > .nav > li > a.logoff > em {
   background-color: #444444;
 }
+
 .sidebar > .nav > li > a > em {
+  border-radius: 20px;
   margin-right: 5px;
   padding: 13px 26px 13px 13px;
 }
-//.sidebar > .nav > li > a,
+
+.sidebar > .nav > li > a {
+  padding: 12px 15px;
+}
+
 .sidebar > .nav > li > .nav-item {
   padding: 0;
 }
+
 body.aside-collapsed .user-block-picture {
   display: none;
 }
+
 .sidebar .user-block-picture {
   padding: 20px 12px;
 }
+
 .wrapper > .aside .aside-inner {
   padding-top: 60px;
 }
+
 .active-title {
   color: #FFFFFF;
   font-size: 16px;
   margin-top: 8px;
+  padding-left: 20px;
 }
+
 .nav-wrapper {
   padding: 0 10px 0 0;
 }
+
 .sidebar ul.nav {
   height: 100%;
 }
+
 .nav-wrapper ul.nav {
   margin: 8px 0;
   width: 100%;
 }
-.nav-wrapper ul.nav li.brand-logo {
+
+.nav-wrapper ul.nav li.brand-logo,
+.nav-wrapper ul.nav li.language-list {
   float: right;
 }
+
+.nav-wrapper ul.nav li.language-list button {
+  background-color: transparent;
+  border: 0 none;
+  padding: 6px;
+}
+
 .nav-wrapper ul.nav li.nav-button > a {
   color: #FFFFFF;
   padding-bottom: 10px;
   padding-top: 10px;
 }
+
 .custom-avatar-initials {
   display: none;
 }
 
-
 /** dashboardUserInfo BEGIN **/
 .twPc-bg {
-    background-image: url("https://pbs.twimg.com/profile_banners/50988711/1384539792/600x200");
-    background-position: 0 50%;
-    background-size: 100% auto;
-    border-bottom: 1px solid #e1e8ed;
-    border-radius: 4px 4px 0 0;
-    height: 50px;
-    width: 100%;
+  background-image: url("https://pbs.twimg.com/profile_banners/50988711/1384539792/600x200");
+  background-position: 0 50%;
+  background-size: 100% auto;
+  border-bottom: 1px solid #e1e8ed;
+  border-radius: 4px 4px 0 0;
+  height: 50px;
+  width: 100%;
 }
+
 .twPc-block {
-    display: block !important;
+  display: block !important;
 }
+
 .twPc-button {
-    margin: -35px -10px 0;
-    text-align: right;
-    width: 100%;
+  margin: -35px -10px 0;
+  text-align: right;
+  width: 100%;
 }
+
 .twPc-avatarLink {
-    background-color: #fff;
-    border-radius: 6px;
-    display: inline-block !important;
-    float: left;
-    margin: -25px 5px 0 5px;
-    max-width: 100%;
-    padding: 1px;
-    vertical-align: bottom;
+  background-color: #fff;
+  border-radius: 6px;
+  display: inline-block !important;
+  float: left;
+  margin: -25px 5px 0 5px;
+  max-width: 100%;
+  padding: 1px;
+  vertical-align: bottom;
 }
+
 .twPc-avatarImg {
-    border: 2px solid #fff;
-    border-radius: 7px;
-    box-sizing: border-box;
-    color: #fff;
-    height: 160px;
-    width: 160px;
+  border: 2px solid #fff;
+  border-radius: 7px;
+  box-sizing: border-box;
+  color: #fff;
+  height: 160px;
+  width: 160px;
 }
+
 .twPc-divUser {
-    margin: 5px 0 0;
+  margin: 5px 0 0;
 }
+
 .twPc-divName {
-    font-size: 18px;
-    font-weight: 700;
-    line-height: 35px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 35px;
 }
+
 .twPc-divName a {
-    color: inherit !important;
+  color: inherit !important;
 }
+
 .twPc-StatLabel {
-    color: #8899a6;
-    font-size: 10px;
-    letter-spacing: 0.02em;
-    overflow: hidden;
-    text-transform: uppercase;
-    transition: color 0.15s ease-in-out 0s;
+  color: #8899a6;
+  font-size: 10px;
+  letter-spacing: 0.02em;
+  overflow: hidden;
+  text-transform: uppercase;
+  transition: color 0.15s ease-in-out 0s;
 }
+
 /** dashboardUserInfo END **/

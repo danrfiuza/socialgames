@@ -36,13 +36,13 @@ Template.places.events({
         if (booObrigatoriosPreenchidos == true) {
             Meteor.call('places.insert', place, function (e, result) {
                 if(result){
-                    Bert.alert('Local salvo com sucesso', 'success');
+                    Bert.alert( TAPi18n.__('places.LOCATION_SAVED'), 'success');
                 } else {
-                    Bert.alert('Erro ao tentar salvar um local', 'danger');
+                    Bert.alert( TAPi18n.__('places.ERROR_SAVE_LOCATION'), 'danger');
                 }
             });
         } else {
-            Bert.alert('Existe(m) campo(s) obrigatorio(s) para sere(m) preenchido(s)', 'danger');
+            Bert.alert( TAPi18n.__('places.THERE_IS_REQUIRED_FIELD'), 'danger');
         }
 
         $('#place').val('');//Clear input

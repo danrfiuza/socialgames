@@ -121,7 +121,7 @@ Template.matches.events({
     },
     'click #btnFirstPlayer' : function(event, template) {
         randomizeFirstPlayer();
-        $('#divBtnFirstPlayer').hide();
+        $('#btnFirstPlayer').hide();
     },
     'click #btnFinishCount' : function(event, template) {
         clock.stop();
@@ -165,6 +165,7 @@ function changeState(status) {
             $('#msgReservationSchedule').hide();
             $('#divPlaces').hide();
             $('#imgShareMatch').hide();
+            $('#divTimer').hide();
             break;
         case 'game' :
             $('#panelSearch').hide();
@@ -189,6 +190,7 @@ function changeState(status) {
             $('#divPlaces').show();
             break;
         case 'start' : 
+            $('#divTimer').show();
             $('#divBtnStarMatch').hide();
             $('#divBtnFirstPlayer').show();
             $('#panelSearch').hide();
@@ -196,14 +198,13 @@ function changeState(status) {
             $('#readyPlayers').show();
             $('#divPlaces').hide();
             $('#subtitleGame').html("Partida em andamento");
-            $('#pBtnCountPoints').html('<button type="button" id="btnFinishCount" class="btn btn-default">Contar os pontos e finalizar a partida</button>');
+            $('#pBtnCountPoints').html('');
             break;
         case 'score' : 
             $('#divPlayers').show();
             $('#readyPlayers').hide();
-            $('#pTimer').css('color', '#999');
             $('#subtitleGame').html("Contagem de pontos");
-            $('#pBtnCountPoints').hide();
+            $('#btnFinishCount').hide();
             $('#divBtnFinishMatch').show();
             break;
         case 'trophy' : 
@@ -232,21 +233,29 @@ function prepareAutoComplateForPlayers() {
 
 // Load select combo with friends
 function loadComboFriends() {
-    frieds = Friends.find({meu_id: Meteor.user()._id}).fetch();
+    friends = Meteor.users.findOne({_id: Meteor.user()._id}).profile.friends;
     comboFriends = [];
     var cont = 1;
-    var emailUserLogged = '';
-    if (Meteor.user().services.facebook) {
-        emailUserLogged = Meteor.user().services.facebook.email;
-    } else {
-        emailUserLogged = Meteor.user().emails[0].address;
-    }
+    var emailUserLogged = captureEmail(Meteor.user());
     comboFriends[0] = { id : Meteor.user()._id, text : emailUserLogged}
-    _.forEach(frieds, function(item){
-        comboFriends[cont] = { id : item._id, text : item.email };
+
+    _.forEach(friends, function(item){
+        emailAmigo = captureEmail(Meteor.users.findOne({_id: item.friend_id}));
+        comboFriends[cont] = { id : item.friend_id, text : emailAmigo };
         cont++;
     });
+
     rComboFriends.set(comboFriends);
+}
+
+// caputure email from user
+function captureEmail(user) {
+    if (user.services.facebook) {
+        email = user.services.facebook.email;
+    } else {
+        email = user.emails[0].address;
+    }
+    return email;
 }
 
 // set status in option select friends ex. disabled
@@ -330,19 +339,19 @@ function orderRanking() {
     rPodium.set(players);
 }
 
-
 function buildGenericMatch() {
     var match = {};
-    match.players = rPlayers.get();
-    match.game = rGame.get();
-    match.place = $('#place').val();
+    match.game = rGame.get()._id;
+    if ($('#place').val().length > 0) {
+        match.place = $('#place').val()[0];
+    }
     return match;
 }
 
 // Assemble match information
 function buildMatch() {
     var match = buildGenericMatch();
-    match.podium = rPodium.get();
+    match.players = rPodium.get();
     match.timer = clock.elapsedTime();
     return match;
 }
@@ -350,6 +359,7 @@ function buildMatch() {
 // Assemble match schedule information
 function buildMatchSchedule() {
     var match = buildGenericMatch();
+    match.players = rPlayers.get();
     match.date_schedule = $('#dateMatch').val();
     return match;
 }

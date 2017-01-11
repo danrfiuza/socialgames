@@ -1,12 +1,10 @@
 {
   "public": {
-    "SAVE": "Salvar"
+    "SAVE": "Salvar",
+    "ADD": "Add",
+    "FACEBOOK": "Facebook",
+    "SOCIALBOARDGAME": "Social BoardGame"
   },  
-  "dashboard": {
-    "WELCOME": "Welcome to Angle !",
-    "ENGLISH": "English",
-    "PORTUGUESE": "Portuguese"
-  },
   "topbar": {
     "search": {
       "PLACEHOLDER": "Type and hit enter.."
@@ -37,10 +35,40 @@
     "LATITUDE": "Latitude",
     "LONGITUDE": "Longitude",
     "ENTER_ADDRESS": "Enter address",
-    "PLACE_NAME": "Place name"
+    "PLACE_NAME": "Place name",
+    "LOCATION_SAVED": "Location saved successfully",
+    "ERROR_SAVE_LOCATION": "Error while trying to save a location",
+    "THERE_IS_REQUIRED_FIELD": "There is required field to be filled in"
   },
   "dashboard": {
     "DASHBOARD": "Dashboard",
-    "MYDASHBOARD": "My Dashboard"
-  }    
+    "MYDASHBOARD": "My Dashboard",
+    "WELCOME": "Welcome to Social Games!",
+    "ENGLISH": "English",
+    "PORTUGUESE": "Portuguese"
+  },
+  "friend": {
+    "SEARCH_FRIEND": "Search Friend",
+    "SEE": "See",
+    "ENTER_FRIENDS_ADDRESS": "Enter your friend's email address",
+    "ALREADY_YOUR_FRIEND": "This user is already your friend",
+    "FRIEND_ADDED_SUCCESSFULLY": "Friend added successfully"
+  },
+  "match": {
+    "CHOOSE_GAME": "Choose the game",
+    "PHRASE_REGISTER_GAME_A": "Did not find your game?",
+    "PHRASE_REGISTER_GAME_B": "Register now, it's super fast.",
+    "AVERAGE_TIME": "Average time",
+    "PLAYERS": "Players",
+    "GAME_NOW": "I'm going to play now",
+    "GAME_SCHEDULE": "Schedule Game",
+    "START_MATCH": "Start Match",
+    "CONFIRM_SCHEDULE": "Confirm Scheduling",
+    "SCORE": "Score",
+    "FINISH_MATCH": "Finish Match",
+    "FACEBOOK_SHARE": "Share",
+    "ADD_LOCAL": "Add a new location",
+    "BOOK_FRIEND": "Book a vacancy for a friend",
+    "INVITE_LINK": "Link to game invitation"
+  }
 }

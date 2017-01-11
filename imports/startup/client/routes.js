@@ -2,6 +2,7 @@ import { Meteor } from 'meteor/meteor';
 
 // Import to load these templates
 import '../../ui/layouts/app-body.js';
+
 import '../../ui/layouts/app-login.js';
 import '../../ui/pages/timeline/timeline.js';
 import '../../ui/pages/game/game.js';
@@ -12,10 +13,16 @@ import '../../ui/pages/mach/match.js';
 import '../../ui/pages/place/place.js';
 import '../../ui/pages/ranking/ranking.js';
 import '../../ui/pages/dashboard/dashboard.js';
+
+import '../../ui/globals/app.init.js';
+import '../../ui/globals/custom.js';
+import '../../ui/globals/auth/login.js';
+import '../../ui/globals/sidebars.js';
+import '../../ui/globals/topnavbar.js';
 import '../../ui/globals/auth/loginForm.js';
 import '../../ui/globals/auth/signInWithEmail.js';
 
-var titleSocial = 'Social Games - A Rede Social dos BoardGamers';
+var titleSocial = 'Social Games - A Rede Social dos Board Gamers';
 
 // Configure routes
 Router.configure({

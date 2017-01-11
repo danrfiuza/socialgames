@@ -6,7 +6,7 @@
                     <fieldset>
                         <div class="form-group">
                             <div class="col-sm-12">
-                                <label for="amigos" class="col-sm-2 control-label">Procurar Amigo</label>
+                                <label for="amigos" class="col-sm-2 control-label">{{_ "friend.SEARCH_FRIEND"}}</label>
                                 <div class="col-sm-6">
                                     <select name="amigos" id="amigos" class="form-control m-b" multiple="">
                                         {{#each allUsers}}
@@ -16,7 +16,7 @@
                                 </div>
                                 <div class="col-sm-4">
                                     <div class="form-group">
-                                        <button type="button" id="btnAddFriend" class="btn btn-default">Adicionar
+                                        <button type="button" id="btnAddFriend" class="btn btn-default">{{_ "public.ADD"}}
                                         </button>
                                     </div>
                                 </div>
@@ -36,20 +36,20 @@
                         <div class="col-sm-8">
                             <h4> {{ profile.name }} </h4>
                             <h5>{{ emails.[0].address }}</h5>
-                            <button type="button" class="btn btn-success btn-oval">Ver</button>
+                            <button type="button" class="btn btn-success btn-oval">{{_ "friend.SEE"}}</button>
                         </div>
                     </div>
                     <div class="panel-body bt">
                         <div class="row">
                             <div class="col-xs-6 br">
                                 <a class="btn btn-block btn-social btn-facebook" href="{{ services.facebook.link }}">
-                                    <span class="fa fa-facebook"></span> Facebook
+                                    <span class="fa fa-facebook"></span> {{_ "public.FACEBOOK"}}
                                 </a>
                             </div>
                             <div class="col-xs-6">
                                 <a class="btn btn-block btn-social btn-microsoft"
                                    href="http://localhost:3000/dashboard/{{ emails.[0].address }}">
-                                    <span class="fa fa-windows"></span> Social BoardGame
+                                    <span class="fa fa-windows"></span> {{_ "public.SOCIALBOARDGAME"}}
                                 </a>
                             </div>
                         </div>

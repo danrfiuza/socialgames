@@ -11,6 +11,8 @@ import '../components/angle/modules/sidebar.js';
 import '../components/angle/modules/toggle-state.js';
 import '../components/angle/modules/utils.js';
 
+import '../components/avatar/avatar.js';
+
 import '../globals/footer.html';
 import '../globals/sidebar.html';
 import '../globals/submenu.html';

@@ -1,6 +1,6 @@
-<template name="dashboardScheduledGames">
+<template name="dashboardMatchHistory">
     <div class="panel">
-        <div class="panel-heading" data-toggle="collapse" href="#panelScheduleGames"  style="background-color: red; color: white">Partidas Agendadas</div>
+        <div class="panel-heading" data-toggle="collapse" href="#panelScheduleGames"  style="background-color: red; color: white">Histórico de partidas</div>
         <div class="pannel-body panel-collapse collapse in" id="panelScheduleGames" style="padding: 10px; height: 150px; overflow-y: scroll; overflow-x: hidden;">
 				<div class="table-responsive">
 					<table class="table">
@@ -13,7 +13,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						{{> dashboardScheduledGamesItem }}
+						{{> dashboardMatchHistoryItem }}
 					</tbody>
 					</table>
 				</div>
@@ -21,7 +21,7 @@
     </div>
 </template>
 
-<template name="dashboardScheduledGamesItem">
+<template name="dashboardMatchHistoryItem">
 			<tr>
 				<td style="text-align: center;"><img class="img-responsive" height="32" width="32" src="https://cf.geekdo-images.com/images/pic1965255_t.jpg"></td>
 				<td style="text-align: center;">Abyss</td>

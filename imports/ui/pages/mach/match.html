@@ -5,7 +5,7 @@
           <fieldset>
             <div class="form-group">
               <div class="col-sm-12">
-                <label for="amigos" class="col-sm-2 control-label">Escolha o jogo</label> 
+                <label for="amigos" class="col-sm-2 control-label">{{_ "match.CHOOSE_GAME"}}</label> 
                 <div class="col-sm-6">
                   <select name="selectGame" multiple="" id="selectGame" class="form-control m-b">
                     {{#each games}}
@@ -16,13 +16,13 @@
               </div>
             </div>
           </fieldset>
-        <div class="panel-body">Não encontrou seu jogo? <a href="/newgame">cadastre agora, é super rápido.</a></div>
+        <div class="panel-body">{{_ "match.PHRASE_REGISTER_GAME_A"}} <a href="/newgame">{{_ "match.PHRASE_REGISTER_GAME_B"}}</a></div>
       </form>
     </div>
-
-    {{#with game}}
+    
     <div class="col-lg-12" id="viewGame">
       <div class="panel widget">
+        {{#with game}}
         <div class="panel-body bg-inverse">
           <div class="row text-center">
             <div class="col-xs-6">
@@ -30,33 +30,58 @@
             </div>
             <div class="col-xs-6">
               <h4 class="m0">{{ name }}</h4>
-              <p class="m0 text-muted">
-                 <small id='subtitleGame'>Ano: {{ yearpublished }}</small>
-              </p>
-              <p class="h2 mt0" id="pTimer">{{ timer }}</p>
               <p id="pBtnCountPoints"></p>
-            </div>
-          </div>
-        </div>
-        <div class="panel-body">
-          <div class="row row-table text-center">
-            <div class="col-xs-6">
-              <p class="m0 text-muted">Tempo médio</p>
+              <p class="m0 text-muted">{{_ "match.AVERAGE_TIME"}}</p>
               <h4 class="m0"><em class="fa fa-clock-o"></em> {{ playingtime }} min</h4>
-            </div>
-            <div class="col-xs-6">
-              <p class="m0 text-muted">Jogadores</p>
+              <p class="m0 text-muted">{{_ "match.PLAYERS"}}</p>
               <h4 class="m0"><em class="fa fa-group"></em> {{ minplayers }} - {{ maxplayers }}</h4>
             </div>
           </div>
         </div>
+        {{/with}}
+        <div class="panel-body bg-info" id="divTimer">
+          <div class="row row-table text-center">
+            <p class="h3 mt0" id="pTimer">{{ timer }}</p>
+          </div>
+        </div>
+        <div class="panel-body">
+          <div class="row row-table text-center">
+
+            <div class="col-lg-12" id="divButtons">
+              <button type="button" id="btnMatchNow" class="btn btn-success">{{_ "match.GAME_NOW"}}</button>
+              <button type="button" id="btnScheduleMatch" class="btn btn-info">{{_ "match.GAME_SCHEDULE"}}</button>
+            </div>
+
+            <div class="col-lg-12" id="divBtnStarMatch">
+              <button type="button" id="btnStartMatch" class="btn btn-square btn-success">{{_ "match.START_MATCH"}}</button>
+            </div>
+
+            <div class="col-lg-12" id="divBtnSaveSchedule">
+              <button type="button" id="btnSaveSchedule" class="btn btn-square btn-success">{{_ "match.CONFIRM_SCHEDULE"}}</button>
+            </div>
+
+            <div class="col-lg-12" id="divBtnFirstPlayer">
+              <button type="button" id="btnFirstPlayer" class="btn btn-square btn-default">First Player</button>
+              <button type="button" id="btnFinishCount" class="btn btn-square btn-success">{{_ "match.SCORE"}}</button>
+            </div>
+
+            <div class="col-lg-12" id="divBtnFinishMatch">
+              <button type="button" id="btnFinishMatch" class="btn btn-square btn-danger">{{_ "match.FINISH_MATCH"}}</button>
+            </div>
+
+            <div class="col-lg-12" id="divBtnPublish">
+              <button type="button" id="btnPublishFacebook" class="btn btn-square btn-info">{{_ "match.FACEBOOK_SHARE"}}</button>
+            </div>
+
+          </div>
+        </div>
       </div>
     </div>
-    {{/with}}
 
-    <div class="col-lg-12" id="divButtons">
-      <button type="button" id="btnMatchNow" class="btn btn-success">Vou jogar agora</button> ou
-      <button type="button" id="btnScheduleMatch" class="btn btn-info">Agendar partida</button>
+    <div>
+      <div class="panel-body" id="msgReservationSchedule">
+        {{_ "match.INVITE_LINK"}}: http://socialboardgames.com/match/schedule/12349756
+      </div>
     </div>
 
     <div id="divPlaces">
@@ -67,7 +92,7 @@
           {{/each}}
         </select>
         <br>
-        <a href="/places">Adicionar um novo local</a>
+        <a href="/places">{{_ "match.ADD_LOCAL"}}</a>
       </div>
     </div>
 
@@ -89,7 +114,7 @@
     <div id="msgReservationFriend">
       <div class="panel-body">
         <div class="col-sm-12">
-          Reservar vaga para amigo
+          {{_ "match.BOOK_FRIEND"}}
         </div>
       </div>
     </div>
@@ -164,32 +189,6 @@
       </div>
     </div>  
 
-    <div>
-      <div class="panel-body" id="msgReservationSchedule">
-        Link para convite da partida: http://socialboardgames.com/match/schedule/12349756
-      </div>
-    </div>
-
-    <div class="form-group pull-right" id="divBtnStarMatch">
-      <button type="button" id="btnStartMatch" class="btn btn-success">Iniciar Partida</button>
-    </div>
-
-    <div class="form-group pull-right" id="divBtnSaveSchedule">
-      <button type="button" id="btnSaveSchedule" class="btn btn-success">Confirmar Agendamento</button>
-    </div>
-
-    <div class="form-group pull-right" id="divBtnFirstPlayer">
-      <button type="button" id="btnFirstPlayer" class="btn btn-success">Sortear First Player</button>
-    </div>
-
-    <div class="form-group pull-right" id="divBtnFinishMatch">
-      <button type="button" id="btnFinishMatch" class="btn btn-danger">Finalizar Partida</button>
-    </div>
-
-    <div class="form-group pull-right" id="divBtnPublish">
-      <button type="button" id="btnPublishFacebook" class="btn btn-info">Publicar resultado no Facebook</button>
-    </div>
-    
   </div>
 
   <div id="imgShareMatch">
