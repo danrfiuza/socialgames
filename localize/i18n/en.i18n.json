@@ -1,4 +1,9 @@
 {
+  "generic": {
+    "SAVE_SUCCESS" : "saved successfully",
+    "SAVE_ERROR" : "error trying to save",
+    "ALERT_NO_RESULT": "no results found"
+  },
   "public": {
     "SAVE": "Salvar",
     "ADD": "Add",
@@ -72,6 +77,9 @@
     "FACEBOOK_SHARE": "Share",
     "ADD_LOCAL": "Add a new location",
     "BOOK_FRIEND": "Book a vacancy for a friend",
-    "INVITE_LINK": "Link to game invitation"
+    "INVITE_LINK": "Link to game invitation",
+    "NEW_MATCH": "New match",
+    "HINT_CHOOSE_GAME": "enter name of the game",
+    "ALERT_NAME": "please enter game name"
   }
 }
