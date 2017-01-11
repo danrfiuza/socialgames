@@ -16,7 +16,6 @@ import '../../ui/pages/dashboard/dashboard.js';
 
 import '../../ui/globals/app.init.js';
 import '../../ui/globals/custom.js';
-import '../../ui/globals/auth/login.js';
 import '../../ui/globals/sidebars.js';
 import '../../ui/globals/topnavbar.js';
 import '../../ui/globals/auth/loginForm.js';

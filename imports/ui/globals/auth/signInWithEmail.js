@@ -4,7 +4,7 @@ import './signInWithEmail.html';
 Template.signInWithEmail.events({
     "submit #signup-form": function(event, template) {
         event.preventDefault();
-        console.log(template.find("#signup-email").value);
+
         Accounts.createUser({
             username: template.find("#signup-email").value,
             password: template.find("#signup-password").value,
@@ -14,7 +14,10 @@ Template.signInWithEmail.events({
             }
         }, function(error) {
             if (error) {
-                swal('Oops...', error, 'error');
+                swal('Oops...', error.message, 'error');
+            }else{
+                swal('Registro efetuado com sucesso', '', 'success');
+                Router.go('login');
             }
         });
     }
