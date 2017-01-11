@@ -27,7 +27,7 @@ accounts-ui
 accounts-facebook
 accounts-password
 aldeed:template-extension
-useraccounts:bootstrap
+#useraccounts:bootstrap
 pcel:serialize
 zimme:iron-router-auth
 natestrauser:select2
@@ -48,3 +48,4 @@ mrt:googlemaps
 bryanmorgan:webshot
 maazalik:highcharts
 clarencel:highcharts-drilldown
+service-configuration

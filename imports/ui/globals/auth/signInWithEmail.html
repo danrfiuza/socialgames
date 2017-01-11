@@ -1,0 +1,27 @@
+<template name="signInWithEmail">
+    <form id="signup-form">
+        <div class="modal-body">
+
+
+            <div class="form-group">
+                <label for="emailAddress">Nome Completo</label>
+                <input type="text" name="emailAddress" id="signup-name" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="emailAddress"> Endereço de e-mail</label>
+                <input type="email" name="emailAddress" id="signup-email" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Senha</label>
+                <input type="password" name="password" id="signup-password" class="form-control">
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button data-auth-type="create" type="submit" class="btn btn-primary">Criar Conta</button>
+        </div>
+    </form>
+    <p class="pt-lg text-center">Já possui Conta?</p>
+    <a href="/signInWithEmail" class="btn btn-block btn-default">Autenticar</a>
+</template>

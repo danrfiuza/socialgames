@@ -1,10 +1,7 @@
 <template name="login">
-   <div class="wrapper">
-      <div class="block-center mt-xl wd-xl">
-         {{> atForm}}
-         {{#if currentUser }}
-              Você está logado!
-         {{/if}}
-      </div>
-   </div> 
+    {{> socialLogin }}
+    <p class="text-center">ou</p>
+    {{> loginForm}}
+    <p class="pt-lg text-center">Precisa Inscrever-se?</p>
+    <a href="/signInWithEmail" class="btn btn-block btn-default">Registrar agora</a>
 </template>

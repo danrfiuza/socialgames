@@ -2,6 +2,7 @@ import { Meteor } from 'meteor/meteor';
 
 // Import to load these templates
 import '../../ui/layouts/app-body.js';
+import '../../ui/layouts/app-login.js';
 import '../../ui/pages/timeline/timeline.js';
 import '../../ui/pages/game/game.js';
 import '../../ui/pages/game/newgame.js';
@@ -11,9 +12,10 @@ import '../../ui/pages/mach/match.js';
 import '../../ui/pages/place/place.js';
 import '../../ui/pages/ranking/ranking.js';
 import '../../ui/pages/dashboard/dashboard.js';
-import '../../ui/globals/auth/login.js';
+import '../../ui/globals/auth/loginForm.js';
+import '../../ui/globals/auth/signInWithEmail.js';
 
-var titleSocial = 'Social Games - A Rede Social dos Board Gamers';
+var titleSocial = 'Social Games - A Rede Social dos BoardGamers';
 
 // Configure routes
 Router.configure({
@@ -25,6 +27,7 @@ Router.configure({
 Router.plugin('auth', {
     except: [
         'login',
+        'signInWithEmail',
         'main'
     ]
 });
@@ -36,8 +39,22 @@ Router.map(function(){
         path: '/'
     });
 
+    this.route('signInWithEmail', {
+        path: '/signInWithEmail',
+        layoutTemplate: 'loginLayout'
+    });
+
     this.route('login', {
-        path: '/login'
+        path: '/login',
+        layoutTemplate: 'loginLayout',
+        onRun: function(){
+            var currentUser = Meteor.userId();
+            if(currentUser){
+                Router.go('dashboard');
+            } else {
+                this.render("login");
+            }
+        }
     });
 
     this.route('logoff', function() {

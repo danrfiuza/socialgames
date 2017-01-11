@@ -9,3 +9,6 @@ https://select2.github.io/
 
 # webshot (require phantomjs)
 https://atmospherejs.com/bryanmorgan/webshot
+
+#service-configuration -  Manage the configuration for third-party services
+https://atmospherejs.com/meteor/service-configuration
