@@ -121,7 +121,7 @@ Template.matches.events({
     },
     'click #btnFirstPlayer' : function(event, template) {
         randomizeFirstPlayer();
-        $('#divBtnFirstPlayer').hide();
+        $('#btnFirstPlayer').hide();
     },
     'click #btnFinishCount' : function(event, template) {
         clock.stop();
@@ -165,6 +165,7 @@ function changeState(status) {
             $('#msgReservationSchedule').hide();
             $('#divPlaces').hide();
             $('#imgShareMatch').hide();
+            $('#pTimer').hide();
             break;
         case 'game' :
             $('#panelSearch').hide();
@@ -189,6 +190,7 @@ function changeState(status) {
             $('#divPlaces').show();
             break;
         case 'start' : 
+            $('#pTimer').show();
             $('#divBtnStarMatch').hide();
             $('#divBtnFirstPlayer').show();
             $('#panelSearch').hide();
@@ -196,14 +198,14 @@ function changeState(status) {
             $('#readyPlayers').show();
             $('#divPlaces').hide();
             $('#subtitleGame').html("Partida em andamento");
-            $('#pBtnCountPoints').html('<button type="button" id="btnFinishCount" class="btn btn-default">Contar os pontos e finalizar a partida</button>');
+            $('#pBtnCountPoints').html('');
             break;
         case 'score' : 
             $('#divPlayers').show();
             $('#readyPlayers').hide();
-            $('#pTimer').css('color', '#999');
+            $('#pTimer').css('color', 'red');
             $('#subtitleGame').html("Contagem de pontos");
-            $('#pBtnCountPoints').hide();
+            $('#btnFinishCount').hide();
             $('#divBtnFinishMatch').show();
             break;
         case 'trophy' : 
@@ -338,25 +340,26 @@ function orderRanking() {
     rPodium.set(players);
 }
 
-
 function buildGenericMatch() {
     var match = {};
-    match.players = rPlayers.get();
-    match.game = rGame.get();
-    match.place = $('#place').val();
+    match.game = rGame.get()._id;
+    if ($('#place').val().length > 0) {
+        match.place = $('#place').val()[0];
+    }
     return match;
 }
 
 // Assemble match information
 function buildMatch() {
     var match = buildGenericMatch();
-    match.podium = rPodium.get();
+    match.players = rPodium.get();
     match.timer = clock.elapsedTime();
     return match;
 }
 
 // Assemble match schedule information
 function buildMatchSchedule() {
+    match.players = rPlayers.get();
     var match = buildGenericMatch();
     match.date_schedule = $('#dateMatch').val();
     return match;
