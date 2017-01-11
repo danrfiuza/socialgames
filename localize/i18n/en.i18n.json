@@ -4,7 +4,10 @@
     "ADD": "Add",
     "FACEBOOK": "Facebook",
     "SOCIALBOARDGAME": "Social BoardGame"
-  },  
+  },
+  "login": {
+    "SUCCESSFUL_REGISTRATION": "Successful Registration"
+  },
   "topbar": {
     "search": {
       "PLACEHOLDER": "Type and hit enter.."
