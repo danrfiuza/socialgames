@@ -5,6 +5,9 @@
     "FACEBOOK": "Facebook",
     "SOCIALBOARDGAME": "Social BoardGame"
   },
+  "login": {
+    "SUCCESSFUL_REGISTRATION": "Registro efetuado com sucesso"
+  },
   "topbar": {
     "search": {
       "PLACEHOLDER": "Digite e pressione enter..."
