@@ -14,8 +14,8 @@ Template.dashboardUserInfo.helpers({
         return Friends.find({meu_id: Meteor.user()._id});
     },
     userInfo() {
-        totalDePartidas(Meteor.user());
-        jogosExperimentados(Meteor.user());
+        totalDePartidas( Meteor.user() );
+        jogosExperimentados( Meteor.user() );
         mediaVitoria = '85%';
 
         return {
