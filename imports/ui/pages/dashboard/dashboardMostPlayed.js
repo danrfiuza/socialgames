@@ -61,10 +61,6 @@ Template.dashboardMostPlayed.topGenresChart = function () {
                 y: 0.91,
                 drilldown: 'Abyss'
             }, {
-                name: 'Abyss',
-                y: 0.91,
-                drilldown: 'Abyss'
-            }, {
 
                 name: 'Outros',
                 y: 0.2,
