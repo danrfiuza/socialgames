@@ -29,5 +29,18 @@ Meteor.methods({
         });
 
         return arrCount.length;
+    },
+    'matchs.gamesTop30'(){
+        console.log('chmou o chamado');
+        // result = Matchs.find({"players.mail": user.emails[0].address}, { sort: { "game._id": 1 } } ).fetch();
+        //
+        // arrCount = [];
+        // result.forEach(function (value) {
+        //     if (! _.contains( arrCount, value.game) ) {
+        //         arrCount.push(value.game);
+        //     }
+        // });
+        //
+        // return arrCount.length;
     }
 });
