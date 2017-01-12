@@ -11,7 +11,8 @@
     "SOCIALBOARDGAME": "Social BoardGame"
   },
   "login": {
-    "SUCCESSFUL_REGISTRATION": "Registro efetuado com sucesso"
+    "SUCCESSFUL_REGISTRATION": "Registro efetuado com sucesso",
+    "ERROR_LOGGING_IN": "Erro ao efetuar o login"
   },
   "topbar": {
     "search": {
@@ -32,7 +33,7 @@
       "RANKINGS": "Rankings",
       "TIMELINE": "Timeline",
       "DASHBOARD": "Dashboard",
-      "LOGOFF": "Sair"
+      "LOGOUT": "Sair"
     }
   },
   "places": {
