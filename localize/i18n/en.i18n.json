@@ -11,7 +11,8 @@
     "SOCIALBOARDGAME": "Social BoardGame"
   },
   "login": {
-    "SUCCESSFUL_REGISTRATION": "Successful Registration"
+    "SUCCESSFUL_REGISTRATION": "Successful Registration",
+    "ERROR_LOGGING_IN": "Error logging in"
   },
   "topbar": {
     "search": {
