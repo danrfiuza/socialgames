@@ -1,7 +1,7 @@
 <template name="dashboardMatchHistory">
     <div class="panel">
         <div class="panel-heading" data-toggle="collapse" href="#panelScheduleGames"  style="background-color: red; color: white">Histórico de partidas</div>
-        <div class="pannel-body panel-collapse collapse in" id="panelScheduleGames" style="padding: 10px; height: 150px; overflow-y: scroll; overflow-x: hidden;">
+        <div class="pannel-body panel-collapse collapse {{#if isDesktop}}in{{/if}}" id="panelScheduleGames" style="padding: 10px; height: 150px; overflow-y: scroll; overflow-x: hidden;">
 				<div class="table-responsive">
 					<table class="table">
 					<thead>
