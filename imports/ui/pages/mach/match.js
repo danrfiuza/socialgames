@@ -14,6 +14,7 @@ var rPodium = new ReactiveVar([]);
 var clock = new ReactiveClock("clock");
 var rComboFriends = new ReactiveVar([]);
 var rPlaces = new ReactiveVar(0);
+var rMatchId = new ReactiveVar(0);
 clock.setElapsedSeconds(0);
 clock.stop();
 
@@ -71,6 +72,9 @@ Template.matches.helpers({
             rPlaces.set(result);
         });
         return rPlaces.get();
+    },
+    match_id() {
+        return rMatchId.get();
     }
 });
 
@@ -371,15 +375,16 @@ function buildMatchSchedule() {
 // Persists a match
 function salveMatch(match) {
     Meteor.call('matchs.insert', match, function (e, result) {
-        if(result){
+        if(result) {
             console.log("Partida foi salva no banco de dados");
+            rMatchId.set(result);
         } else {
             console.log("Erro ao tentar salvar uma partida");
         }
     });
 }
 
-// Screeshot of trophy with match results 
+// Screeshot of trophy with match results
 function printScreen(html) {
     var css = '';
     Meteor.call('webshot.snap', {html:html, css:css}, function (e, result) {});

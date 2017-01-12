@@ -2,9 +2,15 @@ import {Meteor} from 'meteor/meteor';
 import {Matchs} from './match.js';
 
 Meteor.methods({
-    'matchs.insert'(match){
-        Matchs.insert(match);
-        return true;
+    'matchs.insert'(match) {
+        result = Matchs.insert(match, function(err, result){
+            if (err == null) {
+                return result;
+            } else {
+                return err;
+            }
+        });
+        return result;
     },
     'matchs.find'(){
         return Matchs.find().fetch();
