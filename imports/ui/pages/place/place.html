@@ -1,13 +1,15 @@
 <template name="places">
-	{{> placeForm}}
+    <div class="animated fadeIn">
+        {{> placeForm}}
 
-	<div class="row">
-		<div class="panel panel-default">
-			<div class="panel-body">
-				{{#each lista}}
-					{{> placeList }}
-				{{/each}}
-			</div>
-		</div>
-	</div>
+        <div class="row">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    {{#each lista}}
+                    {{> placeList }}
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
