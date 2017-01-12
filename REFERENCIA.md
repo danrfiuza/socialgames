@@ -34,3 +34,6 @@ https://github.com/adrianveres/Reactive-Bar-Chart-Demo
 
 #service-configuration -  Manage the configuration for third-party services
 https://atmospherejs.com/meteor/service-configuration
+
+#Session - Documentation of Meteor's client-side session API.
+https://docs.meteor.com/api/session.html

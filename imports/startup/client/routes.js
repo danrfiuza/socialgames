@@ -2,8 +2,8 @@ import { Meteor } from 'meteor/meteor';
 
 // Import to load these templates
 import '../../ui/layouts/app-body.js';
-
 import '../../ui/layouts/app-login.js';
+
 import '../../ui/pages/timeline/timeline.js';
 import '../../ui/pages/game/game.js';
 import '../../ui/pages/game/newgame.js';
@@ -18,6 +18,8 @@ import '../../ui/globals/app.init.js';
 import '../../ui/globals/custom.js';
 import '../../ui/globals/sidebars.js';
 import '../../ui/globals/topnavbar.js';
+import '../../ui/globals/auth/login.js';
+import '../../ui/globals/auth/logout.js';
 import '../../ui/globals/auth/loginForm.js';
 import '../../ui/globals/auth/signInWithEmail.js';
 
@@ -63,9 +65,8 @@ Router.map(function(){
         }
     });
 
-    this.route('logoff', function() {
-        Meteor.logout();
-        Router.go('login');
+    this.route('logout', function() {
+        path: '/logout'
     });
 
     this.route('submenu', {
