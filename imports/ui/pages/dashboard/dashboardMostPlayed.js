@@ -1,4 +1,17 @@
-Template.dashboardMostPlayed.topGenresChart = function () {
+import {Template} from 'meteor/templating';
+import {Meteor} from 'meteor/meteor';
+
+var gamesTop30 = new ReactiveVar(0);
+
+
+Template.dashboardMostPlayed.top30dias = function () {
+
+    Meteor.call('matchs.gamesTop30', {}, function (e, result) {
+        // amigos = result;
+        gamesTop30.set(result);
+    });
+
+
     return {
         chart: {
             type: 'column',
