@@ -1,17 +1,19 @@
 import { Meteor } from 'meteor/meteor';
-import { Template } from 'meteor/templating';
+import {Template} from 'meteor/templating';
 import './socialLogin.html';
 
 Template.socialLogin.events({
-    'click [data-social-login]' ( event, template ) {
-        const service = event.target.getAttribute( 'data-social-login' ),
+    'click [data-social-login]' (event) {
+        const service = event.target.getAttribute('data-social-login'),
             options = {
-                requestPermissions: [ 'email' ]
+                requestPermissions: ['email']
             };
-        Meteor[ service ]( options, ( error ) => {
-            if ( error ) {
-                swal('Oops...', error.message, 'error');
-            }else{
+        Meteor[service](options, (error) => {
+            if (error) {
+                Bert.alert( TAPi18n.__('login.ERROR_LOGGING_IN'), 'danger');
+            } else {
+                var email = Meteor.user().services.facebook.email;
+                Meteor.call('accounts.update', email);
                 Router.go('dashboard');
             }
         });

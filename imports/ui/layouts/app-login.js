@@ -1,7 +1,7 @@
 import { Template } from 'meteor/templating';
 import '../globals/app.init.js';
 import '../globals/auth/socialLogin.js';
-import '../globals/auth/login.html';
+import '../globals/auth/login.js';
 import './app-login.html';
 
 Template.loginLayout.rendered = function () {

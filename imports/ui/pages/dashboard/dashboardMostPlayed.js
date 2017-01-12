@@ -1,4 +1,17 @@
-Template.dashboardMostPlayed.topGenresChart = function() {
+import {Template} from 'meteor/templating';
+import {Meteor} from 'meteor/meteor';
+
+var gamesTop30 = new ReactiveVar(0);
+
+
+Template.dashboardMostPlayed.top30dias = function () {
+
+    Meteor.call('matchs.gamesTop30', {}, function (e, result) {
+        // amigos = result;
+        gamesTop30.set(result);
+    });
+
+
     return {
         chart: {
             type: 'column',
@@ -8,8 +21,8 @@ Template.dashboardMostPlayed.topGenresChart = function() {
             text: ''
         },
         /*subtitle: {
-            text: 'Click the columns to view versions. Source: <a href="http://netmarketshare.com">netmarketshare.com</a>.'
-        },*/
+         text: 'Click the columns to view versions. Source: <a href="http://netmarketshare.com">netmarketshare.com</a>.'
+         },*/
         xAxis: {
             type: 'category'
         },
@@ -33,9 +46,9 @@ Template.dashboardMostPlayed.topGenresChart = function() {
         },
 
         /*tooltip: {
-            headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-            pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
-        },*/
+         headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+         pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
+         },*/
 
         series: [{
             name: 'Brands',
@@ -61,6 +74,7 @@ Template.dashboardMostPlayed.topGenresChart = function() {
                 y: 0.91,
                 drilldown: 'Abyss'
             }, {
+
                 name: 'Outros',
                 y: 0.2,
                 drilldown: null

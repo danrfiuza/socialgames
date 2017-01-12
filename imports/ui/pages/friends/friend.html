@@ -1,61 +1,56 @@
 <template name="friends">
-    <div class="row">
+    <div class="animated fadeIn">
         <div class="panel panel-default">
             <div class="panel-body">
-                <form role="form" name="form-add-friend" class="form-horizontal">
-                    <fieldset>
-                        <div class="form-group">
-                            <div class="col-sm-12">
-                                <label for="amigos" class="col-sm-2 control-label">{{_ "friend.SEARCH_FRIEND"}}</label>
-                                <div class="col-sm-6">
-                                    <select name="amigos" id="amigos" class="form-control m-b" multiple="">
-                                        {{#each allUsers}}
-                                            <option value='{{ _id }}'>{{ emailDoAmigo }}</option>
-                                        {{/each}}
-                                    </select>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="form-group">
-                                        <button type="button" id="btnAddFriend" class="btn btn-default">{{_ "public.ADD"}}
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </fieldset>
+                <form role="form" name="form-add-friend" class="form-inline">
+                    <div class="form-group">
+                        <label for="amigos" class="control-label">{{_ "friend.SEARCH_FRIEND"}}</label>
+                        <select name="amigos" id="amigos" class="form-control m-b" multiple="">
+                            {{#each allUsers}}
+                            <option value='{{ _id }}'>{{ emailDoAmigo }}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                    <button type="button" id="btnAddFriend" class="btn btn-default">{{_ "public.ADD"}}</button>
                 </form>
             </div>
         </div>
         {{#each friends}}
-            <div class="col-sm-4">
-                <div class="panel b text-center">
-                    <div class="panel-body">
-                        <div class="col-sm-4">
-                            {{> avatar userId=_id }}
-                        </div>
-                        <div class="col-sm-8">
-                            <h4> {{ profile.name }} </h4>
-                            <h5>{{ emails.[0].address }}</h5>
-                            <button type="button" class="btn btn-success btn-oval">{{_ "friend.SEE"}}</button>
-                        </div>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="row row-table">
+                    <div class="col-xs-4 text-center friend-avatar">
+                        {{> avatar userId=_id size="large" }}
+                        <!-- http://localhost:3000/dashboard/{{ emails.[0].address }} -->
+                        <a href="#" class="btn btn-success">Follow</a>
                     </div>
-                    <div class="panel-body bt">
-                        <div class="row">
-                            <div class="col-xs-6 br">
-                                <a class="btn btn-block btn-social btn-facebook" href="{{ services.facebook.link }}">
-                                    <span class="fa fa-facebook"></span> {{_ "public.FACEBOOK"}}
-                                </a>
-                            </div>
-                            <div class="col-xs-6">
-                                <a class="btn btn-block btn-social btn-microsoft"
-                                   href="http://localhost:3000/dashboard/{{ emails.[0].address }}">
-                                    <span class="fa fa-windows"></span> {{_ "public.SOCIALBOARDGAME"}}
-                                </a>
-                            </div>
-                        </div>
+                    <div class="col-xs-8 friend-info">
+                        <h3 class="mt0">{{ profile.name }}</h3>
+                        <p class="text-muted email">{{ emails.[0].address }}</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-sm">CORONEL</li>
+                            <li class="mb-sm">123 jogos jogados.</li>
+                        </ul>
                     </div>
                 </div>
             </div>
+            <div class="panel-body bg-inverse">
+                <div class="row row-table text-center">
+                    <div class="col-xs-4">
+                        <p class="m0 h3">43</p>
+                        <p class="m0 text-muted">Seguidores</p>
+                    </div>
+                    <div class="col-xs-4">
+                        <p class="m0 h3">37</p>
+                        <p class="m0 text-muted">Jogos</p>
+                    </div>
+                    <div class="col-xs-4">
+                        <p class="m0 h3">72</p>
+                        <p class="m0 text-muted">Partidas</p>
+                    </div>
+                </div>
+            </div>
+        </div>
         {{/each}}
     </div>
 </template>

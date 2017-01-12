@@ -94,9 +94,9 @@
   background-color: #FF902B;
 }
 
-.aside .sidebar > .nav > li > a.logoff:hover,
-.aside .sidebar > .nav > li.active > a.logoff,
-.aside .sidebar > .nav > li > a.logoff > em {
+.aside .sidebar > .nav > li > a.logout:hover,
+.aside .sidebar > .nav > li.active > a.logout,
+.aside .sidebar > .nav > li > a.logout > em {
   background-color: #444444;
 }
 
@@ -163,11 +163,41 @@ body.aside-collapsed .user-block-picture {
   padding-bottom: 10px;
   padding-top: 10px;
 }
+
 .avatar {
-  border: 1px solid #f5f7fa;
-  border-radius: 15px;
   overflow: hidden;
+  border: 0 none;
 }
+
+.avatar img {
+  background-color: #e1e2e3;
+  border: 1px solid #e1e2e3;
+  border-radius: 40px;
+  display: inline-block;
+  height: auto;
+  line-height: 1.52857;
+  max-width: 100%;
+  padding: 2px;
+  transition: all 0.2s ease-in-out 0s;
+}
+
+.avatar span {
+  background-color: transparent !important;
+}
+
+.friend-avatar a {
+  float: left;
+  width: 80px;
+}
+
+.friend-info h3 {
+  margin-bottom: 0;
+}
+
+.friend-info .list-unstyled {
+  margin-bottom: 0;
+}
+
 .custom-avatar-initials {
   display: none;
 }
@@ -194,7 +224,6 @@ body.aside-collapsed .user-block-picture {
 }
 
 .twPc-avatarLink {
-  background-color: #fff;
   border-radius: 6px;
   display: inline-block !important;
   float: left;
@@ -205,7 +234,6 @@ body.aside-collapsed .user-block-picture {
 }
 
 .twPc-avatarImg {
-  border: 2px solid #fff;
   border-radius: 7px;
   box-sizing: border-box;
   color: #fff;
