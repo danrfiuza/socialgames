@@ -1,7 +1,7 @@
 <template name="dashboardPanelFriends">
     <div class="panel">
         <div class="panel-heading" data-toggle="collapse" href="#panelFriends" style="background-color: brown; color: white">Seu Amigos e Patente</div>
-        <div class="row pannel-body panel-collapse collapse in" id="panelFriends" >
+        <div class="row pannel-body panel-collapse collapse {{#if isDesktop}}in{{/if}}" id="panelFriends" >
             <div class="col-sm-12">
                 <div class="bs-team list-group" style="height: 130px; overflow-y: scroll; overflow-x: hidden;">
                     {{#each amigos}}
