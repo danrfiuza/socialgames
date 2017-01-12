@@ -81,5 +81,9 @@
     "NEW_MATCH": "New match",
     "HINT_CHOOSE_GAME": "enter name of the game",
     "ALERT_NAME": "please enter game name"
+  },
+  "dashboard": {
+    "REGISTERED_MATCHES": "REGISTERED MATCHES",
+
   }
 }
