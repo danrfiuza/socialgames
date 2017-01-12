@@ -23,6 +23,7 @@ Após cumprir os requerimentos você deve executar três simples passos em seu c
 
 `meteor npm install --save bcrypt`
 
+ copy and rename file
 `meteor --settings settings.json`
 
 Este último irá rodar o servidor Meteor e disponibilizará a url http://localhost:3000/ para você trabalhar. 
