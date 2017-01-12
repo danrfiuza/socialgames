@@ -13,13 +13,15 @@ Meteor.methods({
         return Matchs.find({"players.mail": user.emails[0].address}).count();
     },
     'matchs.findCountDistinct'(user){
-        var distinctEntries = _.uniq(Matchs.find({"players.mail": user.emails[0].address}, {
-            sort: {
-                "game._id": 1
+        result = Matchs.find({"players.mail": user.emails[0].address}, { sort: { "game._id": 1 } } ).fetch();
+
+        arrCount = [];
+        result.forEach(function (value) {
+            if (! _.contains( arrCount, value.game) ) {
+                arrCount.push(value.game);
             }
-        }).fetch(), true, doc => {
-            return doc.game._id;
         });
-        return distinctEntries.length;
+
+        return arrCount.length;
     }
 });

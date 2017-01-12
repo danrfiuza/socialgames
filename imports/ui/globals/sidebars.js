@@ -11,24 +11,10 @@ Template.sidebar.helpers({
         }
     },
     userName: function () {
-        var user = Meteor.user();
-        if (user && user.services.facebook) {
-            return user.services.facebook.name;
-        } else if (user && user.profile.name) {
-            return user.profile.name;
-        } else {
-            return "";
-        }
+        return Meteor.user().profile.name;
     },
     userEmail: function () {
-        var user = Meteor.user();
-        if (user && user.emails) {
-            return user.emails[0].address;
-        } else if (user && user.services.facebook) {
-            return user.services.facebook.email;
-        } else {
-            return "";
-        }
+        return Meteor.user().emails[0].address;
     }
 });
 

@@ -1,7 +1,7 @@
 <template name="dashboardAverageWins">
     <div class="panel">
         <div class="panel-heading" data-toggle="collapse" href="#panelAverageWins" style="background-color: green; color: white">Média de Vitórias</div>
-        <div class="row panel-collapse collapse in" id="panelAverageWins">
+        <div class="row panel-collapse collapse {{#if isDesktop}}in{{/if}}" id="panelAverageWins">
             <div class="col-sm-12">
                 <div class="bs-team list-group" style="height: 230px; overflow-y: scroll; overflow-x: hidden;">
                     {{> dashboardAverageWinsItem }}
