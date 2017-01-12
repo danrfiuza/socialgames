@@ -1,22 +1,23 @@
 <template name="friends">
-    <div class="row">
+    <div class="animated fadeIn">
         <div class="panel panel-default">
             <div class="panel-body">
                 <form role="form" name="form-add-friend" class="form-horizontal">
                     <fieldset>
                         <div class="form-group">
                             <div class="col-sm-12">
-                                <label for="amigos" class="col-sm-2 control-label">{{_ "friend.SEARCH_FRIEND"}}</label>
-                                <div class="col-sm-6">
+                                <label for="amigos" class="control-label">{{_ "friend.SEARCH_FRIEND"}}</label>
+                                <div>
                                     <select name="amigos" id="amigos" class="form-control m-b" multiple="">
                                         {{#each allUsers}}
-                                            <option value='{{ _id }}'>{{ emailDoAmigo }}</option>
+                                        <option value='{{ _id }}'>{{ emailDoAmigo }}</option>
                                         {{/each}}
                                     </select>
                                 </div>
-                                <div class="col-sm-4">
+                                <div class="">
                                     <div class="form-group">
-                                        <button type="button" id="btnAddFriend" class="btn btn-default">{{_ "public.ADD"}}
+                                        <button type="button" id="btnAddFriend" class="btn btn-default">{{_
+                                            "public.ADD"}}
                                         </button>
                                     </div>
                                 </div>
@@ -27,35 +28,35 @@
             </div>
         </div>
         {{#each friends}}
-            <div class="col-sm-4">
-                <div class="panel b text-center">
-                    <div class="panel-body">
-                        <div class="col-sm-4">
-                            {{> avatar userId=_id }}
-                        </div>
-                        <div class="col-sm-8">
-                            <h4> {{ profile.name }} </h4>
-                            <h5>{{ emails.[0].address }}</h5>
-                            <button type="button" class="btn btn-success btn-oval">{{_ "friend.SEE"}}</button>
-                        </div>
+        <div class="col-sm-4">
+            <div class="panel b text-center">
+                <div class="panel-body">
+                    <div class="col-sm-4">
+                        {{> avatar userId=_id }}
                     </div>
-                    <div class="panel-body bt">
-                        <div class="row">
-                            <div class="col-xs-6 br">
-                                <a class="btn btn-block btn-social btn-facebook" href="{{ services.facebook.link }}">
-                                    <span class="fa fa-facebook"></span> {{_ "public.FACEBOOK"}}
-                                </a>
-                            </div>
-                            <div class="col-xs-6">
-                                <a class="btn btn-block btn-social btn-microsoft"
-                                   href="http://localhost:3000/dashboard/{{ emails.[0].address }}">
-                                    <span class="fa fa-windows"></span> {{_ "public.SOCIALBOARDGAME"}}
-                                </a>
-                            </div>
+                    <div class="col-sm-8">
+                        <h4> {{ profile.name }} </h4>
+                        <h5>{{ emails.[0].address }}</h5>
+                        <button type="button" class="btn btn-success btn-oval">{{_ "friend.SEE"}}</button>
+                    </div>
+                </div>
+                <div class="panel-body bt">
+                    <div class="row">
+                        <div class="col-xs-6 br">
+                            <a class="btn btn-block btn-social btn-facebook" href="{{ services.facebook.link }}">
+                                <span class="fa fa-facebook"></span> {{_ "public.FACEBOOK"}}
+                            </a>
+                        </div>
+                        <div class="col-xs-6">
+                            <a class="btn btn-block btn-social btn-microsoft"
+                               href="http://localhost:3000/dashboard/{{ emails.[0].address }}">
+                                <span class="fa fa-windows"></span> {{_ "public.SOCIALBOARDGAME"}}
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
         {{/each}}
     </div>
 </template>
