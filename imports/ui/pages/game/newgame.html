@@ -1,51 +1,39 @@
 <template name="newgame">
     <div class="animated fadeIn">
-        <div class="col-lg-12" id="mainRow">
-            <div class="panel-body">
-                <div id="divSearchGame">
-                    <form class="form-horizontal">
-                        <div class="col-sm-12">
-                            <em class="fa fa-wifi fa-2x"></em>
-                            <p>Antes de cadastrar o jogo, vamos procurar informações sobre ele na BoardGameGeek.</p>
-                        </div>
+        <div id="mainRow">
+            <div class="panel panel-default" id="divSearchGame">
+                <div class="panel-body">
+                    <form class="form-inline">
                         <div class="form-group">
-                            <label for="input-id-1" class="col-sm-2 control-label">Procurar por</label>
-                            <div class="col-sm-12">
-                                <input id="search" class="form-control" type="text">
-                                <button type="button" id="btnSearchGame" class="btn btn-default">Buscar</button>
-                            </div>
+                            <span class="help-block m-b-none">Antes de cadastrar o jogo, vamos procurar informações sobre ele na BoardGameGeek.</span>
+                            <label for="search" class="control-label">Procurar por</label>
+                            <input id="search" name="search" class="form-control" type="text">
                         </div>
+                        <button type="button" id="btnSearchGame" class="btn btn-default">Buscar</button>
                     </form>
                 </div>
 
-                <div class="table-responsive" id="tableListGames">
+                <ul class="list-group" id="tableListGames">
                     {{#each localizedGames }}
-                    <div class="panel-body bg-inverse" id="useGame">
-                        <div class="row row-table text-center">
-                            <div class="col-xs-4">
-                                <div class="media">
-                                    <img src="https:{{ thumbnail }}" alt="Image" width="60">
-                                </div>
-                            </div>
-                            <div class="col-xs-8">
-                                <p class="m0 h5">{{#with name }} {{ text }} {{/with }}</p>
-                                <p class="m0 text-muted">{{ yearpublished }}</p>
-                                <p>
-                                    <button type="button" game-id="{{#with generic }}{{ objectid }}{{/with}}"
-                                            class="btn btn-primary moreInformation">Detalhes
-                                    </button>
-                                </p>
-                            </div>
+                    <li class="list-group-item clearfix">
+                        <div class="pull-left mr">
+                            <img src="https:{{ thumbnail }}" alt="Image" width="60">
                         </div>
-                    </div>
-                    <br/>
+                        <div class="pull-right">
+                            <button type="button" game-id="{{#with generic }}{{ objectid }}{{/with}}"
+                                    class="btn btn-primary moreInformation" title="Detalhes do jogo"><em class="fa fa-plus"></em>
+                            </button>
+                        </div>
+                        <p class="text-bold mb0">{{#with name }} {{ text }} {{/with }}</p>
+                        <small>{{ yearpublished }}</small>
+                    </li>
                     {{/each }}
-                </div>
+                </ul>
                 <form method="get" action="/" class="form-horizontal" name="formGame">
                     <div id="divFormGame">
                         <fieldset>
                             <div class="form-group">
-                                <label for="input-id-1" class="col-sm-2 control-label">Titulo do Jogo</label>
+                                <label for="name" class="col-sm-2 control-label">Titulo do Jogo</label>
                                 <div class="col-sm-10">
                                     <input type="text" id="name" name="name" rows="10" class="form-control"/>
                                 </div>
@@ -53,7 +41,7 @@
                         </fieldset>
                         <fieldset>
                             <div class="form-group">
-                                <label for="input-id-1" class="col-sm-2 control-label">Descrição</label>
+                                <label for="description" class="col-sm-2 control-label">Descrição</label>
                                 <div class="col-sm-10">
                                     <textarea id="description" name="description" rows="10"
                                               class="form-control note-editor"></textarea>
@@ -62,7 +50,7 @@
                         </fieldset>
                         <fieldset>
                             <div class="form-group">
-                                <label for="input-id-1" class="col-sm-2 control-label">Componentes</label>
+                                <label for="components" class="col-sm-2 control-label">Componentes</label>
                                 <div class="col-sm-10">
                                     <textarea id="components" name="components" rows="10"
                                               class="form-control note-editor"></textarea>

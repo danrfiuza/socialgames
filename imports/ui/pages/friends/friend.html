@@ -15,42 +15,46 @@
                 </form>
             </div>
         </div>
-        {{#each friends}}
-        <div class="panel panel-default">
-            <div class="panel-body">
-                <div class="row row-table">
-                    <div class="col-xs-4 text-center friend-avatar">
-                        {{> avatar userId=_id size="large" }}
-                        <!-- http://localhost:3000/dashboard/{{ emails.[0].address }} -->
-                        <a href="#" class="btn btn-success">Follow</a>
+        <div class="row">
+            {{#each friends}}
+            <div class="col-lg-4">
+                <div class="panel widget">
+                    <div class="panel-body">
+                        <div class="row row-table">
+                            <div class="col-xs-4 text-center friend-avatar">
+                                {{> avatar userId=_id size="large" }}
+                                <!-- http://localhost:3000/dashboard/{{ emails.[0].address }} -->
+                                <a href="#" class="btn btn-success">Follow</a>
+                            </div>
+                            <div class="col-xs-8 friend-info">
+                                <h3 class="mt0">{{ profile.name }}</h3>
+                                <p class="text-muted email">{{ emails.[0].address }}</p>
+                                <ul class="list-unstyled">
+                                    <li class="mb-sm"><em class="fa fa-trophy"></em> CORONEL</li>
+                                    <li class="mb-sm"><em class="fa fa-cubes"></em> 123 jogos jogados.</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-xs-8 friend-info">
-                        <h3 class="mt0">{{ profile.name }}</h3>
-                        <p class="text-muted email">{{ emails.[0].address }}</p>
-                        <ul class="list-unstyled">
-                            <li class="mb-sm">CORONEL</li>
-                            <li class="mb-sm">123 jogos jogados.</li>
-                        </ul>
+                    <div class="panel-body bg-inverse">
+                        <div class="row row-table text-center">
+                            <div class="col-xs-4">
+                                <p class="m0 h3">43</p>
+                                <p class="m0 text-muted">Seguidores</p>
+                            </div>
+                            <div class="col-xs-4">
+                                <p class="m0 h3">37</p>
+                                <p class="m0 text-muted">Jogos</p>
+                            </div>
+                            <div class="col-xs-4">
+                                <p class="m0 h3">72</p>
+                                <p class="m0 text-muted">Partidas</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="panel-body bg-inverse">
-                <div class="row row-table text-center">
-                    <div class="col-xs-4">
-                        <p class="m0 h3">43</p>
-                        <p class="m0 text-muted">Seguidores</p>
-                    </div>
-                    <div class="col-xs-4">
-                        <p class="m0 h3">37</p>
-                        <p class="m0 text-muted">Jogos</p>
-                    </div>
-                    <div class="col-xs-4">
-                        <p class="m0 h3">72</p>
-                        <p class="m0 text-muted">Partidas</p>
-                    </div>
-                </div>
-            </div>
+            {{/each}}
         </div>
-        {{/each}}
     </div>
 </template>
