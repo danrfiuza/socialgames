@@ -32,7 +32,10 @@ Meteor.methods({
     },
     'matchs.gamesTop30'(){
         console.log('chmou o chamado');
-        // result = Matchs.find({"players.mail": user.emails[0].address}, { sort: { "game._id": 1 } } ).fetch();
+        var date = new  Date('1980/01/01');
+        dateTimeStamp = date.getTime()
+
+        console.log(Matchs.find({ _id: { $lt: dateTimeStamp }  }, {sort: {_id: -1} }).fetch());
         //
         // arrCount = [];
         // result.forEach(function (value) {
