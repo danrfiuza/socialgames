@@ -84,7 +84,8 @@
     "ALERT_NAME": "please enter game name"
   },
   "dashboard": {
-    "REGISTERED_MATCHES": "REGISTERED MATCHES",
-
+    "MATCHES": "MATCHES",
+    "EXPERIENCED_GAMES": "EXPERIENCED GAMES",
+    "AVERAGE": "AVERAGE"
   }
 }

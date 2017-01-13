@@ -82,5 +82,10 @@
     "NEW_MATCH": "Nova Partida",
     "HINT_CHOOSE_GAME": "digite o nome do jogo",
     "ALERT_NAME": "faltou o nome do jogo"
+  },
+  "dashboard": {
+    "MATCHES": "PARTIDAS",
+    "EXPERIENCED_GAMES": "JOGOS EXPERIMENTADOS",
+    "AVERAGE": "MÉDIA DE VITÓRIA"
   }
 }
