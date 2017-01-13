@@ -1,5 +1,6 @@
 import {Meteor} from 'meteor/meteor';
 import {Matchs} from './match.js';
+import { Games } from '../game/game.js';
 
 Meteor.methods({
     'matchs.insert'(match) {
@@ -32,18 +33,41 @@ Meteor.methods({
     },
     'matchs.gamesTop30'(){
         console.log('chmou o chamado');
-        var date = new  Date('1980/01/01');
-        dateTimeStamp = date.getTime()
+        var data30atras = new  Date();
+        data30atras.setDate(data30atras.getDate() - 30);
+        dateTimeStamp = data30atras.getTime();
 
-        console.log(Matchs.find({ _id: { $lt: dateTimeStamp }  }, {sort: {_id: -1} }).fetch());
-        //
+        // result = Matchs.find({ created_at: { $gt: dateTimeStamp }  }, {sort: {_id: -1} }).fetch();
+
+        var distinctEntries = _.uniq(Matchs.find({ created_at: { $gt: dateTimeStamp }  }, {
+            sort: {game: 1}, fields: {game: true}
+        }).fetch().map(function(x) {
+            return x.game;
+        }), true);
+
+        console.log('aki estamos');
+        arrObj = [];
+        _.map(distinctEntries, function (value) {
+            console.log(Games.find({ _id: value}).fetch());
+            // arrObj.push();
+        });
+
+        // console.log(Meteor.Games.find({}));
+
+
+
+
+
         // arrCount = [];
+        // objDistinctGames = {};
         // result.forEach(function (value) {
         //     if (! _.contains( arrCount, value.game) ) {
         //         arrCount.push(value.game);
+        //         objDistinctGames = { value.game: { matchs: 0 } };
         //     }
         // });
-        //
+
+
         // return arrCount.length;
     }
 });
