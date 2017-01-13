@@ -361,6 +361,7 @@ function buildMatch() {
     var match = buildGenericMatch();
     match.players = rPodium.get();
     match.timer = clock.elapsedTime();
+    match.created_at = new Date().getTime();
     return match;
 }
 
@@ -369,6 +370,7 @@ function buildMatchSchedule() {
     var match = buildGenericMatch();
     match.players = rPlayers.get();
     match.date_schedule = $('#dateMatch').val();
+    match.created_at = new Date().getTime();
     return match;
 }
 
