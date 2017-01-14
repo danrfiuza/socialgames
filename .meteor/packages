@@ -40,7 +40,6 @@ dburles:google-maps
 mdg:geolocation
 rajit:bootstrap3-datepicker
 mystor:device-detection
-lyquocnam:sweetalert
 themeteorchef:bert
 jeremy:geocomplete
 mrt:googlemaps
@@ -49,3 +48,5 @@ maazalik:highcharts
 clarencel:highcharts-drilldown
 service-configuration
 session
+aldeed:simple-schema
+aldeed:collection2

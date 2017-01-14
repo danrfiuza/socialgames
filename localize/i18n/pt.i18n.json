@@ -10,9 +10,30 @@
     "FACEBOOK": "Facebook",
     "SOCIALBOARDGAME": "Social BoardGame"
   },
-  "login": {
+  "auth": {
+    "ERROR_LOGGING_IN": "Erro ao efetuar o login",
+    "ACCESS_WITH_FACEBOOK": "ACESSAR COM FACEBOOK",
+    "OR": "ou",
+    "DO_NOT_HAVE_AN_ACCOUNT": "Não possui conta?",
+    "NEW_ACCOUNT": "NOVA CONTA",
+    "ENTER_YOUR_EMAIL": "Digite seu e-mail",
+    "ENTER_YOUR_PASSWORD": "Digite sua senha",
+    "REMIND_ME": "Lembre-me",
+    "FORGOT_YOUR_PASSWORD": "Esqueceu sua senha?",
+    "ENTER": "ENTRAR",
+    "Username already exists": "Nome de usuário já existe",
+    "Email already exists": "E-mail já existe",
+    "User not found": "Usuário não encontrado",
+    "Incorrect password": "E-mail ou senha inválidos",
     "SUCCESSFUL_REGISTRATION": "Registro efetuado com sucesso",
-    "ERROR_LOGGING_IN": "Erro ao efetuar o login"
+    "PASSWORD_DOES_NOT_MATCH": "As senha não conferem",
+    "FULL_NAME": "Nome Completo",
+    "E_MAIL_ADDRESS": "Endereço de E-mail",
+    "PASSWORD": "Senha",
+    "RETYPE_PASSWORD": "Repita a Senha",
+    "CREATE_ACCOUNT": "CRIAR CONTA",
+    "HAVE_AN_ACCOUNT": "Possui conta?",
+    "AUTHENTICATE": "AUTENTICAR"
   },
   "topbar": {
     "search": {

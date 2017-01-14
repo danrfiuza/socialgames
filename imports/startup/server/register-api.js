@@ -9,3 +9,5 @@ import '../../api/match/server/publications.js';
 
 import '../../api/place/methods.js';
 import '../../api/place/server/publications.js';
+
+import '../../api/user/users';
