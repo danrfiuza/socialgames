@@ -17,16 +17,20 @@ export const UserSchema  = new SimpleSchema({
     // },
     emails: {
         type: Array,
+        optional: true
     },
     "emails.$": {
-        type: Object
+        type: Object,
+        optional: true
     },
     "emails.$.address": {
         type: String,
-        regEx: SimpleSchema.RegEx.Email
+        regEx: SimpleSchema.RegEx.Email,
+        optional: true
     },
     "emails.$.verified": {
-        type: Boolean
+        type: Boolean,
+        optional: true
     },
     createdAt: {
         type: Date
