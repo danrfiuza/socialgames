@@ -10,17 +10,11 @@ Template.loginForm.events({
             template.find("#login-password").value,
             function (error) {
                 if (error) {
-                    swal('Oops...', error.reason, 'error');
+                    Bert.alert( TAPi18n.__('auth.'+error.reason), 'danger');
                 } else {
                     Router.go('dashboard');
                 }
             }
         );
     },
-    'click [data-social-login]' (event, template) {
-        const service = event.target.getAttribute('data-social-login'),
-            options = {
-                requestPermissions: ['email']
-            };
-    }
 });
