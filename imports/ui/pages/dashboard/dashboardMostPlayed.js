@@ -7,12 +7,14 @@ var gamesTop30 = new ReactiveVar(0);
 Template.dashboardMostPlayed.top30dias = function () {
 
     Meteor.call('matchs.gamesTop30', {}, function (e, result) {
-        // amigos = result;
         gamesTop30.set(result);
+        // console.log(result);
     });
 
+    // console.log(gamesTop30.get().totalPartidas);
 
-    return {
+
+    higthChars = {
         chart: {
             type: 'column',
             height: 245
@@ -50,35 +52,53 @@ Template.dashboardMostPlayed.top30dias = function () {
          pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
          },*/
 
-        series: [{
-            name: 'Brands',
-            colorByPoint: true,
-            data: [{
-                name: 'One Night Ultimate',
-                y: 56.33,
-                drilldown: 'One Night Ultimate'
-            }, {
-                name: 'Catan',
-                y: 24.03,
-                drilldown: 'Catan'
-            }, {
-                name: 'Resistance',
-                y: 10.38,
-                drilldown: 'Resistance'
-            }, {
-                name: 'Sheriff of Nottingham',
-                y: 4.77,
-                drilldown: 'Sheriff of Nottingham'
-            }, {
-                name: 'Abyss',
-                y: 0.91,
-                drilldown: 'Abyss'
-            }, {
-
-                name: 'Outros',
-                y: 0.2,
-                drilldown: null
-            }]
-        }]
+        series: top30seriesHightcharts()
     };
+
+    return higthChars;
 };
+
+function top30seriesHightcharts() {
+
+    var data = [];
+    _.map(gamesTop30.get().arrObj, function (value) {
+        data.push({
+            name: value.name,
+            y: value.totalPartidas30dias,
+            drilldown: value.name
+        });
+    });
+
+    return [{data: data}];
+
+    // return [{
+    //     name: 'Brands',
+    //     colorByPoint: true,
+    //     data: [{
+    //         name: 'One Night Ultimate',
+    //         y: 56.33,
+    //         drilldown: 'One Night Ultimate'
+    //     }, {
+    //         name: 'Catan',
+    //         y: 24.03,
+    //         drilldown: 'Catan'
+    //     }, {
+    //         name: 'Resistance',
+    //         y: 10.38,
+    //         drilldown: 'Resistance'
+    //     }, {
+    //         name: 'Sheriff of Nottingham',
+    //         y: 4.77,
+    //         drilldown: 'Sheriff of Nottingham'
+    //     }, {
+    //         name: 'Abyss',
+    //         y: 0.91,
+    //         drilldown: 'Abyss'
+    //     }, {
+    //
+    //         name: 'Outros',
+    //         y: 0.2,
+    //         drilldown: null
+    //     }]
+    // }];
+}
