@@ -1,4 +1,4 @@
-import { Meteor } from 'meteor/meteor';
+import {Meteor} from 'meteor/meteor';
 
 // Import to load these templates
 import '../../ui/layouts/app-body.js';
@@ -36,12 +36,13 @@ Router.plugin('auth', {
     except: [
         'login',
         'signInWithEmail',
+        'recoverPassword',
         'main'
     ]
 });
 
 // Maping of routes
-Router.map(function(){
+Router.map(function () {
 
     this.route('main', {
         path: '/'
@@ -52,12 +53,17 @@ Router.map(function(){
         layoutTemplate: 'loginLayout'
     });
 
+    this.route('recoverPassword', {
+        path: '/recoverPassword',
+        layoutTemplate: 'loginLayout'
+    });
+
     this.route('login', {
         path: '/login',
         layoutTemplate: 'loginLayout',
-        onRun: function(){
+        onRun: function () {
             var currentUser = Meteor.userId();
-            if(currentUser){
+            if (currentUser) {
                 Router.go('dashboard');
             } else {
                 this.render("login");
@@ -65,7 +71,7 @@ Router.map(function(){
         }
     });
 
-    this.route('logout', function() {
+    this.route('logout', function () {
         path: '/logout'
     });
 
@@ -76,7 +82,7 @@ Router.map(function(){
     this.route('friends', {
         path: '/friends',
         sectionTitle: 'Amigos',
-        onAfterAction: function() {
+        onAfterAction: function () {
             return document.title = "Amigos | " + titleSocial;
         }
     });
@@ -84,7 +90,7 @@ Router.map(function(){
     this.route('games', {
         path: '/games',
         sectionTitle: 'Jogos',
-        onAfterAction: function() {
+        onAfterAction: function () {
             return document.title = "Jogos | " + titleSocial;
         }
     });
@@ -92,7 +98,7 @@ Router.map(function(){
     this.route('newgame', {
         path: '/newgame',
         sectionTitle: 'Novo Jogo',
-        onAfterAction: function() {
+        onAfterAction: function () {
             return document.title = "Novo Jogo | " + titleSocial;
         }
     });
@@ -100,7 +106,7 @@ Router.map(function(){
     this.route('matches', {
         path: '/matches',
         sectionTitle: 'Partidas',
-        onAfterAction: function() {
+        onAfterAction: function () {
             return document.title = "Partidas | " + titleSocial;
         }
     });
@@ -108,7 +114,7 @@ Router.map(function(){
     this.route('places', {
         path: '/places',
         sectionTitle: 'Locais',
-        onAfterAction: function() {
+        onAfterAction: function () {
             return document.title = "Locais | " + titleSocial;
         }
     });
@@ -116,7 +122,7 @@ Router.map(function(){
     this.route('rankings', {
         path: '/rankings',
         sectionTitle: 'Rankings',
-        onAfterAction: function() {
+        onAfterAction: function () {
             return document.title = "Rankings | " + titleSocial;
         }
     });
@@ -124,7 +130,7 @@ Router.map(function(){
     this.route('timeline', {
         path: '/timeline',
         sectionTitle: 'Timeline',
-        onAfterAction: function() {
+        onAfterAction: function () {
             return document.title = "Timeline | " + titleSocial;
         }
     });
@@ -132,7 +138,7 @@ Router.map(function(){
     this.route('dashboard', {
         path: '/dashboard',
         sectionTitle: 'Dashboard',
-        onAfterAction: function() {
+        onAfterAction: function () {
             return document.title = "Dashboard | " + titleSocial;
         }
     });

@@ -2,7 +2,8 @@
   "generic": {
     "SAVE_SUCCESS" : "salvo com sucesso",
     "SAVE_ERROR" : "erro ao tentar salvar",
-    "ALERT_NO_RESULT": "nenhum resultado encontrado"
+    "ALERT_NO_RESULT": "nenhum resultado encontrado",
+    "PLEASE_ENTER_VALID_EMAIL_ADDRESS": "Please enter a valid email address"
   },
   "public": {
     "SAVE": "Salvar",
@@ -33,7 +34,10 @@
     "RETYPE_PASSWORD": "Repita a Senha",
     "CREATE_ACCOUNT": "CRIAR CONTA",
     "HAVE_AN_ACCOUNT": "Possui conta?",
-    "AUTHENTICATE": "AUTENTICAR"
+    "AUTHENTICATE": "AUTENTICAR",
+    "Sent a reset pass, word link to to": "Enviou um link de redefinição da senha para",
+    "There was a problem resetting your password": "Ocorreu um problema ao redefinir sua senha",
+    "User not found": "Usuário não encontrado"
   },
   "topbar": {
     "search": {

@@ -1,4 +1,4 @@
-import '../../api/game/methods.js';
+import '../game/methods.js';
 import '../../api/game/server/publications.js';
 
 import '../../api/friends/methods.js';

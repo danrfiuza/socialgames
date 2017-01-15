@@ -5,7 +5,7 @@ import './signInWithEmail.html';
 Template.signInWithEmail.events({
     "submit #signup-form": function (event, template) {
         event.preventDefault();
-        password = template.find('#signup-password').value;
+        var password = template.find('#signup-password').value;
         passwordRepeated = template.find('#signup-confirm-password').value;
 
         if (password !== passwordRepeated) {

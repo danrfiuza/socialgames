@@ -2,7 +2,8 @@
   "generic": {
     "SAVE_SUCCESS" : "saved successfully",
     "SAVE_ERROR" : "error trying to save",
-    "ALERT_NO_RESULT": "no results found"
+    "ALERT_NO_RESULT": "no results found",
+    "PLEASE_ENTER_VALID_EMAIL_ADDRESS": "Por favor insira um endereço de e-mail válido"
   },
   "public": {
     "SAVE": "Salvar",
@@ -33,7 +34,10 @@
     "RETYPE_PASSWORD": "Retype Password",
     "CREATE_ACCOUNT": "CREATE ACCOUNT",
     "HAVE_AN_ACCOUNT": "Have an account?",
-    "AUTHENTICATE": "SIGNUP"
+    "AUTHENTICATE": "SIGNUP",
+    "Sent a reset pass, word link to to": "Sent a reset pass, word link to to ",
+    "There was a problem resetting your password": "There was a problem resetting your password ",
+    "User not found": "User not found"
   },
   "topbar": {
     "search": {
