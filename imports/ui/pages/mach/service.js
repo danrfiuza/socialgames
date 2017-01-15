@@ -119,9 +119,9 @@ export var Service = {
 	    rPodium.set(players);
 	},
 
-	buildGenericMatch: function (rGame) {
+	buildGenericMatch: function (game) {
 	    var match = {};
-	    match.game = rGame.get()._id;
+	    match.game = game._id;
 	    if ($('#place').val().length > 0) {
 	        match.place = $('#place').val()[0];
 	    }
@@ -129,8 +129,8 @@ export var Service = {
 	},
 
 	// Assemble match information
-	buildMatch: function (rPodium, rGame, time) {
-	    var match = this.buildGenericMatch(rGame);
+	buildMatch: function (rPodium, game, time) {
+	    var match = Service.buildGenericMatch(game);
 	    match.players = rPodium.get();
 	    match.timer = time;
 	    match.created_at = new Date().getTime();
@@ -138,8 +138,8 @@ export var Service = {
 	},
 
 	// Assemble match schedule information
-	buildMatchSchedule: function (rPlayers) {
-	    var match = this.buildGenericMatch();
+	buildMatchSchedule: function (rPlayers, game) {
+	    var match = Service.buildGenericMatch(game);
 	    match.players = rPlayers.get();
 	    match.date_schedule = $('#dateMatch').val();
 	    match.created_at = new Date().getTime();
@@ -147,14 +147,14 @@ export var Service = {
 	},
 
 	// Persists a match
-	saveMatch: function (match) {
+	saveMatch: function (match, rMatchId) {
 	    Meteor.call('matchs.insert', match, function (e, result) {
 	        if(result) {
 	            console.log("Partida foi salva no banco de dados");
-	            return result;
+	            rMatchId.set(result);
 	        } else {
 	            console.log("Erro ao tentar salvar uma partida");
-	            return 'error';
+	            rMatchId.set('error');
 	        }
 	    });
 	},

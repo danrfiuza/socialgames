@@ -96,21 +96,29 @@
             </div>
         </div>
 
-        <div>
-            <div class="panel-body" id="msgReservationSchedule">
-                {{_ "match.INVITE_LINK"}}: http://socialboardgames.com/match/schedule/{{ match_id }}
+        <div id="msgReservationSchedule">
+            <div class="col-sm-12">
+                <div class="panel panel-default">
+                    <div class="panel-body bg-info">
+                        <p class="h5 mt0">{{_ "match.INVITE_LINK"}}: http://socialboardgames.com/match/schedule/{{ match_id }}</p>
+                    </div>
+                </div>
             </div>
         </div>
 
         <div id="divPlaces">
-            <div class="col-lg-12">
-                <select name="place" id="place" class="form-control m-b" multiple="true">
-                    {{#each places }}
-                    <option value="{{ _id }}">{{ name }}</option>
-                    {{/each}}
-                </select>
-                <br>
-                <a href="/places">{{_ "match.ADD_LOCAL"}}</a>
+            <div class="col-sm-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <select name="place" id="place" class="form-control m-b" multiple="true">
+                            {{#each places }}
+                            <option value="{{ _id }}">{{ name }}</option>
+                            {{/each}}
+                        </select>
+                        <br>
+                        <a href="/places">{{_ "match.ADD_LOCAL"}}</a>
+                    </div>
+                </div>
             </div>
         </div>
 
