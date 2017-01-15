@@ -22,11 +22,10 @@
       }
     },
     "emailConf": {
-      "key": "key-06979b1e90222b32cb8b2ffecb4ec041",
-      "smtpdomain": "smtp.mailgun.org",
+      "smtpdomain": "smtp.gmail.com",
       "domain": "localhost:3000",
-      "login": "postmaster@sandbox22a25ded5cc643e480956d9456c74db2.mailgun.org",
-      "password": "899549e40b896e81d6378bbefc2a28b5"
+      "login": "",
+      "password": ""
     }
   }
 }
