@@ -138,14 +138,13 @@ Template.matches.events({
         if (Service.isValidScore(rMaxPlayers)) {
             Service.orderRanking(rPlayers, rMaxPlayers, rPodium);
             State.change('trophy');
-            Service.saveMatch(Service.buildMatch(rPodium, rGame, clock.elapsedTime()));
+            Service.saveMatch(Service.buildMatch(rPodium, rGame.get(), clock.elapsedTime()), rMatchId);
         } else {
             alert("Algo está errado com a pontuação informada");
         }
     },
     'click #btnSaveSchedule' : function(event, template) {
-        var matchId = Service.saveMatch(Service.buildMatchSchedule(rPlayers));
-        rMatchId.set(matchId);
+        Service.saveMatch(Service.buildMatchSchedule(rPlayers, rGame.get()), rMatchId);
         State.change('schedule');
     },
     'click #btnPublishFacebook': function(event, template) {
