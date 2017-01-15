@@ -1,3 +1,5 @@
+import './template/email-templates'
+
 Meteor.methods({
     'accounts.update'(email){
         Meteor.users.update(Meteor.userId(), {

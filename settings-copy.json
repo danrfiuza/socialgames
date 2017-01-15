@@ -21,5 +21,12 @@
         "secret": ""
       }
     }
+  },
+  "emailConf": {
+    "key": "",
+    "smtpdomain": "smtp.mailgun.org",
+    "domain": "localhost:3000",
+    "login": "postmaster@.mailgun.org",
+    "password": ""
   }
 }

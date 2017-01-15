@@ -25,12 +25,13 @@ Template.RecoverPassword.events({
             message = TAPi18n.__('generic.PLEASE_ENTER_VALID_EMAIL_ADDRESS')
             Bert.alert(message, 'danger');
         } else {
+
             new Accounts.forgotPassword({email},
                 function (error) {
                     if (error) {
                         Bert.alert(TAPi18n.__('auth.'+error.reason), 'danger');
                     } else {
-                        Bert.alert(TAPi18n.__('auth.Sent a reset pass, word link to to'), 'success');
+                        Bert.alert(TAPi18n.__('auth.Sent a reset pass, word link to ',{email:email}), 'success');
                     }
                 }
             );
@@ -46,7 +47,6 @@ Template.RecoverPassword.events({
             Session.get('resetPasswordToken'),
             password,
             function (error) {
-                console.log(error)
                 if (err) {
                     Bert.alert(TAPi18n.__('auth.There was a problem resetting your password'), 'danger');
                 } else {

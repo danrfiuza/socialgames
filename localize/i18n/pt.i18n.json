@@ -35,9 +35,17 @@
     "CREATE_ACCOUNT": "CRIAR CONTA",
     "HAVE_AN_ACCOUNT": "Possui conta?",
     "AUTHENTICATE": "AUTENTICAR",
-    "Sent a reset pass, word link to to": "Enviou um link de redefinição da senha para",
+    "Sent a reset pass, word link to ": "Enviou um link de redefinição da senha para __email__",
     "There was a problem resetting your password": "Ocorreu um problema ao redefinir sua senha",
-    "User not found": "Usuário não encontrado"
+    "User not found": "Usuário não encontrado",
+    "New Password": "Nova senha",
+    "Set New Password": "Insira a nova senha",
+    "PASSWORD RESET": "REDEFINIR SENHA",
+    "Fill with your mail to receive instructions on how to reset your password": "Preencha com seu e-mail para receber instruções sobre como redefinir sua senha",
+    "Email address": "Endereço de e-mail",
+    "RESET": "REDEFINIR",
+    "Reset Your Password": "[__name__] Redefinir sua senha",
+    "Email text forgot password": "Foi solicitada uma redefinição de senha para a conta relacionada a esse endereço (__userEmail__). Para redefinir a senha, visite o seguinte link: \n\n __urlWithoutHash__ \n\n Se você não solicitou essa redefinição, ignore este e-mail. Se sentir que algo está errado, entre em contato com nossa equipe de suporte: __email__."
   },
   "topbar": {
     "search": {
