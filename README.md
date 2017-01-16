@@ -35,6 +35,8 @@ E está pronto. Você já pode desfrutar!
 
 Se não desejar configurar o Facebook, tudo bem. Você pode se registrar criando um usuário/senha.
 
+Renomear o arquivo settings(copy).json para settings.json e preencher o arquivos com as informações do seu ambiente.
+
 ## Referência das dependencias utilizadas
 
 [Aqui vai encontrar o caminho para enteder como utilizar os pacotes utilizados neste projeto](https://github.com/SocialBoardGames/socialgames/blob/master/REFERENCIA.md)
