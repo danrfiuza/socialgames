@@ -1,9 +1,9 @@
 {
   "generic": {
-    "SAVE_SUCCESS" : "salvo com sucesso",
-    "SAVE_ERROR" : "erro ao tentar salvar",
-    "ALERT_NO_RESULT": "nenhum resultado encontrado",
-    "PLEASE_ENTER_VALID_EMAIL_ADDRESS": "Please enter a valid email address"
+    "SAVE_SUCCESS" : "Salvo com sucesso",
+    "SAVE_ERROR" : "Erro ao tentar salvar",
+    "ALERT_NO_RESULT": "Nenhum resultado encontrado",
+    "PLEASE_ENTER_VALID_EMAIL_ADDRESS": "Por favor, informe um e-mail válido"
   },
   "public": {
     "SAVE": "Salvar",
@@ -37,7 +37,6 @@
     "AUTHENTICATE": "AUTENTICAR",
     "Sent a reset pass, word link to ": "Enviou um link de redefinição da senha para __email__",
     "There was a problem resetting your password": "Ocorreu um problema ao redefinir sua senha",
-    "User not found": "Usuário não encontrado",
     "New Password": "Nova senha",
     "Set New Password": "Insira a nova senha",
     "PASSWORD RESET": "REDEFINIR SENHA",
@@ -87,7 +86,10 @@
     "MYDASHBOARD": "Meu Dashboard",
     "WELCOME": "Bem vindo ao Social Games!",
     "ENGLISH": "Inglês",
-    "PORTUGUESE": "Português"
+    "PORTUGUESE": "Português",
+    "MATCHES": "PARTIDAS",
+    "EXPERIENCED_GAMES": "JOGOS EXPERIMENTADOS",
+    "AVERAGE": "MÉDIA DE VITÓRIA"
   },
   "friend": {
     "SEARCH_FRIEND": "Procurar Amigo",
@@ -99,7 +101,7 @@
   "match": {
     "CHOOSE_GAME": "Escolha o jogo",
     "PHRASE_REGISTER_GAME_A": "Não encontrou seu jogo?",
-    "PHRASE_REGISTER_GAME_B": "cadastre agora, é super rápido.",
+    "PHRASE_REGISTER_GAME_B": "Cadastre agora, é super rápido.",
     "AVERAGE_TIME": "Tempo médio",
     "PLAYERS": "Jogadores",
     "GAME_NOW": "Vou jogar agora",
@@ -113,12 +115,7 @@
     "BOOK_FRIEND": "Reservar vaga para amigo",
     "INVITE_LINK": "Link para convite da partida",
     "NEW_MATCH": "Nova Partida",
-    "HINT_CHOOSE_GAME": "digite o nome do jogo",
-    "ALERT_NAME": "faltou o nome do jogo"
-  },
-  "dashboard": {
-    "MATCHES": "PARTIDAS",
-    "EXPERIENCED_GAMES": "JOGOS EXPERIMENTADOS",
-    "AVERAGE": "MÉDIA DE VITÓRIA"
+    "HINT_CHOOSE_GAME": "Informe o nome do jogo",
+    "ALERT_NAME": "Informe o nome do jogo"
   }
 }
