@@ -33,6 +33,7 @@ Template.newgame.events({
         var gameId = $(event.target).attr("game-id");
         nameGame.set($(event.target).attr("game-name"));
         Meteor.call('bgg.game', gameId, function (e, result) {
+            result.description = $('<div/>').html(result.description).text();
             fGame.set(result);
             $('#tableListGames').hide();
             $('#divFocusGame').show();
@@ -42,7 +43,7 @@ Template.newgame.events({
     'click #useGame': function () {
         var dataGame = fGame.get();
         $('#name').val(nameGame.get());
-        $('#description').val(dataGame.description);
+        $('#description').val($.parseHTML(dataGame.description)[0].textContent);
         $('#tableListGames').hide();
         $('#divFocusGame').hide();
         $('#divSearchGame').hide();
@@ -56,7 +57,6 @@ Template.newgame.events({
     // Salva o jogo na base de dados
     'click #btnSalvar': function () {
         let game = $('form[name="formGame"]').serializeJSON();
-        console.log(game);
         if (game.name == "") {
             Bert.alert(TAPi18n.__('match.ALERT_NAME'), 'danger');
         } else {

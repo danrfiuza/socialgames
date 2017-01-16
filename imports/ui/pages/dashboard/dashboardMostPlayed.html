@@ -1,6 +1,6 @@
 <template name="dashboardMostPlayed">
 <div class="panel">
-  <div class="panel-heading" data-toggle="collapse" href="#panelMostPlayed" style="background-color: purple; color: white">Os mais jogados nos ultimos 30 dias</div>
+  <div class="panel-heading" data-toggle="collapse" href="#panelMostPlayed" style="background-color: purple; color: white">{{_ "dashboard.MOST_PLAYED_IN_30"}}</div>
   <div class="panel-collapse collapse {{#if isDesktop}}in{{/if}}" id="panelMostPlayed" >
     <div class="bs-team list-group" style="height: 250px; overflow-y: scroll; overflow-x: hidden;">
       {{> highchartsHelper chartId="dashboardMostPlayed" charHeight="100%" chartWidth="100%" chartObject=top30dias}}
