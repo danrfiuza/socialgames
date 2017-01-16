@@ -25,17 +25,17 @@ Após cumprir os requerimentos você deve executar três simples passos em seu c
 
 Renomeie o arquivo settings-copy.json para settings.json e preencha o arquivo com as informações do seu ambiente.
 
-Após isto, rode este comando:
+Por exemplo, para conseguir acessar as funcionalidades da plataforma através do login do Facebook, você precisará criar um app de desenvolvedor no seu Facebook e preencher os dados de `appId` e `secret` neste arquivo. Se não desejar configurar o Facebook, tudo bem. Você pode se registrar criando um usuário/senha.
+
+Além disto, as configurações para envio de e-mail tambem devem ser configuradas neste arquivo.
+
+Então, após adicionar as configurações, rode este comando:
+
 `meteor --settings settings.json`
 
 Este último irá rodar o servidor Meteor e disponibilizará a url http://localhost:3000/ para você trabalhar. 
 
-Por fim, você pode configurar o login do Facebook para conseguir acessar as funcionalidades da plataforma.
-Para configurar, você precisa criar um app de desenvolvedor no seu Facebook e preencher os dados de `appId` e `secret` em \server\oauth.js
-
 E está pronto. Você já pode desfrutar!
-
-Se não desejar configurar o Facebook, tudo bem. Você pode se registrar criando um usuário/senha.
 
 ## Referência das dependencias utilizadas
 
