@@ -1,30 +1,5 @@
 import {Meteor} from 'meteor/meteor';
 
-// Import to load these templates
-<<<<<<< HEAD
-import '../../ui/layouts/app-body.js';
-import '../../ui/layouts/app-login.js';
-
-import '../../ui/pages/timeline/timeline.js';
-import '../../ui/pages/game/game.js';
-import '../../ui/pages/game/newgame.js';
-import '../../ui/pages/friends/friend.js';
-import '../../ui/pages/main/main.js';
-import '../../ui/pages/mach/match.js';
-import '../../ui/pages/mach/schedule.js';
-import '../../ui/pages/place/place.js';
-import '../../ui/pages/ranking/ranking.js';
-import '../../ui/pages/dashboard/dashboard.js';
-
-import '../../ui/globals/app.init.js';
-import '../../ui/globals/custom.js';
-import '../../ui/globals/sidebars.js';
-import '../../ui/globals/topnavbar.js';
-import '../../ui/globals/auth/login.js';
-import '../../ui/globals/auth/logout.js';
-import '../../ui/globals/auth/loginForm.js';
-import '../../ui/globals/auth/signInWithEmail.js';
-=======
 import '../../ui/layouts/app-body';
 import '../../ui/layouts/app-login';
 import '../../ui/layouts/app-not-found.html';
@@ -47,7 +22,6 @@ import '../../ui/globals/auth/login';
 import '../../ui/globals/auth/logout';
 import '../../ui/globals/auth/loginForm';
 import '../../ui/globals/auth/signInWithEmail';
->>>>>>> fde14a0f76a47c1946fd87d4cd09c3de9945ede5
 
 var titleSocial = 'Social Games - A Rede Social dos Board Gamers';
 
