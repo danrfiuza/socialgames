@@ -10,6 +10,7 @@ import '../../ui/pages/game/newgame';
 import '../../ui/pages/friends/friend';
 import '../../ui/pages/main/main';
 import '../../ui/pages/mach/match';
+import '../../ui/pages/mach/schedule.js';
 import '../../ui/pages/place/place';
 import '../../ui/pages/ranking/ranking';
 import '../../ui/pages/dashboard/dashboard';
