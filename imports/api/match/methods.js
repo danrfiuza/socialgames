@@ -56,7 +56,7 @@ Meteor.methods({
         arrObj = _.sortBy(arrObj, 'totalPartidas30dias');
 
         //Deixa somente os itens mais jogados, o menos relevantes são excluidos do grafico
-        arrStart = arrObj.length - 8;
+        arrStart = arrObj.length - 7;
         arrEnd = arrObj.length;
 
         if (arrStart < 0) {
