@@ -23,7 +23,9 @@ Após cumprir os requerimentos você deve executar três simples passos em seu c
 
 `meteor npm install --save bcrypt`
 
- copy and rename file
+Renomeie o arquivo settings-copy.json para settings.json e preencha o arquivo com as informações do seu ambiente.
+
+Após isto, rode este comando:
 `meteor --settings settings.json`
 
 Este último irá rodar o servidor Meteor e disponibilizará a url http://localhost:3000/ para você trabalhar. 
@@ -34,8 +36,6 @@ Para configurar, você precisa criar um app de desenvolvedor no seu Facebook e p
 E está pronto. Você já pode desfrutar!
 
 Se não desejar configurar o Facebook, tudo bem. Você pode se registrar criando um usuário/senha.
-
-Renomear o arquivo settings(copy).json para settings.json e preencher o arquivos com as informações do seu ambiente.
 
 ## Referência das dependencias utilizadas
 
