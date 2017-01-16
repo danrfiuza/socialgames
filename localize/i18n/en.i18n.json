@@ -1,9 +1,9 @@
 {
   "generic": {
-    "SAVE_SUCCESS" : "saved successfully",
-    "SAVE_ERROR" : "error trying to save",
-    "ALERT_NO_RESULT": "no results found",
-    "PLEASE_ENTER_VALID_EMAIL_ADDRESS": "Por favor insira um endereço de e-mail válido"
+    "SAVE_SUCCESS" : "Saved successfully",
+    "SAVE_ERROR" : "Error trying to save",
+    "ALERT_NO_RESULT": "No results found",
+    "PLEASE_ENTER_VALID_EMAIL_ADDRESS": "Please enter a valid email address"
   },
   "public": {
     "SAVE": "Salvar",
@@ -24,7 +24,7 @@
     "ENTER": "ENTER",
     "Username already exists": "Username already exists",
     "Email already exists": "Email already exists",
-    "User not found": "Incorrect password or e-mail",
+    "User not found": "User not found",
     "Incorrect password": "Incorrect password or e-mail",
     "SUCCESSFUL_REGISTRATION": "Successful Registration",
     "PASSWORD_DOES_NOT_MATCH": "Password does not match",
@@ -37,7 +37,6 @@
     "AUTHENTICATE": "SIGNUP",
     "Sent a reset pass, word link to ": "Sent a reset pass, word link to __email__",
     "There was a problem resetting your password": "There was a problem resetting your password ",
-    "User not found": "User not found",
     "New Password": "New Password",
     "Set New Password": "Set New Password",
     "PASSWORD RESET": "PASSWORD RESET",
@@ -87,7 +86,10 @@
     "MYDASHBOARD": "My Dashboard",
     "WELCOME": "Welcome to Social Games!",
     "ENGLISH": "English",
-    "PORTUGUESE": "Portuguese"
+    "PORTUGUESE": "Portuguese",
+    "MATCHES": "MATCHES",
+    "EXPERIENCED_GAMES": "EXPERIENCED GAMES",
+    "AVERAGE": "AVERAGE"
   },
   "friend": {
     "SEARCH_FRIEND": "Search Friend",
@@ -115,10 +117,5 @@
     "NEW_MATCH": "New match",
     "HINT_CHOOSE_GAME": "enter name of the game",
     "ALERT_NAME": "please enter game name"
-  },
-  "dashboard": {
-    "MATCHES": "MATCHES",
-    "EXPERIENCED_GAMES": "EXPERIENCED GAMES",
-    "AVERAGE": "AVERAGE"
   }
 }
