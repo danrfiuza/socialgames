@@ -39,7 +39,7 @@ Template.dashboardMostPlayed.top30dias = function () {
             series: {
                 borderWidth: 0,
                 dataLabels: {
-                    enabled: true,
+                    enabled: true
                     // format: '{point.y:.1f}'
                 }
             }
