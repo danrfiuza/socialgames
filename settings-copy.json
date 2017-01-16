@@ -20,13 +20,12 @@
         "consumerKey": "",
         "secret": ""
       }
+    },
+    "emailConf": {
+      "smtpdomain": "smtp.gmail.com",
+      "domain": "localhost:3000",
+      "login": "sboardgame@gmail.com",
+      "password": ""
     }
-  },
-  "emailConf": {
-    "key": "",
-    "smtpdomain": "smtp.mailgun.org",
-    "domain": "localhost:3000",
-    "login": "postmaster@.mailgun.org",
-    "password": ""
   }
 }
