@@ -138,6 +138,22 @@ Router.map(function () {
         }
     });
 
+    this.route('schedule', {
+        path: '/schedule/:match_id',
+        sectionTitle: 'Partida Agendada',
+        onAfterAction: function () {
+            return document.title = "Partidas | " + titleSocial;
+        }
+    });
+
+    this.route('schedules', {
+        path: '/schedules',
+        sectionTitle: 'Partidas Agendadas',
+        onAfterAction: function () {
+            return document.title = "Partidas | " + titleSocial;
+        }
+    });
+
     this.route('places', {
         path: '/places',
         sectionTitle: 'Locais',
