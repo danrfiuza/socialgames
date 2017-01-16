@@ -89,7 +89,9 @@
     "PORTUGUESE": "Português",
     "MATCHES": "PARTIDAS",
     "EXPERIENCED_GAMES": "JOGOS EXPERIMENTADOS",
-    "AVERAGE": "MÉDIA DE VITÓRIA"
+    "AVERAGE": "MÉDIA DE VITÓRIA",
+    "MOST_PLAYED_IN_30": "Os mais jogados nos ultimos 30 dias",
+    "TOTAL_MATCHES": "Total de partidas"
   },
   "friend": {
     "SEARCH_FRIEND": "Procurar Amigo",

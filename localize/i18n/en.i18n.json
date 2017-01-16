@@ -89,7 +89,9 @@
     "PORTUGUESE": "Portuguese",
     "MATCHES": "MATCHES",
     "EXPERIENCED_GAMES": "EXPERIENCED GAMES",
-    "AVERAGE": "AVERAGE"
+    "AVERAGE": "AVERAGE",
+    "MOST_PLAYED_IN_30": "Most played in the last 30 days",
+    "TOTAL_MATCHES": "Total matches"
   },
   "friend": {
     "SEARCH_FRIEND": "Search Friend",
