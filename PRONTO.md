@@ -13,10 +13,12 @@
 
 * Busca de jogos a partir do site da BGG (http://www.boardgamegeek.com)
 * Importação da Foto, Nome e Descrição de qualquer jogo existente na BGG
+* "Carregando" ao buscar um jogo
 
 **PARTIDAS:**
 
 * Busca de Jogos já cadastrados no sistema
+* Busca de Locais já cadastrados no sistema
 * Funcionalidade de sorteio de First Player
 
 **LOCAIS:**
@@ -26,4 +28,4 @@
 
 **DASHBOARD:**
 
-* Criar um dashboard de usuário mostrando seus amigos, suas partidas, seus jogos...
+* Criação de um dashboard de usuário mostrando seus amigos, suas partidas, seus jogos...

@@ -18,7 +18,6 @@
 
 **JOGOS:**
 
-* Adicionar o "Carregando" ao buscar um jogo
 * Listagem de jogos já cadastrados no sistema, com busca e carregamento infinito (vai trazendo mais jogos conforme chega ao fim da página)
 * Criar uma página de detalhes do jogo
 * Criar Foruns (Discussão) para o jogo
@@ -43,14 +42,10 @@
 
 **PARTIDAS:**
 
-* Busca de Locais já cadastrados no sistema
-* Informar a Data da Partida:
-	* Se deixar em branco inicia a partida na hora
-	* Se colocar uma Data futura, o sistema agenda automático
-	* Se colocar uma Data passada, já vai automaticamente para a próxima tela de pontuação
+* Possibilidade de cadastro de Partidas passadas (data anterior a hoje)
 * Criar tela de pontuação puxando as informações do jogo (Cooperativo ou Competitivo, Individual ou de Times, Pontos ou Vitória/Derrota)
 * Criar edição de partidas
-* Criar exclusão de partidas
+* Criar exclusão (lógica) de partidas
 * Permitir usuário exportar suas partidas do BGG
 * Permitir usuário importar suas partidas para o BGG
 * Gerar feed para a timeline ao cadastrar uma partida (Ex.: João adicionou uma nova partida de Zombicide no ACDC com Thiago e André)
@@ -66,7 +61,7 @@
 **TIMELINE:**
 
 * Listar feeds referentes ao seu usuário
-* Listar feeds referentes à seus amigos
+* Listar feeds referentes aos seus amigos
 * Criar opções de filtros na Timeline (Jogos, Partidas, Amigos...)
 
 **RANKING:**
