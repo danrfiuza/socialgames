@@ -6,6 +6,7 @@ import './newgame.html';
 var bggGames = new ReactiveVar(0);
 var fGame = new ReactiveVar(0);
 var rGames = new ReactiveVar([]);
+var nameGame = new ReactiveVar([]);
 
 Template.newgame.rendered = function () {
     $("#divFormGame").hide();
@@ -14,10 +15,11 @@ Template.newgame.rendered = function () {
 
 Template.newgame.events({
     // Search games
-    'click #btnSearchGame': function (event, template) {
+    'click #btnSearchGame': function () {
         $("#mainRow").attr('class', 'whirl');
         Meteor.call('bgg.search', $("#search").val(), function (e, result) {
             $("#mainRow").attr('class', '');
+
             bggGames.set(result);
             if (result == undefined) {
                 Bert.alert(TAPi18n.__('generic.ALERT_NO_RESULT'));
@@ -27,8 +29,9 @@ Template.newgame.events({
         });
     },
     // View more informations for the game
-    'click .moreInformation': function (event, template) {
+    'click .moreInformation': function (event) {
         var gameId = $(event.target).attr("game-id");
+        nameGame.set($(event.target).attr("game-name"));
         Meteor.call('bgg.game', gameId, function (e, result) {
             fGame.set(result);
             $('#tableListGames').hide();
@@ -36,9 +39,9 @@ Template.newgame.events({
         });
     },
     // Abre informações detalhadas do jogo
-    'click #useGame': function (event, template) {
+    'click #useGame': function () {
         var dataGame = fGame.get();
-        $('#name').val(dataGame.name.text);
+        $('#name').val(nameGame.get());
         $('#description').val(dataGame.description);
         $('#tableListGames').hide();
         $('#divFocusGame').hide();
@@ -46,12 +49,12 @@ Template.newgame.events({
         $("#divFormGame").show();
     },
     // Cancela a ação e volta para o inicio
-    'click #btnCancelar': function (event, template) {
+    'click #btnCancelar': function () {
         $('#divSearchGame').show();
         $("#divFormGame").hide();
     },
     // Salva o jogo na base de dados
-    'click #btnSalvar': function (event, template) {
+    'click #btnSalvar': function () {
         let game = $('form[name="formGame"]').serializeJSON();
         console.log(game);
         if (game.name == "") {

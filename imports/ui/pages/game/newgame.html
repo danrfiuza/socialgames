@@ -1,8 +1,8 @@
 <template name="newgame">
     <div class="animated fadeIn">
         <div id="mainRow">
-            <div class="panel panel-default" id="divSearchGame">
-                <div class="panel-body">
+            <div class="panel panel-default">
+                <div class="panel-body" id="divSearchGame">
                     <form class="form-inline">
                         <div class="form-group">
                             <span class="help-block m-b-none">Antes de cadastrar o jogo, vamos procurar informações sobre ele na BoardGameGeek.</span>
@@ -21,7 +21,10 @@
                         </div>
                         <div class="pull-right">
                             <button type="button" game-id="{{#with generic }}{{ objectid }}{{/with}}"
-                                    class="btn btn-primary moreInformation" title="Detalhes do jogo"><em class="fa fa-plus"></em>
+                                    game-name="{{#with name }}{{ text }}{{/with}}"
+                                    class="btn btn-primary moreInformation"
+                                    title="Detalhes do jogo {{#with name }}{{ text }}{{/with }}"><em
+                                    class="fa fa-plus"></em>
                             </button>
                         </div>
                         <p class="text-bold mb0">{{#with name }} {{ text }} {{/with }}</p>
