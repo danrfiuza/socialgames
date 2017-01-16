@@ -37,3 +37,9 @@ https://atmospherejs.com/meteor/service-configuration
 
 #Session - Documentation of Meteor's client-side session API.
 https://docs.meteor.com/api/session.html
+
+#aldeed:simple-schema - A simple schema validation object with reactivity. Used by collection2
+https://atmospherejs.com/aldeed/simple-schema
+
+#aldeed:collection2 - Automatic validation of insert and update operations on the client and server.
+https://atmospherejs.com/aldeed/collection2
