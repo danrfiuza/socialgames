@@ -9,5 +9,8 @@ Meteor.methods({
     },
     'places.find'(){
         return Places.find({}, {sort: {created_at: -1}}).fetch();
+    },
+    'places.findOne'(criteria){
+        return Places.find(criteria).fetch();
     }
 });

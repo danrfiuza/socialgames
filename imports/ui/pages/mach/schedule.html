@@ -1,6 +1,6 @@
 <template name="schedule">
 	<div class="animated fadeIn">
-        <p>você foi convida para um partida {{ match }}</p>
+        <p>Você foi convidado para um partida {{ match }}</p>
     </div>
      <div class="col-lg-12" id="viewGame">
         <div class="panel widget">
@@ -25,6 +25,9 @@
     </div>
     Pessoas confirmadas 
     {{#each players }}
-    	{{ mail }},
+    	{{ mail }}
     {{/each }}
+    <p>Ainda restam {{ qtdVaga }} vagas para esta partida </p>
+    <p>Local: {{ place }}</p>
+    <button type="button" id="btnAcept" class="btn btn-success">Aceitar Convite</button>
 </template>
