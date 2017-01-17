@@ -120,11 +120,6 @@
     "HINT_CHOOSE_GAME": "enter name of the game",
     "ALERT_NAME": "please enter game name"
   },
-  "dashboard": {
-    "MATCHES": "MATCHES",
-    "EXPERIENCED_GAMES": "EXPERIENCED GAMES",
-    "AVERAGE": "AVERAGE"
-  },
   "notFound": {
     "We couldn't find this page": "We couldn't find this page.",
     "The page you are looking for does not exists": "The page you are looking for does not exists."
