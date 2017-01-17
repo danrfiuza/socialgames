@@ -117,6 +117,7 @@ Router.map(function () {
         path: '/schedule/:match_id',
         sectionTitle: 'Partida Agendada',
         onAfterAction: function () {
+            document.match_id = this.params.match_id;
             return document.title = "Partidas | " + titleSocial;
         }
     });

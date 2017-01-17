@@ -12,5 +12,8 @@ Meteor.methods({
     },
     'game.find'(criteria) {
         return Games.find(criteria).fetch();
+    },
+    'game.findOne'(key) {
+        return Games.find({_id: key}).fetch();
     }
 });

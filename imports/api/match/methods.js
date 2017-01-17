@@ -13,7 +13,13 @@ Meteor.methods({
         });
         return result;
     },
-    'matchs.find'(){
+    'matchs.find'() {
+        return Matchs.find().fetch();
+    },
+    'matchs.findOne'(key) {
+        return Matchs.find({_id: key}).fetch();
+    },
+    'matchs.list'(){
         return Matchs.find().fetch();
     },
     'matchs.findCount'(user){
