@@ -74,7 +74,7 @@ if (Meteor.isClient) {
                     details: "form"
                 });
 
-                var lat_and_long = "-15.7801, -47.9292";
+                var lat_and_long = "-15.7979736, -47.869904";
                 $("#autocomplete").geocomplete("find", lat_and_long);
 
                 $("#autocomplete").bind("geocode:dragged", function (event, latLng) {
