@@ -117,8 +117,8 @@
     "BOOK_FRIEND": "Book a vacancy for a friend",
     "INVITE_LINK": "Link to game invitation",
     "NEW_MATCH": "New match",
-    "HINT_CHOOSE_GAME": "enter name of the game",
-    "ALERT_NAME": "please enter game name"
+    "HINT_CHOOSE_GAME": "Enter the name of the game",
+    "ALERT_NAME": "Please enter the game name"
   },
   "notFound": {
     "We couldn't find this page": "We couldn't find this page.",

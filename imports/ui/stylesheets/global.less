@@ -1,3 +1,17 @@
+@color-dashboard: #FF902B;
+@color-friends: #536DFE;
+@color-games: #9F689F;
+@color-matches: #689F38;
+@color-places: #ED3B3B;
+@color-rankings: #FFBF00;
+@color-logout: #444444;
+
+.rounded-corners (@radius: 6px) {
+  border-radius: @radius;
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+}
+
 .topnavbar {
   background-color: #FEB46B;
   /* Juicy Cantaloupe color */
@@ -5,121 +19,11 @@
 }
 
 .panel {
-  border-radius: 6px;
+  .rounded-corners;
 }
+
 .widget {
   overflow: hidden;
-}
-.aside .sidebar {
-  padding-bottom: 0;
-}
-
-.aside .sidebar > .nav > li {
-  border: 0 none;
-}
-
-.aside .sidebar > .nav > li > a > em,
-.aside .sidebar > .nav > li > a:hover,
-.aside .sidebar > .nav > li.active > a,
-.aside .sidebar > .nav > li.active > a > em {
-  color: #FFFFFF;
-}
-
-.sidebar > .nav > li > a:focus {
-  color: #515253;
-}
-
-.aside .sidebar > .nav > li > a.main:hover,
-.aside .sidebar > .nav > li.active > a.main,
-.aside .sidebar > .nav > li > a.main > em,
-.wrapper.section-main .topnavbar {
-  background-color: #53C7FE;
-}
-
-.aside .sidebar > .nav > li > a.dashboard:hover,
-.aside .sidebar > .nav > li.active > a.dashboard,
-.aside .sidebar > .nav > li > a.dashboard > em,
-.wrapper.section-dashboard .topnavbar {
-  background-color: #FF902B;
-}
-
-.aside .sidebar > .nav > li > a.timeline:hover,
-.aside .sidebar > .nav > li.active > a.timeline,
-.aside .sidebar > .nav > li > a.timeline > em,
-.wrapper.section-timeline .topnavbar {
-  background-color: #FE8428;
-}
-
-.aside .sidebar > .nav > li > a.friends:hover,
-.aside .sidebar > .nav > li.active > a.friends,
-.aside .sidebar > .nav > li > a.friends > em,
-.wrapper.section-friends .topnavbar {
-  background-color: #536DFE;
-}
-
-.aside .sidebar > .nav > li > a.games:hover,
-.aside .sidebar > .nav > li.active > a.games,
-.aside .sidebar > .nav > li > a.games > em,
-.wrapper.section-games .topnavbar,
-.wrapper.section-newgame .topnavbar {
-  background-color: #9F689F;
-}
-
-.aside .sidebar > .nav > li > a.matches:hover,
-.aside .sidebar > .nav > li.active > a.matches,
-.aside .sidebar > .nav > li > a.matches > em,
-.wrapper.section-matches .topnavbar {
-  background-color: #689F38;
-}
-
-.aside .sidebar > .nav > li > a.places:hover,
-.aside .sidebar > .nav > li.active > a.places,
-.aside .sidebar > .nav > li > a.places > em,
-.wrapper.section-places .topnavbar {
-  background-color: #ED3B3B;
-}
-
-.aside .sidebar > .nav > li > a.rankings:hover,
-.aside .sidebar > .nav > li.active > a.rankings,
-.aside .sidebar > .nav > li > a.rankings > em,
-.wrapper.section-rankings .topnavbar {
-  background-color: #FFBF00;
-}
-
-.aside .sidebar > .nav > li > a.dashboard:hover,
-.aside .sidebar > .nav > li.active > a.dashboard,
-.aside .sidebar > .nav > li > a.dashboard > em,
-.wrapper.section-rankings .dashboard {
-  background-color: #FF902B;
-}
-
-.aside .sidebar > .nav > li > a.logout:hover,
-.aside .sidebar > .nav > li.active > a.logout,
-.aside .sidebar > .nav > li > a.logout > em {
-  background-color: #444444;
-}
-
-.sidebar > .nav > li > a > em {
-  border-radius: 20px;
-  margin-right: 5px;
-  padding: 13px 26px 13px 13px;
-}
-
-.sidebar > .nav > li > a {
-  padding: 12px 15px;
-}
-
-.sidebar > .nav > li > .nav-item {
-  padding: 0;
-}
-
-body.aside-collapsed .user-block-picture {
-  display: none;
-}
-
-.sidebar .user-block-picture {
-  padding: 20px 12px;
-  background-image: url("/img/bg-p.jpg");
 }
 
 .wrapper > .aside .aside-inner {
@@ -135,140 +39,47 @@ body.aside-collapsed .user-block-picture {
 
 .nav-wrapper {
   padding: 0 10px 0 0;
-}
+  ul.nav {
+    margin: 8px 0;
+    width: 100%;
 
-.sidebar ul.nav {
-  height: 100%;
-}
-
-.nav-wrapper ul.nav {
-  margin: 8px 0;
-  width: 100%;
-}
-
-.nav-wrapper ul.nav li.brand-logo,
-.nav-wrapper ul.nav li.language-list {
-  float: right;
-}
-
-.nav-wrapper ul.nav li.language-list button {
-  background-color: transparent;
-  border: 0 none;
-  padding: 6px;
-}
-
-.nav-wrapper ul.nav li.nav-button > a {
-  color: #FFFFFF;
-  padding-bottom: 10px;
-  padding-top: 10px;
-  padding-right: 0;
+    li.brand-logo,
+    li.language-list {
+      float: right;
+    }
+    li.language-list button {
+      background-color: transparent;
+      border: 0 none;
+      padding: 6px;
+    }
+    li.nav-button > a {
+      color: #FFFFFF;
+      padding-bottom: 10px;
+      padding-top: 10px;
+      padding-right: 0;
+    }
+  }
 }
 
 .avatar {
   overflow: hidden;
   border: 0 none;
-}
-
-.avatar img {
-  background-color: #e1e2e3;
-  border: 1px solid #e1e2e3;
-  border-radius: 40px;
-  display: inline-block;
-  height: auto;
-  line-height: 1.52857;
-  max-width: 100%;
-  padding: 2px;
-  transition: all 0.2s ease-in-out 0s;
-}
-
-.avatar span {
-  background-color: transparent !important;
-}
-
-.friend-avatar a {
-  float: left;
-  width: 80px;
-}
-
-.friend-info h3 {
-  margin-bottom: 0;
-}
-
-.friend-info .list-unstyled {
-  margin-bottom: 0;
-}
-
-.section-newgame .panel .list-group-item {
-  border-top: 1px solid #e4eaec;
-}
-.section-newgame .panel .list-group-item div.pull-left {
-  min-height: 75px;
+  img {
+    background-color: #e1e2e3;
+    border: 1px solid #e1e2e3;
+    .rounded-corners(40px);
+    display: inline-block;
+    height: auto;
+    line-height: 1.52857;
+    max-width: 100%;
+    padding: 2px;
+    transition: all 0.2s ease-in-out 0s;
+  }
+  span {
+    background-color: transparent !important;
+  }
 }
 
 .custom-avatar-initials {
   display: none;
 }
-
-/** dashboardUserInfo BEGIN **/
-.twPc-bg {
-  background-image: url("https://pbs.twimg.com/profile_banners/50988711/1384539792/600x200");
-  background-position: 0 50%;
-  background-size: 100% auto;
-  border-bottom: 1px solid #e1e8ed;
-  border-radius: 4px 4px 0 0;
-  height: 50px;
-  width: 100%;
-}
-
-.twPc-block {
-  display: block !important;
-}
-
-.twPc-button {
-  margin: -35px -10px 0;
-  text-align: right;
-  width: 100%;
-}
-
-.twPc-avatarLink {
-  border-radius: 6px;
-  display: inline-block !important;
-  float: left;
-  margin: -25px 5px 0 5px;
-  max-width: 100%;
-  padding: 1px;
-  vertical-align: bottom;
-}
-
-.twPc-avatarImg {
-  border-radius: 7px;
-  box-sizing: border-box;
-  color: #fff;
-  height: 160px;
-  width: 160px;
-}
-
-.twPc-divUser {
-  margin: 5px 0 0;
-}
-
-.twPc-divName {
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 35px;
-}
-
-.twPc-divName a {
-  color: inherit !important;
-}
-
-.twPc-StatLabel {
-  color: #8899a6;
-  font-size: 10px;
-  letter-spacing: 0.02em;
-  overflow: hidden;
-  text-transform: uppercase;
-  transition: color 0.15s ease-in-out 0s;
-}
-
-/** dashboardUserInfo END **/
