@@ -47,10 +47,14 @@ Template.friends.events({
     'click #btnAddFriend': function (event, template) {
         let friends = $('form[name="form-add-friend"]').serializeJSON();
         Meteor.call('friends.add', friends, function (e, result) {
-            if (result == "friend-exist") {
-                Bert.alert( TAPi18n.__('friend.ALREADY_YOUR_FRIEND'), 'warning');
+            if (!e) {
+                if (result == "friend-exist") {
+                    Bert.alert(TAPi18n.__('friend.ALREADY_YOUR_FRIEND'), 'warning');
+                } else {
+                    Bert.alert(TAPi18n.__('friend.FRIEND_ADDED_SUCCESSFULLY'), 'success');
+                }
             } else {
-                Bert.alert( TAPi18n.__('friend.FRIEND_ADDED_SUCCESSFULLY'), 'success');
+                Bert.alert( e , 'warning');
             }
         });
     }

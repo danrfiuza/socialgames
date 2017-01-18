@@ -1,34 +1,36 @@
 import {Meteor} from 'meteor/meteor';
 
-// Import to load these templates
-import '../../ui/layouts/app-body.js';
-import '../../ui/layouts/app-login.js';
+import '../../ui/layouts/app-body';
+import '../../ui/layouts/app-login';
+import '../../ui/layouts/app-not-found.html';
 
-import '../../ui/pages/timeline/timeline.js';
-import '../../ui/pages/game/game.js';
-import '../../ui/pages/game/newgame.js';
-import '../../ui/pages/friends/friend.js';
-import '../../ui/pages/main/main.js';
-import '../../ui/pages/mach/match.js';
-import '../../ui/pages/place/place.js';
-import '../../ui/pages/ranking/ranking.js';
-import '../../ui/pages/dashboard/dashboard.js';
+import '../../ui/pages/timeline/timeline';
+import '../../ui/pages/game/game';
+import '../../ui/pages/game/newgame';
+import '../../ui/pages/friends/friend';
+import '../../ui/pages/main/main';
+import '../../ui/pages/mach/match';
+import '../../ui/pages/mach/schedule.js';
+import '../../ui/pages/place/place';
+import '../../ui/pages/ranking/ranking';
+import '../../ui/pages/dashboard/dashboard';
 
-import '../../ui/globals/app.init.js';
-import '../../ui/globals/custom.js';
-import '../../ui/globals/sidebars.js';
-import '../../ui/globals/topnavbar.js';
-import '../../ui/globals/auth/login.js';
-import '../../ui/globals/auth/logout.js';
-import '../../ui/globals/auth/loginForm.js';
-import '../../ui/globals/auth/signInWithEmail.js';
+import '../../ui/globals/app.init';
+import '../../ui/globals/custom';
+import '../../ui/globals/sidebars';
+import '../../ui/globals/topnavbar';
+import '../../ui/globals/auth/login';
+import '../../ui/globals/auth/logout';
+import '../../ui/globals/auth/loginForm';
+import '../../ui/globals/auth/signInWithEmail';
 
 var titleSocial = 'Social Games - A Rede Social dos Board Gamers';
 
 // Configure routes
 Router.configure({
     layoutTemplate: 'layout',
-    loadingTemplate: 'loading'
+    loadingTemplate: 'loading',
+    notFoundTemplate: 'notFound'
 });
 
 // Autenticate routes
@@ -106,6 +108,23 @@ Router.map(function () {
     this.route('matches', {
         path: '/matches',
         sectionTitle: 'Partidas',
+        onAfterAction: function () {
+            return document.title = "Partidas | " + titleSocial;
+        }
+    });
+
+    this.route('schedule', {
+        path: '/schedule/:match_id',
+        sectionTitle: 'Partida Agendada',
+        onAfterAction: function () {
+            document.match_id = this.params.match_id;
+            return document.title = "Partidas | " + titleSocial;
+        }
+    });
+
+    this.route('schedules', {
+        path: '/schedules',
+        sectionTitle: 'Partidas Agendadas',
         onAfterAction: function () {
             return document.title = "Partidas | " + titleSocial;
         }

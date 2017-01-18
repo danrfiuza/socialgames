@@ -28,7 +28,7 @@ Template.dashboardMostPlayed.top30dias = function () {
         },
         yAxis: {
             title: {
-                text: 'Total de partidas'
+                text: TAPi18n.__('dashboard.TOTAL_MATCHES')
             }
 
         },

@@ -89,7 +89,9 @@
     "PORTUGUESE": "Portuguese",
     "MATCHES": "MATCHES",
     "EXPERIENCED_GAMES": "EXPERIENCED GAMES",
-    "AVERAGE": "AVERAGE"
+    "AVERAGE": "AVERAGE",
+    "MOST_PLAYED_IN_30": "Most played in the last 30 days",
+    "TOTAL_MATCHES": "Total matches"
   },
   "friend": {
     "SEARCH_FRIEND": "Search Friend",
@@ -117,5 +119,9 @@
     "NEW_MATCH": "New match",
     "HINT_CHOOSE_GAME": "Enter the name of the game",
     "ALERT_NAME": "Please enter the game name"
+  },
+  "notFound": {
+    "We couldn't find this page": "We couldn't find this page.",
+    "The page you are looking for does not exists": "The page you are looking for does not exists."
   }
 }

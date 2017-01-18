@@ -11,6 +11,15 @@ export const UserProfile = new SimpleSchema({
     },
 });
 
+export const UserProfileFriends = new SimpleSchema({
+    user_id: {
+        type: String,
+    },
+    createdAt: {
+        type: Date
+    }
+});
+
 export const UserSchema  = new SimpleSchema({
     // username: {
     //     type: String,
@@ -37,6 +46,10 @@ export const UserSchema  = new SimpleSchema({
     },
     profile: {
         type: UserProfile,
+        optional: true
+    },
+    "profile.friends.$": {
+        type: UserProfileFriends,
         optional: true
     },
     services: {

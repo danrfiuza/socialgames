@@ -13,7 +13,13 @@ Meteor.methods({
         });
         return result;
     },
-    'matchs.find'(){
+    'matchs.find'() {
+        return Matchs.find().fetch();
+    },
+    'matchs.findOne'(key) {
+        return Matchs.find({_id: key}).fetch();
+    },
+    'matchs.list'(){
         return Matchs.find().fetch();
     },
     'matchs.findCount'(user){
@@ -46,10 +52,23 @@ Meteor.methods({
         totalPartidas = 0;
         _.map(distinctEntries, function (value) {
             prepareValue = Games.findOne({_id: value});
+            prepareValue = Games.findOne({_id: value});
             prepareValue.totalPartidas30dias = Matchs.find({game: value, created_at: {$gt: dateTimeStamp}}).count();
             totalPartidas = totalPartidas + prepareValue.totalPartidas30dias;
             arrObj.push(prepareValue);
         });
+
+        //Ordena o array
+        arrObj = _.sortBy(arrObj, 'totalPartidas30dias');
+
+        //Deixa somente os itens mais jogados, o menos relevantes são excluidos do grafico
+        arrStart = arrObj.length - 7;
+        arrEnd = arrObj.length;
+
+        if (arrStart < 0) {
+            arrStart = 0;
+        }
+        arrObj = arrObj.slice(arrStart, arrEnd);
 
         return {
             totalPartidas: totalPartidas,

@@ -3,6 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import { ReactiveVar } from 'meteor/reactive-var';
 import { State } from './state.js';
 import { Service } from './service.js';
+
 import './match.html';
 
 Meteor.subscribe('game.list');

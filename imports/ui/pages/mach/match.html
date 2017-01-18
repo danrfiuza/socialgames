@@ -100,7 +100,7 @@
             <div class="col-sm-12">
                 <div class="panel panel-default">
                     <div class="panel-body bg-info">
-                        <p class="h5 mt0">{{_ "match.INVITE_LINK"}}: http://socialboardgames.com/match/schedule/{{ match_id }}</p>
+                        <p class="h5 mt0" id="textLinkInvite">{{_ "match.INVITE_LINK"}}: http://socialboardgames.com/schedule/{{ match_id }}</p>
                     </div>
                 </div>
             </div>
@@ -240,4 +240,12 @@
             {{/with}}
         </div>
     </div>
+
+    <!-- Target -->
+    <textarea id="bar">Mussum ipsum cacilds...</textarea>
+
+    <!-- Trigger -->
+    <button class="btn" data-clipboard-action="cut" data-clipboard-target="#bar">
+        Cut to clipboard
+    </button>
 </template>
