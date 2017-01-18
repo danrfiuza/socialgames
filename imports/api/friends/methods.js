@@ -12,16 +12,10 @@ Meteor.methods({
         if (isFriendExist(dados)) {
             return "friend-exist";
         } else {
-            if (usuario.services.facebook) {
-                buildFriendFacebook(dados, usuario);
-            } else {
-                buildFriendBase(dados, usuario);
-            }
-            user = Meteor.user();
+            buildFriendBase(dados, usuario);
             Meteor.users.update(Meteor.userId(), {$addToSet: {'profile.friends': friend}});
-            return "ok";
+            return true;
         }
-
     },
     'friends.getUserFriends'(user) {
         var listaFriends = [];
@@ -32,8 +26,6 @@ Meteor.methods({
             amigosDoUsuario.forEach(function (amigo) {
                 listaFriends.push(Meteor.users.findOne({_id: amigo.friend_id}));
             });
-
-
         }
         return listaFriends;
 
@@ -46,18 +38,10 @@ Meteor.methods({
  ********************************************************************/
 //export const  Friends = new Mongo.Collection('users');
 
-// Monta um registro de amigo vindo do facebook
-function buildFriendFacebook(dados, usuario) {
-    return friend = {
-        friend_id: dados.amigos,
-        createdAt: new Date().getTime()
-    }
-}
-
 // Monta um registro de amigo da base
 function buildFriendBase(dados, usuario) {
     return friend = {
-        friend_id: dados.amigos,
+        user_id: dados.amigos,
         createdAt: new Date().getTime()
     }
 }
