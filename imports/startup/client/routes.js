@@ -10,6 +10,7 @@ import '../../ui/pages/game/newgame';
 import '../../ui/pages/friends/friend';
 import '../../ui/pages/main/main';
 import '../../ui/pages/mach/match';
+import '../../ui/pages/mach/newmatch';
 import '../../ui/pages/mach/schedule.js';
 import '../../ui/pages/place/place';
 import '../../ui/pages/ranking/ranking';
@@ -112,6 +113,14 @@ Router.map(function () {
             return document.title = "Partidas | " + titleSocial;
         }
     });
+
+    this.route('newmatch', {
+        path: '/newmatch',
+        sectionTitle: 'Nova Partida',
+        onAfterAction: function () {
+            return document.title = "Nova Partida | " + titleSocial;
+        }
+    });    
 
     this.route('schedule', {
         path: '/schedule/:match_id',
