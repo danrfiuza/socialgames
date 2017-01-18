@@ -34,7 +34,7 @@ Template.friends.helpers({
             //Prepara o array de amigos do usuario corrente
             var listaFriends = [];
             amigosDoUsuario.forEach(function (amigo) {
-                listaFriends.push(Meteor.users.findOne({_id: amigo.friend_id}));
+                listaFriends.push(Meteor.users.findOne({_id: amigo.user_id}));
             });
 
             return listaFriends;
