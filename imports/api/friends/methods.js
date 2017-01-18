@@ -6,14 +6,17 @@ import './friend.js';
 
 Meteor.methods({
     'friends.add'(dados) {
-        // var usuario = Meteor.users.findOne({_id: dados.amigos});
-        var usuario = Meteor.users.findOne({_id: Meteor.user()._id});
+        // var usuario = Meteor.users.findOne({_id: Meteor.user()._id});
 
         if (isFriendExist(dados)) {
             return "friend-exist";
         } else {
-            buildFriendBase(dados, usuario);
+            friend = buildFriendBase(dados, Meteor.userId());
             Meteor.users.update(Meteor.userId(), {$addToSet: {'profile.friends': friend}});
+
+            requester = buildFriendBase({'amigos': Meteor.userId()}, Meteor.userId());
+            Meteor.users.update(dados.amigos, {$addToSet: {'profile.friends': requester}});
+
             return true;
         }
     },
@@ -24,7 +27,7 @@ Meteor.methods({
 
             //Prepara o array de amigos do usuario corrente
             amigosDoUsuario.forEach(function (amigo) {
-                listaFriends.push(Meteor.users.findOne({_id: amigo.friend_id}));
+                listaFriends.push(Meteor.users.findOne({_id: amigo.user_id}));
             });
         }
         return listaFriends;
@@ -39,19 +42,17 @@ Meteor.methods({
 //export const  Friends = new Mongo.Collection('users');
 
 // Monta um registro de amigo da base
-function buildFriendBase(dados, usuario) {
-    return friend = {
+function buildFriendBase(dados, idRequester) {
+    return {
         user_id: dados.amigos,
-        createdAt: new Date().getTime()
+        createdAt: new Date().getTime(),
+        requester_is: idRequester,
+        requestAccepted: false
     }
 }
 
 // Verifica se o amigo já existe na collection de amigos
 function isFriendExist(dados) {
-    var qtdAmigo = Meteor.users.find({"profile.friends.friend_id": dados.amigos, _id: Meteor.user()._id}).count();
-    if (qtdAmigo > 0) {
-        return true;
-    } else {
-        return false;
-    }
+    var qtdAmigo = Meteor.users.find({"profile.friends.user_id": dados.amigos, _id: Meteor.user()._id}).count();
+    return (qtdAmigo > 0);
 }
