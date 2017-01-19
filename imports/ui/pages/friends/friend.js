@@ -43,21 +43,21 @@ Template.friends.helpers({
                 //     Session.set('totalPartidas',result);
                 // });
 
-                dadosAmigo.totalAmigos = _.size(dadosAmigo.profile.friends);
-                // dadosAmigo.jogosExperimentados = Session.get('jogosExperimentados');
+                // dadosAmigo.totalAmigos = _.size(dadosAmigo.profile.friends);
+                // // dadosAmigo.jogosExperimentados = Session.get('jogosExperimentados');
+                // // dadosAmigo.totalPartidas = Session.get('totalPartidas') ;
+                //
+                // dadosAmigo.jogosExperimentados = Meteor.apply('matchs.findCountDistinct', dadosAmigo,{wait: true}, function(err,data){
+                //     return data;
+                //     // if (err)
+                //     //     console.log(err);
+                //     // chartData = JSON.parse(data);
+                //     // console.log(data);
+                //     // createChart(chartData);
+                // });
+                // console.log(dadosAmigo.jogosExperimentados );
+                //
                 // dadosAmigo.totalPartidas = Session.get('totalPartidas') ;
-
-                dadosAmigo.jogosExperimentados = Meteor.apply('matchs.findCountDistinct', dadosAmigo,{wait: true}, function(err,data){
-                    return data;
-                    // if (err)
-                    //     console.log(err);
-                    // chartData = JSON.parse(data);
-                    // console.log(data);
-                    // createChart(chartData);
-                });
-                console.log(dadosAmigo.jogosExperimentados );
-
-                dadosAmigo.totalPartidas = Session.get('totalPartidas') ;
 
                 listaFriends.push(dadosAmigo);
             });

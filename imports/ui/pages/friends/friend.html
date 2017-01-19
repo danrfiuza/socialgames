@@ -7,7 +7,7 @@
                         <label for="amigos" class="control-label">{{_ "friend.SEARCH_FRIEND"}}</label>
                         <select name="amigos" id="amigos" class="form-control m-b" multiple="">
                             {{#each allUsers}}
-                            <option value='{{ _id }}'>{{ emailDoAmigo }}</option>
+                                <option value='{{ _id }}'>{{ emailDoAmigo }}</option>
                             {{/each}}
                         </select>
                     </div>
@@ -17,49 +17,52 @@
         </div>
         <div class="row">
             {{#each friends}}
-            <div class="col-lg-4">
-                <div class="panel widget">
-                    <div class="panel-body{{#unless profile.friends.[0].sendRequest}}{{#unless profile.friends.[0].acceptRequest}} panel-disabled{{/unless}}{{/unless}}">
-                        <div class="row row-table">
-                            <div class="col-xs-4 text-center friend-avatar">
-                                {{> avatar userId=_id size="large" }}
-                                <!-- http://localhost:3000/dashboard/{{ emails.[0].address }} -->
-                                {{#if profile.friends.[0].sendRequest}}
-                                <a href="{{_id}}" class="btn btn-success" id="btnAcceptRequest">Aceitar</a>
-                                {{else}}
-                                    {{#unless profile.friends.[0].acceptRequest}}
-                                    <a href="{{_id}}" class="btn btn-danger">Pendente</a>
-                                    {{/unless}}
-                                {{/if}}
-                            </div>
-                            <div class="col-xs-8 friend-info">
-                                <h3 class="mt0">{{ profile.name }}</h3>
-                                <p class="text-muted email">{{ emails.[0].address }}</p>
-                                <ul class="list-unstyled">
-                                    <li class="mb-sm"><em class="fa fa-trophy"></em> CORONEL</li>
-                                    <li class="mb-sm"><em class="fa fa-cubes"></em> {{ jogosExperimentados }} jogos jogados.</li>
-                                </ul>
+                <div class="col-lg-4">
+                    <div class="panel widget">
+                        <div class="panel-body{{#unless profile.friends.[0].sendRequest}}{{#unless
+                                profile.friends.[0].acceptRequest}} panel-disabled{{/unless}}{{/unless}}">
+                            <div class="row row-table">
+                                <div class="col-xs-4 text-center friend-avatar">
+                                    {{> avatar userId=_id size="large" }}
+                                    <!-- http://localhost:3000/dashboard/{{ emails.[0].address }} -->
+                                    {{#if profile.friends.[0].sendRequest}}
+                                        <a href="{{_id}}" class="btn btn-success" id="btnAcceptRequest">Aceitar</a>
+                                    {{else}}
+                                        {{#unless profile.friends.[0].acceptRequest}}
+                                            <a href="{{_id}}" class="btn btn-danger">Pendente</a>
+                                        {{/unless}}
+                                    {{/if}}
+                                </div>
+                                <div class="col-xs-8 friend-info">
+                                    <h3 class="mt0">{{ profile.name }}</h3>
+                                    <p class="text-muted email">{{ emails.[0].address }}</p>
+                                    <ul class="list-unstyled">
+                                        <li class="mb-sm"><em class="fa fa-trophy"></em> CORONEL</li>
+                                        <li class="mb-sm"><em class="fa fa-cubes"></em> {{ jogosExperimentados }} jogos
+                                            jogados.
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="panel-body bg-inverse">
-                        <div class="row row-table text-center">
-                            <div class="col-xs-4">
-                                <p class="m0 h3">{{ totalAmigos }}</p>
-                                <p class="m0 text-muted">Amigos</p>
-                            </div>
-                            <div class="col-xs-4">
-                                <p class="m0 h3">37</p>
-                                <p class="m0 text-muted">Jogos</p>
-                            </div>
-                            <div class="col-xs-4">
-                                <p class="m0 h3">{{ totalPartidas }}</p>
-                                <p class="m0 text-muted">Partidas</p>
+                        <div class="panel-body bg-inverse">
+                            <div class="row row-table text-center">
+                                <div class="col-xs-4">
+                                    <p class="m0 h3">{{ totalAmigos }}</p>
+                                    <p class="m0 text-muted">Amigos</p>
+                                </div>
+                                <div class="col-xs-4">
+                                    <p class="m0 h3">37</p>
+                                    <p class="m0 text-muted">Jogos</p>
+                                </div>
+                                <div class="col-xs-4">
+                                    <p class="m0 h3">{{ totalPartidas }}</p>
+                                    <p class="m0 text-muted">Partidas</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
             {{/each}}
         </div>
     </div>
