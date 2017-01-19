@@ -37,7 +37,7 @@
                                 <p class="text-muted email">{{ emails.[0].address }}</p>
                                 <ul class="list-unstyled">
                                     <li class="mb-sm"><em class="fa fa-trophy"></em> CORONEL</li>
-                                    <li class="mb-sm"><em class="fa fa-cubes"></em> 123 jogos jogados.</li>
+                                    <li class="mb-sm"><em class="fa fa-cubes"></em> {{ jogosExperimentados }} jogos jogados.</li>
                                 </ul>
                             </div>
                         </div>
@@ -45,15 +45,15 @@
                     <div class="panel-body bg-inverse">
                         <div class="row row-table text-center">
                             <div class="col-xs-4">
-                                <p class="m0 h3">43</p>
-                                <p class="m0 text-muted">Seguidores</p>
+                                <p class="m0 h3">{{ totalAmigos }}</p>
+                                <p class="m0 text-muted">Amigos</p>
                             </div>
                             <div class="col-xs-4">
                                 <p class="m0 h3">37</p>
                                 <p class="m0 text-muted">Jogos</p>
                             </div>
                             <div class="col-xs-4">
-                                <p class="m0 h3">72</p>
+                                <p class="m0 h3">{{ totalPartidas }}</p>
                                 <p class="m0 text-muted">Partidas</p>
                             </div>
                         </div>

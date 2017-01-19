@@ -31,7 +31,7 @@ Além disto, as configurações para envio de e-mail tambem devem ser configurad
 
 Então, após adicionar as configurações, rode este comando:
 
-`meteor --settings settings.json`
+`meteor --settings settings.json` ou `./run.sh`
 
 Este último irá rodar o servidor Meteor e disponibilizará a url http://localhost:3000/ para você trabalhar. 
 
