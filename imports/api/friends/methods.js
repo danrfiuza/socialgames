@@ -10,22 +10,29 @@ Meteor.methods({
         if (isFriendExist(dados)) {
             return "friend-exist";
         } else {
-            friend = buildFriendBase(dados, new Date().getTime());
+            friend = buildFriendBase(dados, true, false);
             Meteor.users.update(Meteor.userId(), {$addToSet: {'profile.friends': friend}});
 
-            requester = buildFriendBase({'amigos': Meteor.userId()});
-            Meteor.users.update(dados.amigos,
-                {$addToSet: {'profile.friends': requester}}
-                );
+            requester = buildFriendBase({'amigos': Meteor.userId()}, false, false);
+            Meteor.users.update(dados.amigos, {$addToSet: {'profile.friends': requester}});
 
             return true;
         }
     },
     'friends.acceptRequest'(user_id) {
-        // accepter = buildFriendAccepterBase(user_id);
+        accepted = {
+            'profile.friends.$.acceptRequest': new Date().getTime(),
+            'profile.friends.$.isAccepted': true
+        };
+
         Meteor.users.update(
             {'_id': Meteor.userId(), 'profile.friends.user_id': user_id},
-            {$set: {'profile.friends.$.acceptRequest': new Date().getTime()}}
+            {$set: accepted}
+        );
+
+        Meteor.users.update(
+            {'_id': user_id, 'profile.friends.user_id': Meteor.userId()},
+            {$set: accepted}
         );
 
         return true;
@@ -52,20 +59,14 @@ Meteor.methods({
 //export const  Friends = new Mongo.Collection('users');
 
 // Monta um registro de amigo da base
-function buildFriendBase(dados, sendRequest) {
+function buildFriendBase(dados, isSenderRequest) {
     return {
         user_id: dados.amigos,
         createdAt: new Date().getTime(),
-        sendRequest: sendRequest,
+        isSenderRequest: isSenderRequest,
+        isAccepted: false
     }
 }
-
-// function buildFriendAccepterBase(user_id) {
-//     return {
-//         user_id: user_id,
-//         acceptRequest: new Date().getTime()
-//     }
-// }
 
 // Verifica se o amigo já existe na collection de amigos
 function isFriendExist(dados) {

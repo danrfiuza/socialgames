@@ -13,18 +13,21 @@ export const UserProfile = new SimpleSchema({
 
 export const UserProfileFriends = new SimpleSchema({
     user_id: {
-        type: String,
+        type: String
     },
     createdAt: {
-        type: Date,
-        optional: true
-    },
-    sendRequest: {
-        type: Date,
-        optional: true
+        type: Date
     },
     acceptRequest: {
         type: Date,
+        optional: true
+    },
+    isSenderRequest: {
+        type: Boolean,
+        optional: true
+    },
+    isAccepted: {
+        type: Boolean,
         optional: true
     }
 });
