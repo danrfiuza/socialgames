@@ -36,7 +36,6 @@ Template.friends.helpers({
             amigosDoUsuario.forEach(function (amigo) {
                 listaFriends.push(Meteor.users.findOne({_id: amigo.user_id}));
             });
-
             return listaFriends;
         }
     }
@@ -44,7 +43,7 @@ Template.friends.helpers({
 
 Template.friends.events({
     // Adiciona um amigo em sua lista de amigos
-    'click #btnAddFriend': function (event, template) {
+    'click #btnAddFriend': function () {
         let friends = $('form[name="form-add-friend"]').serializeJSON();
         Meteor.call('friends.add', friends, function (e, result) {
             if (!e) {
@@ -54,7 +53,17 @@ Template.friends.events({
                     Bert.alert(TAPi18n.__('friend.FRIEND_ADDED_SUCCESSFULLY'), 'success');
                 }
             } else {
-                Bert.alert( e , 'warning');
+                Bert.alert(e, 'warning');
+            }
+        });
+    },
+    'click #btnAcceptRequest': function (event) {
+        event.preventDefault();
+        Meteor.call('friends.acceptRequest', event.target.attributes[0].nodeValue, function (e, result) {
+            if (!e) {
+                Bert.alert(TAPi18n.__('friend.FRIEND_ADDED_SUCCESSFULLY'), 'success');
+            } else {
+                Bert.alert(e, 'warning');
             }
         });
     }

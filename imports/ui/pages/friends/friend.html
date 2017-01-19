@@ -19,12 +19,18 @@
             {{#each friends}}
             <div class="col-lg-4">
                 <div class="panel widget">
-                    <div class="panel-body">
+                    <div class="panel-body{{#unless profile.friends.[0].sendRequest}}{{#unless profile.friends.[0].acceptRequest}} panel-disabled{{/unless}}{{/unless}}">
                         <div class="row row-table">
                             <div class="col-xs-4 text-center friend-avatar">
                                 {{> avatar userId=_id size="large" }}
                                 <!-- http://localhost:3000/dashboard/{{ emails.[0].address }} -->
-                                <a href="#" class="btn btn-success">Follow</a>
+                                {{#if profile.friends.[0].sendRequest}}
+                                <a href="{{_id}}" class="btn btn-success" id="btnAcceptRequest">Aceitar</a>
+                                {{else}}
+                                    {{#unless profile.friends.[0].acceptRequest}}
+                                    <a href="{{_id}}" class="btn btn-danger">Pendente</a>
+                                    {{/unless}}
+                                {{/if}}
                             </div>
                             <div class="col-xs-8 friend-info">
                                 <h3 class="mt0">{{ profile.name }}</h3>

@@ -16,7 +16,16 @@ export const UserProfileFriends = new SimpleSchema({
         type: String,
     },
     createdAt: {
-        type: Date
+        type: Date,
+        optional: true
+    },
+    sendRequest: {
+        type: Date,
+        optional: true
+    },
+    acceptRequest: {
+        type: Date,
+        optional: true
     }
 });
 

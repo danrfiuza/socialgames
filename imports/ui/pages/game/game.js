@@ -1,11 +1,10 @@
-import { Template } from 'meteor/templating';
-import { Meteor } from 'meteor/meteor';
-
-import './game.html';
+import {Template} from "meteor/templating";
+import {Meteor} from "meteor/meteor";
+import "./game.html";
 
 var rGames = new ReactiveVar([]);
 
-Template.games.rendered = function(){
+Template.games.rendered = function () {
     $("#divBtnNewGame").hide();
 };
 
@@ -16,19 +15,19 @@ Template.games.helpers({
 });
 
 Template.games.events({
-	'click #btnSearchGame' : function(event, template){
+    'click #btnSearchGame': function () {
 
-		if ($("#search").val() == "") {
-			Bert.alert('Escreva algum valor no campo de busca');
-		} else {
-			var criteria = {'name': {$regex:'.*' + $("#search").val() + '.*', $options: "$i"}}
-	        Meteor.call('game.find', criteria, function (e, result) {
-	            rGames.set(result);
-	            if (result.length == 0) {
-	            	Bert.alert('Nenhum resultado encontrado');
-	            }
-	        });
-	        $("#divBtnNewGame").show();
-		}
+        if ($("#search").val() == "") {
+            Bert.alert('Escreva algum valor no campo de busca');
+        } else {
+            var criteria = {'name': {$regex: '.*' + $("#search").val() + '.*', $options: "$i"}};
+            Meteor.call('game.find', criteria, function (e, result) {
+                rGames.set(result);
+                if (result.length == 0) {
+                    Bert.alert('Nenhum resultado encontrado');
+                }
+            });
+            $("#divBtnNewGame").show();
+        }
     }
 });
