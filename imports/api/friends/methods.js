@@ -14,16 +14,18 @@ Meteor.methods({
             Meteor.users.update(Meteor.userId(), {$addToSet: {'profile.friends': friend}});
 
             requester = buildFriendBase({'amigos': Meteor.userId()});
-            Meteor.users.update(dados.amigos, {$addToSet: {'profile.friends': requester}});
+            Meteor.users.update(dados.amigos,
+                {$addToSet: {'profile.friends': requester}}
+                );
 
             return true;
         }
     },
     'friends.acceptRequest'(user_id) {
-        accepter = buildFriendAccepterBase(user_id);
+        // accepter = buildFriendAccepterBase(user_id);
         Meteor.users.update(
-            {'user_id': Meteor.userId(), 'profile.friends.user_id': user_id},
-            {$set: {'profile.friends': [accepter]}}
+            {'_id': Meteor.userId(), 'profile.friends.user_id': user_id},
+            {$set: {'profile.friends.$.acceptRequest': new Date().getTime()}}
         );
 
         return true;
@@ -50,21 +52,20 @@ Meteor.methods({
 //export const  Friends = new Mongo.Collection('users');
 
 // Monta um registro de amigo da base
-function buildFriendBase(dados, sendRequest, acceptRequest) {
+function buildFriendBase(dados, sendRequest) {
     return {
         user_id: dados.amigos,
         createdAt: new Date().getTime(),
         sendRequest: sendRequest,
-        acceptRequest: acceptRequest
     }
 }
 
-function buildFriendAccepterBase(user_id) {
-    return {
-        user_id: user_id,
-        acceptRequest: new Date().getTime()
-    }
-}
+// function buildFriendAccepterBase(user_id) {
+//     return {
+//         user_id: user_id,
+//         acceptRequest: new Date().getTime()
+//     }
+// }
 
 // Verifica se o amigo já existe na collection de amigos
 function isFriendExist(dados) {
