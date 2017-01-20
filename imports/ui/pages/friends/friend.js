@@ -32,34 +32,40 @@ Template.friends.helpers({
             amigosDoUsuario = Meteor.users.findOne({_id: Meteor.user()._id}).profile.friends;
 
             //Prepara o array de amigos do usuario corrente
+            console.log(amigosDoUsuario);
             var listaFriends = [];
             amigosDoUsuario.forEach(function (amigo) {
+                var dadosAmigo = {};
                 dadosAmigo = Meteor.users.findOne({_id: amigo.user_id});
+                if (dadosAmigo) {
+                    dadosAmigo.jogosExperimentados = Meteor.call('matchs.findCountDistinct', dadosAmigo);
+                    if (!dadosAmigo.jogosExperimentados) {
+                        dadosAmigo.jogosExperimentados = 0;
+                    }
+                    // Meteor.call('matchs.findCount', dadosAmigo, function (e, result) {
+                    //     Session.set('totalPartidas',result);
+                    // });
 
-                // Meteor.call('matchs.findCountDistinct', dadosAmigo, function (e, result) {
-                //     Session.set('jogosExperimentados',result);
-                // });
-                // Meteor.call('matchs.findCount', dadosAmigo, function (e, result) {
-                //     Session.set('totalPartidas',result);
-                // });
+                    // dadosAmigo.totalAmigos = _.size(dadosAmigo.profile.friends);
+                    // dadosAmigo.jogosExperimentados = Session.get('jogosExperimentados');
+                    // dadosAmigo.totalPartidas = Session.get('totalPartidas') ;
 
-                // dadosAmigo.totalAmigos = _.size(dadosAmigo.profile.friends);
-                // // dadosAmigo.jogosExperimentados = Session.get('jogosExperimentados');
-                // // dadosAmigo.totalPartidas = Session.get('totalPartidas') ;
-                //
-                // dadosAmigo.jogosExperimentados = Meteor.apply('matchs.findCountDistinct', dadosAmigo,{wait: true}, function(err,data){
-                //     return data;
-                //     // if (err)
-                //     //     console.log(err);
-                //     // chartData = JSON.parse(data);
-                //     // console.log(data);
-                //     // createChart(chartData);
-                // });
-                // console.log(dadosAmigo.jogosExperimentados );
-                //
-                // dadosAmigo.totalPartidas = Session.get('totalPartidas') ;
+                    // console.log(dadosAmigo);
+                    // dadosAmigo.jogosExperimentados = Meteor.apply('matchs.findCountDistinct', dadosAmigo,{wait: true}, function(err,data){
+                    // return data;
+                    // if (err)
+                    //     console.log(err);
+                    // chartData = JSON.parse(data);
+                    // console.log(data);
+                    // createChart(chartData);
+                    // });
+                    console.log(dadosAmigo);
+                    // console.log(dadosAmigo.jogosExperimentados );
 
-                listaFriends.push(dadosAmigo);
+                    // dadosAmigo.totalPartidas = Session.get('totalPartidas') ;
+
+                    listaFriends.push(dadosAmigo);
+                }
             });
             return listaFriends;
         }

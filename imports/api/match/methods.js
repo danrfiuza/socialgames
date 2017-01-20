@@ -26,7 +26,7 @@ Meteor.methods({
         return Matchs.find({"players.mail": user.emails[0].address}).count();
     },
     'matchs.findCountDistinct'(user){
-        result = Matchs.find({"players.mail": user.emails[0].address}, {sort: {"game._id": 1}}).fetch();
+        result = Matchs.find({"players.mail": user.emails[0].address}).fetch();
 
         arrCount = [];
         result.forEach(function (value) {
@@ -34,7 +34,7 @@ Meteor.methods({
                 arrCount.push(value.game);
             }
         });
-
+        console.log(arrCount.length);
         return arrCount.length;
     },
     'matchs.gamesTop30'(){
