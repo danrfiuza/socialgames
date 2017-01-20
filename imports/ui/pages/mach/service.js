@@ -30,8 +30,8 @@ export var Service = {
 	    comboFriends[0] = { id : Meteor.user()._id, text : emailUserLogged}
 
 	    _.forEach(friends, function(item){
-	        emailAmigo = Service.captureEmail(Meteor.users.findOne({_id: item.friend_id}));
-	        comboFriends[cont] = { id : item.friend_id, text : emailAmigo };
+	        emailAmigo = Service.captureEmail(Meteor.users.findOne({_id: item.user_id}));
+	        comboFriends[cont] = { id : item.user_id, text : emailAmigo };
 	        cont++;
 	    });
 
