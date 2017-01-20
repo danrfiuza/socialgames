@@ -31,7 +31,6 @@ pcel:serialize
 zimme:iron-router-auth
 natestrauser:select2
 http
-peerlibrary:xml2js
 utilities:avatar
 aldeed:clock
 momentjs:moment
@@ -50,3 +49,5 @@ service-configuration
 session
 aldeed:simple-schema
 aldeed:collection2
+peerlibrary:xml2js
+andrexbass:bgg
