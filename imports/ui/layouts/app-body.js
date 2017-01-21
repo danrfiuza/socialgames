@@ -28,6 +28,12 @@ Template.layout.rendered = function () {
 
 Template.layout.helpers({
     sectionClass: function () {
-        return 'section-' + Router.current().route.options.path.replace('/', '');
+    	var css = 'section-';
+    	var route = Router.current().route.options.path.replace('/', '');
+    	if (Meteor.userId()) {
+    		return 'wrapper ' + css + route;
+    	} else {
+    		return css + route;
+    	}
     }
 });
