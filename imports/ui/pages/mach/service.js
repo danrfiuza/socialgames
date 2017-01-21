@@ -26,12 +26,18 @@ export var Service = {
 	    friends = Meteor.users.findOne({_id: Meteor.user()._id}).profile.friends;
 	    comboFriends = [];
 	    var cont = 1;
-	    var emailUserLogged = Service.captureEmail(Meteor.user());
-	    comboFriends[0] = { id : Meteor.user()._id, text : emailUserLogged}
+	    var userLogged = Meteor.user();
+	    var emailUserLogged = Service.captureEmail(userLogged);
+	    var name = userLogged.profile.name;
+	    var content = name + ' <' + emailUserLogged + '>';
+	    comboFriends[0] = { id : Meteor.user()._id, text : content}
 
 	    _.forEach(friends, function(item){
-	        emailAmigo = Service.captureEmail(Meteor.users.findOne({_id: item.user_id}));
-	        comboFriends[cont] = { id : item.user_id, text : emailAmigo };
+	    	var userPlayer = Meteor.users.findOne({_id: item.user_id});
+	        emailAmigo = Service.captureEmail(userPlayer);
+	        name = userPlayer.profile.name;
+	        content = name + ' <' + emailAmigo + '>';
+	        comboFriends[cont] = { id : item.user_id, text :  content };
 	        cont++;
 	    });
 
@@ -62,9 +68,9 @@ export var Service = {
 	},
 
 	// Include a player of match
-	addPlayerMatch: function (emailPlayer, rPlayers) {
+	addPlayerMatch: function (userId, rPlayers, name) {
 	    var players = rPlayers.get();
-	    players.push({ mail : emailPlayer, first : false });
+	    players.push({ user_id: userId, first: false, firstName: name });
 	    rPlayers.set(players);
 	},
 
@@ -163,5 +169,10 @@ export var Service = {
 	printScreen: function (html) {
 	    var css = '';
 	    Meteor.call('webshot.snap', {html:html, css:css}, function (e, result) {});
+	},
+
+	// Ger first name of text
+	firstName: function (text) {
+		return text.split(" ", 1);
 	}
 }

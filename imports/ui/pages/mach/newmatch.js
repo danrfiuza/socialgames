@@ -106,9 +106,11 @@ Template.newmatch.events({
         // if not unselect
         if (selectedIndex != -1) {
             var imgPlayer = '<em class="fa fa-user fa-2x">';
-            var emailPlayer = event.target.options[selectedIndex].innerHTML;
+            var textPlayer = event.target.options[selectedIndex].innerHTML;
+            var userId = event.target.options[selectedIndex].value;
             $("#imgPlayer"+this.index).html(imgPlayer);
-            Service.addPlayerMatch(emailPlayer, rPlayers);
+            var firstName = Service.firstName(textPlayer);
+            Service.addPlayerMatch(userId, rPlayers, firstName);
             Service.setStatusItemComboFriends(selectedIndex, 'disabled', rComboFriends);
             Service.prepareAutoComplateForPlayers(rMaxPlayers);
         }

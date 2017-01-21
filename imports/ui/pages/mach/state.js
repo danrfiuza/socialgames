@@ -60,6 +60,7 @@ export var State = {
                 $('#subtitleGame').html("Contagem de pontos");
                 $('#btnFinishCount').hide();
                 $('#divBtnFinishMatch').show();
+                $('.tdScoreValues').css('visibility', 'visible');
                 break;
             case 'trophy' : 
                 $('#panelSearch').hide();
