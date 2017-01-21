@@ -3,6 +3,7 @@ import {Meteor} from "meteor/meteor";
 import "./game.html";
 
 var rGames = new ReactiveVar([]);
+var rSearch = new ReactiveVar(0);
 
 Template.games.rendered = function () {
     $("#divBtnNewGame").hide();
@@ -11,12 +12,15 @@ Template.games.rendered = function () {
 Template.games.helpers({
     games() {
         return rGames.get();
+    },
+    search() {
+        return rSearch.get();
     }
 });
 
 Template.games.events({
     'click #btnSearchGame': function () {
-
+        rSearch.set($("#search").val());
         if ($("#search").val() == "") {
             Bert.alert('Escreva algum valor no campo de busca');
         } else {

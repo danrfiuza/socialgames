@@ -102,6 +102,7 @@ Router.map(function () {
         path: '/newgame',
         sectionTitle: 'Novo Jogo',
         onAfterAction: function () {
+            document.search = this.params.query.search;
             return document.title = "Novo Jogo | " + titleSocial;
         }
     });

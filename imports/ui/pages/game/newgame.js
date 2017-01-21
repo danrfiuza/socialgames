@@ -11,6 +11,7 @@ var nameGame = new ReactiveVar([]);
 Template.newgame.rendered = function () {
     $("#divFormGame").hide();
     $('#divFocusGame').hide();
+    $('#search').val(document.search);
 };
 
 Template.newgame.events({
