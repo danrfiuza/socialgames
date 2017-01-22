@@ -34,7 +34,7 @@ Meteor.methods({
                 arrCount.push(value.game);
             }
         });
-        console.log(arrCount.length);
+        // console.log(arrCount.length);
         return arrCount.length;
     },
     'matchs.gamesTop30'(){
