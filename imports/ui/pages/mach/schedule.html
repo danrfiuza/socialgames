@@ -23,11 +23,16 @@
             {{/with}}
         </div>
     </div>
-    Pessoas confirmadas 
+    Pessoas confirmadas:
     {{#each players }}
-    	{{ mail }}
+    	{{ firstName }}, 
     {{/each }}
-    <p>Ainda restam {{ qtdVaga }} vagas para esta partida </p>
+    
     <p>Local: {{ place }}</p>
-    <button type="button" id="btnAcept" class="btn btn-success">Aceitar Convite</button>
+    {{#if crowded}}
+        <p>Desculpe, mas esta partida já alcançou o número máximo de jogadores</p>
+    {{else }}
+        <p>Ainda restam {{ qtdVaga }} vagas para esta partida </p>
+        <button type="button" id="btnAcept" class="btn btn-success">Aceitar Convite</button>
+    {{/if}}
 </template>

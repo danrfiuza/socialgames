@@ -33,7 +33,36 @@ Template.schedule.helpers({
     qtdVaga () {
         return rGame.get().maxplayers - rMatch.get().players.length;
     },
+    crowded() {
+        if ((rGame.get().maxplayers - rMatch.get().players.length) <= 0) {
+            return true;
+        } else {
+            return false;
+        }
+    },
     place () {
         return rPlace.get().name;
+    }
+});
+
+Template.schedule.events({
+    'click #btnAcept' : function(event, template) {
+
+        var params = {
+            player: {
+                user_id: Meteor.user()._id,
+                first: false,
+                firstName: Meteor.user().profile.name.split(" ", 1)[0]
+            },
+            match_id: document.match_id
+        }
+
+        Meteor.call('matchs.addPlayer', params, function (err, result) {
+            if (err == null) {
+                Bert.alert('Convite aceito!', 'success');
+            } else {
+                Bert.alert('Ocorreu um erro ao tentar gravar a informação', 'danger');
+            }
+        });
     }
 });

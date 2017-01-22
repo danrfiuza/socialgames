@@ -173,6 +173,6 @@ export var Service = {
 
 	// Ger first name of text
 	firstName: function (text) {
-		return text.split(" ", 1);
+		return text.split(" ", 1)[0];
 	}
 }
