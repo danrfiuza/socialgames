@@ -7,12 +7,14 @@ import './schedule.html';
 rMatch = new ReactiveVar(0);
 rGame = new ReactiveVar(0);
 rPlace = new ReactiveVar(0);
+rDate = new ReactiveVar(0);
 
 Template.schedule.rendered = function () {
 	Meteor.call('matchs.findOne', document.match_id, function (e, result) {
         rMatch.set(result[0]);
         gameId = result[0].game;
         placeId = result[0].place;
+        rDate.set(result[0].date_schedule);
         Meteor.call('game.findOne', gameId, function (e, result) {
 	        rGame.set(result[0]);
 	    });
@@ -42,6 +44,9 @@ Template.schedule.helpers({
     },
     place () {
         return rPlace.get().name;
+    },
+    date () {
+        return rDate.get();
     }
 });
 
