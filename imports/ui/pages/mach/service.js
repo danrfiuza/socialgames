@@ -139,6 +139,7 @@ export var Service = {
 	    var match = Service.buildGenericMatch(game);
 	    match.players = rPodium.get();
 	    match.timer = time;
+	    match.winner = rPodium.get()[0].user_id;
 	    match.created_at = new Date().getTime();
 	    return match;
 	},

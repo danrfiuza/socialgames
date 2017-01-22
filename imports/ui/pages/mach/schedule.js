@@ -45,6 +45,9 @@ Template.schedule.helpers({
     place () {
         return rPlace.get().name;
     },
+    address () {
+        return rPlace.get().formatted_address;
+    },
     date () {
         return rDate.get();
     }
