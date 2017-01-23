@@ -22,6 +22,7 @@ clock.setElapsedSeconds(0);
 clock.stop();
 
 Template.newmatch.rendered = function(){
+
     $("#selectGame").select2({
         placeholder: TAPi18n.__('match.HINT_CHOOSE_GAME'),
         maximumSelectionLength: 1,
@@ -35,6 +36,12 @@ Template.newmatch.rendered = function(){
     State.change('begin');
     rPlayers.set([]);
     rGame.set([]);
+
+    if (typeof document.game != 'undefined') {
+        State.change('game');
+        game = Games.findOne({bggid: document.game});
+        Service.loadGame(game, rGame, rMaxPlayers, rMinPlayers, rPlayers);
+    }
 };
 
 Template.newmatch.helpers({
@@ -86,10 +93,7 @@ Template.newmatch.events({
     'change #selectGame' : function(event, template) {
         State.change('game');
         game = Games.findOne({bggid: $("#selectGame").val()[0]});
-        rGame.set(game);
-        rMaxPlayers.set(game.maxplayers);
-        rMinPlayers.set(game.minplayers);
-        rPlayers.set([]); 
+        Service.loadGame(game, rGame, rMaxPlayers, rMinPlayers, rPlayers);
     },
     'click #btnMatchNow' : function(event, template) {
         State.change('match-now');
@@ -138,7 +142,7 @@ Template.newmatch.events({
         State.change('score');
     },
     'click #btnFinishMatch' : function(event, template) {
-        if (Service.isValidScore(rMaxPlayers)) {
+        if (Service.isValidScore(rPlayers)) {
             Service.orderRanking(rPlayers, rMaxPlayers, rPodium);
             State.change('trophy');
             Service.saveMatch(Service.buildMatch(rPodium, rGame.get(), clock.elapsedTime()), rMatchId);

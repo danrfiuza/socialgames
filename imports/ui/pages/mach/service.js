@@ -1,5 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 
+Meteor.subscribe('game.list');
+
 export var Service = {
 	// Mount select2 in combo players elements 
 	prepareAutoComplateForPlayers: function (rMaxPlayers) {
@@ -19,6 +21,14 @@ export var Service = {
 	        email = user.emails[0].address;
 	    }
 	    return email;
+	},
+
+	// load boardgame
+	loadGame: function (game, rGame, rMaxPlayers, rMinPlayers, rPlayers) {
+        rGame.set(game);
+        rMaxPlayers.set(game.maxplayers);
+        rMinPlayers.set(game.minplayers);
+        rPlayers.set([]);
 	},
 
 	// Load select combo with friends
@@ -90,13 +100,15 @@ export var Service = {
 	},
 
 	// Validates players' scores
-	isValidScore: function (rMaxPlayers) {
+	isValidScore: function (rPlayers) {
 	    var isValid = true;
-	    for (var i = 1; i <= rMaxPlayers.get(); i++) {
-	        if ( $("#player"+i).val().length != 0 ) {
+	    for (var i = 1; i <= rPlayers.get().length; i++) {
+	        if ( $("#ptPlayer"+i).val().length > 0 ) {
 	            if (! $.isNumeric($("#ptPlayer"+i).val()) ) {
 	                isValid = false;
 	            }
+	        } else {
+	        	isValid = false;
 	        }
 	    }
 	    return isValid;
