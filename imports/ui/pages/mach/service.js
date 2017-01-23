@@ -100,13 +100,15 @@ export var Service = {
 	},
 
 	// Validates players' scores
-	isValidScore: function (rMaxPlayers) {
+	isValidScore: function (rPlayers) {
 	    var isValid = true;
-	    for (var i = 1; i <= rMaxPlayers.get(); i++) {
-	        if ( $("#player"+i).val().length != 0 ) {
+	    for (var i = 1; i <= rPlayers.get().length; i++) {
+	        if ( $("#ptPlayer"+i).val().length > 0 ) {
 	            if (! $.isNumeric($("#ptPlayer"+i).val()) ) {
 	                isValid = false;
 	            }
+	        } else {
+	        	isValid = false;
 	        }
 	    }
 	    return isValid;

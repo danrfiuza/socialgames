@@ -142,7 +142,7 @@ Template.newmatch.events({
         State.change('score');
     },
     'click #btnFinishMatch' : function(event, template) {
-        if (Service.isValidScore(rMaxPlayers)) {
+        if (Service.isValidScore(rPlayers)) {
             Service.orderRanking(rPlayers, rMaxPlayers, rPodium);
             State.change('trophy');
             Service.saveMatch(Service.buildMatch(rPodium, rGame.get(), clock.elapsedTime()), rMatchId);
