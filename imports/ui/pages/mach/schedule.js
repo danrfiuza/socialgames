@@ -50,6 +50,16 @@ Template.schedule.helpers({
     },
     date () {
         return rDate.get();
+    },
+    myMatch () {
+        players = rMatch.get().players;
+        response = false;
+        for (var i=0; i < players.length; i++) {
+            if (players[i].user_id == Meteor.user()._id) {
+                response = true;
+            }
+        }
+        return response;
     }
 });
 
@@ -68,6 +78,7 @@ Template.schedule.events({
         Meteor.call('matchs.addPlayer', params, function (err, result) {
             if (err == null) {
                 Bert.alert('Convite aceito!', 'success');
+                location.href = '/matches';
             } else {
                 Bert.alert('Ocorreu um erro ao tentar gravar a informação', 'danger');
             }

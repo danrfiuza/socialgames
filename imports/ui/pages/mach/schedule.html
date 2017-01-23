@@ -35,6 +35,10 @@
         <p>Desculpe, mas esta partida já alcançou o número máximo de jogadores</p>
     {{else }}
         <p>Ainda restam {{ qtdVaga }} vagas para esta partida </p>
-        <button type="button" id="btnAcept" class="btn btn-success">Aceitar Convite</button>
+        {{#if myMatch}}
+            Status: Aguardando novos jogadores
+        {{else}}
+            <button type="button" id="btnAcept" class="btn btn-success">Aceitar Convite</button>
+        {{/if}}
     {{/if}}
 </template>
