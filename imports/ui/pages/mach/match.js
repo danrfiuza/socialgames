@@ -8,6 +8,10 @@ var rMatch = new ReactiveVar(0);
 
 Template.matches.helpers({
     matchs () {
+        Meteor.call('match.find', null, function (e, result) {
+            rMatch.set(result);
+        });
+
         return rMatch.get();
     }
 });
