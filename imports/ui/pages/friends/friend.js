@@ -46,6 +46,8 @@ Template.friends.helpers({
                     //     Session.set('totalPartidas',result);
                     // });
 
+
+                    dadosAmigo.ocaraAceitou = amigo.isAccepet;
                     // dadosAmigo.totalAmigos = _.size(dadosAmigo.profile.friends);
                     // dadosAmigo.jogosExperimentados = Session.get('jogosExperimentados');
                     // dadosAmigo.totalPartidas = Session.get('totalPartidas') ;
