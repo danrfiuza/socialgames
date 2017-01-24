@@ -129,7 +129,7 @@ Template.newmatch.events({
             State.change('start');
             clock.start();
         } else {
-            alert("Para este jogo deve ter no mínimo " + rMinPlayers.get() + ' players selecionados');
+            Bert.alert('Para este jogo deve ter no mínimo ' + rMinPlayers.get() + ' players selecionados', 'danger');
         }
     },
     'click #btnFirstPlayer' : function(event, template) {
@@ -147,7 +147,7 @@ Template.newmatch.events({
             State.change('trophy');
             Service.saveMatch(Service.buildMatch(rPodium, rGame.get(), clock.elapsedTime()), rMatchId);
         } else {
-            alert("Algo está errado com a pontuação informada");
+            Bert.alert('Algo está errado com a pontuação informada', 'danger');
         }
     },
     'click #btnSaveSchedule' : function(event, template) {
