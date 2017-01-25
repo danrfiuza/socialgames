@@ -22,6 +22,7 @@ clock.setElapsedSeconds(0);
 clock.stop();
 
 Template.newmatch.rendered = function(){
+
     $("#selectGame").select2({
         placeholder: TAPi18n.__('match.HINT_CHOOSE_GAME'),
         maximumSelectionLength: 1,
@@ -35,6 +36,12 @@ Template.newmatch.rendered = function(){
     State.change('begin');
     rPlayers.set([]);
     rGame.set([]);
+
+    if (typeof document.game != 'undefined') {
+        State.change('game');
+        game = Games.findOne({bggid: document.game});
+        Service.loadGame(game, rGame, rMaxPlayers, rMinPlayers, rPlayers);
+    }
 };
 
 Template.newmatch.helpers({
@@ -86,10 +93,7 @@ Template.newmatch.events({
     'change #selectGame' : function(event, template) {
         State.change('game');
         game = Games.findOne({bggid: $("#selectGame").val()[0]});
-        rGame.set(game);
-        rMaxPlayers.set(game.maxplayers);
-        rMinPlayers.set(game.minplayers);
-        rPlayers.set([]); 
+        Service.loadGame(game, rGame, rMaxPlayers, rMinPlayers, rPlayers);
     },
     'click #btnMatchNow' : function(event, template) {
         State.change('match-now');
@@ -106,9 +110,11 @@ Template.newmatch.events({
         // if not unselect
         if (selectedIndex != -1) {
             var imgPlayer = '<em class="fa fa-user fa-2x">';
-            var emailPlayer = event.target.options[selectedIndex].innerHTML;
+            var textPlayer = event.target.options[selectedIndex].innerHTML;
+            var userId = event.target.options[selectedIndex].value;
             $("#imgPlayer"+this.index).html(imgPlayer);
-            Service.addPlayerMatch(emailPlayer, rPlayers);
+            var firstName = Service.firstName(textPlayer);
+            Service.addPlayerMatch(userId, rPlayers, firstName);
             Service.setStatusItemComboFriends(selectedIndex, 'disabled', rComboFriends);
             Service.prepareAutoComplateForPlayers(rMaxPlayers);
         }
@@ -123,7 +129,7 @@ Template.newmatch.events({
             State.change('start');
             clock.start();
         } else {
-            alert("Para este jogo deve ter no mínimo " + rMinPlayers.get() + ' players selecionados');
+            Bert.alert('Para este jogo deve ter no mínimo ' + rMinPlayers.get() + ' players selecionados', 'danger');
         }
     },
     'click #btnFirstPlayer' : function(event, template) {
@@ -136,12 +142,12 @@ Template.newmatch.events({
         State.change('score');
     },
     'click #btnFinishMatch' : function(event, template) {
-        if (Service.isValidScore(rMaxPlayers)) {
+        if (Service.isValidScore(rPlayers)) {
             Service.orderRanking(rPlayers, rMaxPlayers, rPodium);
             State.change('trophy');
             Service.saveMatch(Service.buildMatch(rPodium, rGame.get(), clock.elapsedTime()), rMatchId);
         } else {
-            alert("Algo está errado com a pontuação informada");
+            Bert.alert('Algo está errado com a pontuação informada', 'danger');
         }
     },
     'click #btnSaveSchedule' : function(event, template) {

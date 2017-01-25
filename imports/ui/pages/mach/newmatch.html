@@ -146,27 +146,33 @@
         </div>
 
         <div class="col-lg-12" id="divPlayers">
-            <div class="table-responsive">
-                <table id="table-ext-1" class="table table-bordered table-hover">
-                    <tbody>
-                    {{#each arrMaxPlayers }}
-                    <tr>
-                        <td width="10%" id="imgPlayer{{ index }}"></td>
-                        <td width="70%">
-                            <select name="player{{ index }}" id="player{{ index }}"
-                                    class="form-control m-b selectPlayer" multiple="true">
-                                {{#each friends }}
-                                <option value="{{ id }}" {{ status }}>{{ text }}</option>
+            <div class="col-sm-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table id="table-ext-1" class="table table-bordered table-hover">
+                                <tbody>
+                                {{#each arrMaxPlayers }}
+                                <tr>
+                                    <td width="10%" id="imgPlayer{{ index }}"></td>
+                                    <td width="70%">
+                                        <select name="player{{ index }}" id="player{{ index }}"
+                                                class="form-control m-b selectPlayer" multiple="true">
+                                            {{#each friends }}
+                                            <option value="{{ id }}" {{ status }}>{{ text }}</option>
+                                            {{/each}}
+                                        </select>
+                                    </td>
+                                    <td width="20%" class="tdScoreValues" style="visibility: hidden;">
+                                        <input type="number" class="form-control" id="ptPlayer{{ index }}">
+                                    </td>
+                                </tr>
                                 {{/each}}
-                            </select>
-                        </td>
-                        <td width="20%">
-                            <input type="number" class="form-control" id="ptPlayer{{ index }}">
-                        </td>
-                    </tr>
-                    {{/each}}
-                    </tbody>
-                </table>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -178,9 +184,9 @@
                         <div class="panel widget">
                             <div class="panel-body {{#if first}}bg-info{{else}}bg-default{{/if}} text-center">
                                 <div class="custom-avatar">
-                                    <em class="fa fa-user fa-2x"></em>
+                                    {{> avatar userId=user_id }}
                                 </div>
-                                <p>{{ mail }}</p>
+                                <span>{{ firstName }}</span>
                             </div>
                         </div>
                     </div>
@@ -202,7 +208,7 @@
                                 <em class="fa fa-user fa-2x"></em>
                             </td>
                             <td width="10%">{{ pontos }}</td>
-                            <td width="70%">{{ mail }}</td>
+                            <td width="70%">{{ firstName }}</td>
                         </tr>
                         {{/each}}
                         </tbody>

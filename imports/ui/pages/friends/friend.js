@@ -35,6 +35,7 @@ Template.friends.helpers({
             amigosDoUsuario = Meteor.users.findOne({_id: Meteor.user()._id}).profile.friends;
 
             //Prepara o array de amigos do usuario corrente
+            console.log(amigosDoUsuario);
             var listaFriends = [];
             amigosDoUsuario.forEach(function (amigo, index) {
                 var dadosAmigo = Meteor.users.findOne({_id: amigo.user_id});
@@ -50,6 +51,9 @@ Template.friends.helpers({
                     } else {
                         dadosAmigo.jogosExperimentados = jogosExperimentados;
                     }
+                    // Meteor.call('matchs.findCount', dadosAmigo, function (e, result) {
+                    //     Session.set('totalPartidas',result);
+                    // });
 
                     dadosAmigo.totalAmigos = dadosAmigo.profile.friends.length;
 

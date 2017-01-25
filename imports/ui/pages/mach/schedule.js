@@ -7,12 +7,14 @@ import './schedule.html';
 rMatch = new ReactiveVar(0);
 rGame = new ReactiveVar(0);
 rPlace = new ReactiveVar(0);
+rDate = new ReactiveVar(0);
 
 Template.schedule.rendered = function () {
 	Meteor.call('matchs.findOne', document.match_id, function (e, result) {
         rMatch.set(result[0]);
         gameId = result[0].game;
         placeId = result[0].place;
+        rDate.set(result[0].date_schedule);
         Meteor.call('game.findOne', gameId, function (e, result) {
 	        rGame.set(result[0]);
 	    });
@@ -33,7 +35,53 @@ Template.schedule.helpers({
     qtdVaga () {
         return rGame.get().maxplayers - rMatch.get().players.length;
     },
+    crowded() {
+        if ((rGame.get().maxplayers - rMatch.get().players.length) <= 0) {
+            return true;
+        } else {
+            return false;
+        }
+    },
     place () {
         return rPlace.get().name;
+    },
+    address () {
+        return rPlace.get().formatted_address;
+    },
+    date () {
+        return rDate.get();
+    },
+    myMatch () {
+        players = rMatch.get().players;
+        response = false;
+        for (var i=0; i < players.length; i++) {
+            if (players[i].user_id == Meteor.user()._id) {
+                response = true;
+            }
+        }
+        return response;
+    }
+});
+
+Template.schedule.events({
+    'click #btnAcept' : function(event, template) {
+
+        var params = {
+            player: {
+                user_id: Meteor.user()._id,
+                first: false,
+                firstName: Meteor.user().profile.name.split(" ", 1)[0]
+            },
+            match_id: document.match_id
+        }
+
+        Meteor.call('matchs.addPlayer', params, function (err, result) {
+            if (err == null) {
+                Bert.alert('Convite aceito!', 'success');
+                location.href = '/matches';
+            } else {
+                Bert.alert('Ocorreu um erro ao tentar gravar a informação', 'danger');
+            }
+        });
     }
 });

@@ -37,6 +37,16 @@ Meteor.methods({
         // console.log(arrCount.length);
         return arrCount.length;
     },
+
+    // add a player in match
+    'matchs.addPlayer' (params) {
+        return Matchs.update({_id: params.match_id}, {$push: {players: params.player}});
+    },
+
+    //@todo falta filtrar por usuario logado
+    'matchs.findByUser' () {
+        return Matchs.find().fetch();
+    },
     'matchs.gamesTop30'(){
         var data30atras = new Date();
         data30atras.setDate(data30atras.getDate() - 30);

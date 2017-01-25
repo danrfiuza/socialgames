@@ -119,6 +119,8 @@ Router.map(function () {
         path: '/newmatch',
         sectionTitle: 'Nova Partida',
         onAfterAction: function () {
+            document.game = this.params.query.game;
+            document.op = this.params.query.op;
             return document.title = "Nova Partida | " + titleSocial;
         }
     });    

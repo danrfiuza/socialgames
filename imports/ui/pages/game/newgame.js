@@ -62,6 +62,7 @@ Template.newgame.events({
             Bert.alert(TAPi18n.__('match.ALERT_NAME'), 'danger');
         } else {
             bggGame = fGame.get();
+            console.log(bggGame);
             game.bggid = bggGame.generic.objectid;
             game.minplayers = bggGame.minplayers;
             game.maxplayers = bggGame.maxplayers;
@@ -70,6 +71,19 @@ Template.newgame.events({
             game.yearpublished = bggGame.yearpublished;
             game.thumbnail = bggGame.thumbnail;
             game.image = bggGame.image;
+
+            // extra bgg data of game
+            game.artist = bggGame.boardgameartist;
+            game.bggcategory = bggGame.boardgamecategory;
+            game.designer = bggGame.boardgamedesign;
+            game.expansion = bggGame.boardgameexpansion;
+            game.family = bggGame.boardgamefamily;
+            game.honor = bggGame.boardgamehonor;
+            game.implementation = bggGame.boardgameimplementation;
+            game.mechanic = bggGame.boardagmemechanic;
+            game.publisher = bggGame.boardgamepublisher;
+            game.versions = bggGame.boardgameversion;
+
             Meteor.call('game.insert', game, function (e, result) {
                 if (result) {
                     Bert.alert(TAPi18n.__('generic.SAVE_SUCCESS'), 'success');
