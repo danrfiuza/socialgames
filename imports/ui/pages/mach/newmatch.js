@@ -29,7 +29,7 @@ Template.newmatch.rendered = function(){
         allowClear: true
     });
     $("#place").select2({
-        placeholder: "Selecione um local",
+        placeholder: "Local",
         maximumSelectionLength: 1,
         allowClear: true
     });

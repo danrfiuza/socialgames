@@ -1,8 +1,10 @@
 <template name="schedule">
+    {{#unless myMatch}}
 	<div class="animated fadeIn">
         <p>Você foi convidado para um partida {{ match }}</p>
     </div>
-     <div class="col-lg-12" id="viewGame">
+    {{/unless}}
+    <div class="col-lg-12" id="viewGame">
         <div class="panel widget">
             {{#with game}}
             <div class="panel-body bg-inverse">
