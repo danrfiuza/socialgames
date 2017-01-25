@@ -5,12 +5,15 @@
             </button>
         </div>
     </div>
-    {{> matchList }}
+    <div class="panel panel-default">
+        <div class="panel-heading">Histórico de Partidas</div>
+        {{> matchList }}
+        </div>
+    </div>
 </template>
 
 <template name="matchList">
-    <div class="panel panel-default">
-        <div class="panel-heading">Histórico de Partidas</div>
+
         <!-- START table-responsive-->
         <!--<div class="panel-footer">-->
         <!--<div class="row">-->
@@ -38,44 +41,101 @@
         <!--</div>-->
         <!--</div>-->
         <!--</div>-->
-        <div class="table-responsive">
-            <table id="table-ext-1" class="table table-bordered table-striped  table-hover">
-                <thead>
-                <tr>
-                    <th></th>
-                    <th>Jogo</th>
-                    <th>Jogadores</th>
-                    <th>Data/Hora</th>
-                    <th>Tempo de Jogo</th>
-                    <th>Local</th>
-                    <th>Resultado</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>
-                        <div class="media">
-                            <img src="img/user/01.jpg" alt="Image" class="img-responsive img-circle">
-                        </div>
-                    </td>
-                    <td>
-                        <div class="mr-sm label label-black">Jogadores 4/6</div>
-                        <br/>
-                        <a href="" class="mr-sm label label-primary">João Gabriel</a>
-                        <a href="" class="mr-sm label label-primary">André</a>
-                        <a href="" class="mr-sm label label-primary">Thiago Fiorenza</a>
-                        <a href="" class="mr-sm label label-primary">Fulano</a>
-                    </td>
-                    <td>13/01/2015 12:00</td>
-                    <td>1:20</td>
-                    <td>Casa do JG</td>
-                    <td>Ganhou</td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
+
+
+        <!--<div class="table-responsive">-->
+            <!--<table id="table-ext-1" class="table table-bordered table-striped  table-hover">-->
+                <!--<thead>-->
+                <!--<tr>-->
+                    <!--<th></th>-->
+                    <!--<th>Jogo</th>-->
+                    <!--<th>Jogadores</th>-->
+                    <!--<th>Data/Hora</th>-->
+                    <!--<th>Tempo de Jogo</th>-->
+                    <!--<th>Local</th>-->
+                    <!--<th>Resultado</th>-->
+                <!--</tr>-->
+                <!--</thead>-->
+                <!--<tbody>-->
+                <!--<tr>-->
+                    <!--<td>1</td>-->
+                    <!--<td>-->
+                        <!--<div class="media">-->
+                            <!--<img src="img/user/01.jpg" alt="Image" class="img-responsive img-circle">-->
+                        <!--</div>-->
+                    <!--</td>-->
+                    <!--<td>-->
+                        <!--<div class="row">-->
+                        <!--<div class="mr-sm label label-black">Jogadores 4/6</div>-->
+                        <!--<br/>-->
+                        <!--<a href="" class="label label-primary">João Gabriel</a>-->
+                        <!--<a href="" class="label label-primary">André</a>-->
+                        <!--<a href="" class="label label-primary">Thiago Fiorenza</a>-->
+                        <!--<a href="" class="label label-primary">Fulano</a>-->
+                        <!--</div>-->
+                    <!--</td>-->
+                    <!--<td>13/01/2015 12:00</td>-->
+                    <!--<td>1:20</td>-->
+                    <!--<td>Casa do JG</td>-->
+                    <!--<td>Ganhou</td>-->
+                <!--</tr>-->
+                <!--</tbody>-->
+            <!--</table>-->
+        <!--</div>-->
         <!-- END table-responsive-->
 
-    </div>
+        <!--<a href="" class="label label-primary">João Gabriel</a>-->
+        <!--<a href="" class="label label-primary">André</a>-->
+        <!--<a href="" class="label label-primary">Thiago Fiorenza</a>-->
+        <!--<a href="" class="label label-primary">Fulano</a>-->
+
+        <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 230px;">
+            <div data-height="230" data-scrollable="" class="list-group"
+                 style="overflow: hidden; width: auto; height: 230px;">
+                <!-- START list group item-->
+                <a href="#" class="list-group-item">
+                    <div class="media-box">
+                        <div class="pull-left">
+                            <img src="img/user/02.jpg" alt="Image" class="media-box-object img-circle thumb32">
+                            <small class="pull-right">One Night</small>
+                        </div>
+                        <div class="media-box-body clearfix">
+                            <small class="pull-right">13/01/2015 12:00</small>
+                            <small class="pull-right">Duração: 1:20</small>
+                            <strong class="media-box-heading text-primary">
+                                Local: <span class="circle circle-success circle-lg text-left"></span>Casa do
+                                JG</strong>
+                            <p class="mb-sm">
+                                <small>Cras sit amet nibh libero, in gravida nulla. Nulla...</small>
+                            </p>
+                        </div>
+                    </div>
+                </a>
+                <!-- END list group item-->
+            </div>
+        </div>
+
+
+
+        <div class="list-group-item">
+            <div class="row">
+                <a href="http://localhost:3000/dashboard/{{ _id }}" class="team-member">
+                <span class="col-sm-2">
+                    <!--<img alt="@mdo avatar" height="32" width="32" src="https://avatars3.githubusercontent.com/u/2317122" >-->
+                    {{> avatar userId=_id }}
+                </span>
+                    <span class="col-sm-7" style="padding-left: 30px; padding-right: 10px">
+                    <strong> {{ profile.name }}</strong>
+                    <div class="progress">
+                      <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                        80% Vitórias
+                      </div>
+                    </div>
+                </span>
+                    <span class="col-sm-3">
+                    <img src="http://mailr3456.ucoz.net/gfhhhhhhhhh/100.png" height="50" width="50">
+                </span>
+                </a>
+            </div>
+
 </template>
