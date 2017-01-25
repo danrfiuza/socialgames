@@ -41,6 +41,7 @@ Template.friends.helpers({
                 var dadosAmigo = Meteor.users.findOne({_id: amigo.user_id});
 
                 if (dadosAmigo) {
+                    //@TODO Verificar solucao futura que nao use session
                     Meteor.call('matchs.findCountDistinct', dadosAmigo, function (e, result) {
                         Session.set('jogosExperimentados' + index, result);
                     });
@@ -51,12 +52,8 @@ Template.friends.helpers({
                     } else {
                         dadosAmigo.jogosExperimentados = jogosExperimentados;
                     }
-                    // Meteor.call('matchs.findCount', dadosAmigo, function (e, result) {
-                    //     Session.set('totalPartidas',result);
-                    // });
 
-                    dadosAmigo.totalAmigos = dadosAmigo.profile.friends.length;
-
+                    //@TODO Verificar solucao futura que nao use session
                     Meteor.call('matchs.findCount', dadosAmigo, function (e, result) {
                         Session.set('totalPartidas' + index, result);
                     });
@@ -67,6 +64,10 @@ Template.friends.helpers({
                     } else {
                         dadosAmigo.totalPartidas = totalPartidas;
                     }
+
+                    dadosAmigo.totalAmigos = dadosAmigo.profile.friends.length;
+                    dadosAmigo.isSenderRequest_amigo = amigo.isSenderRequest;
+                    dadosAmigo.isAccepted_amigo = amigo.isAccepted;
 
                     listaFriends.push(dadosAmigo);
                 }

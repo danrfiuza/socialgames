@@ -19,21 +19,21 @@
             {{#each friends}}
             <div class="col-lg-3">
                 <div class="panel widget">
-                    <div class="panel-body{{#unless profile.friends.[0].sendRequest}}{{#unless
-                                profile.friends.[0].acceptRequest}} panel-disabled{{/unless}}{{/unless}}">
+                    <div class="panel-body{{#unless isAccepted_amigo}} panel-disabled{{/unless}}">
                         <div class="row row-table">
                             <div class="col-xs-4 text-center friend-avatar">
                                 {{> avatar userId=_id size="large" }}
-                                <!-- http://localhost:3000/dashboard/{{ emails.[0].address }} -->
-                                {{#unless profile.friends.[0].isSenderRequest}}
-                                    {{#unless profile.friends.[0].isAccepted}}
-                                    <a href="{{_id}}" class="btn btn-danger">Pendente</a>
+
+                                {{#if isSenderRequest_amigo}}
+                                    {{#unless isAccepted_amigo}}
+                                        <div class="btn btn-danger">Pendente</div>
                                     {{/unless}}
                                 {{else}}
-                                    {{#unless profile.friends.[0].isAccepted}}
-                                    <a href="{{_id}}" class="btn btn-success" id="btnAcceptRequest">Aceitar</a>
+                                    {{#unless isAccepted_amigo}}
+                                        <a href="{{_id}}" class="btn btn-success" id="btnAcceptRequest">Aceitar</a>
                                     {{/unless}}
-                                {{/unless}}
+                                {{/if}}
+
                             </div>
                             <div class="col-xs-8 friend-info">
                                 <h3 class="mt0">{{ profile.name }}</h3>
