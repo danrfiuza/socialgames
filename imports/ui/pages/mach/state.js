@@ -71,6 +71,10 @@ export var State = {
                 break;
             case 'schedule' : 
                 $('#divBtnSaveSchedule').hide();
+                $('#divPlaces').hide();
+                $('#msgReservationFriend').hide();
+                $('#divSchedule').hide();
+                $('#divPlayers').hide();
                 $('#msgReservationSchedule').show();
                 break;
         }
