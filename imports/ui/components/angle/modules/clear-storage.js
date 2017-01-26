@@ -7,13 +7,10 @@
   'use strict';
 
   var Selector = '[data-reset-key]';
-
-  App.ready(function(){
-    
-    $(document).on('click', Selector, function (e) {
+  $(document).on('click', Selector, function (e) {
         e.preventDefault();
         var key = $(this).data('resetKey');
-        
+
         if(key) {
           $.localStorage.remove(key);
           // reload the page
@@ -22,7 +19,6 @@
         else {
           $.error('No storage key specified for reset.');
         }
-    });
-  })
+  });
 
 }(jQuery, window, document));

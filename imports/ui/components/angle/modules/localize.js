@@ -1,30 +1,33 @@
-(function (window, document, $, undefined) {
+// TRANSLATION
+// -----------------------------------
 
-    var preferredLang = 'en';
-    var storageKey = 'jq-appLang';
+(function(window, document, $, undefined) {
 
-    App.ready(function () {
+    window.initTranslation = function() {
+
+        var preferredLang = 'en';
+        var storageKey = 'jq-appLang';
 
         // detect saved language or use default
-        var userLanguage = localStorage.getItem('userLanguage') || window.navigator.userLanguage || window.navigator.language;
-        userLanguage = userLanguage.split("-");
-        userLanguage = userLanguage[0];
-
-        var currLang = userLanguage || preferredLang;
+        var currLang = $.localStorage.get(storageKey) || preferredLang;
 
         // Set initial language
         setLanguage(currLang);
 
         // Listen for changes
-        $('[data-set-lang]').on('click', function () {
+        $(document).on('click', '[data-set-lang]', function() {
 
             currLang = $(this).data('setLang');
 
             if (currLang) {
+
                 setLanguage(currLang);
+
                 activateDropdown($(this));
             }
+
         });
+
 
         function setLanguage(currLang) {
             TAPi18n.setLanguage(currLang);
@@ -35,10 +38,11 @@
         function activateDropdown(elem) {
             var menu = elem.parents('.dropdown-menu');
             if (menu.length) {
-                var toggle = menu.prev('button, a');
+                var toggle = menu.parent().children('button, a').first();
                 toggle.text(elem.text());
             }
         }
-    });
+
+    } //initTranslation
 
 })(window, document, window.jQuery);

@@ -17,7 +17,8 @@
   .animation(fadeInRight 1s);
   .animation-fill-mode(both);
 }
-.aside-collapsed .sidebar > .nav .label {
+.aside-collapsed .sidebar > .nav .label,
+.aside-collapsed-text .sidebar > .nav .label {
   .animation(fadeIn 1s);
 }
 .sidebar .nav > li > a {
@@ -35,7 +36,8 @@
   white-space: nowrap;
 }
 
-.aside-collapsed {
+.aside-collapsed,
+.aside-collapsed-text {
   .user-block-picture {
     .transition(width .2s cubic-bezier(0.35, 0, 0.25, 1));
   }

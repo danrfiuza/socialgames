@@ -145,7 +145,7 @@
 
     $.langdirection = $html.attr("dir") == "rtl" ? "right" : "left";
 
-    App.ready(function(){
+    $(function(){
 
         // Check for dom modifications
         if(!$.support.mutationobserver) return;

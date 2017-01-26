@@ -16,6 +16,7 @@
 
 @aside-wd:                                220px;
 @aside-wd-collapsed:                      70px;
+@aside-wd-collapsed-text:                 90px;
 @aside-bg:                                #fff;
 
 @content-bg:                              @body-bg;
@@ -359,6 +360,99 @@ html, body {
     }
   }
 }
+
+// ------------------------------
+// Collapsed variation with text
+// ------------------------------
+
+@media @upto-tablet {
+
+  .aside-collapsed-text .wrapper {
+    > .aside {
+      margin-left: -@aside-wd-collapsed-text;
+    }
+  }
+
+  .aside-collapsed-text.aside-toggled {
+    .wrapper {
+      > section,
+      > footer {
+        margin-left: @aside-wd-collapsed-text;
+      }
+
+      > .aside {
+        margin-left: 0;
+      }
+    }
+  }
+
+
+  .csstransforms3d  {
+
+    .aside-collapsed-text .wrapper {
+        .backface-visibility(hidden);
+        > section,
+        > footer {
+          margin-left: 0;
+          .translate3d(0,0,0);
+          .transition-transform(.3s ease);
+        }
+        > .aside {
+          margin-left: 0;
+          .translate3d(-@aside-wd-collapsed-text,0,0);
+          .transition-transform(.3s ease);
+
+        }
+    }
+
+    .aside-collapsed-text.aside-toggled {
+      .wrapper {
+        > section,
+        > footer {
+          .translate3d(@aside-wd-collapsed-text,0,0);
+        }
+        > .aside {
+          .translate3d(0,0,0);
+        }
+      }
+    }
+
+  }
+
+}
+
+// Aside collapsed layout
+// -------------------------------
+
+// Aside status toggled via JS
+.aside-collapsed-text {
+  overflow-y: auto;
+  .wrapper {
+    > .aside {
+      &, > .aside-inner {
+        width: @aside-wd-collapsed-text;
+      }
+      > .nav-floating {
+        margin-left: @aside-wd-collapsed-text;
+      }
+    }
+  }
+}
+
+// Margin only exists above tablet
+@media @tablet {
+  // Aside status toggled via JS
+  .aside-collapsed-text {
+    .wrapper {
+      > section,
+      > footer {
+        margin-left: @aside-wd-collapsed-text;
+      }
+    }
+  }
+}
+
+// end collapsed variation with text
 
 // mixin to remove transformations
 .disable-transform () {

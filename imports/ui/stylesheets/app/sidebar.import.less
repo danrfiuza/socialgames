@@ -70,6 +70,7 @@
         color: @sidebar-item-color;
         letter-spacing: .025em;
         font-weight: normal;
+        cursor: pointer;
 
         &:focus, &:hover {
           text-decoration: none;
@@ -93,10 +94,12 @@
       &.open {
         &,
         > a,
+        > .nav-item,
         .nav {
           background-color: @sidebar-item-bg-active;
           color: @sidebar-item-color-active;
         }
+        > .nav-item > em,
         > a > em {
           color: @sidebar-icon-color-active;
         }  
@@ -115,7 +118,7 @@
 // Hides the scrollbar only on desktops
 @tablet-landscape: ~"only screen and (min-width: 1025px)";
 @media @tablet-landscape {
-  .sidebar {
+  .sidebar:not(.show-scrollbar) {
     margin-right: -@scrollbar-wd;
     overflow-y: scroll;
   }
@@ -188,7 +191,8 @@
       display: block;
     }
     // reduce padding when item is on sidebar collapsed
-    li > a {
+    li > a,
+    li > .nav-item {
       padding-left: 20px;
       // submenu icons
       em {
@@ -213,7 +217,8 @@
 } // @media @tablet
 
 // Collapsed state styles
-.aside-collapsed {
+.aside-collapsed,
+.aside-collapsed-text {
 
   .sidebar {
     overflow-x: hidden;
@@ -222,6 +227,7 @@
       
       .nav, 
       > .nav-heading,
+      > li > .nav-item > span,
       > li > a > span {
         display: none !important;
       }
@@ -257,4 +263,28 @@
     }
 
   } // .sidebar
-} // .aside-collapsed
+} // .aside-collapsed/text
+
+.aside-collapsed-text {
+
+  .sidebar {
+    > .nav {
+
+      > li > .nav-item > span,
+      > li > a > span {
+        display: block !important;
+        font-size: 12px;
+      }
+
+      > li {
+        width: @aside-wd-collapsed-text - 2;
+        > a {
+          padding: 14px 0;
+          > em {
+            font-size: 1.4em;
+          }
+        }
+      }
+    }
+  }
+}

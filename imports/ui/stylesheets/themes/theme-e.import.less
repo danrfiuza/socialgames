@@ -1,12 +1,12 @@
 
-@import '../bootstrap/variables';
-@import '../bootstrap/mixins/gradients';
-@import '../app/media-queries';
+@import '../bootstrap/variables.import.less';
+@import '../bootstrap/mixins/gradients.import.less';
+@import '../app/media-queries.import.less';
 
 
-// 
-// Variables to change general look 
-// 
+//
+// Variables to change general look
+//
 
 // LAYOUT
 
@@ -58,7 +58,7 @@ body,
 .wrapper > section {
   background-color: @content-bg;
 }
-.wrapper > .aside { 
+.wrapper > .aside {
   background-color: @aside-bg;
 }
 
@@ -78,7 +78,9 @@ body,
       background-image: none;
     }
   }
-  
+  .navbar-nav > li > .navbar-text {
+    color: @nav-top-item-mobile;
+  }
   .navbar-nav > li > a,
   .navbar-nav > .open > a {
     color: @nav-top-item-mobile;
@@ -99,7 +101,7 @@ body,
   .navbar-nav > li > [data-toggle='navbar-search'] {
     color: @nav-top-item-desktop;
   }
-  
+
   .nav-wrapper {
     background-color: @nav-top-bg;
     #gradient.horizontal(@nav-top-bg-start, @nav-top-bg-end);
@@ -121,7 +123,9 @@ body,
         box-shadow: 0 -3px 0 rgba(255,255,255,.5) inset;
       }
     }
-
+    .navbar-nav > li > .navbar-text {
+        color: @nav-top-item-desktop;
+    }
     .navbar-nav > li > a,
     .navbar-nav > .open > a {
       color: @nav-top-item-desktop;
@@ -139,7 +143,7 @@ body,
  ========================================================================== */
 
 .sidebar {
-  background-color: @sidebar-bg; 
+  background-color: @sidebar-bg;
 
   .nav-heading {
     color: @sidebar-heading-color;
@@ -171,7 +175,7 @@ body,
         }
         > a > em {
           color: @sidebar-icon-color-active;
-        }  
+        }
       }
       &.active {
         border-left-color: @sidebar-item-color-active;
@@ -206,7 +210,6 @@ body,
     }
   } // li
 }
-
 
 /* ========================================================================
    Component: offsidebar
