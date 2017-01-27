@@ -13,9 +13,17 @@
 }
 
 .panel-disabled {
-    background-color: #CCCCCC;
+    background: repeating-linear-gradient(
+            135deg, #ddd, #eee 5px, #eee 5px, #eee 5px
+    );
     .btn-danger {
         background-color: @text-muted;
         padding-left: 13px;
     }
+}
+
+.bg-inverse-disabled {
+    background: repeating-linear-gradient(
+            135deg, #666, #555 5px, #555 5px, #666 5px
+    );
 }
