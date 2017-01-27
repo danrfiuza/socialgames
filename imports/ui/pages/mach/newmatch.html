@@ -1,27 +1,23 @@
 <template name="newmatch">
     <div class="animated fadeIn">
-        <div id="panelSearch">
-            <form role="form" name="form-add-friend" class="form-horizontal">
-                <fieldset>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <form role="form" name="form-newmatch" class="form-inline">
                     <div class="form-group">
-                        <div class="col-sm-12">
-                            <label for="selectGame" class="col-sm-2 control-label">{{_ "match.CHOOSE_GAME"}}</label>
-                            <div class="col-sm-6">
-                                <select name="selectGame" multiple="" id="selectGame" class="form-control m-b">
-                                    {{#each games}}
-                                    <option value='{{ bggid }}'>{{ name }}</option>
-                                    {{/each}}
-                                </select>
-                            </div>
-                        </div>
+                        <label for="selectGame" class="control-label">{{_ "match.CHOOSE_GAME"}}</label>
+                        <select name="selectGame" multiple="" id="selectGame" class="form-control m-b">
+                            {{#each games}}
+                            <option value='{{ bggid }}'>{{ name }}</option>
+                            {{/each}}
+                        </select>
                     </div>
-                </fieldset>
-                <div class="panel-body">{{_ "match.PHRASE_REGISTER_GAME_A"}} <a href="/newgame">{{_
-                    "match.PHRASE_REGISTER_GAME_B"}}</a></div>
-            </form>
+                </form>
+                <span>{{_ "match.PHRASE_REGISTER_GAME_A"}} <a href="/newgame">{{_
+                "match.PHRASE_REGISTER_GAME_B"}}</a></span>
+            </div>
         </div>
 
-        <div class="col-lg-12" id="viewGame">
+        <div id="viewGame">
             <div class="panel widget">
                 {{#with game}}
                 <div class="panel-body bg-inverse">
@@ -49,13 +45,17 @@
                     <div class="row row-table text-center">
                         <div id="divButtons">
                             <div class="col-xs-12">
-                                <button type="button" id="btnMatchNow" class="btn btn-square btn-success"><em class="fa fa-play"></em> {{_ "match.GAME_NOW"}}</button>
+                                <button type="button" id="btnMatchNow" class="btn btn-square btn-success"><em
+                                        class="fa fa-play"></em> {{_ "match.GAME_NOW"}}
+                                </button>
 
-                                <button type="button" id="btnScheduleMatch" class="btn btn-square btn-info"><em class="fa fa-calendar"></em> {{_"match.GAME_SCHEDULE"}}</button>
+                                <button type="button" id="btnScheduleMatch" class="btn btn-square btn-info"><em
+                                        class="fa fa-calendar"></em> {{_"match.GAME_SCHEDULE"}}
+                                </button>
                             </div>
                         </div>
 
-                        <div class="col-lg-12" id="divBtnStarMatch">
+                        <div id="divBtnStarMatch">
                             <div class="col-xs-12">
                                 <button type="button" id="btnStartMatch" class="btn btn-square btn-success">{{_
                                     "match.START_MATCH"}}
@@ -64,39 +64,33 @@
                         </div>
 
                         <div id="divBtnSaveSchedule">
-                            <div class="col-xs-12">
-                                <button type="button" id="btnSaveSchedule" class="btn btn-square btn-success">{{_
-                                    "match.CONFIRM_SCHEDULE"}}
-                                </button>
-                            </div>
+                            <button type="button" id="btnSaveSchedule" class="btn btn-square btn-success">{{_
+                                "match.CONFIRM_SCHEDULE"}}
+                            </button>
                         </div>
 
                         <div id="divBtnFirstPlayer">
-                            <div class="col-xs-12">
-                                <button type="button" id="btnFirstPlayer" class="btn btn-square btn-default">First Player
-                                </button>
-                                <button type="button" id="btnFinishCount" class="btn btn-square btn-success">{{_
-                                    "match.SCORE"}}
-                                </button>
-                            </div>
+                            <button type="button" id="btnFirstPlayer" class="btn btn-square btn-default">First
+                                Player
+                            </button>
+                            <button type="button" id="btnFinishCount" class="btn btn-square btn-success">{{_
+                                "match.SCORE"}}
+                            </button>
                         </div>
 
                         <div id="divBtnFinishMatch">
-                            <div class="col-xs-12">
-                                <button type="button" id="btnFinishMatch" class="btn btn-square btn-danger">{{_              "match.FINISH_MATCH"}}
-                                </button>
-                            </div>
+                            <button type="button" id="btnFinishMatch" class="btn btn-square btn-danger">{{_
+                                "match.FINISH_MATCH"}}
+                            </button>
                         </div>
 
                         <div id="divBtnPublish">
-                            <div class="col-xs-12">
-                                <button type="button" id="btnPublishFacebook" class="btn btn-square btn-info">{{_
-                                    "match.FACEBOOK_SHARE"}}
-                                </button>
-                                <button type="button" id="btnNewMatch" class="btn btn-square btn-info">{{_
-                                    "match.NEW_MATCH"}}
-                                </button>
-                            </div>
+                            <button type="button" id="btnPublishFacebook" class="btn btn-square btn-info">{{_
+                                "match.FACEBOOK_SHARE"}}
+                            </button>
+                            <button type="button" id="btnNewMatch" class="btn btn-square btn-info">{{_
+                                "match.NEW_MATCH"}}
+                            </button>
                         </div>
 
                     </div>
@@ -105,80 +99,69 @@
         </div>
 
         <div id="msgReservationSchedule">
-            <div class="col-sm-12">
-                <div class="panel panel-default">
-                    <div class="panel-body bg-info">
-                        <p class="h5 mt0" id="textLinkInvite">{{_ "match.INVITE_LINK"}}: http://socialboardgames.com/schedule/{{ match_id }}</p>
-                    </div>
+            <div class="panel panel-default">
+                <div class="panel-body bg-info">
+                    <p class="h5 mt0" id="textLinkInvite">{{_ "match.INVITE_LINK"}}:
+                        http://socialboardgames.com/schedule/{{ match_id }}</p>
                 </div>
             </div>
         </div>
 
         <div id="divPlaces">
-            <div class="col-sm-12">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <select name="place" id="place" class="form-control m-b" multiple="true">
-                            {{#each places }}
-                            <option value="{{ _id }}">{{ name }}</option>
-                            {{/each}}
-                        </select>
-                        <br>
-                        <a href="/places">{{_ "match.ADD_LOCAL"}}</a>
-                    </div>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <select name="place" id="place" class="form-control m-b" multiple="true">
+                        {{#each places }}
+                        <option value="{{ _id }}">{{ name }}</option>
+                        {{/each}}
+                    </select>
+                    <br>
+                    <a href="/places">{{_ "match.ADD_LOCAL"}}</a>
                 </div>
             </div>
         </div>
 
         <div id="divSchedule">
-            <div class="col-sm-12">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <div id="datetimepicker1" class="input-group date">
-                            <input id="dateMatch" class="form-control" type="date" placeholder="Data da partida">
-                            <span class="input-group-addon" style="">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div id="datetimepicker1" class="input-group date">
+                        <input id="dateMatch" class="form-control" type="date" placeholder="Data da partida">
+                        <span class="input-group-addon" style="">
                                 <span class="fa fa-calendar"></span>
                             </span>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
         <div id="msgReservationFriend">
-            <div class="panel-body">
-                <div class="col-sm-12">
-                    {{_ "match.BOOK_FRIEND"}}
-                </div>
-            </div>
+            <div class="panel-body">{{_ "match.BOOK_FRIEND"}}</div>
         </div>
 
-        <div class="col-lg-12" id="divPlayers">
-            <div class="col-sm-12">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <div class="table-responsive">
-                            <table id="table-ext-1" class="table table-bordered table-hover">
-                                <tbody>
-                                {{#each arrMaxPlayers }}
-                                <tr>
-                                    <td width="10%" id="imgPlayer{{ index }}"></td>
-                                    <td width="70%">
-                                        <select name="player{{ index }}" id="player{{ index }}"
-                                                class="form-control m-b selectPlayer" multiple="true">
-                                            {{#each friends }}
-                                            <option value="{{ id }}" {{ status }}>{{ text }}</option>
-                                            {{/each}}
-                                        </select>
-                                    </td>
-                                    <td width="20%" class="tdScoreValues" style="visibility: hidden;">
-                                        <input type="number" class="form-control" id="ptPlayer{{ index }}">
-                                    </td>
-                                </tr>
-                                {{/each}}
-                                </tbody>
-                            </table>
-                        </div>
+        <div id="divPlayers">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table id="table-ext-1" class="table table-bordered table-hover">
+                            <tbody>
+                            {{#each arrMaxPlayers }}
+                            <tr>
+                                <td width="10%" id="imgPlayer{{ index }}"></td>
+                                <td width="55%">
+                                    <select name="player{{ index }}" id="player{{ index }}"
+                                            class="form-control m-b selectPlayer" multiple="true">
+                                        {{#each friends }}
+                                        <option value="{{ id }}" {{ status }}>{{ text }}</option>
+                                        {{/each}}
+                                    </select>
+                                </td>
+                                <td width="35%" class="tdScoreValues" style="visibility: hidden;">
+                                    <input type="number" class="form-control" id="ptPlayer{{ index }}">
+                                </td>
+                            </tr>
+                            {{/each}}
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -203,7 +186,7 @@
             </div>
         </div>
 
-        <div class="col-lg-12" id="classification">
+        <div id="classification">
             <div class="panel panel-default">
                 <!-- START table-responsive-->
                 <div class="table-responsive">
@@ -211,7 +194,8 @@
                         <tbody>
                         {{#each podium }}
                         <tr>
-                            <td width="10%">{{#if @index 0}} {{else}} <em class="fa fa-trophy fa-2x"></em> {{/if}}</td>
+                            <td width="10%">{{#if @index 0}} {{else}} <em class="fa fa-trophy fa-2x"></em> {{/if}}
+                            </td>
                             <td width="10%">
                                 <em class="fa fa-user fa-2x"></em>
                             </td>
@@ -238,7 +222,8 @@
                         </tr>
                         {{#each podium }}
                         <tr style="color: #DDD; font-family: Verdana;">
-                            <td width="10%">{{#if @index 0}} {{else}} <em class="fa fa-trophy fa-2x"></em> {{/if}}</td>
+                            <td width="10%">{{#if @index 0}} {{else}} <em class="fa fa-trophy fa-2x"></em> {{/if}}
+                            </td>
                             <td width="10%">
                                 <em class="fa fa-user fa-2x"></em>
                             </td>
