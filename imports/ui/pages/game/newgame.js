@@ -17,7 +17,7 @@ Template.newgame.rendered = function () {
 Template.newgame.events({
     // Search games
     'click #btnSearchGame': function () {
-        $("#mainRow").attr('class', 'whirl');
+        $("#mainRow").attr('class', 'whirl traditional');
         Meteor.call('bgg.search', $("#search").val(), function (e, result) {
             $("#mainRow").attr('class', '');
 
