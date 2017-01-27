@@ -47,48 +47,56 @@
                 </div>
                 <div class="panel-body">
                     <div class="row row-table text-center">
+                        <div id="divButtons">
+                            <div class="col-xs-12">
+                                <button type="button" id="btnMatchNow" class="btn btn-square btn-success"><em class="fa fa-play"></em> {{_ "match.GAME_NOW"}}</button>
 
-                        <div class="col-lg-12" id="divButtons">
-                            <button type="button" id="btnMatchNow" class="btn btn-success">{{_ "match.GAME_NOW"}}
-                            </button>
-                            <button type="button" id="btnScheduleMatch" class="btn btn-info">{{_
-                                "match.GAME_SCHEDULE"}}
-                            </button>
+                                <button type="button" id="btnScheduleMatch" class="btn btn-square btn-info"><em class="fa fa-calendar"></em> {{_"match.GAME_SCHEDULE"}}</button>
+                            </div>
                         </div>
 
                         <div class="col-lg-12" id="divBtnStarMatch">
-                            <button type="button" id="btnStartMatch" class="btn btn-square btn-success">{{_
-                                "match.START_MATCH"}}
-                            </button>
+                            <div class="col-xs-12">
+                                <button type="button" id="btnStartMatch" class="btn btn-square btn-success">{{_
+                                    "match.START_MATCH"}}
+                                </button>
+                            </div>
                         </div>
 
-                        <div class="col-lg-12" id="divBtnSaveSchedule">
-                            <button type="button" id="btnSaveSchedule" class="btn btn-square btn-success">{{_
-                                "match.CONFIRM_SCHEDULE"}}
-                            </button>
+                        <div id="divBtnSaveSchedule">
+                            <div class="col-xs-12">
+                                <button type="button" id="btnSaveSchedule" class="btn btn-square btn-success">{{_
+                                    "match.CONFIRM_SCHEDULE"}}
+                                </button>
+                            </div>
                         </div>
 
-                        <div class="col-lg-12" id="divBtnFirstPlayer">
-                            <button type="button" id="btnFirstPlayer" class="btn btn-square btn-default">First Player
-                            </button>
-                            <button type="button" id="btnFinishCount" class="btn btn-square btn-success">{{_
-                                "match.SCORE"}}
-                            </button>
+                        <div id="divBtnFirstPlayer">
+                            <div class="col-xs-12">
+                                <button type="button" id="btnFirstPlayer" class="btn btn-square btn-default">First Player
+                                </button>
+                                <button type="button" id="btnFinishCount" class="btn btn-square btn-success">{{_
+                                    "match.SCORE"}}
+                                </button>
+                            </div>
                         </div>
 
-                        <div class="col-lg-12" id="divBtnFinishMatch">
-                            <button type="button" id="btnFinishMatch" class="btn btn-square btn-danger">{{_
-                                "match.FINISH_MATCH"}}
-                            </button>
+                        <div id="divBtnFinishMatch">
+                            <div class="col-xs-12">
+                                <button type="button" id="btnFinishMatch" class="btn btn-square btn-danger">{{_              "match.FINISH_MATCH"}}
+                                </button>
+                            </div>
                         </div>
 
-                        <div class="col-lg-12" id="divBtnPublish">
-                            <button type="button" id="btnPublishFacebook" class="btn btn-square btn-info">{{_
-                                "match.FACEBOOK_SHARE"}}
-                            </button>
-                            <button type="button" id="btnNewMatch" class="btn btn-square btn-info">{{_
-                                "match.NEW_MATCH"}}
-                            </button>
+                        <div id="divBtnPublish">
+                            <div class="col-xs-12">
+                                <button type="button" id="btnPublishFacebook" class="btn btn-square btn-info">{{_
+                                    "match.FACEBOOK_SHARE"}}
+                                </button>
+                                <button type="button" id="btnNewMatch" class="btn btn-square btn-info">{{_
+                                    "match.NEW_MATCH"}}
+                                </button>
+                            </div>
                         </div>
 
                     </div>
