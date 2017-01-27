@@ -8,10 +8,7 @@ var rMatch = new ReactiveVar(0);
 
 Template.matches.helpers({
     matchs () {
-        Meteor.call('match.find', null, function (e, result) {
-            rMatch.set(result);
-        });
-
+        console.log(rMatch.get());
         return rMatch.get();
     }
 });
@@ -21,4 +18,10 @@ Template.matches.events({
     'click #btnNewMatch' : function(event, template) {
     	location.href = '/newmatch';
     }
+});
+
+Template.matches.onCreated(function(){
+    Meteor.call('matchs.findByUser', Meteor.user()._id, function (e, result) {
+        rMatch.set(result);
+    });
 });
