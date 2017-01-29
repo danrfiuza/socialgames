@@ -89,6 +89,9 @@ Template.newmatch.helpers({
 });
 
 Template.newmatch.events({
+    'click #btnBack' : function(event, template) {
+        location.href = "/newmatch";
+    },
     // Search games
     'change #selectGame' : function(event, template) {
         State.change('game');

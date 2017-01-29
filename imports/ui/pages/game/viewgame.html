@@ -1,0 +1,33 @@
+<template name="viewgame">
+    {{#with boardgame}}
+    <div id="game">
+        <div class="panel widget">
+            <div class="panel-body bg-inverse">
+                <div class="row text-center">
+                    <div class="col-xs-6">
+                        <img width="80" src="https:{{ thumbnail }}"/>
+                    </div>
+                    <div class="col-xs-6">
+                        <h4 class="m0">{{ name }}</h4>
+                        <p class="m0 text-muted">
+                            <small id='subtitleGame' class="text-info text-sm">Ano: {{ yearpublished }}</small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="row row-table text-center">
+                    <div class="col-xs-6">
+                        <p class="m0 text-muted">Tempo médio</p>
+                        <h4 class="m0"><em class="fa fa-clock-o"></em> {{ playingtime }} min</h4>
+                    </div>
+                    <div class="col-xs-6">
+                        <p class="m0 text-muted">Jogadores</p>
+                        <h4 class="m0"><em class="fa fa-group"></em> {{ minplayers }} - {{ maxplayers }}</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/with}}
+</template>

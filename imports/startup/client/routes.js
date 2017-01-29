@@ -7,6 +7,7 @@ import '../../ui/layouts/app-not-found.html';
 import '../../ui/pages/timeline/timeline';
 import '../../ui/pages/game/game';
 import '../../ui/pages/game/newgame';
+import '../../ui/pages/game/viewgame';
 import '../../ui/pages/friends/friend';
 import '../../ui/pages/main/main';
 import '../../ui/pages/mach/match';
@@ -104,6 +105,15 @@ Router.map(function () {
         onAfterAction: function () {
             document.search = this.params.query.search;
             return document.title = "Novo Jogo | " + titleSocial;
+        }
+    });
+
+    this.route('viewgame', {
+        path: '/viewgame/:id',
+        sectionTitle: 'Jogos',
+        onAfterAction: function () {
+            document.game_id = this.params.id;
+            return document.title = "Jogos | " + titleSocial;
         }
     });
 

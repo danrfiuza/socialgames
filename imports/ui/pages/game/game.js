@@ -7,6 +7,7 @@ var rSearch = new ReactiveVar(0);
 
 Template.games.rendered = function () {
     $("#divBtnNewGame").hide();
+    searchGame('');
 };
 
 Template.games.helpers({
@@ -24,14 +25,18 @@ Template.games.events({
         if ($("#search").val() == "") {
             Bert.alert('Escreva algum valor no campo de busca');
         } else {
-            var criteria = {'name': {$regex: '.*' + $("#search").val() + '.*', $options: "$i"}};
-            Meteor.call('game.find', criteria, function (e, result) {
-                rGames.set(result);
-                if (result.length == 0) {
-                    Bert.alert('Nenhum resultado encontrado');
-                }
-            });
-            $("#divBtnNewGame").show();
+            searchGame($("#search").val());
         }
     }
 });
+
+function searchGame(search) {
+    var criteria = {'name': {$regex: '.*' + search + '.*', $options: "$i"}};
+    Meteor.call('game.find', criteria, function (e, result) {
+        rGames.set(result);
+        if (result.length == 0) {
+            Bert.alert('Nenhum resultado encontrado');
+        }
+    });
+    $("#divBtnNewGame").show();
+}

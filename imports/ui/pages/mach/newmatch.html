@@ -1,6 +1,6 @@
 <template name="newmatch">
     <div class="animated fadeIn">
-        <div class="panel panel-default">
+        <div class="panel panel-default" id="panelSearch">
             <div class="panel-body">
                 <form role="form" name="form-newmatch" class="form-inline">
                     <div class="form-group">
@@ -45,12 +45,11 @@
                     <div class="row row-table text-center">
                         <div id="divButtons">
                             <div class="col-xs-12">
-                                <button type="button" id="btnMatchNow" class="btn btn-square btn-success"><em
-                                        class="fa fa-play"></em> {{_ "match.GAME_NOW"}}
+                                <button type="button" id="btnBack" class="btn btn-square btn-default"> Voltar
                                 </button>
-
-                                <button type="button" id="btnScheduleMatch" class="btn btn-square btn-info"><em
-                                        class="fa fa-calendar"></em> {{_"match.GAME_SCHEDULE"}}
+                                <button type="button" id="btnMatchNow" class="btn btn-square btn-success"><em class="fa fa-play"></em> {{_ "match.GAME_NOW"}}
+                                </button>
+                                <button type="button" id="btnScheduleMatch" class="btn btn-square btn-info"><em class="fa fa-calendar"></em> {{_"match.GAME_SCHEDULE"}}
                                 </button>
                             </div>
                         </div>
