@@ -16,17 +16,17 @@
 <template name="matchList">
     <div class="list-group-item">
         <div class="row">
-            <a href="http://localhost:3000/dashboard/{{ _id }}" class="team-member col-xs-12"> <h4>Zombicide: Black Plague</h4> </a>
+            <a href="http://localhost:3000/dashboard/{{ _id }}" class="team-member col-xs-12"> <h4>{{ game.name }}</h4> </a>
         </div>
         <div class="row">
                 <div class="col-xs-3">
                     <a href="http://localhost:3000/dashboard/{{ _id }}" class="team-member">
-                    <img class="img-responsive" height="70" width="70" src="https://cf.geekdo-images.com/images/pic1965255_t.jpg">
+                    <img class="img-responsive" height="70" width="70" src="https:{{ game.image }}">
                     <!--<small>Zombicide: Black Plague</small>-->
                     </a>
                 </div>
                 <div class="col-xs-5">
-                    <div class="label label-black">Jogadores 4/6</div><br />
+                    <div class="label label-black">Jogadores {{ participantes }}/{{ game.maxplayers }}</div><br />
                     <a href="" class="label label-primary">João Gabriel</a>
                     <a href="" class="label label-primary">André</a>
                     <a href="" class="label label-primary">Thiago Fiorenza</a>

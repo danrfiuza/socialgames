@@ -22,6 +22,27 @@ Template.matches.events({
 
 Template.matches.onCreated(function(){
     Meteor.call('matchs.findByUser', Meteor.user()._id, function (e, result) {
-        rMatch.set(result);
+        var retorno = [];
+        _.map(result, function(value, key){
+            var obj;
+            Meteor.call('game.findOne', value.game, function (eGame, resultGame) {
+                console.log('cccccc');
+                // console.log(value.timer);
+                obj = {
+                    _id: value._id,
+                    players: value.players,
+                    timer: value.timer,
+                    place: value.place,
+                    game: resultGame[0],
+                    participantes: value.players.length
+
+                };
+                retorno.push(obj);
+            });
+        });
+
+        rMatch.set(retorno);
     });
+
+
 });
