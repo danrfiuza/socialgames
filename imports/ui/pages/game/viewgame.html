@@ -35,16 +35,26 @@
                        {{ resumeDescription }}
                     </a>
                     <a href="#" class="list-group-item">
+                        &nbsp; 
+                        {{#each bggcategory}}
+                        <span class="label label-purple">{{ text }}</span>
+                        {{/each}}
+                    </a>
+                    <a href="#" class="list-group-item">
                        <em class="fa fa-fw fa-child mr"></em>
                        Idade indicada: {{ age }}
                     </a>
                     <a href="#" class="list-group-item">
-                       <em class="fa fa-fw fa-child mr"></em>
+                       <em class="fa fa-fw fa-paint-brush mr"></em>
                        Artista: {{ gameArtists }}
                     </a>
                     <a href="#" class="list-group-item">
-                       <em class="fa fa-fw fa-child mr"></em>
+                       <em class="fa fa-fw fa-pencil-square-o mr"></em>
                        Editora: {{ gamePublisher }}
+                    </a>
+                    <a href="#" class="list-group-item">
+                       <em class="fa fa-fw fa-plus-circle mr"></em>
+                       Expansões: {{ gameExpansions }}
                     </a>
                  </div>
               </div>

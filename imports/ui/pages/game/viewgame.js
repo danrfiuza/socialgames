@@ -19,11 +19,10 @@ Template.viewgame.helpers({
         var artists = '';
         var gArtists = rGame.get().artist;
         if (Array.isArray(gArtists)) {
-            for (var i=0; i < gArtists.lenght; i++) {
-                console.log(gArtists[i].text);
+            for (var i=0; i < gArtists.length; i++) {
                 artists += gArtists[i].text;
-                if (!(i+1) == gArtists.lenght) {
-                    artists += " e ";
+                if ((i+1) != gArtists.length) {
+                    artists += " , ";
                 }
             }
             return artists;
@@ -32,7 +31,34 @@ Template.viewgame.helpers({
         }
     },
     gamePublisher() {
-        return rGame.get().publisher.text;
+        var editoras = '';
+        var gPublisher = rGame.get().publisher;
+        if (Array.isArray(gPublisher)) {
+            for (var i=0; i < gPublisher.length; i++) {
+                editoras += gPublisher[i].text;
+                if ((i+1) != gPublisher.length) {
+                    editoras += " , ";
+                }
+            }
+            return editoras;
+        } else {
+            return gPublisher.text;
+        }
+    },
+    gameExpansions() {
+        var expansoes = '';
+        var gExpansion = rGame.get().expansion;
+        if (Array.isArray(gExpansion)) {
+            for (var i=0; i < gExpansion.length; i++) {
+                editoras += gExpansion[i].text;
+                if ((i+1) != gExpansion.length) {
+                    expansoes += " , ";
+                }
+            }
+            return expansoes;
+        } else {
+            return gExpansion.text;
+        }
     }
 });
 
