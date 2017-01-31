@@ -45,11 +45,23 @@ Meteor.methods({
 
 
     'matchs.findByUser' (userId) {
-        //@todo Modificar Matchs para receber um ID e ñ o e-mail
-        var user = Meteor.users.findOne({_id: userId});
+        return Matchs.find({ "players.user_id": userId } ).fetch();
+    },
+    'matchs.findByUserAndGameDocs' (userId) {
         // console.log(user.emails[0].address);
         // console.log(Matchs.find({ "players.mail": user.emails[0].address} ).fetch());
-        return Matchs.find({ "players.mail": user.emails[0].address} ).fetch();
+        return Matchs.aggregate([
+            // {   "$match": {"players.user_id": userId } },
+            {
+                $lookup:
+                    {
+                        from: "games",
+                        localField: "game",
+                        foreignField: "_id",
+                        as: "games_docs"
+                    }
+            }
+        ]);
     },
     'matchs.gamesTop30'(){
         var data30atras = new Date();
