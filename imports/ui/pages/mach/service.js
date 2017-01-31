@@ -120,14 +120,14 @@ export var Service = {
 	    for (var i = 1; i <= rMaxPlayers.get(); i++) {
 	        if ( $("#player"+i).length != 0 ) {
 	            if (players[i - 1] != undefined) {
-	                players[i-1].pontos = $("#ptPlayer"+i).val();
+	                players[i-1].singleScore = $("#ptPlayer"+i).val();
 	            }
 	        }
 	    }
 	    players.sort(function(a, b){
-	        if (parseInt(a.pontos) > parseInt(b.pontos)) {
+	        if (parseInt(a.singleScore) > parseInt(b.singleScore)) {
 	            return -1;
-	        } else if (parseInt(a.pontos) < parseInt(b.pontos)) {
+	        } else if (parseInt(a.singleScore) < parseInt(b.singleScore)) {
 	            return 1;
 	        } else {
 	            return 0; 
