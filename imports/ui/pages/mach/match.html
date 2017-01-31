@@ -27,13 +27,9 @@
                 </div>
                 <div class="col-xs-5">
                     <div class="label label-inverse">Jogadores {{ numeroParticipantes }}/{{ game.maxplayers }}</div><br />
-                    {{#each matchs}}
-
+                    {{#each user_docs}}
+                        <a href="" class="label label-primary">{{ profile.name }}</a>
                     {{/each}}
-                    <a href="" class="label label-primary">João Gabriel</a>
-                    <a href="" class="label label-primary">André</a>
-                    <a href="" class="label label-primary">Thiago Fiorenza</a>
-                    <a href="" class="label label-primary">Fulano</a>
                 </div>
             <div class="col-xs-4">
                 <div class="label label-success pull-right fa fa-check"> Ganhou</div> <br />
