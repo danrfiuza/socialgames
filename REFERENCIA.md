@@ -43,3 +43,6 @@ https://atmospherejs.com/aldeed/simple-schema
 
 #aldeed:collection2 - Automatic validation of insert and update operations on the client and server.
 https://atmospherejs.com/aldeed/collection2
+
+#meteorhacks:aggregate - Um pacote simples que permite o suporte e uso do aggragation no meteor.
+https://github.com/meteorhacks/meteor-aggregate
