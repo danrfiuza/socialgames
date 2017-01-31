@@ -48,10 +48,8 @@ Meteor.methods({
         return Matchs.find({ "players.user_id": userId } ).fetch();
     },
     'matchs.findByUserAndGameDocs' (userId) {
-        // console.log(user.emails[0].address);
-        // console.log(Matchs.find({ "players.mail": user.emails[0].address} ).fetch());
         return Matchs.aggregate([
-            // {   "$match": {"players.user_id": userId } },
+            {   "$match": {"players.user_id": userId } },
             {
                 $lookup:
                     {
