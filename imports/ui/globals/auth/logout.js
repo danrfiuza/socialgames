@@ -8,7 +8,7 @@ Template.logout.events({
 
         Meteor.logout(function(error) {
             if(error) {
-                console.log("ERROR: " + error.reason);
+
             }else{
                 Router.go('login');
             }

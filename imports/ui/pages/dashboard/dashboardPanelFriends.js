@@ -10,7 +10,6 @@ Template.dashboardPanelFriends.helpers({
             // amigos = result;
             amigos.set(result);
         });
-        // console.log(amigos);
         return amigos.get();
     }
 });

@@ -8,7 +8,6 @@ var rMatch = new ReactiveVar(0);
 
 Template.matches.helpers({
     matchs () {
-        console.log(rMatch.get());
         return rMatch.get();
     }
 });

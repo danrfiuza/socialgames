@@ -169,10 +169,8 @@ export var Service = {
 	saveMatch: function (match, rMatchId) {
 	    Meteor.call('matchs.insert', match, function (e, result) {
 	        if(result) {
-	            console.log("Partida foi salva no banco de dados");
 	            rMatchId.set(result);
 	        } else {
-	            console.log("Erro ao tentar salvar uma partida");
 	            rMatchId.set('error');
 	        }
 	    });
