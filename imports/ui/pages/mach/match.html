@@ -16,27 +16,38 @@
 <template name="matchList">
     <div class="list-group-item">
         <div class="row">
-            <a href="http://localhost:3000/dashboard/{{ _id }}" class="team-member col-xs-12"> <h4>{{ game.name }}</h4> </a>
+            <a href="http://localhost:3000/dashboard/{{ _id }}" class="team-member col-xs-12"><h4>{{ game.name }}</h4>
+            </a>
         </div>
         <div class="row">
-                <div class="col-xs-3">
-                    <a href="http://localhost:3000/dashboard/{{ _id }}" class="team-member">
-                    <img class="img-responsive" height="70" width="70" src="https:{{ game.image }}">
+            <div class="col-xs-3">
+                <a href="http://localhost:3000/dashboard/{{ _id }}" class="team-member">
+                    <img class="img-responsive" height="70" width="70" src="https:{{ game.thumbnail }}">
                     <!--<small>Zombicide: Black Plague</small>-->
-                    </a>
-                </div>
-                <div class="col-xs-5">
-                    <div class="label label-inverse">Jogadores {{ numeroParticipantes }}/{{ game.maxplayers }}</div><br />
-                    {{#each user_docs}}
-                        <a href="" class="label label-primary">{{ profile.name }}</a>
-                    {{/each}}
-                </div>
+                </a>
+            </div>
+            <div class="col-xs-5">
+                <div class="label label-inverse">Jogadores {{ numeroParticipantes }}/{{ game.maxplayers }}</div>
+                <br/>
+                {{#each user_docs}}
+                    <a href="" class="label label-primary">{{ profile.name }}</a>
+                {{/each}}
+            </div>
             <div class="col-xs-4">
-                <div class="label label-success pull-right fa fa-check"> Ganhou</div> <br />
-                <small class="pull-right">{{ matchs }}</small> <br />
-                <small class="pull-right">Duração: {{ timer }}</small> <br />
+                {{#if vencedor}}
+                    <div class="label label-success pull-right fa fa-trophy"> &nbsp; Ganhou</div>
+                    <br/>
+                {{else}}
+                    <div class="label label-danger pull-right fa fa-close"> &nbsp; Perdeu</div>
+                    <br/>
+                {{/if}}
+
+                <small class="pull-right">{{ matchs }}</small>
+                <br/>
+                <small class="pull-right">Duração: {{ timer }}</small>
+                <br/>
                 <a class="fa fa-map-marker label label-purple pull-right"> Casa do JG</a>
-                </div>
+            </div>
         </div>
     </div>
 </template>

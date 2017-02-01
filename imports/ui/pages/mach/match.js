@@ -26,11 +26,16 @@ Template.matches.onCreated(function () {
 
         _.map(result, function (value, key) {
 
-            // @TODO melhorar essa pancada de consultas que são feitas aqui
+            // @TODO melhorar essa pancada de consultas que são feitas aqui mas diz a lenda q isso ñ tem problema no MongoDB
             var objPlayers = [];
             _.map(value.players, function (playerValue, playerKey) {
                 objPlayers.push(Meteor.users.findOne({_id: playerValue.user_id}));
             });
+
+            var vencedor = false;
+            if (value.winner == Meteor.user()._id) {
+                vencedor = true;
+            }
 
             obj = {
                 _id: value._id,
@@ -39,7 +44,8 @@ Template.matches.onCreated(function () {
                 place: value.place,
                 game: value.games_docs[0],
                 numeroParticipantes: value.players.length,
-                user_docs: objPlayers
+                user_docs: objPlayers,
+                vencedor: vencedor
 
             };
             retorno.push(obj);
