@@ -1,6 +1,6 @@
 <template name="schedule">
     {{#unless myMatch}}
-	<div role="alert" class="alert alert-success">
+    <div role="alert" class="alert alert-success">
         Você foi convidado para um partida {{ match }}
     </div>
     {{/unless}}
@@ -27,78 +27,79 @@
     </div>
 
     {{#if crowded}}
-        <div role="alert" class="alert alert-danger">
-            Desculpe, mas esta partida já alcançou o número máximo de jogadores
-        </div>
+    <div role="alert" class="alert alert-danger">
+        Desculpe, mas esta partida já alcançou o número máximo de jogadores
+    </div>
     {{else }}
-        {{#if myMatch}}
-            <div role="alert" class="alert alert-success">
-                Status: Aguardando novos jogadores
-            </div>
-        {{else}}
-        <div class="panel-body" id="divTimer">
-            <div class="row row-table text-center">
-                <button type="button" id="btnAcept" class="btn btn-square btn-success">Aceitar Convite</button>
-            </div>
+    {{#if myMatch}}
+    <div role="alert" class="alert alert-success">
+        Status: Aguardando novos jogadores
+    </div>
+    {{else}}
+    <div class="panel-body" id="divTimer">
+        <div class="row row-table text-center">
+            <button type="button" id="btnAcept" class="btn btn-square btn-success">Aceitar Convite</button>
         </div>
-            
-        {{/if}}
+    </div>
+
+    {{/if}}
     {{/if}}
 
-      <!-- Team Panel-->
+    <!-- Team Panel-->
     <div class="panel panel-default">
-         <div class="panel-heading">
+        <div class="panel-heading">
             <div class="panel-title">Confirmados</div>
-         </div>
-         <div class="panel-body bt">
+        </div>
+        <div class="panel-body bt">
             {{#each players}}
-                    <a href="#" data-toggle="tooltip" data-title="{{ name }}" class="inline">
-                       {{> avatar userId=user_id }}
-                    </a>
+            <a href="#" data-toggle="tooltip" data-title="{{ name }}" class="inline">
+                {{> avatar userId=user_id }}
+            </a>
             {{/each}}
-         </div>
-    </div>
-    
-    <div class="col-sm-4">
-        <div class="panel widget bg-success">
-            <div class="row row-table">
-                <div class="col-xs-4 text-center bg-success-dark pv-lg">
-                   <em class="icon-share fa-3x"></em>
-                </div>
-                <div class="col-xs-8 pv-lg">
-                   <div class="h1 m0 text-bold">{{ qtdVaga }}</div>
-                   <div class="text-uppercase">Vagas para esta partida</div>
-                </div>
-            </div>
         </div>
     </div>
 
-    <div class="col-sm-4">
-        <div class="panel widget bg-info">
-            <div class="row row-table">
-                <div class="col-xs-4 text-center bg-info-dark pv-lg">
-                   <em class="icon-calendar fa-3x"></em>
-                </div>
-                <div class="col-xs-8 pv-lg">
-                   <div class="h2 m0 text-bold">{{ date }}</div>
-                   <div class="text-uppercase"></div>
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="panel widget bg-success">
+                <div class="row row-table">
+                    <div class="col-xs-4 text-center bg-success-dark pv-lg">
+                        <em class="icon-share fa-3x"></em>
+                    </div>
+                    <div class="col-xs-8 pv-lg">
+                        <div class="h1 m0 text-bold">{{ qtdVaga }}</div>
+                        <div class="text-uppercase">Vagas para esta partida</div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="col-sm-4">
-        <div class="panel widget bg-danger">
-            <div class="row row-table">
-                <div class="col-xs-4 text-center bg-danger-dark pv-lg">
-                   <em class="fa fa-map-marker fa-3x"></em>
+        <div class="col-sm-4">
+            <div class="panel widget bg-info">
+                <div class="row row-table">
+                    <div class="col-xs-4 text-center bg-info-dark pv-lg">
+                        <em class="icon-calendar fa-3x"></em>
+                    </div>
+                    <div class="col-xs-8 pv-lg">
+                        <div class="h2 m0 text-bold">{{ date }}</div>
+                        <div class="text-uppercase"></div>
+                    </div>
                 </div>
-                <div class="col-xs-8 pv-lg">
-                   <div class="h2 m0 text-bold">Local</div>
-                   <div class="text-uppercase">{{ place }}, {{ address }}</div>
+            </div>
+        </div>
+
+        <div class="col-sm-4">
+            <div class="panel widget bg-danger">
+                <div class="row row-table">
+                    <div class="col-xs-4 text-center bg-danger-dark pv-lg">
+                        <em class="fa fa-map-marker fa-3x"></em>
+                    </div>
+                    <div class="col-xs-8 pv-lg">
+                        <div class="h2 m0 text-bold">Local</div>
+                        <div class="text-uppercase">{{ place }}, {{ address }}</div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    
 </template>
