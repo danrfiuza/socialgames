@@ -41,17 +41,20 @@
                         <p class="h3 mt0" id="pTimer">{{ timer }}</p>
                     </div>
                 </div>
-                <div class="panel-body">
+                <div>
                     <div class="row row-table text-center">
                         <div id="divButtons">
-                            <div class="col-xs-12">
-                                <button type="button" id="btnBack" class="btn btn-square btn-default"> Voltar
-                                </button>
-                                <button type="button" id="btnMatchNow" class="btn btn-square btn-success"><em class="fa fa-play"></em> {{_ "match.GAME_NOW"}}
-                                </button>
-                                <button type="button" id="btnScheduleMatch" class="btn btn-square btn-info"><em class="fa fa-calendar"></em> {{_"match.GAME_SCHEDULE"}}
+                            <div class="col-xs-6">
+                                <button type="button" id="btnMatchNow" class="btn btn-square btn-success"><em
+                                        class="fa fa-play"></em> {{_ "match.GAME_NOW"}}
                                 </button>
                             </div>
+                            <div class="col-xs-6">
+                                <button type="button" id="btnScheduleMatch" class="btn btn-square btn-info"><em
+                                        class="fa fa-calendar"></em> {{_"match.GAME_SCHEDULE"}}
+                                </button>
+                            </div>
+
                         </div>
 
                         <div id="divBtnStarMatch">
@@ -69,8 +72,8 @@
                         </div>
 
                         <div id="divBtnFirstPlayer">
-                            <button type="button" id="btnFirstPlayer" class="btn btn-square btn-default">First
-                                Player
+                            <button type="button" id="btnFirstPlayer" class="btn btn-square btn-default">Sortear
+                                Jogador Inicial
                             </button>
                             <button type="button" id="btnFinishCount" class="btn btn-square btn-success">{{_
                                 "match.SCORE"}}
@@ -87,7 +90,7 @@
                             <button type="button" id="btnPublishFacebook" class="btn btn-square btn-info">{{_
                                 "match.FACEBOOK_SHARE"}}
                             </button>
-                            <button type="button" id="btnNewMatch" class="btn btn-square btn-info">{{_
+                            <button type="button" id="btnNewMatch" class="btn btn-square btn-success">{{_
                                 "match.NEW_MATCH"}}
                             </button>
                         </div>
@@ -100,6 +103,7 @@
         <div id="msgReservationSchedule">
             <div class="panel panel-default">
                 <div class="panel-body bg-info">
+                    <strong>Partida marcada com sucesso!</strong>
                     <p class="h5 mt0" id="textLinkInvite">{{_ "match.INVITE_LINK"}}:
                         http://socialboardgames.com/schedule/{{ match_id }}</p>
                 </div>
@@ -236,6 +240,10 @@
                 </div>
             </div>
             {{/with}}
+        </div>
+
+        <div>
+            <button type="button" id="btnBack" class="btn btn-square btn-default"> Voltar</button>
         </div>
     </div>
 </template>

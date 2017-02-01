@@ -59,6 +59,7 @@ export var State = {
                 $('#readyPlayers').hide();
                 $('#subtitleGame').html("Contagem de pontos");
                 $('#btnFinishCount').hide();
+                $('#divBtnFirstPlayer').hide();
                 $('#divBtnFinishMatch').show();
                 $('.tdScoreValues').css('visibility', 'visible');
                 break;
@@ -79,4 +80,4 @@ export var State = {
                 break;
         }
     }
-}
+};
