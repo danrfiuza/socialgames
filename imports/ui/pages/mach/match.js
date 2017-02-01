@@ -6,9 +6,11 @@ import './match.html';
 
 var rMatch = new ReactiveVar(0);
 
+var Places = new Mongo.Collection('places');
+Meteor.subscribe("places.list");
+
 Template.matches.helpers({
     matchs () {
-        console.log(rMatch.get());
         return rMatch.get();
     }
 });
@@ -45,13 +47,15 @@ Template.matches.onCreated(function () {
                 game: value.games_docs[0],
                 numeroParticipantes: value.players.length,
                 user_docs: objPlayers,
-                vencedor: vencedor
+                vencedor: vencedor,
+                dataHoraPartida: moment(new Date(value.created_at)).format("DD/MM/YYYY HH:mm"),
+                places_doc: Places.findOne({ _id: value.place })
 
             };
             retorno.push(obj);
         });
 
-        console.log(retorno);
+        // console.log(retorno);
         rMatch.set(retorno);
     });
 
