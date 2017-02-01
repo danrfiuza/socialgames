@@ -62,7 +62,6 @@ Template.newgame.events({
             Bert.alert(TAPi18n.__('match.ALERT_NAME'), 'danger');
         } else {
             bggGame = fGame.get();
-            console.log(bggGame);
             game.bggid = bggGame.generic.objectid;
             game.minplayers = bggGame.minplayers;
             game.maxplayers = bggGame.maxplayers;

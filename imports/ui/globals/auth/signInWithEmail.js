@@ -22,7 +22,6 @@ Template.signInWithEmail.events({
                 }
             }, function (error) {
                 if (error) {
-                    console.log(error);
                     Bert.alert( TAPi18n.__('auth.ERROR_LOGGING_IN'), 'danger');
                 } else {
                     Bert.alert( TAPi18n.__('auth.SUCCESSFUL_REGISTRATION'), 'success');

@@ -58,39 +58,45 @@
             {{/each}}
          </div>
     </div>
-
-    <div class="panel widget bg-success">
-        <div class="row row-table">
-            <div class="col-xs-4 text-center bg-success-dark pv-lg">
-               <em class="icon-share fa-3x"></em>
-            </div>
-            <div class="col-xs-8 pv-lg">
-               <div class="h1 m0 text-bold">{{ qtdVaga }}</div>
-               <div class="text-uppercase">Vagas para esta partida</div>
-            </div>
-        </div>
-    </div>
-
-    <div class="panel widget bg-info">
-        <div class="row row-table">
-            <div class="col-xs-4 text-center bg-info-dark pv-lg">
-               <em class="icon-calendar fa-3x"></em>
-            </div>
-            <div class="col-xs-8 pv-lg">
-               <div class="h2 m0 text-bold">{{ date }}</div>
-               <div class="text-uppercase"></div>
+    
+    <div class="col-sm-4">
+        <div class="panel widget bg-success">
+            <div class="row row-table">
+                <div class="col-xs-4 text-center bg-success-dark pv-lg">
+                   <em class="icon-share fa-3x"></em>
+                </div>
+                <div class="col-xs-8 pv-lg">
+                   <div class="h1 m0 text-bold">{{ qtdVaga }}</div>
+                   <div class="text-uppercase">Vagas para esta partida</div>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="panel widget bg-danger">
-        <div class="row row-table">
-            <div class="col-xs-4 text-center bg-danger-dark pv-lg">
-               <em class="fa fa-map-marker fa-3x"></em>
+    <div class="col-sm-4">
+        <div class="panel widget bg-info">
+            <div class="row row-table">
+                <div class="col-xs-4 text-center bg-info-dark pv-lg">
+                   <em class="icon-calendar fa-3x"></em>
+                </div>
+                <div class="col-xs-8 pv-lg">
+                   <div class="h2 m0 text-bold">{{ date }}</div>
+                   <div class="text-uppercase"></div>
+                </div>
             </div>
-            <div class="col-xs-8 pv-lg">
-               <div class="h2 m0 text-bold">Local</div>
-               <div class="text-uppercase">{{ place }}, {{ address }}</div>
+        </div>
+    </div>
+
+    <div class="col-sm-4">
+        <div class="panel widget bg-danger">
+            <div class="row row-table">
+                <div class="col-xs-4 text-center bg-danger-dark pv-lg">
+                   <em class="fa fa-map-marker fa-3x"></em>
+                </div>
+                <div class="col-xs-8 pv-lg">
+                   <div class="h2 m0 text-bold">Local</div>
+                   <div class="text-uppercase">{{ place }}, {{ address }}</div>
+                </div>
             </div>
         </div>
     </div>

@@ -26,8 +26,6 @@ Template.layout.rendered = function () {
 Template.layout.helpers({
     sectionClass: function () {
         var css = 'section-';
-        console.log(Router);
-        console.log(Router.current().route.options);
         var route = Router.current().route.options.path.split('/')[1];
         if (Meteor.userId()) {
             return 'wrapper ' + css + route;

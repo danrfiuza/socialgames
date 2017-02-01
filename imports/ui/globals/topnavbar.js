@@ -7,7 +7,7 @@ Template.topnavbar.helpers({
 Template.topnavbar.events({
     'click .language-list a' : function(event){
         $('.button-loc').html(
-            '<img src="/img/loc-' + event.currentTarget.attributes['data-set-lang'].nodeValue + '.png">'
+            '<img src="/img/loc-' + event.currentTarget.attributes['data-set-lang'].value + '.png">'
         );
     }
 });
