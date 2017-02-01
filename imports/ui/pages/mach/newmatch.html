@@ -1,6 +1,6 @@
 <template name="newmatch">
     <div class="animated fadeIn">
-        <div class="panel panel-default" id="panelSearch">
+        <div class="panel panel-default">
             <div class="panel-body">
                 <form role="form" name="form-newmatch" class="form-inline">
                     <div class="form-group">
@@ -45,11 +45,12 @@
                     <div class="row row-table text-center">
                         <div id="divButtons">
                             <div class="col-xs-12">
-                                <button type="button" id="btnBack" class="btn btn-square btn-default"> Voltar
+                                <button type="button" id="btnMatchNow" class="btn btn-square btn-success"><em
+                                        class="fa fa-play"></em> {{_ "match.GAME_NOW"}}
                                 </button>
-                                <button type="button" id="btnMatchNow" class="btn btn-square btn-success"><em class="fa fa-play"></em> {{_ "match.GAME_NOW"}}
-                                </button>
-                                <button type="button" id="btnScheduleMatch" class="btn btn-square btn-info"><em class="fa fa-calendar"></em> {{_"match.GAME_SCHEDULE"}}
+
+                                <button type="button" id="btnScheduleMatch" class="btn btn-square btn-info"><em
+                                        class="fa fa-calendar"></em> {{_"match.GAME_SCHEDULE"}}
                                 </button>
                             </div>
                         </div>
@@ -181,7 +182,7 @@
                         </div>
                     </div>
                     {{/each}}
-                </div>
+                </div>gg
             </div>
         </div>
 
@@ -198,7 +199,7 @@
                             <td width="10%">
                                 <em class="fa fa-user fa-2x"></em>
                             </td>
-                            <td width="10%">{{ singleScore }}</td>
+                            <td width="10%">{{ pontos }}</td>
                             <td width="70%">{{ firstName }}</td>
                         </tr>
                         {{/each}}
@@ -227,7 +228,7 @@
                                 <em class="fa fa-user fa-2x"></em>
                             </td>
                             <td width="70%">{{ mail }}</td>
-                            <td width="10%">{{ singleScore }}</td>
+                            <td width="10%">{{ pontos }}</td>
                         </tr>
                         {{/each}}
                         </tbody>
